@@ -28,7 +28,7 @@ Usagiの動作環境を構築します。
 ---
 # **2．1．Athenaへの会員登録**
 GithubのOHDSI/Usagiページの［Getting Started］項目内のAthena（赤枠）をクリックします。  
-![画像イメージ](./xxx.jpg)  
+![画像イメージ](Files/Usagi/image/image7.png)  
 右上の［LOGIN］をクリックします。  
 Athenaを初めて使用する際には会員登録が必要です。  
 ![Odysseus Data Services, Inc. 「Athena」](./xxx.jpg)  
