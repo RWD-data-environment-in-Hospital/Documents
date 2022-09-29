@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Usagi_Setup_Process_Document.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="usagi%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E6%89%8B%E9%A0%86%E6%9B%B8"><strong>Usagiセットアップ手順書</strong></h1>
+<h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
+<p><a href="#1%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．本手順書について</a><br>
+<a href="#2usagi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">2．Usagiのセットアップ</a><br>
+<a href="#21athena%E3%81%B8%E3%81%AE%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2">2．1．Athenaへの会員登録</a><br>
+<a href="#22usagi%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">2．2．Usagiのインストール</a><br>
+<a href="#23usagi%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%81%9C%E6%AD%A2">2．3．Usagiの起動・停止</a><br>
+<a href="#231usagi%E3%81%AE%E8%B5%B7%E5%8B%95">2．3．1．Usagiの起動</a><br>
+<a href="#232usagi%E3%81%AE%E5%81%9C%E6%AD%A2">2．3．2．Usagiの停止</a><br>
+<a href="#%E5%8F%82%E8%80%83athena%E3%81%8B%E3%82%89%E3%81%AEvocabulary%E3%81%AE%E5%85%A5%E6%89%8B%E6%96%B9%E6%B3%95">参考：Athenaからのvocabularyの入手方法</a></p>
+<hr>
+<h1 id="1%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．<strong>本手順書について</strong></h1>
+<p>Usagiをセットアップするための手順を説明します。<br>
+本セットアップ手順は、以下の環境が準備されていることを前提としています。</p>
+<ul>
+<li>Windows10（64ビット）</li>
+<li>Java（バージョン1.8以降）</li>
+</ul>
+<p>作業の所要時間は約1時間です。</p>
+<hr>
+<h1 id="2usagi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">2．<strong>Usagiのセットアップ</strong></h1>
+<p>Usagiの動作環境を構築します。<br>
+<a href="https://github.com/OHDSI/Usagi"><ins>GithubのOHDSI/Usagi</ins></a>にアクセスして、セットアップを進めていきます。</p>
+<p><img src="Files/Usagi/image/image1.png" alt=""></p>
+<hr>
+<h1 id="21athena%E3%81%B8%E3%81%AE%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2"><strong>2．1．Athenaへの会員登録</strong></h1>
+<p>GithubのOHDSI/Usagiページの［Getting Started］項目内の<a href="https://athena.ohdsi.org/search-terms/start"><ins>Athena</ins></a>（赤枠）をクリックします。</p>
+<p><img src="Files/Usagi/image/image6.png" alt=""></p>
+<p>右上の［LOGIN］をクリックします。<br>
+Athenaを初めて使用する際には会員登録が必要です。</p>
+<p><img src="Files/Usagi/image/image5.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>会員登録後にログインし、各領域の語彙を入手することができるようになります。</p>
+<p><img src="Files/Usagi/image/image2.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<hr>
+<h1 id="22usagi%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>2．2．Usagiのインストール</strong></h1>
+<p>GithubのOHDSI/Usagiページの［Getting Started］項目内の<a href="https://github.com/OHDSI/Usagi/releases"><ins>Releases</ins></a>（赤枠）をクリックします。</p>
+<p><img src="Files/Usagi/image/image7.png" alt=""></p>
+<p>Usagi_v1.4.3.jar（赤枠）をクリックし、ファイルをダウンロードします。<br>
+（バージョンが異なる場合、参考資料とファイル名も異なるため注意してください。）</p>
+<p><img src="Files/Usagi/image/image8.png" alt=""></p>
+<p>ダウンロードしたファイルをクリックした後、<br>
+「この種類のファイルはコンピューターに損害を与える可能性があります。」と表示されますが、「保存」をクリックし、任意の場所に保存します。</p>
+<p><img src="Files/Usagi/image/image9.png" alt=""></p>
+<hr>
+<h1 id="23usagi%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%81%9C%E6%AD%A2"><strong>2．3．Usagiの起動・停止</strong></h1>
+<h2 id="231usagi%E3%81%AE%E8%B5%B7%E5%8B%95"><strong>2．3．1．Usagiの起動</strong></h2>
+<p>Windows10の環境では、jarファイルを開くためにバッチを作成する必要があります。<br>
+以下でバッチの作成とUsagiの起動について説明します。<br>
+２．２．でダウンロードしたUsagiのjarファイルを任意のフォルダに格納します。<br>
+同一フォルダ内に新規テキストを作成します。</p>
+<p><img src="Files/Usagi/image/image10.png" alt=""></p>
+<p>テキストを開き、</p>
+<pre class="hljs"><code><div>java -jar Usagi_v1.4.3.jar
+</div></code></pre>
+<p>を記載します。（Usagiのファイルのバージョンは必要に応じて変更してください）</p>
+<p><img src="Files/Usagi/image/image3.png" alt=""></p>
+<p>テキストファイルの拡張子を .bat　に変更して保存します。（ファイル名は任意です）</p>
+<p><img src="Files/Usagi/image/image11.png" alt=""></p>
+<p>バッチファイルをダブルクリックすると、Usagiが起動します。<br>
+起動時にAuthor記入欄が表示されます。Authorを指定する場合は任意の名前を入力し、［Save］をクリックしてください。<br>
+指定しない場合は、［×］をクリックすると次の画面に遷移します。</p>
+<p><img src="Files/Usagi/image/image4.png" alt=""></p>
+<p>Authorを指定すると画面下（赤枠）にAuthorが表示されます。<br>
+以上の操作でUsagiの起動は完了です。<br>
+※Usagi起動時に、下図の様に「Rebuild index」と言う画面が表示されますが、ここでは「Cancel」をクリックしてください。</p>
+<p><img src="Files/Usagi/image/image12.png" alt=""></p>
+<hr>
+<h2 id="232usagi%E3%81%AE%E5%81%9C%E6%AD%A2"><strong>2．3．2．Usagiの停止</strong></h2>
+<p>Usagiの画面左上の［File］タブ内の［Exit］（赤枠）をクリックしてUsagiを終了します。</p>
+<p><img src="Files/Usagi/image/image13.png" alt=""></p>
+<hr>
+<h1 id="%E5%8F%82%E8%80%83athena%E3%81%8B%E3%82%89%E3%81%AEvocabulary%E3%81%AE%E5%85%A5%E6%89%8B%E6%96%B9%E6%B3%95"><strong>参考：Athenaからのvocabularyの入手方法</strong></h1>
+<p>Athenaを開き、ログインします。
+ログイン後、画面右上の［DOWNLOAD］をクリックします。</p>
+<p><img src="Files/Usagi/image/image14.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>［DOWNLOAD]をクリックすると、以下の画面が表示されます。</p>
+<p><img src="Files/Usagi/image/image15.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>本書では以下のvocabularyのダウンロードを実施しています。<br>
+各研究に応じて、ダウンロードするvocabularyは取捨選択してください。<br>
+注意：「Required」欄に「License required」と記載があるvlcabularyは、ダウンロード時にライセンスが求められる場合があります。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">ID</th>
+<th style="text-align:left">CODE</th>
+<th style="text-align:left">NAME</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:left">SNOMED</td>
+<td style="text-align:left">Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:left">ICD9CM</td>
+<td style="text-align:left">International Classification</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:left">ICD9Proc</td>
+<td style="text-align:left">International Classification of Diseases, Ninth Revision, ClinicalModification, Volume 3 (NCHS)</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:left">CPT4</td>
+<td style="text-align:left">Current Procedural Terminology version 4 (AMA)</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:left">HCPCS</td>
+<td style="text-align:left">Healthcare Common Procedure Coding System (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:left">LOINC</td>
+<td style="text-align:left">Logical Observation Identifiers Names and Codes (RegenstriefInstitute)</td>
+</tr>
+<tr>
+<td style="text-align:right">7</td>
+<td style="text-align:left">NDFRT</td>
+<td style="text-align:left">National Drug File - Reference Terminology (VA)</td>
+</tr>
+<tr>
+<td style="text-align:right">8</td>
+<td style="text-align:left">RxNorm</td>
+<td style="text-align:left">RxNorm (NLM)</td>
+</tr>
+<tr>
+<td style="text-align:right">9</td>
+<td style="text-align:left">NDC</td>
+<td style="text-align:left">National Drug Code (FDA and manufacturers)</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:left">Gender</td>
+<td style="text-align:left">OMOP Gender</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td style="text-align:left">Race</td>
+<td style="text-align:left">Race and Ethnicity Code Set (USBC)</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:left">CMS Place ofService</td>
+<td style="text-align:left">Place of Service Codes for Professional Claims (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:left">Multum</td>
+<td style="text-align:left">Cerner Multum (Cerner)</td>
+</tr>
+<tr>
+<td style="text-align:right">17</td>
+<td style="text-align:left">Read</td>
+<td style="text-align:left">NHS UK Read Codes Version 2 (HSCIC)</td>
+</tr>
+<tr>
+<td style="text-align:right">21</td>
+<td style="text-align:left">ATC</td>
+<td style="text-align:left">WHO Anatomic Therapeutic Chemical Classification</td>
+</tr>
+<tr>
+<td style="text-align:right">28</td>
+<td style="text-align:left">VANDF</td>
+<td style="text-align:left">Veterans Health Administration National Drug File</td>
+</tr>
+<tr>
+<td style="text-align:right">31</td>
+<td style="text-align:left">SMQ</td>
+<td style="text-align:left">Standardised MedDRA Queries (MSSO)</td>
+</tr>
+<tr>
+<td style="text-align:right">32</td>
+<td style="text-align:left">VA Class</td>
+<td style="text-align:left">VA National Drug File Class (VA)</td>
+</tr>
+<tr>
+<td style="text-align:right">33</td>
+<td style="text-align:left">Cohort</td>
+<td style="text-align:left">Legacy OMOP HOI or DOI cohort</td>
+</tr>
+<tr>
+<td style="text-align:right">34</td>
+<td style="text-align:left">ICD10</td>
+<td style="text-align:left">International Classification of Diseases, Tenth Revision (WHO)</td>
+</tr>
+<tr>
+<td style="text-align:right">35</td>
+<td style="text-align:left">ICD10PCS</td>
+<td style="text-align:left">ICD-10 Procedure Coding System (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">40</td>
+<td style="text-align:left">DRG</td>
+<td style="text-align:left">Diagnosis-related group (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">41</td>
+<td style="text-align:left">MDC</td>
+<td style="text-align:left">Major Diagnostic Categories (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">42</td>
+<td style="text-align:left">APC</td>
+<td style="text-align:left">Ambulatory Payment Classification (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">43</td>
+<td style="text-align:left">RevenueCode</td>
+<td style="text-align:left">UB04/CMS1450 Revenue Codes (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">44</td>
+<td style="text-align:left">Ethnicity</td>
+<td style="text-align:left">OMOP Ethnicity</td>
+</tr>
+<tr>
+<td style="text-align:right">46</td>
+<td style="text-align:left">MeSH</td>
+<td style="text-align:left">Medical Subject Headings (NLM)</td>
+</tr>
+<tr>
+<td style="text-align:right">47</td>
+<td style="text-align:left">NUCC</td>
+<td style="text-align:left">National Uniform Claim Committee Health Care Provider Taxonomy Code Set (NUCC)</td>
+</tr>
+<tr>
+<td style="text-align:right">48</td>
+<td style="text-align:left">MedicareSpecialty</td>
+<td style="text-align:left">Medicare provider/supplier specialty codes (CMS)</td>
+</tr>
+<tr>
+<td style="text-align:right">50</td>
+<td style="text-align:left">SPL</td>
+<td style="text-align:left">Structured Product Labeling (FDA)</td>
+</tr>
+<tr>
+<td style="text-align:right">53</td>
+<td style="text-align:left">GCN_SEQNO</td>
+<td style="text-align:left">Clinical Formulation ID (FDB)</td>
+</tr>
+<tr>
+<td style="text-align:right">55</td>
+<td style="text-align:left">OPCS4</td>
+<td style="text-align:left">OPCS Classification of Interventions and Procedures version 4 (NHS)</td>
+</tr>
+<tr>
+<td style="text-align:right">57</td>
+<td style="text-align:left">HESSpecialty</td>
+<td style="text-align:left">Hospital Episode Statistics Specialty (NHS)</td>
+</tr>
+<tr>
+<td style="text-align:right">60</td>
+<td style="text-align:left">PCORNet</td>
+<td style="text-align:left">National Patient-Centered Clinical Research Network (PCORI)</td>
+</tr>
+<tr>
+<td style="text-align:right">65</td>
+<td style="text-align:left">Currency</td>
+<td style="text-align:left">International Currency Symbol (ISO 4217)</td>
+</tr>
+<tr>
+<td style="text-align:right">70</td>
+<td style="text-align:left">ICD10CM</td>
+<td style="text-align:left">International Classification of Diseases, Tenth Revision, Clinical Modification (NCHS)</td>
+</tr>
+<tr>
+<td style="text-align:right">71</td>
+<td style="text-align:left">ABMS</td>
+<td style="text-align:left">Provider Specialty (American Board of Medical Specialties)</td>
+</tr>
+<tr>
+<td style="text-align:right">75</td>
+<td style="text-align:left">dm+d</td>
+<td style="text-align:left">Dictionary of Medicines and Devices (NHS)</td>
+</tr>
+<tr>
+<td style="text-align:right">76</td>
+<td style="text-align:left">BDPM</td>
+<td style="text-align:left">Public Database of Medications (Social-Sante)</td>
+</tr>
+<tr>
+<td style="text-align:right">80</td>
+<td style="text-align:left">EphMRAATC</td>
+<td style="text-align:left">Anatomical Classification of Pharmaceutical Products (EphMRA)</td>
+</tr>
+<tr>
+<td style="text-align:right">81</td>
+<td style="text-align:left">NFC</td>
+<td style="text-align:left">New Form Code (EphMRA)</td>
+</tr>
+<tr>
+<td style="text-align:right">82</td>
+<td style="text-align:left">RxNormExtension</td>
+<td style="text-align:left">RxNorm Extension (OHDSI)</td>
+</tr>
+<tr>
+<td style="text-align:right">86</td>
+<td style="text-align:left">MMI</td>
+<td style="text-align:left">Modernizing Medicine (MMI)</td>
+</tr>
+<tr>
+<td style="text-align:right">87</td>
+<td style="text-align:left">SpecimenType</td>
+<td style="text-align:left">OMOP Specimen Type</td>
+</tr>
+<tr>
+<td style="text-align:right">88</td>
+<td style="text-align:left">CVX</td>
+<td style="text-align:left">CDC Vaccine Administered CVX (NCIRD)</td>
+</tr>
+<tr>
+<td style="text-align:right">90</td>
+<td style="text-align:left">ICDO3</td>
+<td style="text-align:left">International Classification of Diseases for Oncology, Third Edition (WHO)</td>
+</tr>
+<tr>
+<td style="text-align:right">94</td>
+<td style="text-align:left">GGR</td>
+<td style="text-align:left">Commented Drug Directory (BCFI)</td>
+</tr>
+<tr>
+<td style="text-align:right">109</td>
+<td style="text-align:left">MEDRT</td>
+<td style="text-align:left">Medication Reference Terminology MED-RT (VA)</td>
+</tr>
+<tr>
+<td style="text-align:right">111</td>
+<td style="text-align:left">EpisodeType</td>
+<td style="text-align:left">OMOP Episode Type</td>
+</tr>
+<tr>
+<td style="text-align:right">112</td>
+<td style="text-align:left">SNOMEDVeterinary</td>
+<td style="text-align:left">SNOMED Veterinary</td>
+</tr>
+<tr>
+<td style="text-align:right">113</td>
+<td style="text-align:left">JMDC</td>
+<td style="text-align:left">Japan Medical Data Center Drug Code (JMDC)</td>
+</tr>
+<tr>
+<td style="text-align:right">115</td>
+<td style="text-align:left">Provider</td>
+<td style="text-align:left">OMOP Provider</td>
+</tr>
+<tr>
+<td style="text-align:right">116</td>
+<td style="text-align:left">Supplier</td>
+<td style="text-align:left">OMOP Supplier</td>
+</tr>
+<tr>
+<td style="text-align:right">117</td>
+<td style="text-align:left">HemOnc</td>
+<td style="text-align:left">HemOnc</td>
+</tr>
+<tr>
+<td style="text-align:right">118</td>
+<td style="text-align:left">NAACCR</td>
+<td style="text-align:left">Data Standards &amp; Data Dictionary Volume II (NAACCR)</td>
+</tr>
+<tr>
+<td style="text-align:right">123</td>
+<td style="text-align:left">CTD</td>
+<td style="text-align:left">Comparative Toxicogenomic Database</td>
+</tr>
+<tr>
+<td style="text-align:right">128</td>
+<td style="text-align:left">OMOPExtension</td>
+<td style="text-align:left">OMOP Extension (OHDSI)</td>
+</tr>
+<tr>
+<td style="text-align:right">134</td>
+<td style="text-align:left">CIViC</td>
+<td style="text-align:left">Clinical Interpretation of Variants in Cancer (civicdb.org)</td>
+</tr>
+<tr>
+<td style="text-align:right">136</td>
+<td style="text-align:left">ClinVar</td>
+<td style="text-align:left">ClinVar (NCBI)</td>
+</tr>
+<tr>
+<td style="text-align:right">138</td>
+<td style="text-align:left">NCIt</td>
+<td style="text-align:left">NCI Thesaurus (National Cancer Institute)</td>
+</tr>
+<tr>
+<td style="text-align:right">141</td>
+<td style="text-align:left">CancerModifier</td>
+<td style="text-align:left">Diagnostic Modifiers of Cancer (OMOP)</td>
+</tr>
+<tr>
+<td style="text-align:right">142</td>
+<td style="text-align:left">OPS</td>
+<td style="text-align:left">Operations and Procedures Classification (OPS)</td>
+</tr>
+<tr>
+<td style="text-align:right">143</td>
+<td style="text-align:left">CCAM</td>
+<td style="text-align:left">Common Classification of Medical Acts</td>
+</tr>
+<tr>
+<td style="text-align:right">145</td>
+<td style="text-align:left">OncoKB</td>
+<td style="text-align:left">Oncology Knowledge Base (MSK)</td>
+</tr>
+<tr>
+<td style="text-align:right">146</td>
+<td style="text-align:left">OMOPGenomic</td>
+<td style="text-align:left">OMOP Genomic vocabulary</td>
+</tr>
+<tr>
+<td style="text-align:right">147</td>
+<td style="text-align:left">OncoTree</td>
+<td style="text-align:left">OncoTree (MSK)</td>
+</tr>
+</tbody>
+</table>
+<p>ダウンロード方法を説明します。<br>
+上記に記載したvocabularyのチェック欄（左側赤枠）をクリックしてチェックを入れ、画面右上の紫色の［DOWNLOAD VOCABULARIES］をクリックします。</p>
+<p><img src="Files/Usagi/image/image16.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>［DOWNLOAD SUMMARY］が表示されるので、［name bundle］欄に任意の名前を入力してください。<br>
+（［name bundle］に入力した名前は、［DOWNLOAD HISTORY］に表示されるファイル名になります）<br>
+［Notify me about changes in these vocabularies］にチェックを入れて、［DOWNLOAD］をクリックします。<br>
+vocabularyが準備中であるというメッセージが表示されます。</p>
+<p><img src="Files/Usagi/image/image17.png" alt=""><br>
+<img src="Files/Usagi/image/image18.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）<br>
+メール受領後、Athenaの画面右上の［SHOW HISTORY］をクリックし、［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。</p>
+<p><img src="Files/Usagi/image/image19.png" alt=""><br>
+<em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<p>ダウンロードしたvocabularyには下記のファイルが含まれています。<br>
+これらのファイルはUsagiのIndexの作成で使用します。（【Usagi操作手順書】【3-3】参照）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ファイル名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CONCEPT.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCEPT_ANCESTOR.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCEPT_CLASS.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCEPT_CPT4.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCEPT_RELATIONSHIP.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">CONCEPT_SYNONYM.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">DOMAIN.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">DRUG_STRENGTH.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">RELATIONSHIP.csv</td>
+</tr>
+<tr>
+<td style="text-align:left">VOCABULARY.csv</td>
+</tr>
+</tbody>
+</table>
+<p>Athena上でvocabularyにアップデートがあった場合には、Athenaより「Vocabulary versionupdate」という件名で登録したメールアドレス宛に通知が来ます。<br>
+メール本文に新しいバージョンがリリースされたvocabulary名が記載されており、対象のvocabularyを最新化するために、Athenaのサイトから上記の方法に従って再度ダウンロードする必要があります。<br>
+ダウンロード後は、改めてUsagiでvocabularyファイルの読込を実施してください。</p>
+<p>Usagiへの読込については、【Usagi操作手順書】の【3-3】を参照してください。</p>
+
+</body>
+</html>
