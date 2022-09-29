@@ -182,15 +182,22 @@ Athenaを開き、ログインします。
 
 ダウンロード方法を説明します。  
 上記に記載したvocabularyのチェック欄（左側赤枠）をクリックしてチェックを入れ、画面右上の紫色の［DOWNLOAD VOCABULARIES］をクリックします。  
-![Odysseus Data Services, Inc. 「Athena」](./xxx.jpg)  
+
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image16.png)  
+
 ［DOWNLOAD SUMMARY］が表示されるので、［name bundle］欄に任意の名前を入力してください。  
 （［name bundle］に入力した名前は、［DOWNLOAD HISTORY］に表示されるファイル名になります）  
 ［Notify me about changes in these vocabularies］にチェックを入れて、［DOWNLOAD］をクリックします。  
 vocabularyが準備中であるというメッセージが表示されます。  
-![Odysseus Data Services, Inc. 「Athena」](./xxx.jpg)  
+
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image17.png)  
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image18.png)  
+
 準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）  
 メール受領後、Athenaの画面右上の［SHOW HISTORY］をクリックし、［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。  
+
 ![Odysseus Data Services, Inc. 「Athena」](./xxx.jpg)  
+
 ダウンロードしたvocabularyには下記のファイルが含まれています。  
 これらのファイルはUsagiのIndexの作成で使用します。（【Usagi操作手順書】【3-3】参照）  
 | ファイル名 |
