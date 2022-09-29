@@ -29,22 +29,32 @@ Usagiの動作環境を構築します。
 ---
 # **2．1．Athenaへの会員登録**
 GithubのOHDSI/Usagiページの［Getting Started］項目内のAthena（赤枠）をクリックします。  
+
 ![画像イメージ](Files/Usagi/image/image6.png)  
+
 右上の［LOGIN］をクリックします。  
 Athenaを初めて使用する際には会員登録が必要です。  
+
 ![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image5.png)  
+
 会員登録後にログインし、各領域の語彙を入手することができるようになります。  
+
 ![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image2.png)  
 
 ---
 # **2．2．Usagiのインストール**
 GithubのOHDSI/Usagiページの［Getting Started］項目内の[Releases](https://github.com/OHDSI/Usagi/releases)（赤枠）をクリックします。  
+
 ![画像イメージ](Files/Usagi/image/image7.png)  
+
 Usagi_v1.4.3.jar（赤枠）をクリックし、ファイルをダウンロードします。  
 （バージョンが異なる場合、参考資料とファイル名も異なるため注意してください。）  
+
 ![画像イメージ](Files/Usagi/image/image8.png)  
+
 ダウンロードしたファイルをクリックした後、  
 「この種類のファイルはコンピューターに損害を与える可能性があります。」と表示されますが、「保存」をクリックし、任意の場所に保存します。
+
 ![画像イメージ](Files/Usagi/image/image9.png)  
 
 ---
@@ -54,22 +64,31 @@ Windows10の環境では、jarファイルを開くためにバッチを作成�
 以下でバッチの作成とUsagiの起動について説明します。  
 ２．２．でダウンロードしたUsagiのjarファイルを任意のフォルダに格納します。  
 同一フォルダ内に新規テキストを作成します。  
+
 ![画像イメージ](Files/Usagi/image/image10.png)  
+
 テキストを開き、
 ```
 java -jar Usagi_v1.4.3.jar
 ```
 を記載します。（Usagiのファイルのバージョンは必要に応じて変更してください）  
+
 ![画像イメージ](Files/Usagi/image/image3.png)  
+
 テキストファイルの拡張子を .bat　に変更して保存します。（ファイル名は任意です）  
+
 ![画像イメージ](Files/Usagi/image/image11.png)  
+
 バッチファイルをダブルクリックすると、Usagiが起動します。  
 起動時にAuthor記入欄が表示されます。Authorを指定する場合は任意の名前を入力し、［Save］をクリックしてください。  
 指定しない場合は、［×］をクリックすると次の画面に遷移します。  
+
 ![画像イメージ](Files/Usagi/image/image4.png)  
+
 Authorを指定すると画面下（赤枠）にAuthorが表示されます。  
 以上の操作でUsagiの起動は完了です。  
 ※Usagi起動時に、下図の様に「Rebuild index」と言う画面が表示されますが、ここでは「Cancel」をクリックしてください。  
+
 ![画像イメージ](Files/Usagi/image/image12.png)  
 
 ---
