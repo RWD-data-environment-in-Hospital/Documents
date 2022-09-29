@@ -94,14 +94,18 @@ Authorを指定すると画面下（赤枠）にAuthorが表示されます。
 ---
 # **2．3．2．Usagiの停止**
 Usagiの画面左上の［File］タブ内の［Exit］（赤枠）をクリックしてUsagiを終了します。  
+
 ![画像イメージ](Files/Usagi/image/image13.png)  
 
 ---
 # **参考：Athenaからのvocabularyの入手方法**
 Athenaを開き、ログインします。
 ログイン後、画面右上の［DOWNLOAD］をクリックします。  
-![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image12.png)  
+
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image20.png)  
+
 ［DOWNLOAD]をクリックすると、以下の画面が表示されます。  
+
 ![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image15.png)  
 
 本書では以下のvocabularyのダウンロードを実施しています。  
