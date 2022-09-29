@@ -223,4 +223,5 @@ vocabularyが準備中であるというメッセージが表示されます。
 Athena上でvocabularyにアップデートがあった場合には、Athenaより「Vocabulary versionupdate」という件名で登録したメールアドレス宛に通知が来ます。  
 メール本文に新しいバージョンがリリースされたvocabulary名が記載されており、対象のvocabularyを最新化するために、Athenaのサイトから上記の方法に従って再度ダウンロードする必要があります。  
 ダウンロード後は、改めてUsagiでvocabularyファイルの読込を実施してください。  
+
 Usagiへの読込については、【Usagi操作手順書】の【3-3】を参照してください。  
