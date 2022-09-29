@@ -102,7 +102,7 @@ Usagiの画面左上の［File］タブ内の［Exit］（赤枠）をクリッ�
 Athenaを開き、ログインします。
 ログイン後、画面右上の［DOWNLOAD］をクリックします。  
 
-![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image20.png)  
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image14.png)  
 
 ［DOWNLOAD]をクリックすると、以下の画面が表示されます。  
 
