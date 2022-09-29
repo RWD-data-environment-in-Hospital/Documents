@@ -36,7 +36,9 @@ GithubのOHDSI/Usagiページの［Getting Started］項目内の[<ins>Athena</i
 Athenaを初めて使用する際には会員登録が必要です。  
 
 ![](Files/Usagi/image/image5.png)  
+<div style="text-align: right;">
 *Odysseus Data Services, Inc. 「Athena」*
+</div>
 
 会員登録後にログインし、各領域の語彙を入手することができるようになります。  
 
