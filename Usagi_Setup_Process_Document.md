@@ -94,7 +94,7 @@ Authorを指定すると画面下（赤枠）にAuthorが表示されます。
 ![](Files/Usagi/image/image12.png)  
 
 ---
-# **2．3．2．Usagiの停止**
+## **2．3．2．Usagiの停止**
 Usagiの画面左上の［File］タブ内の［Exit］（赤枠）をクリックしてUsagiを終了します。  
 
 ![](Files/Usagi/image/image13.png)  
