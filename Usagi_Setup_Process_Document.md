@@ -196,7 +196,7 @@ vocabularyが準備中であるというメッセージが表示されます。
 準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）  
 メール受領後、Athenaの画面右上の［SHOW HISTORY］をクリックし、［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。  
 
-![Odysseus Data Services, Inc. 「Athena」](./xxx.jpg)  
+![Odysseus Data Services, Inc. 「Athena」](Files/Usagi/image/image19.png)  
 
 ダウンロードしたvocabularyには下記のファイルが含まれています。  
 これらのファイルはUsagiのIndexの作成で使用します。（【Usagi操作手順書】【3-3】参照）  
