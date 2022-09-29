@@ -24,7 +24,7 @@ Usagiをセットアップするための手順を説明します。
 Usagiの動作環境を構築します。  
 [<ins>GithubのOHDSI/Usagi</ins>](https://github.com/OHDSI/Usagi)にアクセスして、セットアップを進めていきます。  
 
-![画像イメージ](Files/Usagi/image/image1.png)  
+![](Files/Usagi/image/image1.png)  
 
 ---
 # **2．1．Athenaへの会員登録**
