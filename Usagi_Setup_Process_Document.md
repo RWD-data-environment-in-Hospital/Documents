@@ -22,7 +22,7 @@ Usagiをセットアップするための手順を説明します。
 ---
 # 2．**Usagiのセットアップ**
 Usagiの動作環境を構築します。  
-[GithubのOHDSI/Usagi](https://github.com/OHDSI/Usagi)にアクセスして、セットアップを進めていきます。  
+[<ins>GithubのOHDSI/Usagi</ins>](https://github.com/OHDSI/Usagi)にアクセスして、セットアップを進めていきます。  
 
 ![画像イメージ](Files/Usagi/image/image1.png)  
 
