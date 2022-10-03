@@ -115,6 +115,7 @@ Athenaを開き、ログインします。
 本書では以下のvocabularyのダウンロードを実施しています。  
 各研究に応じて、ダウンロードするvocabularyは取捨選択してください。  
 注意：「Required」欄に「License required」と記載があるvlcabularyは、ダウンロード時にライセンスが求められる場合があります。  
+
 | ID | CODE | NAME |
 |---:|:---|:---|
 | 1 | SNOMED | Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO) |
