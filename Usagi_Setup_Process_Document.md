@@ -2,12 +2,14 @@
 
 ### **目次**
 [1．本手順書について](#1本手順書について)  
+
 [2．Usagiのセットアップ](#2usagiのセットアップ)  
-[2．1．Athenaへの会員登録](#21athenaへの会員登録)  
-[2．2．Usagiのインストール](#22usagiのインストール)  
-[2．3．Usagiの起動・停止](#23usagiの起動・停止)  
-[2．3．1．Usagiの起動](#231usagiの起動)  
-[2．3．2．Usagiの停止](#232usagiの停止)  
+- [2．1．Athenaへの会員登録](#21athenaへの会員登録)  
+- [2．2．Usagiのインストール](#22usagiのインストール)  
+- [2．3．Usagiの起動・停止](#23usagiの起動・停止)  
+  - [2．3．1．Usagiの起動](#231usagiの起動)  
+  - [2．3．2．Usagiの停止](#232usagiの停止)  
+
 [参考：Athenaからのvocabularyの入手方法](#参考athenaからのvocabularyの入手方法)  
 
 ---
