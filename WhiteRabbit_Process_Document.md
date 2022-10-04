@@ -42,7 +42,7 @@ White Rabbit、Rabbit-in-a-Hatを操作するための手順について説明�
 OMOP CDMの各リソースへマッピング支援するのが、Rabbit-in-a-Hatです。
 Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitでは入力データをRabbi-in-a-Hatで取り込み可能な形式に加工します。  
 
-![](Files\WhiteRabbit_2\image/image28.png)
+![](Files/WhiteRabbit_2\image/image28.png)
 
 ---
 # **3．White Rabbit**
@@ -51,7 +51,7 @@ Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitで�
 ## **3．1．操作の流れ**
 操作の流れを以下に示します。
 
-![](Files\WhiteRabbit_2\image/image27.png)
+![](Files/WhiteRabbit_2\image/image27.png)
 
 ---
 ## **3．2．操作手順**
@@ -71,13 +71,13 @@ CSVファイルを読み込ませる場合、「Delimited text files」を選択
 
 接続に成功すると⑦のメッセージが表示されます。  
 
-![](Files\WhiteRabbit_2\image/image2.png)
-![](Files\WhiteRabbit_2\image/image3.png)
+![](Files/WhiteRabbit_2\image/image2.png)
+![](Files/WhiteRabbit_2\image/image3.png)
 
 **出力データ**  
 [Locations]タブを開き、[Working Folder]の[Pick folder]ボタンをクリックし、生成されるファイル（Scan report）の格納先フォルダーを選択します。
 
-![](Files\WhiteRabbit_2\image/image4.png)
+![](Files/WhiteRabbit_2\image/image4.png)
 
 以上でデータベース or テキストファイルの選択作業は終了です。
 
@@ -95,13 +95,13 @@ Rabbit-in-a-Hatでマッピングしたいデータの選択を実施します�
 - [Add]ボタン（②）を押し、ローカルに保存されたテキストファイルを選択して追加することができます。  
 - [Remove]ボタン（③）で、追加済みのテーブルを選択して削除することができます。
 
-![](Files\WhiteRabbit_2\image/image5.png)
+![](Files/WhiteRabbit_2\image/image5.png)
 
 ## **3．2．3．【必須】データ（Scan report）の出力**
 [Scan tables]ボタン（①）を選択すると追加したテーブルが読み込まれ、読み込みが成功するとコンソールに Scan report generated と表示されます。（②）  
 3．2．1で指定したファルダに、「ScanReport.xlsx」が生成されています。  
 
-![](Files\WhiteRabbit_2\image/image6.png)
+![](Files/WhiteRabbit_2\image/image6.png)
 
 ## **3．2．4．【オプション】スキャン条件の設定**
 読み込みデータを選択後、出力データ（Scan report）の形式を設定したい場合に[Scan field values]にチェックを入れることで、下記の項目に関して設定が可能です。  
@@ -116,13 +116,13 @@ Rabbit-in-a-Hatで生データの情報を確認しながらマッピングし�
 |Numeric stats|数値統計（④）|平均、標準偏差、最小値、四分位数、最大値を、すべての整数、実数、日付のデータ型に対して統計実施||
 |Numeric stats reservoir size|数値統計保有サイズ（⑤）|統計実施可能なデータ数|
 
-![](Files\WhiteRabbit_2\image/image7.png)
+![](Files/WhiteRabbit_2\image/image7.png)
 
 ## **3．2．5．【オプション】Fake data generation**
 Fake data generation では、テストデータを作成することができます。  
 3．2．3で生成された「ScanReport.xlsx」を読み込むことで、元のソースデータの値がランダムに並べられたソースデータが生成されます。
 
-![](Files\WhiteRabbit_2\image/image8.png)
+![](Files/WhiteRabbit_2\image/image8.png)
 
 White Rabbitでの作業説明は以上です。
 
@@ -134,7 +134,7 @@ White Rabbitでの作業説明は以上です。
 
 Rabbit-in-a-Hatの操作の流れを以下に示します。
 
-![](Files\WhiteRabbit_2\image/image26.png)
+![](Files/WhiteRabbit_2\image/image26.png)
 
 本手順では、CDM Version6.0のpersonテーブルとのマッピングを例に挙げて操作説明を進めていきます。  
 
@@ -148,16 +148,16 @@ Rabbit-in-a-Hatの操作方法について説明します。
 選択後、ファイルが読み込まれて左側の[Source]にWhite Rabbitで読み込んだデータのテーブル名がオレンジ色の箱に表示されます。（②） 
 
 **＜読み込み前＞**
-![](Files\WhiteRabbit_2\image/image9.png)
+![](Files/WhiteRabbit_2\image/image9.png)
 
 **＜読み込み後＞**
-![](Files\WhiteRabbit_2\image/image10.png)
+![](Files/WhiteRabbit_2\image/image10.png)
 
 ### **4．2．2．【必須】ＣＤＭのバージョン選択**
 [Edit]タブの[Set Target Database]（①）より、CDMのバージョンを選択可能することができます。  
 本手順では、CDM v6.0を選択します。（デフォルトですでに設定されています）
 
-![](Files\WhiteRabbit_2\image/image11.png)
+![](Files/WhiteRabbit_2\image/image11.png)
 
 ### **4．2．3．【必須】マッピング**
 テーブル・項目を関連づけるために矢印を使って箱同士を結び付けます。箱はドラッグアンドドロップで移動することができます。  
@@ -174,12 +174,12 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 
 personとpatient_profileを矢印でつなぎマッピングをします。  
 
-![](Files\WhiteRabbit_2\image/image12.png)
+![](Files/WhiteRabbit_2\image/image12.png)
 
 矢印をクリックすると、マッピング画面の右側に[Detail]欄が表示されます。  
 ここでは、ソーステーブル(Scan report)とターゲットテーブル（CDM）が表示される（③）ほかLogic（④）にはマッピングに関するロジックに関する伝達事項、Comments（⑤）には特記事項がある場合に自由に記載可能です。  
 
-![](Files\WhiteRabbit_2\image/image13.png)
+![](Files/WhiteRabbit_2\image/image13.png)
 
 箱をクリックすると、マッピング画面右側に[Details]欄が表示され、各テーブルの詳細情報が記載されています。  
 テーブル名（⑥）、テーブルの行数（⑦）、項目名（⑧）、項目のデータ型（⑨）を確
@@ -187,36 +187,36 @@ personとpatient_profileを矢印でつなぎマッピングをします。
 
 画面下には[Comments]欄（⑩）があり、記載事項があれば記入することが可能です。  
 
-![](Files\WhiteRabbit_2\image/image14.png)
+![](Files/WhiteRabbit_2\image/image14.png)
 
 **2．テーブル内の項目間マッピング**  
 1でマッピングした矢印をダブルクリックすると、双方のテーブルの各項目が表示されます。（①）
 
-![](Files\WhiteRabbit_2\image/image15.png)
+![](Files/WhiteRabbit_2\image/image15.png)
 
 下図のように各項目をマッピングしていきます。  
 マッピングの方法は、１と同様の操作です。（見えやすくするために、箱は初期位置から移動させています。）  
 
 <patient_profileとpersonの項目間のマッピング>
-![](Files\WhiteRabbit_2\image/image16.png)
+![](Files/WhiteRabbit_2\image/image16.png)
 
 項目の箱をクリックするとマッピング画面右側に[Details]欄が表示されて、詳細情報を確認することができます。  
 
 項目名（②）、データ型（③）、データの固有値（④）、生データ（⑤）が表示されます。
 下部には[Comments]欄（⑥）があり、特記事項があれば記入することが可能です。
 
-![](Files\WhiteRabbit_2\image/image17.png)
+![](Files/WhiteRabbit_2\image/image17.png)
 
 以上でpatient_profileテーブルとpersonテーブルのマッピング操作は終了です。
 
 ### **4．2．4．【必須】データ出力**
 マッピングしたデータを出力する場合は、[File]タブの[Save As]をクリックし（①）、任意の場所にGZIP形式で保存（②）します。  
 
-![](Files\WhiteRabbit_2\image/image18.png)
+![](Files/WhiteRabbit_2\image/image18.png)
 
 [File]タブの[Open ETL specs]（①）からGZIPファイルを開くことで（②）、マッピング処理が保持された状態で再開することができます。（③）
 
-![](Files\WhiteRabbit_2\image/image19.png)
+![](Files/WhiteRabbit_2\image/image19.png)
 
 他にも、必要に応じて以下のデータを出力することができます。
 
@@ -227,7 +227,7 @@ personとpatient_profileを矢印でつなぎマッピングをします。
 |ETL TestFramework（③）|ETLプロセスが指定どおりに機能していることを確認するためのテストフレームワーク（Ｒ）を出力|
 |SQL Skeleton Files（④）|各テーブルのSQLデータ|
 
-![](Files\WhiteRabbit_2\image/image20.png)
+![](Files/WhiteRabbit_2\image/image20.png)
 
 ---
 ## **4．3．【参考】機能紹介**
@@ -239,7 +239,7 @@ Rabbit-in-a-Hatで使用できる機能を紹介します。必須機能では�
 処理を実施した矢印の色が変化して、他と差別化可能（③）となります。  
 [Mark Highlighted As Incomplete]（④）で元の色の矢印に戻すことが可能です。  
 
-![](Files\WhiteRabbit_2\image/image21.png)
+![](Files/WhiteRabbit_2\image/image21.png)
 
 ### **4．3．2．Discard Value Counts**
 ソースデータの集計値やCDMの項目内のコンセプト情報を破棄します。  
@@ -247,7 +247,7 @@ Rabbit-in-a-Hatで使用できる機能を紹介します。必須機能では�
 
 この処理を実施したデータを保存した場合、破棄状態も保持されます。  
 
-![](Files\WhiteRabbit_2\image/image22.png)
+![](Files/WhiteRabbit_2\image/image22.png)
 
 ### **4．3．3．Stem table**  
 あるSourceテーブルが複数のCDMテーブルにマッピングする必要がある場合に、Stem tableを使用することでマッピングを繰り返す手間がなくなり、実装を容易にすることが可能になります。  
@@ -257,7 +257,7 @@ Rabbit-in-a-Hatで使用できる機能を紹介します。必須機能では�
 [Edit]タブの[Add stem table]を選択する（①）と、紫色のstem_tableの箱がtables画面の中央上部に表示されます。（②）  
 デフォルトでは、図に示されるように７つのテーブルに接続済みです。（③）  
 
-![](Files\WhiteRabbit_2\image/image23.png)
+![](Files/WhiteRabbit_2\image/image23.png)
 
 ### **4．3．4．CDMのカスタマイズ**
 CDMは下図に示されるバージョンのほかに、カスタマイズすることも可能です。  
@@ -266,8 +266,8 @@ CDMは下図に示されるバージョンのほかに、カスタマイズす�
 [Edit]タブの[Set Target Database]（①）から[Load custom...]（②）を選択し、作成した新たなCDMファイルを選択します。  
 このとき、ファイル名がCDM名として表示されます。（③）
 
-![](Files\WhiteRabbit_2\image/image24.png)
+![](Files/WhiteRabbit_2\image/image24.png)
 
 <CDMV5の形式に従って作成したCDM_custom>
-![](Files\WhiteRabbit_2\image/image1.png)
-![](Files\WhiteRabbit_2\image/image25.png)
+![](Files/WhiteRabbit_2\image/image1.png)
+![](Files/WhiteRabbit_2\image/image25.png)
