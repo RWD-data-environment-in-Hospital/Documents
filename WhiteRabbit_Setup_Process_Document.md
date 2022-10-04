@@ -1,14 +1,17 @@
 # **White Rabbit・Rabbit-in-a-Hat セットアップ手順書**
 ## **目次**
 [1．本手順書について](#1本手順書について)  
+
 [2．White Rabbit・Rabbit-in-a-Hatのセットアップ](#2white-rabbit・rabbit-in-a-hatのセットアップ)  
-[2．1．White Rabbit・Rabbit-in-a-Hatのインストール](#21white-rabbit・rabbit-in-a-hatのインストール)  
-[2．2．White Rabbitの起動・停止](#22white-rabbitの起動・停止)  
-[2．2．1．White Rabbitの起動](#221white-rabbitの起動)  
-[2．2．2．White Rabbitの停止](#222white-rabbitの停止)  
-[2．3．Rabbit-in-a-Hatの起動・停止](#23rabbit-in-a-hatの起動・停止)  
-[2．3．1．Rabbit-in-a-Hatの起動](#231rabbit-in-a-hatの起動)  
-[2．3．2．Rabbit-in-a-Hatの停止](#232rabbit-in-a-hatの停止)
+- [2．1．White Rabbit・Rabbit-in-a-Hatのインストール](#21white-rabbit・rabbit-in-a-hatのインストール)  
+
+- [2．2．White Rabbitの起動・停止](#22white-rabbitの起動・停止)  
+  - [2．2．1．White Rabbitの起動](#221white-rabbitの起動)  
+  - [2．2．2．White Rabbitの停止](#222white-rabbitの停止)  
+- [2．3．Rabbit-in-a-Hatの起動・停止](#23rabbit-in-a-hatの起動・停止)  
+
+  - [2．3．1．Rabbit-in-a-Hatの起動](#231rabbit-in-a-hatの起動)  
+  - [2．3．2．Rabbit-in-a-Hatの停止](#232rabbit-in-a-hatの停止)
 
 ---
 # **1．本手順書について**
