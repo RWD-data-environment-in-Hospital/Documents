@@ -415,9 +415,9 @@ code {
 <hr>
 <h1 id="1%E6%A6%82%E8%A6%81"><strong>1．概要</strong></h1>
 <h2 id="1%EF%BC%8D1usagi%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1－1．Usagiについて</strong></h2>
-<p>Usagiは独自に定義した各種項目の名称（薬品名、病名など）をCONCEPTテーブルへマッピングするための補助ツールとなります。</p>
-<p>AthenaサイトからダウンロードしたCONCEPTテーブルや、ソースデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。</p>
-<p><img src="Files/Usagi_2/image/image40.png" alt=""></p>
+<p>Usagiは独自に定義した各種項目（薬品、病名など）をCONCEPTテーブルへマッピングするための補助ツールとなります。</p>
+<p>AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピング元となるローカルデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。</p>
+<p><img src="Files/Usagi_2/image/image47.png" alt=""></p>
 <p>※当手順書では、マッピング元となるデータについて、以下の呼称を用います。</p>
 <ul>
 <li>
@@ -458,10 +458,10 @@ VOCABULARYのコードと名称、その他の関連情報を定義</p>
 </li>
 <li>
 <p>CONCEPT_RELATIONSHIP.CSV<br>
-任意の2つのCONCEPT間の直接的な関係と、関係の性質またはタイプを定義<br>
-※Athenaサイトで内容の更新があった場合は、都度、取得をしてください。</p>
+任意の2つのCONCEPT間の直接的な関係と、関係の性質またはタイプを定義</p>
 </li>
 </ul>
+<p>※Athenaサイトで内容の更新があった場合は、都度、取得をしてください。</p>
 <hr>
 <h2 id="2%EF%BC%8D2%E3%82%BD%E3%83%BC%E3%82%B9%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E6%BA%96%E5%82%99"><strong>2－2．ソースデータの準備</strong></h2>
 <p>CONCEPTテーブルへのマッピング元情報となるソースデータをCSV形式で準備します。</p>
@@ -479,17 +479,18 @@ VOCABULARYのコードと名称、その他の関連情報を定義</p>
 <hr>
 <h2 id="3%EF%BC%8D2author%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>3－2．Authorの設定</strong></h2>
 <p>Usagi v1.4以降では起動時にAuthorの入力を求められます。<br>
-Authorはマッピング承認時、「Status Provenance」項目に保持されます。任意の名称を入力してください。</p>
+Authorはマッピング項目を「Approve」した際、「Status Provenance」項目に保持されます。<br>
+任意の名称を入力してください。</p>
 <p><img src="Files/Usagi_2/image/image38.png" alt=""></p>
-<p>「Remember me?」にチェックをいれて「Save」ボタンをクリックすると、名称が保存されます。<br>
-ここで入力した名称は、Usagi格納フォルダのテキストファイル「authorName.txt」に保存されます。<br>
+<p>「Remember me?」にチェックをいれて「Save」ボタンをクリックすると、名称が保存されます。</p>
+<p>ここで入力した名称は、Usagi格納フォルダのテキストファイル「authorName.txt」に保存されます。<br>
 名称を変更したい場合、テキストファイルを開いて直接修正します。</p>
 <p><img src="Files/Usagi_2/image/image37.png" alt=""></p>
 <hr>
 <h2 id="3%EF%BC%8D3index%E3%81%AE%E4%BD%9C%E6%88%90%E6%8C%87%E7%A4%BA"><strong>3－3．Indexの作成指示</strong></h2>
 <p>Author入力後、Indexの作成指示を行う画面が表示されます。<br>
 「Pick folder」ボタンをクリックすると、フォルダ選択の画面が表示されます。</p>
-<p>2－1でAthenaサイトから取得した４ファイルを格納したフォルダを指定し、「Select folder」ボタンをクリックします。</p>
+<p>2－1でAthenaサイトから取得した4ファイルを格納したフォルダを指定し、「Select folder」ボタンをクリックします。</p>
 <p><img src="Files/Usagi_2/image/image36.png" alt=""></p>
 <p>Vocabulary locationに選択したフォルダが表示されてる事を確認し、「Build index」ボタンをクリックします。<br>
 Indexの作成が完了すると、メッセージ画面が表示されるので、Usagiを一度終了し、再度起動します。<br>
@@ -529,11 +530,11 @@ Usagiを起動し、「File」メニューから「Import codes」を選択し�
 </li>
 <li>
 <p>Auto concept ID column<br>
-マッピング対象をCONCEPT IDで制限したい場合に、CONCEPT IDが格納されている項目を選択します。</p>
+元システムにおいて既にCONCEPT_IDとの紐付けが完了している場合、CONCEPT_IDとの紐付けをする事でマッピング制限をかけます。</p>
 </li>
 <li>
 <p>ATC column<br>
-マッピング対象をATCコードで制限したい場合に、ATCコードが格納されている項目を選択します。<br>
+CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」のものを対象としてマッピングを行います。<br>
 ※[Auto concept ID column]から[ATC column]に切り替えて項目を指定します。</p>
 </li>
 <li>

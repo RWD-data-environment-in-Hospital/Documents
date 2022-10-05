@@ -46,7 +46,7 @@ Usagiは独自に定義した各種項目（薬品、病名など）をCONCEPT�
 
 AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピング元となるローカルデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。
 
-![](Files/Usagi/image/image20.png)  
+![](Files/Usagi_2/image/image47.png)  
 
 ※当手順書では、マッピング元となるデータについて、以下の呼称を用います。
 - ソースデータ  
