@@ -42,11 +42,11 @@
 ---
 # **1．概要**
 ## **1－1．Usagiについて**
-Usagiは独自に定義した各種項目の名称（薬品名、病名など）をCONCEPTテーブルへマッピングするための補助ツールとなります。
+Usagiは独自に定義した各種項目（薬品、病名など）をCONCEPTテーブルへマッピングするための補助ツールとなります。
 
-AthenaサイトからダウンロードしたCONCEPTテーブルや、ソースデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。
+AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピング元となるローカルデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。
 
-![](Files/Usagi_2/image/image40.png)  
+![](Files/Usagi/image/image20.png)  
 
 ※当手順書では、マッピング元となるデータについて、以下の呼称を用います。
 - ソースデータ  
@@ -82,6 +82,7 @@ VOCABULARYのコードと名称、その他の関連情報を定義
 
 - CONCEPT_RELATIONSHIP.CSV  
 任意の2つのCONCEPT間の直接的な関係と、関係の性質またはタイプを定義  
+
 ※Athenaサイトで内容の更新があった場合は、都度、取得をしてください。
 
 ---
@@ -102,11 +103,13 @@ Usagiを起動します。起動手順はUsagiセットアップ手順書を参�
 ---
 ## **3－2．Authorの設定**
 Usagi v1.4以降では起動時にAuthorの入力を求められます。  
-Authorはマッピング承認時、「Status Provenance」項目に保持されます。任意の名称を入力してください。
+Authorはマッピング項目を「Approve」した際、「Status Provenance」項目に保持されます。  
+任意の名称を入力してください。
 
 ![](Files/Usagi_2/image/image38.png)  
 
 「Remember me?」にチェックをいれて「Save」ボタンをクリックすると、名称が保存されます。  
+
 ここで入力した名称は、Usagi格納フォルダのテキストファイル「authorName.txt」に保存されます。  
 名称を変更したい場合、テキストファイルを開いて直接修正します。
 
@@ -117,7 +120,7 @@ Authorはマッピング承認時、「Status Provenance」項目に保持され
 Author入力後、Indexの作成指示を行う画面が表示されます。  
 「Pick folder」ボタンをクリックすると、フォルダ選択の画面が表示されます。  
 
-2－1でAthenaサイトから取得した４ファイルを格納したフォルダを指定し、「Select folder」ボタンをクリックします。
+2－1でAthenaサイトから取得した4ファイルを格納したフォルダを指定し、「Select folder」ボタンをクリックします。
 
 ![](Files/Usagi_2/image/image36.png)  
 
@@ -168,10 +171,10 @@ Usagiを起動し、「File」メニューから「Import codes」を選択し�
 元システムでの当該項目の利用頻度情報の項目を選択します。参考情報のためマッピングには影響しません。
 
   - Auto concept ID column  
-マッピング対象をCONCEPT IDで制限したい場合に、CONCEPT IDが格納されている項目を選択します。
+元システムにおいて既にCONCEPT_IDとの紐付けが完了している場合、CONCEPT_IDとの紐付けをする事でマッピング制限をかけます。
 
   - ATC column  
-マッピング対象をATCコードで制限したい場合に、ATCコードが格納されている項目を選択します。  
+CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」のものを対象としてマッピングを行います。  
 ※[Auto concept ID column]から[ATC column]に切り替えて項目を指定します。
 
   - Additional info column  
