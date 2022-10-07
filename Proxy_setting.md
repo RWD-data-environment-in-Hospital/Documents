@@ -1,4 +1,4 @@
-# **プロキシ設定手順**
+# **プロキシ 設定手順**
 
 ### **目次**
 1． 本手順について  
@@ -29,7 +29,7 @@
 ---
 ## **2．Windows 環境変数**
 Windows 環境変数へ変数を追加します。  
-なお、本書で記載する<span style="color: orange; ">[proxy]</span></span>はプロキシサーバー名（またはアドレス）、<span style="color: orange; ">[port]</span>はポート番号に読み替えて入力を行ってください。  
+なお、本手順で記載する<span style="color: orange; ">[proxy]</span></span>はプロキシサーバー名（またはアドレス）、<span style="color: orange; ">[port]</span>はポート番号に読み替えて入力を行ってください。  
 
 「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。  
 
@@ -57,7 +57,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 ![](Files/proxy/image/image14.png)
 
 ## **3． GitBash 用プロキシ設定**
-Atlas セットアップ手順書「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。  
+Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。  
 スタートメニューからGit Bash を起動し、下記コマンドを実行します。  
 ```
 $ git config --global http.proxy http://[proxy]:[port]
@@ -168,7 +168,7 @@ https_proxy="http://[proxy]:[port]"
 Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。  
 
 ## **6．R・devtools 用プロキシ設定**
-Atlas セットアップ手順書「4.4 Achilles インストール」で実施します。
+Atlas セットアップ手順「4.4 Achilles インストール」で実施します。
 スタートメニューを開き、Ｒコンソールを起動します。  
 以下のコマンドを入力します。  
 ```
@@ -186,4 +186,4 @@ Atlas セットアップ手順書「4.4 Achilles インストール」で実施�
 
 ![](Files/proxy/image/image13.jpeg)
 
-Atlas 手順書「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。
+Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。

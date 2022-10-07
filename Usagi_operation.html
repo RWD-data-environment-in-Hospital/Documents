@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Usagi_Operations_Procedures.md</title>
+<title>Usagi_operation.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -365,7 +365,7 @@ code {
           : 'default'
     });
   </script>
-<h1 id="usagi%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86%E6%9B%B8"><strong>Usagi操作手順書</strong></h1>
+<h1 id="usagi-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>Usagi 操作手順</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
 <p><a href="#1%E6%A6%82%E8%A6%81">1．概要</a></p>
 <ul>
@@ -418,7 +418,7 @@ code {
 <p>Usagiは独自に定義した各種項目（薬品、病名など）をCONCEPTテーブルへマッピングするための補助ツールとなります。</p>
 <p>AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピング元となるローカルデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。</p>
 <p><img src="Files/Usagi_2/image/image47.png" alt=""></p>
-<p>※当手順書では、マッピング元となるデータについて、以下の呼称を用います。</p>
+<p>※当手順では、マッピング元となるデータについて、以下の呼称を用います。</p>
 <ul>
 <li>
 <p>ソースデータ<br>
@@ -475,7 +475,7 @@ VOCABULARYのコードと名称、その他の関連情報を定義</p>
 <hr>
 <h1 id="3usagi%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%88%9D%E6%9C%9F%E6%BA%96%E5%82%99"><strong>3．Usagiの起動・初期準備</strong></h1>
 <h2 id="3%EF%BC%8D1usagi%E3%81%AE%E8%B5%B7%E5%8B%95"><strong>3－1．Usagiの起動</strong></h2>
-<p>Usagiを起動します。起動手順はUsagiセットアップ手順書を参照ください。</p>
+<p>Usagiを起動します。起動手順は「Usagiセットアップ手順」を参照ください。</p>
 <hr>
 <h2 id="3%EF%BC%8D2author%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>3－2．Authorの設定</strong></h2>
 <p>Usagi v1.4以降では起動時にAuthorの入力を求められます。<br>
@@ -494,7 +494,7 @@ Authorはマッピング項目を「Approve」した際、「Status Provenance�
 <p><img src="Files/Usagi_2/image/image36.png" alt=""></p>
 <p>Vocabulary locationに選択したフォルダが表示されてる事を確認し、「Build index」ボタンをクリックします。<br>
 Indexの作成が完了すると、メッセージ画面が表示されるので、Usagiを一度終了し、再度起動します。<br>
-※Build indexには長時間（２～３時間）要します。</p>
+※Build indexには長時間（2～3時間）要します。</p>
 <p><img src="Files/Usagi_2/image/image35.png" alt=""></p>
 <p>Indexの作成が完了すると、Usagi格納フォルダ配下に以下フォルダ・ファイルが自動で作成されます。</p>
 <p><img src="Files/Usagi_2/image/image34.png" alt=""></p>
@@ -507,7 +507,7 @@ CONCEPTやVOCABULARYの内容に変更・更新があった場合等、UsagiのI
 <p>Indexの作成が完了したら、マッピング用のソースデータの取込を行います。<br>
 Usagiを起動し、「File」メニューから「Import codes」を選択します。</p>
 <p><img src="Files/Usagi_2/image/image32.png" alt=""></p>
-<p>ファイル選択の画面が表示されますので、２－２で準備した、ソースデータのCSVファイルを選択し、「開く」ボタンをクリックすると、データの取込が行われます。</p>
+<p>ファイル選択の画面が表示されますので、2－2で準備した、ソースデータのCSVファイルを選択し、「開く」ボタンをクリックすると、データの取込が行われます。</p>
 <p><img src="Files/Usagi_2/image/image31.png" alt=""></p>
 <h2 id="4%EF%BC%8D2%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E8%A8%AD%E5%AE%9A%E7%94%BB%E9%9D%A2%E3%81%AE%E9%A0%85%E7%9B%AE%E8%AA%AC%E6%98%8E"><strong>4－2．マッピング設定画面の項目説明</strong></h2>
 <p>取込が完了するとマッピング設定画面が表示され、CSVファイルの内容が表示されます。<br>

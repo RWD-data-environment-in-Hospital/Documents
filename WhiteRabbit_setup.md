@@ -1,6 +1,6 @@
-# **White Rabbit・Rabbit-in-a-Hat セットアップ手順書**
+# **White Rabbit・Rabbit-in-a-Hat セットアップ手順**
 ## **目次**
-[1．本手順書について](#1本手順書について)  
+[1．本手順について](#1本手順について)  
 
 [2．White Rabbit・Rabbit-in-a-Hatのセットアップ](#2white-rabbit・rabbit-in-a-hatのセットアップ)  
 - [2．1．White Rabbit・Rabbit-in-a-Hatのインストール](#21white-rabbit・rabbit-in-a-hatのインストール)  
@@ -14,7 +14,7 @@
   - [2．3．2．Rabbit-in-a-Hatの停止](#232rabbit-in-a-hatの停止)
 
 ---
-# **1．本手順書について**
+# **1．本手順について**
 White Rabbitをセットアップするための手順を説明します。  
 本セットアップ手順は、以下の環境が準備されていることを前提としています。  
 

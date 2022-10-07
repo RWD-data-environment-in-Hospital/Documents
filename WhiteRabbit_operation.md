@@ -1,6 +1,6 @@
-# **White Rabbit操作手順書**
+# **White Rabbit、Rabbit-in-a-Hat 操作手順**
 ## **目次**  
-[1．本手順書について](#1本手順書について)  
+[1．本手順について](#1本手順について)  
 
 [2．White Rabbit、Rabbit-in-a-Hatの関係図](#2white-rabbitrabbit-in-a-hatの関係図)  
 
@@ -29,7 +29,7 @@
   - [4．3．4．CDMのカスタマイズ](#434cdmのカスタマイズ)  
 
 ---
-# **1．本手順書について**
+# **1．本手順について**
 White Rabbit、Rabbit-in-a-Hatを操作するための手順について説明します。  
 本操作手順は、以下の環境が準備されていることを前提としています。  
 - Windows10（64ビット）
