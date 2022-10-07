@@ -12,7 +12,7 @@
 - セットアップ手順
 - 操作手順
 - 機能調査資料
-- [プロキシ設定手順](https://RWD-data-environment-in-Hospital.github.io/Documents/proxy_setting.html)　　※プロキシサーバが存在する場合
+- [プロキシ設定手順](https://RWD-data-environment-in-Hospital.github.io/Documents/Proxy_setting.html)　　※プロキシサーバが存在する場合
 
 ## **HADES**
 - セットアップ手順
