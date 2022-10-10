@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
-
-
 body {
     font-family: "Meiryo UI";
-    background-color: rgb(248, 240, 228)
+    /* background-color: rgb(248, 240, 228) */
+    /* background: linear-gradient(90deg, #0bb1c0 0%, #ffffff 100%); */
 }
 
 .headline {
@@ -15,13 +14,21 @@ body {
     margin-top: -5px;
 }
 
+h2 {
+    width: 500px;
+    background: -webkit-linear-gradient(0deg, rgb(245, 188, 170), white);
+    padding-left: 10px;
+    border-left: solid 8px rgb(255, 123, 0);
+    /* border-bottom: solid 2px black; */
+}
+
 div.pic {
     margin: -10px 0px 0px 20px;
     height: 0px;
 }
 
 .menu {
-    margin: -20px 0px 0px 240px;
+    margin: -15px 0px 0px 240px;
 }
 
 .ann {
