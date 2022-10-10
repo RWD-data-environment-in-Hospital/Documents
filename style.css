@@ -10,6 +10,7 @@ body {
     padding: 10px;
     padding-left: 30px;
     background-color: rgb(32, 66, 90);
+    width: 100%;
     color: white;
     margin-top: -5px;
 }
