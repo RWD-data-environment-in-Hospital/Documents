@@ -9,27 +9,32 @@ body {
 .headline {
     padding: 10px;
     padding-left: 30px;
-    background-color: rgb(32, 66, 90);
+    background-color: rgb(0, 0, 0);
     width: 100%;
     color: white;
     margin-top: -5px;
 }
 
 h2 {
-    width: 500px;
+    /* width: 500px;
     background: -webkit-linear-gradient(0deg, rgb(245, 188, 170), white);
     padding-left: 10px;
-    border-left: solid 8px rgb(255, 123, 0);
-    /* border-bottom: solid 2px black; */
+    border-left: solid 8px rgb(255, 123, 0); */
+    width: 96%;
+    color: white;
+    background: #EE8884;
+    box-shadow: 0px 0px 0px 5px #EE8884;
+    border: dashed 2px white;
+    padding: 6px;
 }
 
-div.pic {
+/* div.pic {
     margin: -10px 0px 0px 20px;
     height: 0px;
-}
+} */
 
 .menu {
-    margin: -15px 0px 200px 240px;
+    margin: 0px 0px 0px 30px;
 }
 
 .ann {
@@ -43,7 +48,7 @@ a:hover {
     color: rgb(241, 139, 28)
 }
 
-footer {
+/* footer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -51,4 +56,4 @@ footer {
     text-align: center;
     background-color: rgb(0, 10, 20);
     color: white;
-}
+} */
