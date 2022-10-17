@@ -1,12 +1,12 @@
 # **プロキシ 設定手順**
 
 ### **目次**
-1． 本手順について  
-2． Windows 環境変数  
-3． GitBash 用プロキシ設定  
-4． Apache Maven 用プロキシ設定  
-5． R 用プロキシ設定  
-6． R・devtools 用プロキシ設定  
+[1． 本手順について  ](#1本手順について)
+[2． Windows 環境変数](#2windows-環境変数)  
+[3． GitBash 用プロキシ設定](#3-gitbash-用プロキシ設定)  
+[4． Apache Maven 用プロキシ設定](#4apache-maven-用プロキシ設定)  
+[5． R 用プロキシ設定](#5ｒ用プロキシ設定)  
+[6． R・devtools 用プロキシ設定](#6r・devtools-用プロキシ設定)  
 
 ---
 ## **1．本手順について**
@@ -56,6 +56,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 
 ![](Files/proxy/image/image14.png)
 
+---
 ## **3． GitBash 用プロキシ設定**
 Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。  
 スタートメニューからGit Bash を起動し、下記コマンドを実行します。  
@@ -167,6 +168,7 @@ https_proxy="http://[proxy]:[port]"
 
 Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。  
 
+---
 ## **6．R・devtools 用プロキシ設定**
 Atlas セットアップ手順「4.4 Achilles インストール」で実施します。
 スタートメニューを開き、Ｒコンソールを起動します。  
