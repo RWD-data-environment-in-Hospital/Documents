@@ -7,27 +7,27 @@
 　[3．1　Git のインストール](#31-git-のインストール)  
 　[3．2　データベースプラットフォーム（PostgreSQL 10）のセットアップ](#32-データベースプラットフォームpostgresql-10のセットアップ)  
 　　[3．2．1　PostgreSQL 10 のインストール](#321-postgresql-10-のインストール)  
-　　3．2．2　PostgreSQL 10 の設定  
-　　3．2．3　データベースの作成  
-　　3．2．4　OMOP 共通データモデルテーブルの作成  
-　3．3　データベースクエリーツール（A5:SQL Mk-2）のダウンロード  
-　3．4　Apache Maven のインストール  
-　3．5　WebAPI の構築  
-　3．6　Apache Tomcat 8 のインストール  
-　3．7　WebAPI の更新  
-4．Achilles のインストール  
-　4．1 Ｒのインストール  
-　4．2 R tools のインストール  
-　4．3 R studio のインストール  
-　4．4 Achilles インストール  
-5．NodeJS のインストール  
-6．Atlas のインストール  
-　6．1 Atlas のインストール  
-　6．2 source テーブルへのレコード追加  
-7．補足：オフラインインストール手順  
-　7．1 WebAPI のオフラインインストール  
-　7．2 R のオフラインインストール  
-　7．3 Atlas のオフラインインストール  
+　　[3．2．2　PostgreSQL 10 の設定](#322-postgresql-10-の設定)  
+　　[3．2．3　データベースの作成](#323-データベースの作成)  
+　　[3．2．4　OMOP 共通データモデルテーブルの作成](#324-omop-共通データモデルテーブルの作成)  
+　[3．3　データベースクエリーツール（A5:SQL Mk-2）のダウンロード](#33-データベースクエリーツールa5sql-mk-2のダウンロード)  
+　[3．4　Apache Maven のインストール](#34-apache-maven-のインストール)  
+　[3．5　WebAPI の構築](#35-webapi-の構築)  
+　[3．6　Apache Tomcat 8 のインストール](#36-apache-tomcat-8-のインストール)  
+　[3．7　WebAPI の更新](#37-webapi-の更新)  
+[4．Achilles のインストール](#4achilles-のインストール)  
+　[4．1 Ｒのインストール](#41-ｒのインストール)  
+　[4．2 R tools のインストール](#42-r-tools-のインストール)  
+　[4．3 R studio のインストール](#43-r-studio-のインストール)  
+　[4．4 Achilles インストール](#44-achilles-インストール)  
+[5．NodeJS のインストール](#5-nodejs-のインストール)  
+[6．Atlas のインストール](#6-atlas-のインストール)  
+　[6．1 Atlas のインストール](#61-atlas-のインストール)  
+　[6．2 source テーブルへのレコード追加](#62-source-テーブルへのレコード追加)  
+[7．補足：オフラインインストール手順](#7-補足オフラインインストール手順)  
+　[7．1 WebAPI のオフラインインストール](#71-webapi-のオフラインインストール)  
+　[7．2 R のオフラインインストール](#72-r-のオフラインインストール)  
+　[7．3 Atlas のオフラインインストール](#73-atlas-のオフラインインストール)  
 
 ---
 # **1．本手順について**
@@ -1372,3 +1372,836 @@ person_count bigint NOT NULL
 
 <br>
 
+```
+CREATE TABLE webapi.cohort_inclusion_stats_cache (
+design_hash int NOT NULL,
+rule_sequence int NOT NULL,
+mode_id int NOT NULL,
+person_count bigint NOT NULL,
+gain_count bigint NOT NULL,
+person_total bigint NOT NULL
+);
+```
+
+![](./Files/Atlas/image/image214.png)  
+
+<br>
+
+```
+CREATE TABLE webapi.cohort_summary_stats_cache (
+design_hash int NOT NULL,
+mode_id int NOT NULL,
+base_count bigint NOT NULL,
+final_count bigint NOT NULL
+);
+```
+
+![](./Files/Atlas/image/image215.png)  
+
+<br>
+
+```
+CREATE TABLE webapi.cohort_sample_element(
+cohort_sample_id int NOT NULL,
+rank_value int NOT NULL,
+person_id bigint NOT NULL,
+age int,
+gender_concept_id int
+);
+```
+
+![](./Files/Atlas/image/image216.png)  
+
+<br>
+
+```
+CREATE TABLE webapi.concept_hierarchy
+(
+concept_id INT,
+concept_name VARCHAR(400),
+treemap VARCHAR(20),
+concept_hierarchy_type VARCHAR(20),
+level1_concept_name VARCHAR(255),
+level2_concept_name VARCHAR(255),
+level3_concept_name VARCHAR(255),
+level4_concept_name VARCHAR(255)
+);
+```
+
+![](./Files/Atlas/image/image217.png)  
+
+<br>
+
+以上でWebAPI のセッティングは完了です。
+
+---
+# **4．Achilles のインストール**
+ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する  
+必要があります。Achilles は、Common Data Model（CDM）準拠のデータベースのデータベースレベルの分析とレポートの提供を担います。  
+本手順は下記のサイトを参考にしています。  
+
+https://ohdsi.github.io/Hades/rSetup.html  
+https://github.com/OHDSI/Achilles  
+https://ohdsi.github.io/Achilles/  
+
+---
+## **4．1　Ｒのインストール**
+下記のサイトにアクセスし、「Download R for Windows」、「base」の順にクリックし、下のスクリーンショットに示されている 「Download」 リンクをクリックします。（バージョン3.6.0 以降である必要があります）  
+https://cran.r-project.org/
+
+![](./Files/Atlas/image/image1298.png)  
+*出典：The R Foundation「The Comprehensive R Archive etwork」*  
+
+<br>
+
+ダウンロードが完了したら、「R-4.1.1-win.exe」実行します。  
+言語の選択画面が出るので、「日本語」を選択して「OK」をクリックします。  
+
+![](./Files/Atlas/image/image1299.png)  
+
+<br>
+
+情報を読み終わった後、「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1300.png)  
+
+<br>
+
+インストール先の設定画面で、デフォルトではProgramFiles へインストールす
+る設定になっているが、「C:\R\R-4.1.1」のフォルダに変更して「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1301.png)  
+
+<br>
+
+コンポーネントの選択について、「32bit Files」のチェックを外して「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1302.png)  
+
+<br>
+
+起動時のオプションはデフォルトのまま「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1303.png)  
+
+<br>
+
+スタートメニューフォルダの指定についてもデフォルトのまま「次へ」をクリッ
+クします。  
+
+![](./Files/Atlas/image/image1304.png)  
+
+<br>
+
+追加タスクの選択についてもデフォルトのまま「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1305.png)  
+
+<br>
+
+R のセットアップウィザード完了画面が出てくるので「完了」をクリックします。  
+
+![](./Files/Atlas/image/image1306.png)  
+
+<br>
+
+---
+## **4．2　R tools のインストール**
+下記のサイトにアクセスし、「Download R for Windows」、「Rtools」 の順にクリックし、RTools の最新バージョン（64-bit）を選択してダウンロードします。  
+
+https://cran.r-project.org/
+
+![](./Files/Atlas/image/image1307.png)  
+*出典：The R Foundation「The Comprehensive R Archive Network」*
+
+<br>
+
+ダウンロードが終了したら、ダブルクリックして実行します。  
+インストール先の指定についてはデフォルトのまま「Next」をクリックします。  
+
+![](./Files/Atlas/image/image1308.png)  
+
+<br>
+
+追加タスクの選択についてもデフォルトのまま「Next」をクリックします。  
+
+![](./Files/Atlas/image/image1309.png)  
+
+<br>
+
+インストール開始画面が表示されるので、「Install」をクリックします。  
+
+![](./Files/Atlas/image/image1310.png)  
+
+<br>
+
+インストールが終了したので「FInish」をクリックします。  
+
+![](./Files/Atlas/image/image1311.png)  
+
+<br>
+
+---
+## **4．3　R studio のインストール**
+R studio のサイトにアクセスし、「Download」をクリックし、「DOWNLOADRSTUDIO FOR WINDOWS」をクリックします。  
+
+https://www.rstudio.com/  
+
+![](./Files/Atlas/image/image1312.png)  
+
+<br>
+
+ダウンロード完了後、ファイルをダブルクリックして実行します。「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1313.png)  
+
+<br>
+
+インストール先のフォルダとしては、「C:\RStudio」を指定して「次へ」をクリックします。  
+
+![](./Files/Atlas/image/image1314.png)  
+
+<br>
+
+スタートメニューフォルダの選択画面ですが、デフォルトのまま「インストール」をクリックし、インストールを開始します。  
+
+![](./Files/Atlas/image/image1315.png)  
+
+<br>
+
+インストールが終了したら、「完了」をクリックします。  
+
+![](./Files/Atlas/image/image1316.png)  
+
+<br>
+
+スタートメニューを開き、RStudio とR を起動します。  
+R のコンソールに以下のコマンドを入力します。  
+```
+> writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con ="~/.Renviron")
+```
+
+![](./Files/Atlas/image/image1317.png)  
+
+<br>
+
+プロキシサーバ経由の通信を行っている場合、プロキシ設定手順書の「5. Ｒ用プロキシ設定」を行ってください。  
+R コンソールを再起動して、下記のコマンドを入力します。  
+```
+> Sys.which("make")
+"C:\\rtools40\\usr\\bin\\make.exe"
+```
+上記のように表示されれば、PATH が通っています。  
+
+![](./Files/Atlas/image/image1318.png)  
+
+<br>
+
+再び、R コンソールを再起動して下記のコマンドを入力します。  
+```
+install.packages("SqlRender")
+```
+
+![](./Files/Atlas/image/image1319.png)  
+
+<br>
+
+CRAN のミラーサイトの選択画面が表示されるので、「0-Cloud [https]」を選択して「OK」をクリックします。  
+
+![](./Files/Atlas/image/image1320.png)  
+
+<br>
+
+インストールが完了しました。  
+
+![](./Files/Atlas/image/image1321.png)  
+
+<br>
+
+以下のコマンドを入力し、コマンド試行を実施します。  
+```
+> library(SqlRender)
+> translate("SELECT TOP 10 * FROM person;","postgresql")
+```
+
+![](./Files/Atlas/image/image1322.png)  
+
+<br>
+
+図のように表示されれば、動作していることが確認できます。
+
+![](./Files/Atlas/image/image1323.png)  
+
+<br>
+
+---
+## **4．4　Achilles インストール**
+初めにR コンソールを開き、下記のコマンドを入力してdevtools をインストー
+ルします。
+```
+> install.packages(“devtools”)
+```
+
+![](./Files/Atlas/image/image1324.png)  
+
+<br>
+
+CRAN のミラーサイトの選択画面が表示されるので、「0-Cloud [https]」を選択して「OK」をクリックします。
+
+![](./Files/Atlas/image/image1325.png)  
+
+<br>
+
+以下画面が表示された場合、「はい」をクリックします。
+
+![](./Files/Atlas/image/image1326.png)  
+
+<br>
+
+インストールが完了しました。
+
+![](./Files/Atlas/image/image242.jpeg)  
+
+<br>
+
+次に、Achilles をインストールします。  
+プロキシサーバ経由の通信を行っている場合、プロキシ設定手順書の「6. Ｒ・devtools 用プロキシ設定」を行ってください。  
+下図と下記のコマンドを参考にしてコマンドを入力してください。  
+```
+> devtools::install_github("OHDSI/Achilles")
+```
+
+![](./Files/Atlas/image/image1327.png)  
+
+<br>
+
+下図のように表示されれば、Achilles のインストールは完了です。
+
+![](./Files/Atlas/image/image249.jpeg)  
+
+※オフラインインストールを実施する場合、上記の手順に加えて「手順7 補足」の「手順7.2 Atlas のオフラインインストール」に記載されている手順を引き続き実施してください。  
+
+<br>
+
+---
+# **5　NodeJS のインストール**
+ATLAS では、アプリケーションのすべてのJavaScript 依存関係を取得するために、ノードパッケージマネージャー（npm）を使用します。ATLAS のインストール中に使用されるnpm ユーティリティを含むNodeJS をダウンロードします。  
+NodeJS のサイトを開き、Windows 版インストーラー（赤枠）をダウンロードします。  
+
+https://nodejs.org/en/download/
+
+![](./Files/Atlas/image/image1328.png)  
+*出典：Portions of this site「Node.js」*
+
+<br>
+
+ダウンロードが完了したら、「node-v14.18.1-x64.msi」を実行します。
+
+![](./Files/Atlas/image/image1329.png)  
+
+<br>
+
+「I accept the terms in the License Agreement」のチェックボックスにチェックを入れて、「Next」をクリックします。
+
+![](./Files/Atlas/image/image1330.png)  
+
+<br>
+
+インストール先のフォルダ設定画面はデフォルトのまま「Next」をクリックします。
+
+![](./Files/Atlas/image/image1331.png)  
+
+<br>
+
+セットアップのカスタマイズ画面もデフォルトのまま「Next」をクリックします。  
+（すべてローカルディスクにインストールされます。）
+
+![](./Files/Atlas/image/image1332.png)  
+
+<br>
+
+ネイティブモジュールをコンパイルするために必要なツールをオプションでインストールすることができますが、チェックを入れずデフォルトのまま「Next」をクリックします。  
+
+![](./Files/Atlas/image/image1333.png)  
+
+<br>
+
+「Install」をクリックして、インストールを開始します。  
+
+![](./Files/Atlas/image/image1334.png)  
+
+<br>
+
+インストールの終了画面が表示されたら「Finish」をクリックします。
+
+![](./Files/Atlas/image/image1335.png)  
+
+以上でNodeJS のインストールは完了です。  
+
+<br>
+
+---
+# **6　Atlas のインストール**
+本手順は以下のサイトを参考にしています。  
+
+https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
+
+---
+## **6．1　Atlas のインストール**
+Git のフォルダ内に「Atlas」フォルダを作成します。　　
+
+![](./Files/Atlas/image/image1336.png)  
+
+<br>
+
+スタートメニューを開き、Git Bash を起動して、下記のコマンドを入力して作成したAtlas フォルダに移動します。  
+```
+$ cd c:
+$ cd Git
+$ cd OHDSI
+$ cd Atlas
+```
+
+![](./Files/Atlas/image/image258.jpeg)  
+
+<br>
+
+Atlas のインストールを実施します。  
+下記のサイトにアクセスして、「Atlas Installation」内の「Code Deployment」に「latest release of ATLAS」リンクがあるので、クリックして最新バージョンのAtlas が提供されているページに移動します。  
+
+https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
+
+![](./Files/Atlas/image/image260.jpeg)  
+
+<br>
+
+「Asset」内の「Source code (zip)」をクリックしてファイルをダウンロードします。  
+
+![](./Files/Atlas/image/image261.png)  
+
+<br>
+
+ファイルのダウンロードが終了したら、zip ファイルを解凍して作成した「Atlas」フォルダにコピーします。  
+
+![](./Files/Atlas/image/image1337.png)  
+
+<br>
+
+Git Bash で下記のコマンドを入力して、ビルドします。
+```
+$ npm run build
+```
+
+![](./Files/Atlas/image/image1338.png)  
+
+<br>
+
+ビルドが完了しました。
+
+![](./Files/Atlas/image/image1339.png)  
+（※オフラインインストールを実施する場合、以降の手順については「手順７補足」の「7.3 Atlas のオフラインインストール」に従ってください。）  
+
+<br>
+
+ビルドした「Atlas」フォルダを、tomcat のフォルダ（c:\tomcat\webapps\）にコピーします。  
+
+![](./Files/Atlas/image/image1341.png)  
+
+<br>
+
+---
+## **6．2　source テーブルへのレコード追加**
+スタートメニューを開き、「SQL Shell (psql)」を起動します。
+
+![](./Files/Atlas/image/image1343.png)  
+
+<br>
+
+各項目について下記のように入力し、ログインします。  
+```
+Server : localhost
+Database : OHDSI
+Port : 5432
+Username : ohdsi_app_user
+Client Encoding : SJIS
+```
+パスワード : 「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力
+
+![](./Files/Atlas/image/image1345.png)  
+
+<br>
+
+以下のコマンドを入力し、「current_schema」を「webapi」に変更します。
+```
+# set search_path to "webapi";
+
+```
+続けて以下のコマンドを入力し、変更されたことを確認します。  
+```
+select current_schema();
+```
+
+![](./Files/Atlas/image/image1347.png)  
+
+<br>
+
+下記のSQL を実行して、SOURCE テーブルにレコードを追加します。  
+```
+insert into source(
+source_id,
+source_name,
+source_key,
+source_connection,
+source_dialect
+)
+values(
+1,
+'CDM V5 Database',
+'cdmv5',
+'jdbc:postgresql://127.0.0.1:5432/OHDSI?user=ohdsi_app_user&password=XXXX',
+'postgresql'
+)
+;
+```
+上記のSQL に関しては以下のような注意点があります。  
+① 9 行目の「1」は後述のSQL と一致させる必要があります。  
+② 11 行目の「cdmv5」は接続スキーマ名です。  
+③ 12 行目の「127.0.0.1:5432/OHDSI」は「ホストアドレス:ポート/データベース名」となります。  
+④ 12 行目の「user=ohdsi_app_user」は接続ユーザー名を指します。  
+⑤ 12 行目の「password=XXXX」は接続パスワードを指します。  
+XXXX の部分には「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力します。  
+
+![](./Files/Atlas/image/image1349.png)  
+
+<br>
+
+同様にして、下記のようにSOURCE_DAIMON テーブルにレコードを4 つ追加しま
+す。  
+```
+insert into source_daimon (
+source_daimon_id,
+source_id,
+daimon_type,
+table_qualifier,
+priority
+)
+values (
+1,
+1, （⇒上述のSQL の1 の箇所と同じ値）
+0,
+'cdmv5', （⇒スキーマ名）
+2
+)
+;
+insert into source_daimon (
+source_daimon_id,
+source_id,
+daimon_type,
+table_qualifier,
+priority
+)
+values (
+2,
+1,
+1,
+'cdmv5',
+2
+)
+;
+insert into source_daimon (
+source_daimon_id,
+source_id,
+daimon_type,
+table_qualifier,
+priority
+)
+values (
+3,
+1,
+2,
+'webapi',
+2
+)
+;
+insert into source_daimon (
+source_daimon_id,
+source_id,
+daimon_type,
+table_qualifier,
+priority
+)
+values (
+4,
+1,
+3,
+'webapi',
+2
+)
+;
+```
+右上の×ボタンをクリックしてpsql を閉じます。  
+
+次にtomcat を起動するために、コマンドプロンプトを起動します。  
+コマンドプロンプトを右クリックし「管理者として実行」を選択して起動します。  
+
+![](./Files/Atlas/image/image1351.png)  
+
+<br>
+
+「C:\tomcat\bin」へ移動して、「catalina.bat run」と入力して実行します。  
+
+![](./Files/Atlas/image/image1353.png)  
+
+<br>
+
+起動が完了します。
+
+![](./Files/Atlas/image/image272.jpeg)  
+
+以下URL をブラウザで指定して起動します。  
+
+http://localhost:8080/manager  
+
+Tomcat のユーザー名とパスワードを入力します。  
+
+![](./Files/Atlas/image/image273.jpeg)  
+
+<br>
+
+「Tomcat Web アプリケーションマネージャ」が開き、「アプリケーション」欄内のパスに「/Atlas」が表示されているので、「/Atlas」をクリックします。  
+
+![](./Files/Atlas/image/image1355.png)  
+
+<br>
+
+Atlas の画面が表示されます。  
+
+![](./Files/Atlas/image/image274.jpeg)  
+
+<br>
+
+Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」を実行します。
+
+![](./Files/Atlas/image/image1357.png)  
+
+以上でAtlas のセットアップは完了です。  
+
+---
+# **7　補足：オフラインインストール手順**
+各ツールのオフラインでもインストール方法について説明します。  
+<br>
+
+---
+## **7．1　WebAPI のオフラインインストール  **
+ビルドの完了までは通常の手順と同様になります。「手順3.5 WebAPI の構築」
+のビルド完了後の手順を以下に記載します。  
+ビルドしたWebAPI のtarget フォルダをオフライン環境の任意のフォルダへコ
+ピーします。  
+「手順3.6 Tomcat インストール」でwar ファイルを配備する際、コピーした
+target フォルダ内にある、WebAPI.war を選択します。  
+
+![](./Files/Atlas/image/image1359.png)  
+
+<br>
+
+---
+## **7．2　R のオフラインインストール**
+Achilles のインストールまでは通常の手順と同様になります。「手順4.4 Achillesのインストール」のインストール完了後の手順を以下に記載します。  
+Achilles のインストールが完了したPC でR コンソールを起動し、下記コマンドを実行します。  
+```
+> Install.packages(“miniCRAN”)
+```
+
+![](./Files/Atlas/image/image277.jpeg)  
+
+<br>
+
+次に、下記のコマンドを入力します。  
+```
+> Install.packages(“igraph”)
+```
+
+![](./Files/Atlas/image/image279.jpeg)  
+
+<br>
+
+実行後、「パッケージのソースからインストールを行いますか？」と表示されるので、「いいえ」をクリックして、バイナリファイルからのインストールを選択します。
+
+![](./Files/Atlas/image/image1360.jpeg)  
+
+<br>
+
+次に、下記のコマンドを入力します。  
+```
+> Library(miniCRAN)
+```
+
+![](./Files/Atlas/image/image281.jpeg)  
+
+<br>
+
+「igraph.zip」と「miniCRAN.zip」がダウンロードされていることを確認します。  
+
+![](./Files/Atlas/image/image282.jpeg)  
+
+<br>
+
+続いて、devtools のパッケージのダウンロードを実施します。  
+下記のコマンドを入力します。  
+```
+> Setwd(.libPaths())
+```
+
+![](./Files/Atlas/image/image283.png)  
+
+<br>
+
+以下のコマンドについても順次入力します。  
+```
+> pkgname <- c("devtools")
+> pkgs <- pkgDep(pkgname)
+```
+次にパッケージダウンロード先のフォルダを下記のように指定します。  
+```
+> setwd("C:\\tmp\\R_pkgs\\")
+```
+上記のコマンドで指定したディレクトリ内のdownload フォルダに対象のファイルをダウンロードするために、下記のようにコマンド入力します。  
+```
+> download.packages(pkgs, destdir="download\\", type="win.binary")
+```
+
+![](./Files/Atlas/image/image284.jpeg)  
+![](./Files/Atlas/image/image285.jpeg)  
+
+<br>
+
+対象物のダウンロードが完了しました。
+
+![](./Files/Atlas/image/image1361.png)  
+
+<br>
+
+同様にして、Achilles の関連パッケージもダウンロードします。  
+下記のコマンドを順次入力します。  
+```
+> setwd(.libPaths())
+```
+![](./Files/Atlas/image/image286.png)  
+
+<br>
+
+```
+> pdb <- addPackageListingGithub(pdb=available.packages(),"OHDSI/Achilles")
+```
+![](./Files/Atlas/image/image287.png)  
+
+<br>
+
+```
+> library(tools)
+```
+![](./Files/Atlas/image/image288.png)  
+
+<br>
+
+```
+> base_pkgs <- package_dependencies(packages="Achilles",pdb,which="Depends")[[1]]
+```
+![](./Files/Atlas/image/image291.png)  
+
+<br>
+
+```
+> pkgs <- pkgDep(base_pkgs)
+```
+![](./Files/Atlas/image/image292.png)  
+
+<br>
+
+ダウンロードするフォルダを指定します。  
+```
+> setwd("C:\\tmp\\R_pkgs\\")
+```
+![](./Files/Atlas/image/image293.png)  
+
+<br>
+
+上記のコマンドで指定したディレクトリ内のdownload フォルダに対象のファイ
+ルをダウンロードします。  
+
+```
+> download.packages(pkgs, destdir="download\\", type="win.binary")
+```
+
+![](./Files/Atlas/image/image295.jpeg)  
+![](./Files/Atlas/image/image296.jpeg)  
+
+<br>
+
+devtools とAchilles のパッケージがダウンロードされたことを確認します。  
+
+![](./Files/Atlas/image/image1362.png)  
+
+<br>
+
+追加でrjson とParallelLogger をダウンロードします。  
+下記のコマンドを順次入力します。  
+```
+> download.packages(”rjson", destdir="download\\", type="win.binary")
+```
+
+![](./Files/Atlas/image/image298.jpeg)  
+
+<br>
+
+ダウンロードしたパッケージが入っているフォルダを、オフライン環境へコピー
+するため、オフライン環境でR コンソールを起動し、下記コマンドを順次実行し
+ます。  
+```
+> zipdir <- 'C:\\tmp\\R_pkgs\\packages'
+```
+
+![](./Files/Atlas/image/image299.png)  
+
+<br>
+
+```
+> ziplist <- list.files(zipdir, pattern=".zip", recursive=T)
+```
+
+![](./Files/Atlas/image/image302.png)  
+
+<br>
+
+```
+> pkglist <- as.character(lapply(ziplist, function(f) { paste(zipdir, '\\', f, sep="") }))
+```
+
+![](./Files/Atlas/image/image303.jpeg)  
+
+<br>
+
+```
+> install.packages(pkglist, repos = NULL, type="win.binary")
+```
+
+![](./Files/Atlas/image/image304.jpeg)  
+
+<br>
+
+以上でインストールは完了です。  
+
+![](./Files/Atlas/image/image305.jpeg)  
+
+<br>
+
+---
+## **7．3　Atlas のオフラインインストール**
+ビルド完了までは通常手順と同様になります。  
+「手順6.1 Atlas インストール」のビルド完了後の手順を以下に記載します。  
+ビルドが完了したAtlas フォルダをオフライン環境のTomcat フォルダ（tomcat\webapps\）へコピーします。  
+
+![](./Files/Atlas/image/image306.jpeg)  
+
+以降の手順はオンラインインストールと同様で、Source テーブルへレコードを追加してTomcat を起動します。  
+手順6 を参照してください。
