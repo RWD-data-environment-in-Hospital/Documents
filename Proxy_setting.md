@@ -53,9 +53,9 @@ Windows 環境変数へ変数を追加します。
 - 変数名：https_proxy
 - 変数値：http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>　　　※http_proxy と同じ値
 
-![](Files/proxy/image/image3.jpeg)
-![](Files/proxy/image/image4.jpeg)
-![](Files/proxy/image/image5.jpeg)
+![](Files/proxy/image/image3.jpeg)  
+![](Files/proxy/image/image4.jpeg)  
+![](Files/proxy/image/image5.jpeg)  
 
 <br>
 
