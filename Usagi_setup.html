@@ -380,6 +380,7 @@ code {
 </li>
 </ul>
 <p><a href="#%E5%8F%82%E8%80%83athena%E3%81%8B%E3%82%89%E3%81%AEvocabulary%E3%81%AE%E5%85%A5%E6%89%8B%E6%96%B9%E6%B3%95">参考：Athenaからのvocabularyの入手方法</a></p>
+<br>
 <hr>
 <h1 id="1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．<strong>本手順について</strong></h1>
 <p>Usagiをセットアップするための手順を説明します。<br>
@@ -389,32 +390,40 @@ code {
 <li>Java（バージョン1.8以降）</li>
 </ul>
 <p>作業の所要時間は約1時間です。</p>
+<br>
 <hr>
 <h1 id="2usagi%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">2．<strong>Usagiのセットアップ</strong></h1>
 <p>Usagiの動作環境を構築します。<br>
 <a href="https://github.com/OHDSI/Usagi"><ins>GithubのOHDSI/Usagi</ins></a>にアクセスして、セットアップを進めていきます。</p>
 <p><img src="Files/Usagi/image/image1.png" alt=""></p>
+<br>
 <hr>
 <h1 id="21athena%E3%81%B8%E3%81%AE%E4%BC%9A%E5%93%A1%E7%99%BB%E9%8C%B2"><strong>2．1．Athenaへの会員登録</strong></h1>
 <p>GithubのOHDSI/Usagiページの［Getting Started］項目内の<a href="https://athena.ohdsi.org/search-terms/start"><ins>Athena</ins></a>（赤枠）をクリックします。</p>
 <p><img src="Files/Usagi/image/image6.png" alt=""></p>
+<br>
 <p>右上の［LOGIN］をクリックします。<br>
 Athenaを初めて使用する際には会員登録が必要です。</p>
 <p><img src="Files/Usagi/image/image5.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>会員登録後にログインし、各領域の語彙を入手することができるようになります。</p>
 <p><img src="Files/Usagi/image/image2.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <hr>
 <h1 id="22usagi%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>2．2．Usagiのインストール</strong></h1>
 <p>GithubのOHDSI/Usagiページの［Getting Started］項目内の<a href="https://github.com/OHDSI/Usagi/releases"><ins>Releases</ins></a>（赤枠）をクリックします。</p>
 <p><img src="Files/Usagi/image/image7.png" alt=""></p>
+<br>
 <p>Usagi_v1.4.3.jar（赤枠）をクリックし、ファイルをダウンロードします。<br>
 （バージョンが異なる場合、参考資料とファイル名も異なるため注意してください。）</p>
 <p><img src="Files/Usagi/image/image8.png" alt=""></p>
+<br>
 <p>ダウンロードしたファイルをクリックした後、<br>
 「この種類のファイルはコンピューターに損害を与える可能性があります。」と表示されますが、「保存」をクリックし、任意の場所に保存します。</p>
 <p><img src="Files/Usagi/image/image9.png" alt=""></p>
+<br>
 <hr>
 <h1 id="23usagi%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%81%9C%E6%AD%A2"><strong>2．3．Usagiの起動・停止</strong></h1>
 <h2 id="231usagi%E3%81%AE%E8%B5%B7%E5%8B%95"><strong>2．3．1．Usagiの起動</strong></h2>
@@ -423,34 +432,42 @@ Athenaを初めて使用する際には会員登録が必要です。</p>
 ２．２．でダウンロードしたUsagiのjarファイルを任意のフォルダに格納します。<br>
 同一フォルダ内に新規テキストを作成します。</p>
 <p><img src="Files/Usagi/image/image10.png" alt=""></p>
+<br>
 <p>テキストを開き、</p>
 <pre class="hljs"><code><div>java -jar Usagi_v1.4.3.jar
 </div></code></pre>
 <p>を記載します。（Usagiのファイルのバージョンは必要に応じて変更してください）</p>
 <p><img src="Files/Usagi/image/image3.png" alt=""></p>
+<br>
 <p>テキストファイルの拡張子を .bat　に変更して保存します。（ファイル名は任意です）</p>
 <p><img src="Files/Usagi/image/image11.png" alt=""></p>
+<br>
 <p>バッチファイルをダブルクリックすると、Usagiが起動します。<br>
 起動時にAuthor記入欄が表示されます。Authorを指定する場合は任意の名前を入力し、［Save］をクリックしてください。<br>
 指定しない場合は、［×］をクリックすると次の画面に遷移します。</p>
 <p><img src="Files/Usagi/image/image4.png" alt=""></p>
+<br>
 <p>Authorを指定すると画面下（赤枠）にAuthorが表示されます。<br>
 以上の操作でUsagiの起動は完了です。<br>
 ※Usagi起動時に、下図の様に「Rebuild index」と言う画面が表示されますが、ここでは「Cancel」をクリックしてください。</p>
 <p><img src="Files/Usagi/image/image12.png" alt=""></p>
+<br>
 <hr>
 <h2 id="232usagi%E3%81%AE%E5%81%9C%E6%AD%A2"><strong>2．3．2．Usagiの停止</strong></h2>
 <p>Usagiの画面左上の［File］タブ内の［Exit］（赤枠）をクリックしてUsagiを終了します。</p>
 <p><img src="Files/Usagi/image/image13.png" alt=""></p>
+<br>
 <hr>
 <h1 id="%E5%8F%82%E8%80%83athena%E3%81%8B%E3%82%89%E3%81%AEvocabulary%E3%81%AE%E5%85%A5%E6%89%8B%E6%96%B9%E6%B3%95"><strong>参考：Athenaからのvocabularyの入手方法</strong></h1>
 <p>Athenaを開き、ログインします。
 ログイン後、画面右上の［DOWNLOAD］をクリックします。</p>
 <p><img src="Files/Usagi/image/image14.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>［DOWNLOAD]をクリックすると、以下の画面が表示されます。</p>
 <p><img src="Files/Usagi/image/image15.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>本書では以下のvocabularyのダウンロードを実施しています。<br>
 各研究に応じて、ダウンロードするvocabularyは取捨選択してください。<br>
 注意：「Required」欄に「License required」と記載があるvlcabularyは、ダウンロード時にライセンスが求められる場合があります。</p>
@@ -795,10 +812,12 @@ Athenaを初めて使用する際には会員登録が必要です。</p>
 </tr>
 </tbody>
 </table>
+<br>
 <p>ダウンロード方法を説明します。<br>
 上記に記載したvocabularyのチェック欄（左側赤枠）をクリックしてチェックを入れ、画面右上の紫色の［DOWNLOAD VOCABULARIES］をクリックします。</p>
 <p><img src="Files/Usagi/image/image16.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>［DOWNLOAD SUMMARY］が表示されるので、［name bundle］欄に任意の名前を入力してください。<br>
 （［name bundle］に入力した名前は、［DOWNLOAD HISTORY］に表示されるファイル名になります）<br>
 ［Notify me about changes in these vocabularies］にチェックを入れて、［DOWNLOAD］をクリックします。<br>
@@ -806,10 +825,12 @@ vocabularyが準備中であるというメッセージが表示されます。<
 <p><img src="Files/Usagi/image/image17.png" alt=""><br>
 <img src="Files/Usagi/image/image18.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）<br>
 メール受領後、Athenaの画面右上の［SHOW HISTORY］をクリックし、［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。</p>
 <p><img src="Files/Usagi/image/image19.png" alt=""><br>
 <em>Odysseus Data Services, Inc. 「Athena」</em></p>
+<br>
 <p>ダウンロードしたvocabularyには下記のファイルが含まれています。<br>
 これらのファイルはUsagiのIndexの作成で使用します。（【Usagi操作手順書】【3-3】参照）</p>
 <table>
@@ -851,9 +872,10 @@ vocabularyが準備中であるというメッセージが表示されます。<
 </tr>
 </tbody>
 </table>
-<p>Athena上でvocabularyにアップデートがあった場合には、Athenaより「Vocabulary versionupdate」という件名で登録したメールアドレス宛に通知が来ます。<br>
-メール本文に新しいバージョンがリリースされたvocabulary名が記載されており、対象のvocabularyを最新化するために、Athenaのサイトから上記の方法に従って再度ダウンロードする必要があります。<br>
-ダウンロード後は、改めてUsagiでvocabularyファイルの読込を実施してください。</p>
+<br>
+<p>Athena上でvocabularyにアップデートがあった場合には、Athenaより「Vocabulary versionupdate」という件名で登録したメールアドレス宛に通知が来ます。</p>
+<p>メール本文に新しいバージョンがリリースされたvocabulary名が記載されており、対象のvocabularyを最新化するために、Athenaのサイトから上記の方法に従って再度ダウンロードする必要があります。</p>
+<p>ダウンロード後は、改めてUsagiでvocabularyファイルの読込を実施してください。</p>
 <p>Usagiへの読込については、【Usagi操作手順書】の【3-3】を参照してください。</p>
 
 </body>

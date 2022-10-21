@@ -16,7 +16,7 @@
 　[3．6　Apache Tomcat 8 のインストール](#36-apache-tomcat-8-のインストール)  
 　[3．7　WebAPI の更新](#37-webapi-の更新)  
 [4．Achilles のインストール](#4achilles-のインストール)  
-　[4．1 Ｒのインストール](#41-ｒのインストール)  
+　[4．1 R のインストール](#41-ｒのインストール)  
 　[4．2 R tools のインストール](#42-r-tools-のインストール)  
 　[4．3 R studio のインストール](#43-r-studio-のインストール)  
 　[4．4 Achilles インストール](#44-achilles-インストール)  
@@ -57,13 +57,19 @@ https://github.com/OHDSI/Achilles#getting-started
 |Rstudio|2021.09.1+ 372||
 |NodeJS|14.18.1||
 
+<br>
+
 セットアップに要する総作業時間は3 日を想定しています。  
+
+<br>
 
 ---
 # **2．Atlas セットアップの流れ**
 本手順書では以下の流れでAtlas のセットアップを実施します。  
 
 ![](./Files/Atlas/image/image307.png)
+
+<br>
 
 ---
 # **3．OHDSI WebAPI**
@@ -1591,7 +1597,7 @@ R コンソールを再起動して、下記のコマンドを入力します。
 > Sys.which("make")
 "C:\\rtools40\\usr\\bin\\make.exe"
 ```
-上記のように表示されれば、PATH が通っています。  
+下記のように表示されれば、PATH が通っています。  
 
 ![](./Files/Atlas/image/image1318.png)  
 

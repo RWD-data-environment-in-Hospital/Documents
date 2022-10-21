@@ -1,7 +1,7 @@
 # **プロキシ 設定手順**
 
 ### **目次**
-[1． 本手順について  ](#1本手順について)
+[1． 本手順について  ](#1本手順について)  
 [2． Windows 環境変数](#2windows-環境変数)  
 [3． GitBash 用プロキシ設定](#3-gitbash-用プロキシ設定)  
 [4． Apache Maven 用プロキシ設定](#4apache-maven-用プロキシ設定)  
@@ -26,6 +26,8 @@
 |R tools|4||
 |Rstudio|2021.09.1+ 372||
 
+<br>
+
 ---
 ## **2．Windows 環境変数**
 Windows 環境変数へ変数を追加します。  
@@ -35,9 +37,13 @@ Windows 環境変数へ変数を追加します。
 
 ![](Files/proxy/image/image1.png)
 
+<br>
+
 「システムの詳細設定」内の「環境変数」をクリックします。  
 
 ![](Files/proxy/image/image2.png)
+
+<br>
 
 「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。作成後、「OK」をクリックします。
 - 変数名：http_proxy
@@ -49,12 +55,16 @@ Windows 環境変数へ変数を追加します。
 ![](Files/proxy/image/image4.jpeg)
 ![](Files/proxy/image/image5.jpeg)
 
+<br>
+
 「システム環境変数」内に新たに  
 http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 が追加されていることを確認します。  
 
 ![](Files/proxy/image/image14.png)
+
+<br>
 
 ---
 ## **3． GitBash 用プロキシ設定**
@@ -65,6 +75,8 @@ $ git config --global http.proxy http://[proxy]:[port]
 ```
 
 ![](Files/proxy/image/image7.jpeg)
+
+<br>
 
 ---
 ## **4．Apache Maven 用プロキシ設定**
@@ -81,6 +93,8 @@ Apache Maven インストールフォルダ(本手順では「c:\maven」)にあ
 ```
 
 ![](Files/proxy/image/image8.jpeg)
+
+<br>
 
 ＜修正前＞
 ```
@@ -140,6 +154,8 @@ Apache Maven インストールフォルダ(本手順では「c:\maven」)にあ
 </proxies>
 ```
 
+<br>
+
 ---
 ## **5．Ｒ用プロキシ設定**
 Atlas セットアップ手順「4.3 R studio のインストール」で実施します。  
@@ -153,20 +169,27 @@ R インストール後に１回のみ実施してください。
 
 ![](Files/proxy/image/image9.jpeg)
 
+<br>
+
 R エディタが起動しますので、以下２行を追加します。
-```
-http_proxy="http://[proxy]:[port]"
-https_proxy="http://[proxy]:[port]"
-```
+
+http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
+https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 
 ![](Files/proxy/image/image10.jpeg)
+
+<br>
 
 入力後、×ボタンでR エディタ画面を閉じます。  
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。  
 
 ![](Files/proxy/image/image11.jpeg)
 
+<br>
+
 Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。  
+
+<br>
 
 ---
 ## **6．R・devtools 用プロキシ設定**
@@ -179,6 +202,7 @@ Atlas セットアップ手順「4.4 Achilles インストール」で実施し�
 
 ![](Files/proxy/image/image12.jpeg)
 
+<br>
 
 続けて以下コマンドを入力します。
 ```
@@ -187,5 +211,7 @@ Atlas セットアップ手順「4.4 Achilles インストール」で実施し�
 ```
 
 ![](Files/proxy/image/image13.jpeg)
+
+<br>
 
 Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。

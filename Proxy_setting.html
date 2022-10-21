@@ -367,12 +367,12 @@ code {
   </script>
 <h1 id="%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7-%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86"><strong>プロキシ 設定手順</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
-<p>1． 本手順について<br>
-2． Windows 環境変数<br>
-3． GitBash 用プロキシ設定<br>
-4． Apache Maven 用プロキシ設定<br>
-5． R 用プロキシ設定<br>
-6． R・devtools 用プロキシ設定</p>
+<p><a href="#1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1． 本手順について  </a><br>
+<a href="#2windows-%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0">2． Windows 環境変数</a><br>
+<a href="#3-gitbash-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A">3． GitBash 用プロキシ設定</a><br>
+<a href="#4apache-maven-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A">4． Apache Maven 用プロキシ設定</a><br>
+<a href="#5%EF%BD%92%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A">5． R 用プロキシ設定</a><br>
+<a href="#6r%E3%83%BBdevtools-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A">6． R・devtools 用プロキシ設定</a></p>
 <hr>
 <h2 id="1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1．本手順について</strong></h2>
 <p>プロキシ設定手順について説明します。<br>
@@ -419,14 +419,17 @@ code {
 </tr>
 </tbody>
 </table>
+<br>
 <hr>
 <h2 id="2windows-%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0"><strong>2．Windows 環境変数</strong></h2>
 <p>Windows 環境変数へ変数を追加します。<br>
 なお、本手順で記載する<span style="color: orange; ">[proxy]</span></span>はプロキシサーバー名（またはアドレス）、<span style="color: orange; ">[port]</span>はポート番号に読み替えて入力を行ってください。</p>
 <p>「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。</p>
 <p><img src="Files/proxy/image/image1.png" alt=""></p>
+<br>
 <p>「システムの詳細設定」内の「環境変数」をクリックします。</p>
 <p><img src="Files/proxy/image/image2.png" alt=""></p>
+<br>
 <p>「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。作成後、「OK」をクリックします。</p>
 <ul>
 <li>変数名：http_proxy</li>
@@ -437,17 +440,21 @@ code {
 <p><img src="Files/proxy/image/image3.jpeg" alt="">
 <img src="Files/proxy/image/image4.jpeg" alt="">
 <img src="Files/proxy/image/image5.jpeg" alt=""></p>
+<br>
 <p>「システム環境変数」内に新たに<br>
 http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 が追加されていることを確認します。</p>
 <p><img src="Files/proxy/image/image14.png" alt=""></p>
+<br>
+<hr>
 <h2 id="3-gitbash-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>3． GitBash 用プロキシ設定</strong></h2>
 <p>Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。<br>
 スタートメニューからGit Bash を起動し、下記コマンドを実行します。</p>
 <pre class="hljs"><code><div>$ git config --global http.proxy http://[proxy]:[port]
 </div></code></pre>
 <p><img src="Files/proxy/image/image7.jpeg" alt=""></p>
+<br>
 <hr>
 <h2 id="4apache-maven-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>4．Apache Maven 用プロキシ設定</strong></h2>
 <p>Apache Maven インストールフォルダ(本手順では「c:\maven」)にある「conf」フォルダ内の「settings.xml」ファイルを開き、下記の設定行を追加します。</p>
@@ -460,6 +467,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 &lt;/proxy&gt;
 </div></code></pre>
 <p><img src="Files/proxy/image/image8.jpeg" alt=""></p>
+<br>
 <p>＜修正前＞</p>
 <pre class="hljs"><code><div>&lt;!-- proxies
 | This is a list of proxies which can be used on this machine to connect to the network.
@@ -514,6 +522,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 --&gt;
 &lt;/proxies&gt;
 </div></code></pre>
+<br>
 <hr>
 <h2 id="5%EF%BD%92%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>5．Ｒ用プロキシ設定</strong></h2>
 <p>Atlas セットアップ手順「4.3 R studio のインストール」で実施します。<br>
@@ -523,15 +532,19 @@ R インストール後に１回のみ実施してください。<br>
 <pre class="hljs"><code><div>&gt; file.edit('~/.Renviron')
 </div></code></pre>
 <p><img src="Files/proxy/image/image9.jpeg" alt=""></p>
+<br>
 <p>R エディタが起動しますので、以下２行を追加します。</p>
-<pre class="hljs"><code><div>http_proxy=&quot;http://[proxy]:[port]&quot;
-https_proxy=&quot;http://[proxy]:[port]&quot;
-</div></code></pre>
+<p>http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
+https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span></p>
 <p><img src="Files/proxy/image/image10.jpeg" alt=""></p>
+<br>
 <p>入力後、×ボタンでR エディタ画面を閉じます。<br>
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。</p>
 <p><img src="Files/proxy/image/image11.jpeg" alt=""></p>
+<br>
 <p>Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。</p>
+<br>
+<hr>
 <h2 id="6r%E3%83%BBdevtools-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>6．R・devtools 用プロキシ設定</strong></h2>
 <p>Atlas セットアップ手順「4.4 Achilles インストール」で実施します。
 スタートメニューを開き、Ｒコンソールを起動します。<br>
@@ -539,11 +552,13 @@ https_proxy=&quot;http://[proxy]:[port]&quot;
 <pre class="hljs"><code><div>&gt; library(devtools)
 </div></code></pre>
 <p><img src="Files/proxy/image/image12.jpeg" alt=""></p>
+<br>
 <p>続けて以下コマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(httr)
 &gt; set_config(use_proxy(url=&quot;http://[proxy]&quot;, port=[port],))
 </div></code></pre>
 <p><img src="Files/proxy/image/image13.jpeg" alt=""></p>
+<br>
 <p>Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。</p>
 
 </body>

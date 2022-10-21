@@ -13,6 +13,8 @@
   - [2．3．1．Rabbit-in-a-Hatの起動](#231rabbit-in-a-hatの起動)  
   - [2．3．2．Rabbit-in-a-Hatの停止](#232rabbit-in-a-hatの停止)
 
+<br>
+
 ---
 # **1．本手順について**
 White Rabbitをセットアップするための手順を説明します。  
@@ -23,6 +25,8 @@ White Rabbitをセットアップするための手順を説明します。
 
 作業の所要時間は約1時間です。  
 
+<br>
+
 ---
 # **2．White Rabbit・Rabbit-in-a-Hatのセットアップ**
 White Rabbit・Rabbit-in-a-Hatの動作環境を構築します。  
@@ -30,19 +34,25 @@ White Rabbit・Rabbit-in-a-Hatの動作環境を構築します。
 
 ![](Files/WhiteRabbit/image/image1.png)
 
+<br>
+
 ---
 ## **2．1．White Rabbit・Rabbit-in-a-Hatのインストール**
 GithubのOHDSI/USAGIページの［Getting Started］項目内の[<ins>Releases,</ins>](https://github.com/OHDSI/WhiteRabbit/releases)（赤枠）をクリックします。
 
 ![](Files/WhiteRabbit/image/image4.png)
 
-7 /10 ページ WhiteRabbit_v0.10.3.zip（赤枠）をクリックしてダウンロードします。  
+<br>
+
+WhiteRabbit_v0.10.3.zip（赤枠）をクリックしてダウンロードします。  
 本ファイル内には、White RabbitとRabbit-in-a-Hatのファイルが格納されています。  
 （バージョンが異なる場合、参考資料とファイル名も異なるためご注意ください。）  
 
 ![](Files/WhiteRabbit/image/image5.png)
 
 ダウンロードが完了したらファイルを右クリックし、［すべて展開］を選択して、任意の展開先を参照して解凍し、保存します。
+
+<br>
 
 ---
 ## **2．2．White Rabbitの起動・停止**
@@ -53,11 +63,15 @@ GithubのOHDSI/USAGIページの［Getting Started］項目内の[<ins>Releases,
 
 ［bin］フォルダ内のwhiteRabbit.batをダブルクリックすると、White Rabbitが起動して画面が表示されます。
 
+<br>
+
 ---
 ### **2．2．2．White Rabbitの停止**
 White Rabbit終了時は、画面右上の［×］をクリックして画面を閉じます。
 
 ![](Files/WhiteRabbit/image/image2.png)
+
+<br>
 
 ---
 ## **2．3．Rabbit-in-a-Hatの起動・停止**
@@ -67,9 +81,13 @@ White Rabbit終了時は、画面右上の［×］をクリックして画面を
 
 ![](Files/WhiteRabbit/image/image7.png)
 
+<br>
+
 RabbitInAHat.batをダブルクリックすると、Rabbit-in-a-Hatが起動して画面が表示されます。
 
 ![](Files/WhiteRabbit/image/image3.png)
+
+<br>
 
 ---
 ### **2．3．2．Rabbit-in-a-Hatの停止**
