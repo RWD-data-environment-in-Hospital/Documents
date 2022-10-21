@@ -64,7 +64,7 @@ http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="colo
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 が追加されていることを確認します。  
 
-![](Files/proxy/image/image14.png)
+![](Files/proxy/image/image6.jpeg)
 
 <br>
 
