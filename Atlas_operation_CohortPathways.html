@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Atlas_operation_CohortPathways.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>Atlas 操作手順</strong></h1>
+<h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
+<p><a href="#1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1　本手順について</a><br>
+<a href="#2-atlas-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Atlas 操作の流れ</a><br>
+<a href="#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">3　Eunomia テストデータのセットアップについて</a><br>
+　<a href="#31-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88">3．1　Eunomia からデータのエクスポート</a><br>
+　<a href="#32-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">3．2　データベースへのインポート</a><br>
+<a href="#4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C">4　Achilles の実行</a><br>
+<a href="#5-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90">5　Concept Sets の作成</a><br>
+<a href="#6-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90">6　Cohort Definitions の作成</a><br>
+<a href="#7-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90">7　Cohort Pathways（経路分析）</a></p>
+<br>
+<hr>
+<h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順について</strong></h1>
+<p>Atlas の操作手順について説明します。<br>
+本操作手順は、以下のAtlas 動作環境が整備されていることを前提としています。</p>
+<ul>
+<li>Windows10（64 ビット）</li>
+<li>Java 8 Java Development Kit (JDK)</li>
+<li>Atlas セットアップ（「Atlas セットアップ手順」参照）</li>
+</ul>
+<br>
+<hr>
+<h1 id="2-atlas-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Atlas 操作の流れ</strong></h1>
+<p>本操作手順では、Cohort Pathways を用いた分析を対象にして手順を記載しています。</p>
+<p><img src="./Files/Atlas_3/image/image34.png" alt=""></p>
+<br>
+<p>本手順では、Eunomia のテストデータを使用してAtlas で分析を実施します。</p>
+<p>＜病名＞</p>
+<ul>
+<li>消化管出血（Gastrointestinal hemorrhage）</li>
+</ul>
+<p>＜薬剤＞</p>
+<ul>
+<li>セレコキシブ（celecoxib）</li>
+<li>ジクロフェナク（diclofenac）</li>
+</ul>
+<p>上記の例に従って各機能の操作手順を説明します。</p>
+<br>
+<hr>
+<h1 id="3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>3　Eunomia テストデータのセットアップについて</strong></h1>
+<p>本章ではインストールしたEunomia のテストデータをデータベースへインポートする手順を記載します。</p>
+<br>
+<hr>
+<h2 id="31-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>3．1　Eunomia からデータのエクスポート</strong></h2>
+<p>以下の手順に従い、インポートするデータをEunomia からエクスポートします。<br>
+まず、エクスポートするテストデータを格納するフォルダを作成しておきます。</p>
+<p><img src="./Files/Atlas_3/image/image1.png" alt=""></p>
+<br>
+<p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
+<p>続いてR コンソールを起動し、以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>&gt; library(Eunomia)
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image2.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; folder &lt;- &quot;D:\\tmp\\output&quot;
+&gt; exportToCsv(folder)
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image3.png" alt=""></p>
+<br>
+<p>下図のメッセージが表示されたら実行は完了です。</p>
+<p><img src="./Files/Atlas_3/image/image4.png" alt=""></p>
+<br>
+<p>作成したフォルダを表示し、エクスポートしたデータが格納されている事を確認します。</p>
+<p><img src="./Files/Atlas_3/image/image5.png" alt=""></p>
+<br>
+<hr>
+<h2 id="32-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88"><strong>3．2　データベースへのインポート</strong></h2>
+<p>インポートを始める前に、エクスポートしたデータの内容を一部修正します。</p>
+<ul>
+<li>
+<p>CONCEPT_ANCESTOR.csv<br>
+ファイルを開き「3.60e+07」を「36000000」に、「3.70e+07」を「37000000」に置き換えます。</p>
+</li>
+<li>
+<p>DRUG_EXPOSURE.csv<br>
+ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に
+置き換えます。</p>
+</li>
+<li>
+<p>MEASUREMENT.csv<br>
+ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に
+置き換えます。</p>
+</li>
+<li>
+<p>OBSERVATION.csv<br>
+ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に
+置き換えます。<br>
+ファイルの修正が完了したら、以下の手順に従いEunomia からエクスポートした
+データをインポートします。</p>
+</li>
+</ul>
+<p>psql を起動し、データベース「OHDSI」へ接続します。<br>
+コマンドプロンプトを起動し以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>psql -U ohdsi_admin_user -d OHDSI
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image6.png" alt=""><br>
+※パスワードはセットアップ時に設定したパスワードを入力します。</p>
+<p>データベースへ接続したら、参照スキーマを設定します。</p>
+<pre class="hljs"><code><div># set search_path to &quot;cdmv5&quot;;
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image7.png" alt=""></p>
+<br>
+<p>以下のコマンドを入力し、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CDM_SOURCE from 'D:\\tmp\output\\CDM_SOURCE.csv' with delimiter ',' csv header
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image8.png" alt=""></p>
+<br>
+<p>実行が成功すると、インポートした件数が表示されます。</p>
+<p><img src="./Files/Atlas_3/image/image9.png" alt=""></p>
+<br>
+<p>同様に以下のコマンドを入力して、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CONCEPT from 'D:\\tmp\output\\CONCEPT.csv' with delimiter ',' csv header
+# \copy CONCEPT_ANCESTOR from 'D:\\tmp\output\\CONCEPT_ANCESTOR.csv' with delimiter ',' csv header
+# \copy CONCEPT_RELATIONSHIP from 'D:\\tmp\output\\CONCEPT_RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy CONCEPT_SYNONYM from 'D:\\tmp\output\\CONCEPT_SYNONYM.csv' with delimiter ',' csv header
+# \copy CONDITION_ERA from 'D:\\tmp\output\\CONDITION_ERA.csv' with delimiter ',' csv header
+# \copy CONDITION_OCCURRENCE from 'D:\\tmp\output\\CONDITION_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy DOMAIN from 'D:\\tmp\output\\DOMAIN.csv' with delimiter ',' csv header
+# \copy DRUG_ERA from 'D:\\tmp\output\\DRUG_ERA.csv' with delimiter ',' csv header
+# \copy DRUG_EXPOSURE from 'D:\\tmp\output\\DRUG_EXPOSURE.csv' with delimiter ',' csv header
+# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' withdelimiter ',' csv header
+# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' withdelimiter ',' csv header
+# \copy OBSERVATION_PERIOD from 'D:\\tmp\output\\OBSERVATION_PERIOD.csv' with delimiter ',' csv header
+# \copy PERSON from 'D:\\tmp\output\\PERSON.csv' with delimiter ',' csv header
+# \copy PROCEDURE_OCCURRENCE from 'D:\\tmp\output\\PROCEDURE_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy RELATIONSHIP from 'D:\\tmp\output\\RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy VISIT_OCCURRENCE from 'D:\\tmp\output\\VISIT_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy VOCABULARY from 'D:\\tmp\output\\VOCABULARY.csv' with delimiter ',' csv header FORCE NOT NULL vocabulary_version,vocabulary_reference
+</div></code></pre>
+<p>性別CONCEPT の登録コマンドを実行します。</p>
+<pre class="hljs"><code><div># insert into cdmv5.concept values (8532,'FEMALE','Gender','Gender','Gender','S','F','1900-01-01','2099-12-31',NULL);
+# insert into cdmv5.concept values (8507,'MALE','Gender','Gender','Gender','S','M','1900-01-01','2099-12-31',NULL);
+</div></code></pre>
+<p>以上でデータセットアップは完了です。</p>
+<br>
+<hr>
+<h1 id="4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>4　Achilles の実行</strong></h1>
+<p>Achilles は、Atlas 内でData Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
+Data Source 機能を使用するためにAchilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
+データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。<br>
+R コンソールを起動し、以下のコマンドを入力し、Achilles を実行します。</p>
+<pre class="hljs"><code><div>&gt; library(Achilles)
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image10.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; Sys.setenv(&quot;DATABASECONNECTOR_JAR_FOLDER&quot;=&quot;C:\\tomcat\\webapps\\WebAPI\\WEB-INF\\lib&quot;)
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image11.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; connectionDetails &lt;- createConnectionDetails(
+dbms=&quot;postgresql&quot;,
+server=&quot;127.0.0.1/OHDSI&quot;,
+user=&quot;ohdsi_app_user&quot;,
+password=&quot;設定したパスワード&quot;,
+port=&quot;5432&quot;)
+</div></code></pre>
+<p><img src="./Files/Atlas_3/image/image12.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; achilles(
+connectionDetails,
+cdmDatabaseSchema=&quot;cdmv5&quot;,
+resultsDatabaseSchema=&quot;webapi&quot;,
+vocabDatabaseSchema=&quot;cdmv5&quot;,
+numThreads=1,
+sourceName=&quot;CDM V5 Database&quot;,
+cdmVersion=&quot;5.3.1&quot;,
+optimizeAtlasCache=TRUE)
+</div></code></pre>
+<br>
+<p>下記のメッセージが表示されたら実行完了です。</p>
+<p><img src="./Files/Atlas_3/image/image13.png" alt=""></p>
+<br>
+<hr>
+<h1 id="5-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5　Concept Sets の作成</strong></h1>
+<p>Concept Sets では、分析で使用する独自のコードリストを作成します。<br>
+分析対象の用語のセットを特定して作成し、再利用することも可能です。<br>
+観察研究でよく使用されるコードリストに相当する、標準化されたコンピューター実行可能ファイルと考えることができます。<br>
+コンセプトセットは、以下の属性を持つコンセプトのリストで構成します。</p>
+<ul>
+<li>
+<p>Exclude：<br>
+選択したコンセプト（Descendants にチェックを入れた場合はその派生も含めて）をコンセプトセットから除外する。</p>
+</li>
+<li>
+<p>Descendants：<br>
+選択したコンセプトだけでなく、その派生のコンセプトについても考慮する。</p>
+</li>
+<li>
+<p>Mapped：<br>
+非標準のコンセプトを検索可能にする。</p>
+</li>
+</ul>
+<p>以下で作成方法を示します。<br>
+本手順では、「Gastrointestinal hemorrhage（消化管出血）」のコンセプトセットの作成を例として取り上げます。</p>
+<br>
+<p>Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラットフォーム内ですでに作成されたコンセプトセットが表示されます。</p>
+<p><img src="./Files/Atlas_3/image/image36.png" alt=""></p>
+<br>
+<p>新たにコンセプトセットを作成するので、画面右の「New Concept Set」をクリックして作成画面に遷移します。</p>
+<p><img src="./Files/Atlas_3/image/image37.png" alt=""></p>
+<br>
+<p>画面上部に新規に作成するコンセプトセットの名前を入力します。</p>
+<p><img src="./Files/Atlas_3/image/image15.png" alt=""></p>
+<br>
+<p>「Concept Set Expression」タブの「Add Concepts」をクリックするとSearch 画面に遷移します。</p>
+<p><img src="./Files/Atlas_3/image/image39.png" alt=""></p>
+<br>
+<p>Search では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。</p>
+<p><img src="./Files/Atlas_3/image/image41.png" alt=""></p>
+<br>
+<p>追加する以下のコンセプトの左側のボックスにチェックを入れていきます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Id</th>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Class</th>
+<th style="text-align:left">Domain</th>
+<th style="text-align:left">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">192671</td>
+<td style="text-align:left">74474003</td>
+<td style="text-align:left">Gastrointestinal hemorrhage</td>
+<td style="text-align:left">Clinical Finding</td>
+<td style="text-align:left">Condition</td>
+<td style="text-align:left">SNOMED</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>ページ下の「Select Concept Set」で先ほど入力した「Gastrointestinal hemorrhage」を選択し、「Add to Concept Set」をクリックします。<br>
+「Gastrointestinal hemorrhage」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。</p>
+<p><img src="./Files/Atlas_3/image/image16.jpeg" alt=""></p>
+<br>
+<p>各コンセプトについて、「Exclude」、「Descendants」、「Mapped」が設定できます。<br>
+派生するコンセプトも分析に含める想定のため、以下のように「Descendants」にチェックを入れます。</p>
+<p><img src="./Files/Atlas_3/image/image17.jpeg" alt=""></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。<br>
+以上でコンセプトセット「Gastrointestinal hemorrhage」の作成が完了しました。</p>
+<p>同様の操作で、以下のコンセプトセットについても作成します。</p>
+<ul>
+<li>diclofenac</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Concept Id</th>
+<th style="text-align:center">Concept Code</th>
+<th style="text-align:center">Concept Name</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Standard Concept Caption</th>
+<th style="text-align:center">Exclude</th>
+<th style="text-align:center">Descendants</th>
+<th style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1124300</td>
+<td style="text-align:center">3355</td>
+<td style="text-align:center">Diclofenac</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>celecoxib</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Concept Id</th>
+<th style="text-align:center">Concept Code</th>
+<th style="text-align:center">Concept Name</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Standard Concept Caption</th>
+<th style="text-align:center">Exclude</th>
+<th style="text-align:center">Descendants</th>
+<th style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1118084</td>
+<td style="text-align:center">140587</td>
+<td style="text-align:center">celecoxib</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>cohort drug set</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Concept Id</th>
+<th style="text-align:center">Concept Code</th>
+<th style="text-align:center">Concept Name</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Standard Concept Caption</th>
+<th style="text-align:center">Exclude</th>
+<th style="text-align:center">Descendants</th>
+<th style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1124300</td>
+<td style="text-align:center">3355</td>
+<td style="text-align:center">Diclofenac</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">1118084</td>
+<td style="text-align:center">140587</td>
+<td style="text-align:center">celecoxib</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<p>以上でコンセプトセットの作成は完了です。</p>
+<br>
+<hr>
+<h1 id="6-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>6　Cohort Definitions の作成</strong></h1>
+<p>コホートとは、「一定期間1 つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。<br>
+作成されたコホートは、その後のCohort Pathways など各機能での分析における母集団設定に使用されます。</p>
+<p>コホート定義では、「Cohort entry event（コホート開始イベント）」、「Inclusion Criteria（包含基準）」、「Cohort exit event（コホート終了イベント）」を設定する構成となっており、各項目の詳細を以下に記載しています。</p>
+<ul>
+<li>
+<p>コホート開始イベント：<br>
+CDM に記録された任意のイベント（薬物曝露、状態、測定など）を設定し、人々がコホートに入る時間を定義するものです。<br>
+例えば、発生時の年齢、最初の診断・手順、開始日と終了日の指定、などを定義します。</p>
+</li>
+<li>
+<p>包含基準：<br>
+開始イベントで定義された人々をさらに絞り込むためのイベントを設定します。<br>
+予選コホートは、すべての包括基準を満たす最初のイベントコホート内のすべての人々を指します。</p>
+</li>
+<li>
+<p>コホート終了イベント：<br>
+人々がコホートメンバーシップの資格を失うイベントのことです。<br>
+例えば、観察期間の終了、最初の開始イベントに対する固定時間間隔、一連の関連する観察の最後のイベント（持続的な薬物曝露）、など複数の方法で定義可能です。<br>
+コホートの出口戦略は、人が異なる時間間隔の間に複数回コホートに所属できるかどうかに影響します。</p>
+</li>
+</ul>
+<p>ここでは、「消化管出血を患い、ジクロフェナクとセレコキシブを服用している患者」を例にCohort Definitions の使用方法を説明します。</p>
+<p>Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内ですでに作成されたコホートが表示されます。<br>
+コホートを新規作成するので、「New Cohort」をクリックします。</p>
+<p><img src="./Files/Atlas_3/image/image44.png" alt=""></p>
+<br>
+<p>コホート作成画面が表示されます。画面上部にコホート名を入力する欄があるので、「Test Cohort Definition」と入力します。</p>
+<p><img src="./Files/Atlas_3/image/image18.png" alt=""></p>
+<br>
+<p>初めに、コホートエントリーイベントを設定していきます。</p>
+<p><img src="./Files/Atlas_3/image/image19.jpeg" alt=""></p>
+<br>
+<p>「Cohort entry event」欄右側の「Add Initial Event」をクリックして、「Add Drug Exposure」を選択します。</p>
+<p><img src="./Files/Atlas_3/image/image47.png" alt=""></p>
+<br>
+<p>「Any Drug」で対象とする薬品のコンセプトセットの選択が必要になります。<br>
+「Any Drug」をクリックし、「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、「cohort drug set」をクリックして選択します。<br>
+（誤ったコンセプトセットをインポートした場合は、「Clear Concept Set」をクリックすると、選択が解除されます。）</p>
+<p><img src="./Files/Atlas_3/image/image20.jpeg" alt=""></p>
+<br>
+<p>治療薬の投与前後の観察期間については、特に指定しないのでデフォルトのままにします。<br>
+対象イベントは「all events」を選択します。<br>
+以上で「Cohort Entry Event」の設定は完了です。</p>
+<p>次に、「Inclusion Criteria」欄の設定を実施します。</p>
+<p><img src="./Files/Atlas_3/image/image21.png" alt=""></p>
+<br>
+<p>緑色ボタンの「New inclusion criteria」をクリックし、横の空欄内に包含基準名として「Gastrointestinal hemorrhage」を入力します。<br>
+左側に入力した名前が反映されます。</p>
+<p><img src="./Files/Atlas_3/image/image22.png" alt=""></p>
+<br>
+<p>病名の診断を基準としているので、「Add criteria to group...」から「Add Condition Occurrence」を選択します。</p>
+<p><img src="./Files/Atlas_3/image/image23.png" alt=""></p>
+<br>
+<p>選択後、欄内に図のような詳細設定画面が表示されます。</p>
+<p><img src="./Files/Atlas_3/image/image24.jpeg" alt=""></p>
+<br>
+<p>「Any Condition」に対象のCondition のコンセプトセットを設定します。<br>
+「Any Condition」をクリックすると、コンセプトセットの一覧が表示されるので、前章で作成したコンセプトセット「Gastrointestinal hemorrhage」をクリックして選択します。<br>
+対象イベントは「all events」を選択します。</p>
+<p><img src="./Files/Atlas_3/image/image25.jpeg" alt=""></p>
+<p>以上で包含基準「Gastrointestinal hemorrhage」の作成は完了です。</p>
+<br>
+<p>最後に、「Cohort Exit」欄の設定について説明します。</p>
+<p><img src="./Files/Atlas_3/image/image26.png" alt=""></p>
+<br>
+<p>コホートの終了条件は、「薬物曝露の継続的観察の終了」となるため、「Event Persistence」は「end of a continuous drug exposure」を選択します。</p>
+<p><img src="./Files/Atlas_3/image/image27.png" alt=""></p>
+<br>
+<p>コホートエントリーイベントで選択した薬品を対象としているので、「Select DrugConcept Set」ではコンセプトセット「Cohort drug set」を設定します。</p>
+<p><img src="./Files/Atlas_3/image/image49.png" alt=""></p>
+<br>
+<p>その他、以下の２つのウィンドウ（空白期間）について設定することができます。</p>
+<ul>
+<li>
+<p>Persistence window（永続性ウィンドウ）<br>
+持続性曝露期を推測する場合に、曝露記録間に見込む最大日数</p>
+</li>
+<li>
+<p>Surveillance window（監視ウィンドウ）<br>
+コホート終了前の追加の観察期間として、持続性曝露期の終了時に追加する日数
+持続性の設定も可能です。<br>
+今回は、Persistence window の曝露記録の間に最大30 日を見込んだデータを指定します。</p>
+</li>
+</ul>
+<p><img src="./Files/Atlas_3/image/image51.png" alt=""></p>
+<p>「Cohort Exit」の設定は完了です。</p>
+<p>以上で「Test Cohort Definition」のコホートの作成は完了です。<br>
+同様にして、以下の2 つのコホートについても作成していきます。</p>
+<br>
+<ul>
+<li>コホート名「Celeco Test Def」
+<ul>
+<li>
+<p>＜Cohort Entry Event＞<br>
+「Add Initial Event」をクリックして「Add Drug Exposure」を選択<br>
+「Any Drug」→「Import Concept Set」→「celecoxib」を選択</p>
+</li>
+<li>
+<p>＜Inclusion Criteria＞<br>
+設定なし</p>
+</li>
+<li>
+<p>＜Cohort Exit Event＞<br>
+「Event Persistence」では「end of a continuous drug exposure」を選択<br>
+「Select Drug Concept Set」で「celecoxib」を選択<br>
+Persistence window を「30」に設定</p>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>コホート名「Diclofenac Test Def」
+<ul>
+<li>
+<p>＜Cohort Entry Event＞<br>
+「Add Initial Event」をクリックして「Add Drug Exposure」を選択<br>
+「Any Drug」→「Import Concept Set」→「diclofenac」を選択</p>
+</li>
+<li>
+<p>＜Inclusion Criteria＞<br>
+設定なし</p>
+</li>
+<li>
+<p>＜Cohort Exit Event＞<br>
+「Event Persistence」では「end of a continuous drug exposure」を選択<br>
+「Select Drug Concept Set」で「diclofenac」を選択<br>
+Persistence window を「30」に設定</p>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<hr>
+<h1 id="7-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90"><strong>7　Cohort Pathways（経路分析）</strong></h1>
+<p>Cohort Pathways では、1 つ以上の母集団内で発生する一連の臨床イベントを調べることが可能です。<br>
+経路分析の目標は、関心のある1 つ以上のコホートに沿った医療の順序を理解することです。<br>
+コホート経路では、ターゲットコホートのコホート開始日以降のイベントを要約する分析機能を提供し、経路を複数層の円状のグラフを用いて可視化します。</p>
+<p>コホート経路分析の設計において、下記の項目を設定する必要があります。</p>
+<ul>
+<li>1 つ以上のターゲットコホート</li>
+<li>1 つ以上のイベントコホート</li>
+</ul>
+<p>ターゲットコホートでは分析対象とする母集団を設定します。<br>
+一方でイベントコホートでは、ターゲットとする母集団（ターゲットコホート）で発生する可能性のある経路ステップを定義します。<br>
+ターゲットコホートに設定したコホートの患者割合が円状のグラフとなって表示されます。<br>
+それゆえ、患者割合を可視化したいコホートはすべてイベントコホートに設定する必要があります。</p>
+<br>
+<p>本分析では、以下の薬品をグラフ可視化対象とします。</p>
+<ul>
+<li>セレコキシブ（celecoxib）</li>
+<li>ジクロフェナク（diclofenac）</li>
+</ul>
+<p>本章の流れとしては、ターゲットコホートとして、「Test Cohort Definition」コホート、イベントコホートとして「Celeco Test Def」、「Diclofenac Test Def」コホートを設定し、その後分析を実施していきます。</p>
+<br>
+<p>以下Cohort Pathways の操作方法を記載します。</p>
+<p>Atlas の画面左側の「Cohort Pathways」タブをクリックすると、既にAtlas プラットフォーム内で設計されたコホート経路分析が表示されます。</p>
+<p><img src="./Files/Atlas_3/image/image28.jpeg" alt=""></p>
+<br>
+<p>以下、新たにコホートを作成する方法を記載します。<br>
+画面右上の「New Cohort Pathways」（青ボタン）をクリックすると、コホート経路分析の条件設定画面が表示されます。</p>
+<p><img src="./Files/Atlas_3/image/image54.png" alt=""></p>
+<br>
+<p>画面上部にコホート分析名「Gastrointestinal hemorrhage Cohort」を入力します。</p>
+<p><img src="./Files/Atlas_3/image/image29.png" alt=""></p>
+<br>
+<p>「Target Cohort」の「Import」ボタンをクリックすると、作成した全コホートが表示されるので、「Test Cohort Definition」のチェック欄にチェックを入れて画面最下部の「Import」をクリックするとコンセプトが反映されます。</p>
+<p><img src="./Files/Atlas_3/image/image57.png" alt=""></p>
+<br>
+<p>続いて「Event Cohort」を設定します。<br>
+「Event Cohort」の「Import」ボタンをクリックして、経路ステップで表示したいコホートにチェックを入れ、画面下部の「Import」をクリックします。</p>
+<p>本例では、２つのコホート「diclofenac」、「celecoxib」を設定します。</p>
+<p><img src="./Files/Atlas_3/image/image60.png" alt=""></p>
+<br>
+<p>その他、分析実行時にパラメータを設定したい場合は、「Analysis Setting」を用います。</p>
+<p><img src="./Files/Atlas_3/image/image30.jpeg" alt=""></p>
+<br>
+<p>パラメータの内容としては以下の通りです。</p>
+<ul>
+<li>
+<p>Collapse Days<br>
+指定日以内に見つかった日付は、最も早い日付に再割り当てされる。<br>
+0～30 日まで指定可能。<br>
+日付を折りたたむと、経路の変動が減少し、結果のノイズが減少する。</p>
+</li>
+<li>
+<p>Minimum cell count<br>
+経路でカウントされるための、特定のイベントのターゲットコホート内の被験者の
+最小数を設定する。</p>
+</li>
+<li>
+<p>Maximum path length<br>
+サンバーストプロットに含まれる特定の経路の最大ステップ数を設定する。</p>
+</li>
+<li>
+<p>Allow repeats<br>
+コホートイベント／コンボが同じ経路に複数回出現することを許可する。</p>
+</li>
+</ul>
+<br>
+<p>コホートを設計し終えたら、画面右上の保存ボタン（緑ボタン）をクリックします。</p>
+<p><img src="./Files/Atlas_3/image/image31.png" alt=""></p>
+<br>
+<p>分析実施のため、「Execution」タブに移動します。</p>
+<p>「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回はEunomia を用いた検証のため、CDM V5 Database が表示されます）</p>
+<p>対象とするデータソース欄の「Generate」ボタンをクリックするとAtlas での分析を実行します。<br>
+結果が生成されたら、「All executions」をクリックして、「View reports」から結果を表示します。</p>
+<p><img src="./Files/Atlas_3/image/image62.png" alt="">
+<img src="./Files/Atlas_3/image/image64.png" alt=""></p>
+<br>
+<p>結果画面では、ターゲットコホートのカウント数等を見ることができ、設定したイベントコホートごとに、患者が可能な様々なオプションを表すために色分けされています。<br>
+画面中央のサンバースト図（階層化されたデータをドーナツ状のグラフで表示）では、治療の順序と順序を通して各ステップを踏んでいる患者の割合を示しています。</p>
+<p>今回の結果では、ターゲットコホートの対象となった484 件の中で、経路を持つ患者は479 名であることが分かります。</p>
+<p><img src="./Files/Atlas_3/image/image32.png" alt=""></p>
+<br>
+<p>色付けされた箇所にカーソルを合わせると、そのコホート名が表示されて、クリックすることで画面右側に追加のパスの詳細が表示されます。<br>
+表示された内容から経路持つ患者の74.1%はセレコキシブの薬剤を服用していることが分かります。</p>
+<p><img src="./Files/Atlas_3/image/image33.png" alt=""></p>
+<p>Cohort Pathways を用いた分析の操作は以上になります。</p>
+
+</body>
+</html>
