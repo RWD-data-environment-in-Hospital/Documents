@@ -181,6 +181,7 @@ psql -U ohdsi_admin_user -d OHDSI
 Achilles は、Atlas 内でData Source で表示されるデータの分析とレポート提供を実行しているツールです。  
 Data Source 機能を使用するためにAchilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）  
 データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。  
+
 R コンソールを起動し、以下のコマンドを入力し、Achilles を実行します。  
 ```
 > library(Achilles)
@@ -223,11 +224,15 @@ cdmVersion="5.3.1",
 optimizeAtlasCache=TRUE)
 ```
 
+![](./Files/Atlas_3/image/image13.png)
+
 <br>
 
 下記のメッセージが表示されたら実行完了です。
 
-![](./Files/Atlas_3/image/image13.png)
+![](./Files/Atlas_3/image/image14.png)
+
+以上でAchilles の実行は完了です。
 
 <br>
 

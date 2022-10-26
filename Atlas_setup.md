@@ -76,14 +76,15 @@ https://github.com/OHDSI/Achilles#getting-started
 ---
 # **3．OHDSI WebAPI**
 OHDSI WebAPI は、OHDSI CDM v5 に変換されたデータベースを操作するための一元化されたAPI を提供します。  
-WebAPI には、環境内のCDM への接続方法を定義する構成の格納に使用される独自の専用データベースが用意されています。データベースは観察研究の設計と実行に使用される資産（Cohort Definitions, Concept Sets, 分析仕様）の保存に使用されます。  
+WebAPI には、環境内のCDM への接続方法を定義する構成の格納に使用される独自の専用データベースが用意されています。  
+データベースは観察研究の設計と実行に使用される資産（Cohort Definitions, Concept Sets, 分析仕様）の保存に使用されます。  
 WebAPI を利用する主要なWeb アプリケーションとして、Atlas が挙げられます。  
 本手順は下記URL のサイトを参考にしています。  
 
 https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide
 
-※本書は以下バージョンの画面を元に作成しており、最新版では画面が異なる場合が
-あります。その場合、同じ画面項目のみ同様の選択を行ってください。  
+※本書は以下バージョンの画面を元に作成しており、最新版では画面が異なる場合があります。  
+　その場合、同じ画面項目のみ同様の選択を行ってください。  
 - Git：2.33.1
 - PostgreSQL：10.18
 
@@ -91,11 +92,10 @@ https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide
 
 ---
 ## **3．1　Git のインストール**
-Git:プロジェクトリポジトリをクローンするために、コンピュータにインストー
-ルします。  
+Git:プロジェクトリポジトリをクローンするために、コンピュータにインストールします。  
 Git のサイトを開き、「Download for Windows」をクリックします。  
 
-https://git-scm.com/
+https://git-scm.com/  
 ![](./Files/Atlas/image/image51.jpeg)  
 *出典：「Git」*
 
@@ -247,8 +247,7 @@ http://www.postgresql.org/download/
 <br>
 
 Version 10 のWindowsx86-64 をダウンロードします。  
-下記手順では10.18 となっていますが、Version10 の最新モジュールをダ
-ウンロードします。  
+下記手順では10.18 となっていますが、Version10 の最新モジュールをダウンロードします。  
 
 ![](./Files/Atlas/image/image72.jpeg)  
 
@@ -736,13 +735,13 @@ https://a5m2.mmatsubara.com/
 手順3.4 で作成したデータベースを追加します。  
 起動後、「データベースの追加と削除」画面が表示されなかった場合は、点線枠内の手順に従って「データベースの追加と削除」画面を表示します。  
 
----
 「データベースの追加と削除」画面の表示方法  
 「localhost」を右クリックして「データベースの追加と削除」を選択します。  
 
 ![](./Files/Atlas/image/image141.jpeg)  
 
----
+<br>
+
 「データベースの追加と削除」画面左下の「追加」をクリックします。
 
 ![](./Files/Atlas/image/image142.jpeg)  
@@ -928,7 +927,7 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 変更前  
 ![](./Files/Atlas/image/image166.jpeg)
 
-変更後
+変更後  
 ![](./Files/Atlas/image/image167.jpeg)
 
 <br>
@@ -1997,10 +1996,11 @@ Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」
 ---
 # **7　補足：オフラインインストール手順**
 各ツールのオフラインでもインストール方法について説明します。  
+
 <br>
 
 ---
-## **7．1　WebAPI のオフラインインストール  **
+## **7．1　WebAPI のオフラインインストール**
 ビルドの完了までは通常の手順と同様になります。「手順3.5 WebAPI の構築」
 のビルド完了後の手順を以下に記載します。  
 ビルドしたWebAPI のtarget フォルダをオフライン環境の任意のフォルダへコ

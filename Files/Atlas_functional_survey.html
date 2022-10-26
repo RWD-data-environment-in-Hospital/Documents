@@ -3,6 +3,7 @@
 <head>
 <title>Atlas_functional_survey.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
 <style>
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
@@ -13,7 +14,7 @@
 
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
+	font-size: var(--vscode-markdown-font-size, 16px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
 	word-wrap: break-word;
@@ -99,10 +100,20 @@ body.showEditorSelection li.code-line:hover:before {
 	border-left: none;
 }
 
-img {
+p, li, pre {
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+/* img {
 	max-width: 100%;
 	max-height: 100%;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -183,6 +194,7 @@ pre.hljs code > div {
 
 pre code {
 	color: var(--vscode-editor-foreground);
+	font-size: 16px;
 	tab-size: 4;
 }
 
@@ -352,6 +364,57 @@ code {
 	page-break-after: always;
 }
 
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -365,6 +428,7 @@ code {
           : 'default'
     });
   </script>
+<div id="page_top"><a href="#"></a></div>
 <h1 id="atlas-%E6%A9%9F%E8%83%BD%E8%AA%BF%E6%9F%BB%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99"><strong>Atlas 機能調査補足資料</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
 <p><a href="#1%E6%9C%AC%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．本書について</a><br>
@@ -403,7 +467,7 @@ code {
 Atlas は患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。<br>
 Atlas には14 個のタブが表示されており、そのうち分析に関係する機能としては10 個挙げられます。<br>
 全機能の関連図は以下の通りです。</p>
-<p><img src="./Files/Atlas_2/image/image1.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image1.jpeg" alt="" width="1200"></p>
 <br>
 <p>Profiles は、患者一人当たりの分析に適しています。患者個々の縦断的な観察データを調査し、特定の個人内で何が起こっているのか（病歴、薬歴など）を可視化することができます。<br>
 一方、その他の機能は母集団当たりの分析に使用します。母集団の特性評価や発生率、推定、予測等の分析を実施することができます。</p>
@@ -414,28 +478,28 @@ Atlas には14 個のタブが表示されており、そのうち分析に関�
 <p>Profiles は患者個々の縦断的な観察データを調査し、特定の個人内で何が起こっているのか（病歴、薬歴など）を集約・可視化する機能を持ちます。<br>
 Profiles では、ある一人の患者のテーブルごとのデータが時系列に沿ってグラフ化されています。<br>
 データが存在する箇所を灰色で示しており、横幅の⾧さで継続期間を表しています。</p>
-<p><img src="./Files/Atlas_2/image/image2.jpeg" alt="">
-<img src="./Files/Atlas_2/image/image3.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image2.jpeg" alt="" width="1200">
+<img src="./Atlas_2/image/image3.jpeg" alt="" width="1200"></p>
 <br>
 <hr>
 <h2 id="32-profiles-%E3%81%AE%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><strong>3．2　Profiles の使用方法</strong></h2>
 <p>画面左の「Profiles」タブをクリックします。「Select a Data Source」をクリックすると登録されているデータソースが表示されるので、分析対象を含むデータソースを選択します。（①）<br>
 右枠にはデータソース内の対象患者のPerson Id を入力して（②）「Enter」キーを押すと、患者のプロファイルが表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image4.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image4.jpeg" alt="" width="1200"></p>
 <br>
 <p>入力したPerson Id の性別、イベント数、観察開始年齢と該当する全観察期間の全イベント（灰色のボックス）が表示されます。<br>
 グラフの下には、全イベントのコンセプト一覧（赤枠）が表示され、観察開始日を0 日としたときの開始日と終了日が情報として記載されています。</p>
-<p><img src="./Files/Atlas_2/image/image5.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image5.jpeg" alt="" width="1200"></p>
 <br>
 <p>特定の期間を拡大表示することも可能です。<br>
 グラフ上にカーソルを合わせると十字キーに変わります。対象の期間の範囲でドラッグアンドドロップをすると期間を絞ったイベントが表示されます。（赤枠内）<br>
 グラフ下のコンセプト一覧についても絞った期間の範囲に発生するイベントのみの表示に変わります。</p>
-<p><img src="./Files/Atlas_2/image/image6.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image6.jpeg" alt="" width="1200"></p>
 <br>
 <p>グラフ上でダブルクリックをすると、全期間表示に戻ります。<br>
 キーワードフィルタ（①）によって病名や薬品名、コンセプト等で絞り込みができ、それぞれの開始日と終了日がコンセプト一覧中に表示されます。画面左下のDomain フィルター（②）を使用しても同様に絞り込みが可能です。<br>
 右上の筆マーク（③）でコンセプトを絞り込み、特定のコンセプトの灰色のドットの色を変えることができ（複数可）、差別化したいときに活用できます。</p>
-<p><img src="./Files/Atlas_2/image/image7.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image7.jpeg" alt="" width="1200"></p>
 <br>
 <hr>
 <h1 id="4-%E6%AF%8D%E9%9B%86%E5%9B%A3%E5%BD%93%E3%81%9F%E3%82%8A%E3%81%AE%E5%88%86%E6%9E%90"><strong>4　母集団当たりの分析</strong></h1>
@@ -443,11 +507,11 @@ Profiles では、ある一人の患者のテーブルごとのデータが時�
 分析の準備に使用する機能と、分析実施に使用する機能に分類することができます。</p>
 <p>準備：Data Sources、Search、Concept Sets、Cohort Definitions<br>
 分析：Cohort Pathways、Characterization、Incidence Rate、Estimation、Prediction</p>
-<p><img src="./Files/Atlas_2/image/image8.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image8.jpeg" alt="" width="1200"></p>
 <br>
 <p>上図の「調査したい母集団に関する分析の前準備」は以下のようなフローで実施します。<br>
 Atlas の機能を用いる手順をオレンジ色で示しています。</p>
-<p><img src="./Files/Atlas_2/image/image9.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image9.jpeg" alt="" width="1200"></p>
 <br>
 <hr>
 <h2 id="41-data-sources"><strong>4．1　Data Sources</strong></h2>
@@ -458,7 +522,7 @@ Atlas 画面の左タブの「Data Sources」をクリックして、Data Source
 「Select a Source」（①）では、Atlas と紐づいているデータソース（PostgreSQL のスキーマ名）がプルダウンで表示されます。<br>
 分析対象とするデータソースを選択します。<br>
 次に、「Select a Report」（②）から表示させたいレポートを選択します。</p>
-<p><img src="./Files/Atlas_2/image/image10.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image10.jpeg" alt="" width="600"></p>
 <br>
 <p>14 種類のレポートが表示されます。各レポートには特性があり、調査条件によって使い分けていく必要があります。<br>
 以下に特性ごとに分類分けしたレポートと、各レポートで表示される情報を記載しています。</p>
@@ -494,7 +558,7 @@ Atlas 画面の左タブの「Data Sources」をクリックして、Data Source
 病名検索が可能。患者数（年齢別、月別）、患者属性、発症年齢</li>
 <li>Condition Era：<br>
 病名検索が可能。患者数（年齢別、月別）、患者属性</li>
-<li>Procedure：
+<li>Procedure：<br>
 病名検索が可能。患者数（年齢別、月別）、患者属性、発症年齢、処置回数と全患者数における割合</li>
 <li>Drug Exposure：<br>
 薬品名検索が可能。患者数（年齢別、月別）、患者属性、発症年齢、処置回数と全患者数における割合</li>
@@ -510,22 +574,22 @@ Atlas 画面の左タブの「Data Sources」をクリックして、Data Source
 <p>本書では、Condition occurrence を例に使用例として紹介します。</p>
 <p>「Treemap」タブでは、ブロックと病名が対応しており、ブロックの大きさは有病率を示しており、ブロックが大きいほど高い有病率をもつ病名となります。<br>
 また、色の濃さは一人当たりのレコード数を示しており、色が濃いほど一人当たりのレコード数が多いことが分かります。</p>
-<p><img src="./Files/Atlas_2/image/image11.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image11.jpeg" alt="" width="1200"></p>
 <br>
 <p>「Table」タブでは、Condition Occurrence 内のデータのコンセプト一覧が表示されます。<br>
 フィルターでキーワード検索することで、目的とする病名を検索することができ、該当するコンセプトに絞り込まれた情報が表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image12.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image12.jpeg" alt="" width="1200"></p>
 <br>
 <p>ここでは「hypertension」フィルターをかけ、「Malignant essential hypertension」のドリルダウンレポートを表示させる手順を紹介します。<br>
 フィルターに「hypertension」と入力すると、「Malignant essential hypertension」が一番上に表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image13.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image13.jpeg" alt="" width="1200"></p>
 <br>
 <p>「Malignant essential hypertension」をクリックすると、「Loading Drilldown Report」とメッセージが表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image14.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image14.jpeg" alt="" width="1200"></p>
 <br>
 <p>メッセージが消えたら、「Treemap」タブに移動します。ツリーマップ下にドリルダウンレポートが作成されています。</p>
-<p><img src="./Files/Atlas_2/image/image15.jpeg" alt="">
-<img src="./Files/Atlas_2/image/image16.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image15.jpeg" alt="" width="1200">
+<img src="./Atlas_2/image/image16.jpeg" alt="" width="1200"></p>
 <br>
 <p>グラフにカーソルを合わせると情報が表示されます。</p>
 <p>レポートによって表示されるグラフの内容は異なりますが、他のレポートについても同様の操作でデータ調査を実施できます。</p>
@@ -580,7 +644,7 @@ Atlas 画面の左タブの「Data Sources」をクリックして、Data Source
 <br>
 <p>上表では、「心筋梗塞」とそのすべての派生を含めますが、「陳旧性心筋梗塞」とそのすべての派生は除外する、というコンセプトセットの作成を表しています。<br>
 こちらを図解したものを下に示します。</p>
-<p><img src="./Files/Atlas_2/image/image17.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image17.jpeg" alt="" width="1200"></p>
 <br>
 <p>表において「4329847 心筋梗塞」のコンセプトでは、Descendants を「○」として含める設定にしているため、「4329847 心筋梗塞」とその配下のコンセプトもセットに含まれていきます。<br>
 しかし同様に、表において「314666 陳旧性心筋梗塞」コンセプトはExclude とDescendants を「○」としています。<br>
@@ -596,14 +660,14 @@ Cohort Definitions では、「Cohort entry event（コホートエントリー�
 それぞれフォーマットが用意されており、分析対象とする母集団に応じて各々が作成したコンセプトセットをフォーマット内に当てはめていくことで、カスタマイズされた独自のコホートを作成します。<br>
 ここで作成したコホートは、その後の特性評価や発生率などの分析入力のもととなります。<br>
 以下にコホート作成のイメージ図を示しています。</p>
-<p><img src="./Files/Atlas_2/image/image18.png" alt=""></p>
+<p><img src="./Atlas_2/image/image18.png" alt="" width="1200"></p>
 <br>
 <p>本書では、「The Book of OHDSI」に記載されていた「高血圧のコホート」を具体例として取り上げて、コホートの設計について説明します。<br>
 コホート定義を作成する前に、後述のように構成図を作成することで条件を整理することができ、効率的な作業に役立つと考えられます。<br>
 コホート定義を、「高血圧の第一選択治療としてACE 阻害薬の単剤療法を開始する患者」を定めます。<br>
 このコホートをコンセプトセットの組み合わせで表現します。<br>
 コンセプトセットによる定義決めの考え方は、下図のように表現することができます。</p>
-<p><img src="./Files/Atlas_2/image/image19.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image19.jpeg" alt="" width="1200"></p>
 <br>
 <ul>
 <li>
@@ -624,7 +688,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 より分かりやすくグラフとして表したものを以下に示します。</p>
 </li>
 </ul>
-<p><img src="./Files/Atlas_2/image/image20.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image20.jpeg" alt="" width="1200"></p>
 <br>
 <p>まず、ACE 阻害薬の使用を条件1 でオレンジ星マークとして取り上げています。
 条件2 としてACE 阻害薬を初めて投与した事例に絞り込むので、白抜きになった星は対象から除外されます。<br>
@@ -646,11 +710,11 @@ OMOP CDM でモデル化された特性評価実行用のプリセット機能�
 2 番目のコホートは、説明されている最初のコホートと同じですが、1 年ではなく少なくとも3 年の観察が必要です。<br>
 サブグループとして、女性を設定しています。<br>
 共変量としては高血圧薬が表示されて、各薬品のカウント数や割合がそれぞれ計算されて提供されます。</p>
-<p><img src="./Files/Atlas_2/image/image21.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image21.jpeg" alt="" width="1200"></p>
 <br>
 <p>「Explore」を開くことで単一のコンセプトに関する詳細を表示することができます。<br>
 下図は「cardiac arrhythmia（不整脈）」の詳細ページです。</p>
-<p><img src="./Files/Atlas_2/image/image22.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image22.jpeg" alt="" width="1200"></p>
 <br>
 <p>選択したコンセプトの派生、または上位のコンセプトが一覧となり、分析結果が表示されます。<br>
 この事例では、高血圧症の人に現れる可能性のある心臓病を調査することができます。<br>
@@ -658,9 +722,9 @@ OMOP CDM でモデル化された特性評価実行用のプリセット機能�
 この事例では「Edema（浮腫）」に対して「Explore」で次々と探索し続けた結果を示しています。<br>
 高血圧集団の浮腫の特徴を確認し、血管性浮腫の有病率を見つけます。<br>
 「この集団の一部が降圧薬を開始する前の年に血管浮腫の記録を持っている」、ということが表から読み取ることができます。</p>
-<p><img src="./Files/Atlas_2/image/image23.jpeg" alt="">
-<img src="./Files/Atlas_2/image/image24.jpeg" alt="">
-<img src="./Files/Atlas_2/image/image25.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image23.jpeg" alt="" width="1200">
+<img src="./Atlas_2/image/image24.jpeg" alt="" width="1200">
+<img src="./Atlas_2/image/image25.jpeg" alt="" width="1200"></p>
 <br>
 <p>このほかにもAtlas では、ユーザー定義のカスタム機能を可能にする機能をサポートしています。<br>
 （例：コホート開始後の履歴にACE 阻害薬のDrug Era が存在する各コホートの人数を特定）</p>
@@ -674,12 +738,12 @@ OMOP CDM でモデル化された特性評価実行用のプリセット機能�
 ここではターゲットとする母集団のコホートをセットし、イベントのコホートも別途セットする必要があります。<br>
 本例においては、イベントコホートは円グラフ上で表示したい高血圧治療薬として想定される薬品のコホートを指します。<br>
 下図は高血圧患者の薬歴に関する経路分析結果です。</p>
-<p><img src="./Files/Atlas_2/image/image26.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image26.jpeg" alt="" width="1200"></p>
 <br>
 <p>円の内側に1 回目に投与した薬品が配置され、円の外側に向けて2 回目、3 回目といったように投与された薬品が次々と表示されています。<br>
 色が付いた箇所にカーソルを合わせるとコホート名と全体における割合が表示されます。<br>
 また、2 周目以降にカーソルを合わせた場合には、それ以前の薬歴も併せて表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image27.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image27.jpeg" alt="" width="1200"></p>
 <br>
 <hr>
 <h2 id="46-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87"><strong>4.6 Incidence Rates（発生率）</strong></h2>
@@ -687,19 +751,19 @@ OMOP CDM でモデル化された特性評価実行用のプリセット機能�
 衛生で使用される統計のことです。Incidence Rates では、対象となる対象母集団内の
 結果の発生率を推定します。
 下図では、個人レベルの発生率計算を図解しています。</p>
-<p><img src="./Files/Atlas_2/image/image28.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image28.jpeg" alt="" width="1200"></p>
 <br>
 <p>上図では、リスク時間として、コホート開始の1 日後を設定し、コホート終了で同じく終了するように定義しています。<br>
 以下で発生率の分析イメージを紹介します。<br>
 発生率では、ターゲットとする患者母集団のコホートと結果コホートを選択し、リスク時間を設定します。</p>
-<p><img src="./Files/Atlas_2/image/image29.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image29.jpeg" alt="" width="1200"></p>
 <br>
 <p>下図に分析結果を示しています。</p>
-<p><img src="./Files/Atlas_2/image/image30.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image30.jpeg" alt="" width="1200"></p>
 <br>
 <p>面積と人数は比例しており、色付けは1000 年あたりの発生率を表しており、青から赤にかけて発生率が高くなっていきます。<br>
 また、選択した領域に関するグラフの左側には性別や年齢などの条件ごとの結果が表示されます。選択した領域が満たしている基準については黒文字、満たしていない基準については赤字で表示されます。</p>
-<p><img src="./Files/Atlas_2/image/image31.jpeg" alt=""></p>
+<p><img src="./Atlas_2/image/image31.jpeg" alt="" width="1200"></p>
 <br>
 <hr>
 <h2 id="47-estimation%E6%8E%A8%E5%AE%9A"><strong>4．7　Estimation（推定）</strong></h2>
