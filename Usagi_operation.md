@@ -48,7 +48,7 @@ Usagiは独自に定義した各種項目（薬品、病名など）をCONCEPT�
 
 AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピング元となるローカルデータを入力として、それらを紐づけたCSVファイル「SOURCE_TO_CONCEPT_MAP」を出力できます。
 
-![](Files/Usagi_2/image/image47.png)  
+![](./Files/Usagi_2/image/image47.png)  
 
 ※当手順では、マッピング元となるデータについて、以下の呼称を用います。
 - ソースデータ  
@@ -67,7 +67,7 @@ AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピ�
 マッピング操作の流れを下記に示します。
 詳細な手順は各ボックス下部に記載されている章を参照してください。
 
-![](Files/Usagi_2/image/image39.png)  
+![](./Files/Usagi_2/image/image39.png)  
 
 <br>
 
@@ -118,7 +118,7 @@ Usagi v1.4以降では起動時にAuthorの入力を求められます。
 Authorはマッピング項目を「Approve」した際、「Status Provenance」項目に保持されます。  
 任意の名称を入力してください。
 
-![](Files/Usagi_2/image/image38.png)  
+![](./Files/Usagi_2/image/image38.png)  
 
 「Remember me?」にチェックをいれて「Save」ボタンをクリックすると、名称が保存されます。  
 
@@ -127,7 +127,7 @@ Authorはマッピング項目を「Approve」した際、「Status Provenance�
 ここで入力した名称は、Usagi格納フォルダのテキストファイル「authorName.txt」に保存されます。  
 名称を変更したい場合、テキストファイルを開いて直接修正します。
 
-![](Files/Usagi_2/image/image37.png)  
+![](./Files/Usagi_2/image/image37.png)  
 
 <br>
 
@@ -138,7 +138,7 @@ Author入力後、Indexの作成指示を行う画面が表示されます。
 
 2－1でAthenaサイトから取得した4ファイルを格納したフォルダを指定し、「Select folder」ボタンをクリックします。
 
-![](Files/Usagi_2/image/image36.png)  
+![](./Files/Usagi_2/image/image36.png)  
 
 <br>
 
@@ -146,20 +146,20 @@ Vocabulary locationに選択したフォルダが表示されてる事を確認�
 Indexの作成が完了すると、メッセージ画面が表示されるので、Usagiを一度終了し、再度起動します。  
 ※Build indexには長時間（2～3時間）要します。
 
-![](Files/Usagi_2/image/image35.png)  
+![](./Files/Usagi_2/image/image35.png)  
 
 <br>
 
 Indexの作成が完了すると、Usagi格納フォルダ配下に以下フォルダ・ファイルが自動で作成されます。
 
-![](Files/Usagi_2/image/image34.png)  
+![](./Files/Usagi_2/image/image34.png)  
 
 <br>
 
 ※補足　Rebuild indexについて  
 CONCEPTやVOCABULARYの内容に変更・更新があった場合等、UsagiのIndexを再作成したい場合は、「Help」メニューより「Rebuild index」を選択する事で「3－3．Indexの作成指示」を再度行う事が出来ます。
 
-![](Files/Usagi_2/image/image33.png)  
+![](./Files/Usagi_2/image/image33.png)  
 
 <br>
 
@@ -169,13 +169,13 @@ CONCEPTやVOCABULARYの内容に変更・更新があった場合等、UsagiのI
 Indexの作成が完了したら、マッピング用のソースデータの取込を行います。  
 Usagiを起動し、「File」メニューから「Import codes」を選択します。
 
-![](Files/Usagi_2/image/image32.png)  
+![](./Files/Usagi_2/image/image32.png)  
 
 <br>
 
 ファイル選択の画面が表示されますので、2－2で準備した、ソースデータのCSVファイルを選択し、「開く」ボタンをクリックすると、データの取込が行われます。
 
-![](Files/Usagi_2/image/image31.png)  
+![](./Files/Usagi_2/image/image31.png)  
 
 <br>
 
@@ -184,7 +184,7 @@ Usagiを起動し、「File」メニューから「Import codes」を選択し�
 取込が完了するとマッピング設定画面が表示され、CSVファイルの内容が表示されます。  
 この画面でCONCEPTテーブルとのマッピング設定を行います。
 
-![](Files/Usagi_2/image/image30.png)  
+![](./Files/Usagi_2/image/image30.png)  
 
 ① 取り込んだCSVファイルの内容が表示されます。
 
@@ -242,7 +242,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 ## **5－1．マッピング結果画面の表示内容**
 取込が完了すると初期画面に戻り、取り込んだ内容が表示されます。
 
-![](Files/Usagi_2/image/image29.png)  
+![](./Files/Usagi_2/image/image29.png)  
 
 ① マッピング結果が表示されます。
 
@@ -259,33 +259,33 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 - **マッピング候補を追加する場合**  
 下図の「③ Results」からレコードを選択し、「Add concept」ボタンをクリックします。
 
-![](Files/Usagi_2/image/image44.png)  
+![](./Files/Usagi_2/image/image44.png)  
 
 下図の「② Target concepts」に選択したレコードが追加されます。
 
-![](Files/Usagi_2/image/image28.png)  
+![](./Files/Usagi_2/image/image28.png)  
 
 <br>
 
 - **マッピング候補を置き換える場合**  
 下図の「③ Results」からレコードを選択し、「Replace concept」ボタンをクリックします。
 
-![](Files/Usagi_2/image/image27.png)  
+![](./Files/Usagi_2/image/image27.png)  
 
 下図の「② Target concepts」が選択したレコードと完全に置き換わります。
 
-![](Files/Usagi_2/image/image26.png)  
+![](./Files/Usagi_2/image/image26.png)  
 
 <br>
 
 - **マッピング候補を削除する場合**  
 下図の「② Target Concepts」からレコードを選択し、「Remove concepts」ボタンをクリックします。
 
-![](Files/Usagi_2/image/image25.png)  
+![](./Files/Usagi_2/image/image25.png)  
 
 下図の「② Target Concepts」から選択したレコードが削除されます。
 
-![](Files/Usagi_2/image/image24.png)  
+![](./Files/Usagi_2/image/image24.png)  
 
 <br>
 
@@ -293,7 +293,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 ## **5－3．マッピング候補の検索**
 下図の「③ Search」条件を変更する事で、Resultに表示されるレコードを変更できます。
 
-![](Files/Usagi_2/image/image23.png)  
+![](./Files/Usagi_2/image/image23.png)  
 
 ※Filters項目の詳細は「4－2．マッピング設定画面」を参照
 
@@ -301,7 +301,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 キーワードはあいまい検索されます。  
 また、ANDやORなどの演算子による複数単語検索は行えません。
 
-![](Files/Usagi_2/image/image22.png)  
+![](./Files/Usagi_2/image/image22.png)  
 
 <br>
 
@@ -310,7 +310,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 備忘録を残したい場合、①から該当のレコードを選択し画面下部のCommentに入力します。  
 入力内容は①に即時反映されます。
 
-![](Files/Usagi_2/image/image1.png)  
+![](./Files/Usagi_2/image/image1.png)  
 
 <br>
 
@@ -323,19 +323,19 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 
 下図の「② Target concepts」から親子関係を確認したいレコードを選択します。
 
-![](Files/Usagi_2/image/image21.png)  
+![](./Files/Usagi_2/image/image21.png)  
 
 <br>
 
 「View」メニューから「Concept information」を選択します。
 
-![](Files/Usagi_2/image/image20.png)  
+![](./Files/Usagi_2/image/image20.png)  
 
 <br>
 
 選択した「④ Current concept」に対する親CONCEPTの情報が「⑤ Parent concets」へ、子CONCEPTの情報が「⑥ Children Concepts」へ表示されます。
 
-![](Files/Usagi_2/image/image19.png)  
+![](./Files/Usagi_2/image/image19.png)  
 
 <br>
 
@@ -344,19 +344,19 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 ## **6－1．承認**
 候補の中から妥当なCONCEPT情報を選択したら、①から承認したいレコードを選択します。
 
-![](Files/Usagi_2/image/image13.png)  
+![](./Files/Usagi_2/image/image13.png)  
 
 <br>
 
 画面下部の「Approve」ボタンをクリックし、マッピング内容を承認します。
 
-![](Files/Usagi_2/image/image17.png)  
+![](./Files/Usagi_2/image/image17.png)  
 
 <br>
 
 承認済みデータは①のStatus/Equivalence/Status Provenanceなどに値がセットされ、背景色が緑になります。
 
-![](Files/Usagi_2/image/image16.png)  
+![](./Files/Usagi_2/image/image16.png)  
 
 <br>
 
@@ -364,19 +364,19 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 # **6－2．承認解除**
 承認済みデータを解除したい場合、①から解除対象のレコードを選択します。
 
-![](Files/Usagi_2/image/image15.png)  
+![](./Files/Usagi_2/image/image15.png)  
 
 <br>
 
 画面下部の「Unapprove」ボタンをクリックし、マッピング内容の承認を解除します。
 
-![](Files/Usagi_2/image/image14.png)  
+![](./Files/Usagi_2/image/image14.png)  
 
 <br>
 
 画面①の該当レコードの承認状態が、未承認状態に戻ります。
 
-![](Files/Usagi_2/image/image13.png)  
+![](./Files/Usagi_2/image/image13.png)  
 
 <br>
 
@@ -386,14 +386,14 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 マッピングの途中で作業を中断したい場合などに、作業状況を保存することが可能です。  
 「File」メニューから「Save」を選択します。
 
-![](Files/Usagi_2/image/image12.png)  
+![](./Files/Usagi_2/image/image12.png)  
 
 <br>
 
 ファイル保存の画面が表示されます。  
 任意の場所、任意のファイル名を指定し「保存」ボタンをクリックすると作業状況の保存が行われます。
 
-![](Files/Usagi_2/image/image11.png)  
+![](./Files/Usagi_2/image/image11.png)  
 
 <br>
 
@@ -402,20 +402,20 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 保存済みのファイルから作業状況を読み込みます。  
 Usagiを起動し、「File」メニューから「Open」を選択します。
 
-![](Files/Usagi_2/image/image10.png)  
+![](./Files/Usagi_2/image/image10.png)  
 
 <br>
 
 ファイル選択の画面が表示されますので、7－1で保存したCSVファイルを選択し、「開く」ボタンをクリックすると、データの読み込みが行われます。
 
-![](Files/Usagi_2/image/image9.png)  
+![](./Files/Usagi_2/image/image9.png)  
 
 <br>
 
 読み込みが完了すると前回保存時の状態で画面が表示されます。  
 保存した状態の続きから作業を再開できます。
 
-![](Files/Usagi_2/image/image8.png)  
+![](./Files/Usagi_2/image/image8.png)  
 
 <br>
 
@@ -424,14 +424,14 @@ Usagiを起動し、「File」メニューから「Open」を選択します。
 ## **8－1．マッピングデータの出力手順**
 マッピング結果を出力する場合は、「File」メニューより「Export source_to_concept_map」を選択します。
 
-![](Files/Usagi_2/image/image7.png)  
+![](./Files/Usagi_2/image/image7.png)  
 
 <br>
 
 出力確認メッセージが表示されます。  
 出力したい内容に合わせボタンをクリックします。
 
-![](Files/Usagi_2/image/image6.png)  
+![](./Files/Usagi_2/image/image6.png)  
 
 - Only approved  
 承認済みレコードのみ出力
@@ -442,13 +442,13 @@ Usagiを起動し、「File」メニューから「Open」を選択します。
 出力データの「source_vocabulary_id」列に出力する値を指定し、「Export」ボタンをクリックします。  
 ※１回のCSVファイル出力について、１種類しか指定できないため出力単位を考慮する必要があります。
 
-![](Files/Usagi_2/image/image5.png)  
+![](./Files/Usagi_2/image/image5.png)  
 
 <br>
 
 最後に出力先フォルダとファイル名を入力し、「保存」ボタンを押す事でCSVファイルが出力されます。
 
-![](Files/Usagi_2/image/image3.png)  
+![](./Files/Usagi_2/image/image3.png)  
 
 <br>
 
@@ -457,7 +457,7 @@ Usagiを起動し、「File」メニューから「Open」を選択します。
 出力データの内容
 　出力データ（source_to_concept_map）の構成要素を下記に示します。
 
-![](Files/Usagi_2/image/image45.png)  
+![](./Files/Usagi_2/image/image45.png)  
 
 <br>
 
@@ -465,7 +465,7 @@ Usagiを起動し、「File」メニューから「Open」を選択します。
 
 Usagi画面項目と、出力されるCSVファイルとの項目の関連図は、下記の通りとなります。
 
-![](Files/Usagi_2/image/image46.png)  
+![](./Files/Usagi_2/image/image46.png)  
 
 <br>
 
@@ -478,14 +478,14 @@ Usagiによる、具体的なマッピング手順の一例として、薬品を
 ①ソースデータの準備  
   - 薬品の管理番号（ソースコード）と薬品英字名（ソースネーム）、マッピング作業時に参照したい情報を含むCSVデータを準備します。（【２－２．ソースデータの準備】に相当する内容となります）
 
-![](Files/Usagi_2/image/image41.png)  
+![](./Files/Usagi_2/image/image41.png)  
 
 <br>
 
 ②マッピング設定画面  
   - ソースデータのマッピング設定を行います。（【４．Usagiの起動・ソースデータの取込】に相当する内容となります）
 
-![](Files/Usagi_2/image/image2.png)  
+![](./Files/Usagi_2/image/image2.png)  
 
 赤枠で囲まれている「Source code column」「Source name column」をソースデータの項目から選択します。  
 「Additional info column」は参考情報となりますので、必要に応じて選択します。  
@@ -496,7 +496,7 @@ Usagiによる、具体的なマッピング手順の一例として、薬品を
 ③マッピング結果画面
 - マッピング結果を確認し、必要に応じてマッピング候補を変更します。（【５．マッピング作業】に相当する内容となります）
 
-![](Files/Usagi_2/image/image42.png)  
+![](./Files/Usagi_2/image/image42.png)  
 
 当例では「VIZIMPRO Tablet」という英字薬品名に対し、「dacomitinib 15 MG Oral Tablet[Vizimpro]」がマッピングされました。  
 画面下部の「Results」にはその他候補が表示されます。  

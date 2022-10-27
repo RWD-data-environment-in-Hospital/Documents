@@ -3,6 +3,7 @@
 <head>
 <title>Proxy_setting.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
 <style>
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
@@ -13,7 +14,7 @@
 
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
+	font-size: var(--vscode-markdown-font-size, 16px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
 	word-wrap: break-word;
@@ -99,10 +100,20 @@ body.showEditorSelection li.code-line:hover:before {
 	border-left: none;
 }
 
-img {
+p, li, pre {
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+/* img {
 	max-width: 100%;
 	max-height: 100%;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -352,6 +363,58 @@ code {
 	page-break-after: always;
 }
 
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
+
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -365,6 +428,7 @@ code {
           : 'default'
     });
   </script>
+<div id="page_top"><a href="#"></a></div>
 <h1 id="%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7-%E8%A8%AD%E5%AE%9A%E6%89%8B%E9%A0%86"><strong>プロキシ 設定手順</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
 <p><a href="#1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1． 本手順について  </a><br>
@@ -426,10 +490,10 @@ code {
 <p>Windows 環境変数へ変数を追加します。<br>
 なお、本手順で記載する<span style="color: orange; ">[proxy]</span></span>はプロキシサーバー名（またはアドレス）、<span style="color: orange; ">[port]</span>はポート番号に読み替えて入力を行ってください。</p>
 <p>「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。</p>
-<p><img src="Files/proxy/image/image1.png" alt=""></p>
+<p><img src="./proxy/image/image1.png" alt="" width="500px"></p>
 <br>
 <p>「システムの詳細設定」内の「環境変数」をクリックします。</p>
-<p><img src="Files/proxy/image/image2.png" alt=""></p>
+<p><img src="./proxy/image/image2.png" alt="" width="600px"></p>
 <br>
 <p>「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。作成後、「OK」をクリックします。</p>
 <ul>
@@ -438,15 +502,15 @@ code {
 <li>変数名：https_proxy</li>
 <li>変数値：http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>　　　※http_proxy と同じ値</li>
 </ul>
-<p><img src="Files/proxy/image/image3.jpeg" alt=""></p>
-<p><img src="Files/proxy/image/image4.jpeg" alt=""></p>
-<p><img src="Files/proxy/image/image5.jpeg" alt=""></p>
+<p><img src="./proxy/image/image3.jpeg" alt=""></p>
+<p><img src="./proxy/image/image4.jpeg" alt=""></p>
+<p><img src="./proxy/image/image5.jpeg" alt=""></p>
 <br>
 <p>「システム環境変数」内に新たに<br>
 http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 が追加されていることを確認します。</p>
-<p><img src="Files/proxy/image/image6.jpeg" alt=""></p>
+<p><img src="./proxy/image/image6.jpeg" alt=""></p>
 <br>
 <hr>
 <h2 id="3-gitbash-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>3． GitBash 用プロキシ設定</strong></h2>
@@ -454,7 +518,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 スタートメニューからGit Bash を起動し、下記コマンドを実行します。</p>
 <pre class="hljs"><code><div>$ git config --global http.proxy http://[proxy]:[port]
 </div></code></pre>
-<p><img src="Files/proxy/image/image7.jpeg" alt=""></p>
+<p><img src="./proxy/image/image7.jpeg" alt=""></p>
 <br>
 <hr>
 <h2 id="4apache-maven-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>4．Apache Maven 用プロキシ設定</strong></h2>
@@ -467,7 +531,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 &lt;port&gt;[port]&lt;/port&gt;
 &lt;/proxy&gt;
 </div></code></pre>
-<p><img src="Files/proxy/image/image8.jpeg" alt=""></p>
+<p><img src="./proxy/image/image8.jpeg" alt=""></p>
 <br>
 <p>＜修正前＞</p>
 <pre class="hljs"><code><div>&lt;!-- proxies
@@ -491,7 +555,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 &lt;/proxy&gt;
 --&gt;
 &lt;/proxies&gt;
-</div></code></pre>
+</div></code></pre><br>
 <p>＜修正後＞</p>
 <pre class="hljs"><code><div>&lt;!-- proxies
 | This is a list of proxies which can be used on this machine to connect to the network.
@@ -532,16 +596,16 @@ R インストール後に１回のみ実施してください。<br>
 コンソールに以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; file.edit('~/.Renviron')
 </div></code></pre>
-<p><img src="Files/proxy/image/image9.jpeg" alt=""></p>
+<p><img src="./proxy/image/image9.jpeg" alt=""></p>
 <br>
 <p>R エディタが起動しますので、以下２行を追加します。</p>
 <p>http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span></p>
-<p><img src="Files/proxy/image/image10.jpeg" alt=""></p>
+<p><img src="./proxy/image/image10.jpeg" alt=""></p>
 <br>
 <p>入力後、×ボタンでR エディタ画面を閉じます。<br>
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。</p>
-<p><img src="Files/proxy/image/image11.jpeg" alt=""></p>
+<p><img src="./proxy/image/image11.jpeg" alt=""></p>
 <br>
 <p>Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。</p>
 <br>
@@ -552,15 +616,20 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(devtools)
 </div></code></pre>
-<p><img src="Files/proxy/image/image12.jpeg" alt=""></p>
+<p><img src="./proxy/image/image12.jpeg" alt=""></p>
 <br>
 <p>続けて以下コマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(httr)
 &gt; set_config(use_proxy(url=&quot;http://[proxy]&quot;, port=[port],))
 </div></code></pre>
-<p><img src="Files/proxy/image/image13.jpeg" alt=""></p>
+<p><img src="./proxy/image/image13.jpeg" alt=""></p>
 <br>
 <p>Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。</p>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 </body>
 </html>

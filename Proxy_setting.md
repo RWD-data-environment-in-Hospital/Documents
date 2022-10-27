@@ -37,13 +37,13 @@ Windows 環境変数へ変数を追加します。
 
 「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。  
 
-![](Files/proxy/image/image1.png)
+![](./Files/proxy/image/image1.png)
 
 <br>
 
 「システムの詳細設定」内の「環境変数」をクリックします。  
 
-![](Files/proxy/image/image2.png)
+![](./Files/proxy/image/image2.png)
 
 <br>
 
@@ -53,11 +53,11 @@ Windows 環境変数へ変数を追加します。
 - 変数名：https_proxy
 - 変数値：http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>　　　※http_proxy と同じ値
 
-![](Files/proxy/image/image3.jpeg)  
+![](./Files/proxy/image/image3.jpeg)  
 
-![](Files/proxy/image/image4.jpeg)  
+![](./Files/proxy/image/image4.jpeg)  
 
-![](Files/proxy/image/image5.jpeg)  
+![](./Files/proxy/image/image5.jpeg)  
 
 <br>
 
@@ -66,7 +66,7 @@ http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="colo
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 が追加されていることを確認します。  
 
-![](Files/proxy/image/image6.jpeg)
+![](./Files/proxy/image/image6.jpeg)
 
 <br>
 
@@ -78,7 +78,7 @@ Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォ�
 $ git config --global http.proxy http://[proxy]:[port]
 ```
 
-![](Files/proxy/image/image7.jpeg)
+![](./Files/proxy/image/image7.jpeg)
 
 <br>
 
@@ -96,7 +96,7 @@ Apache Maven インストールフォルダ(本手順では「c:\maven」)にあ
 </proxy>
 ```
 
-![](Files/proxy/image/image8.jpeg)
+![](./Files/proxy/image/image8.jpeg)
 
 <br>
 
@@ -171,7 +171,7 @@ R インストール後に１回のみ実施してください。
 > file.edit('~/.Renviron')
 ```
 
-![](Files/proxy/image/image9.jpeg)
+![](./Files/proxy/image/image9.jpeg)
 
 <br>
 
@@ -180,14 +180,14 @@ R エディタが起動しますので、以下２行を追加します。
 http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 
-![](Files/proxy/image/image10.jpeg)
+![](./Files/proxy/image/image10.jpeg)
 
 <br>
 
 入力後、×ボタンでR エディタ画面を閉じます。  
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。  
 
-![](Files/proxy/image/image11.jpeg)
+![](./Files/proxy/image/image11.jpeg)
 
 <br>
 
@@ -204,7 +204,7 @@ Atlas セットアップ手順「4.4 Achilles インストール」で実施し�
 > library(devtools)
 ```
 
-![](Files/proxy/image/image12.jpeg)
+![](./Files/proxy/image/image12.jpeg)
 
 <br>
 
@@ -214,7 +214,7 @@ Atlas セットアップ手順「4.4 Achilles インストール」で実施し�
 > set_config(use_proxy(url="http://[proxy]", port=[port],))
 ```
 
-![](Files/proxy/image/image13.jpeg)
+![](./Files/proxy/image/image13.jpeg)
 
 <br>
 
