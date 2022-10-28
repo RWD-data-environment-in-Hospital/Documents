@@ -3,6 +3,7 @@
 <head>
 <title>WhiteRabbit_setup.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
 <style>
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
@@ -13,7 +14,7 @@
 
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
+	font-size: var(--vscode-markdown-font-size, 16px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
 	word-wrap: break-word;
@@ -99,11 +100,20 @@ body.showEditorSelection li.code-line:hover:before {
 	border-left: none;
 }
 
-img {
-	max-width: 100%;
-	max-height: 100%;
+p, li, pre {
+	width: 90%; max-width: 1200px;
 }
 
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+/* img {
+	max-width: 100%;
+	max-height: 100%;
+} */
 a {
 	text-decoration: none;
 }
@@ -352,6 +362,58 @@ code {
 	page-break-after: always;
 }
 
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
+
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -365,6 +427,7 @@ code {
           : 'default'
     });
   </script>
+<div id="page_top"><a href="#"></a></div>
 <h1 id="white-rabbit%E3%83%BBrabbit-in-a-hat-%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E6%89%8B%E9%A0%86"><strong>White Rabbit・Rabbit-in-a-Hat セットアップ手順</strong></h1>
 <h2 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h2>
 <p><a href="#1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．本手順について</a></p>
@@ -402,46 +465,50 @@ code {
 <hr>
 <h1 id="2white-rabbit%E3%83%BBrabbit-in-a-hat%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97"><strong>2．White Rabbit・Rabbit-in-a-Hatのセットアップ</strong></h1>
 <p>White Rabbit・Rabbit-in-a-Hatの動作環境を構築します。<br>
-<a href="https://github.com/OHDSI/WhiteRabbit"><ins>GithubのOHDSI/WhiteRabbit</ins></a>にアクセスして、セットアップを進めていきます。</p>
-<p><img src="Files/WhiteRabbit/image/image1.png" alt=""></p>
+<a href="https://github.com/OHDSI/WhiteRabbit" target="_blank" rel="nofollow noopener"><ins>GithubのOHDSI/WhiteRabbit</ins></a> にアクセスして、セットアップを進めていきます。</p>
+<p><img src="./WhiteRabbit/image/image1.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h2 id="21white-rabbit%E3%83%BBrabbit-in-a-hat%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>2．1．White Rabbit・Rabbit-in-a-Hatのインストール</strong></h2>
-<p>GithubのOHDSI/USAGIページの［Getting Started］項目内の<a href="https://github.com/OHDSI/WhiteRabbit/releases"><ins>Releases,</ins></a>（赤枠）をクリックします。</p>
-<p><img src="Files/WhiteRabbit/image/image4.png" alt=""></p>
+<p>GithubのOHDSI/USAGIページの［Getting Started］項目内の<a href="https://github.com/OHDSI/WhiteRabbit/releases" target="_blank" rel="nofollow noopener"><ins>Releases</ins></a>（赤枠）をクリックします。</p>
+<p><img src="./WhiteRabbit/image/image4.png" alt=""></p>
 <br>
 <p>WhiteRabbit_v0.10.3.zip（赤枠）をクリックしてダウンロードします。<br>
 本ファイル内には、White RabbitとRabbit-in-a-Hatのファイルが格納されています。<br>
 （バージョンが異なる場合、参考資料とファイル名も異なるためご注意ください。）</p>
-<p><img src="Files/WhiteRabbit/image/image5.png" alt=""></p>
+<p><img src="./WhiteRabbit/image/image5.png" alt=""></p>
 <p>ダウンロードが完了したらファイルを右クリックし、［すべて展開］を選択して、任意の展開先を参照して解凍し、保存します。</p>
 <br>
 <hr>
 <h2 id="22white-rabbit%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%81%9C%E6%AD%A2"><strong>2．2．White Rabbitの起動・停止</strong></h2>
 <h3 id="221white-rabbit%E3%81%AE%E8%B5%B7%E5%8B%95"><strong>2．2．1．White Rabbitの起動</strong></h3>
 <p>２．１でダウンロードしたファイルの［bin］フォルダを開きます。</p>
-<p><img src="Files/WhiteRabbit/image/image6.png" alt=""></p>
+<p><img src="./WhiteRabbit/image/image6.png" alt="" width="700px"></p>
 <p>［bin］フォルダ内のwhiteRabbit.batをダブルクリックすると、White Rabbitが起動して画面が表示されます。</p>
 <br>
 <hr>
 <h3 id="222white-rabbit%E3%81%AE%E5%81%9C%E6%AD%A2"><strong>2．2．2．White Rabbitの停止</strong></h3>
 <p>White Rabbit終了時は、画面右上の［×］をクリックして画面を閉じます。</p>
-<p><img src="Files/WhiteRabbit/image/image2.png" alt=""></p>
+<p><img src="./WhiteRabbit/image/image2.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h2 id="23rabbit-in-a-hat%E3%81%AE%E8%B5%B7%E5%8B%95%E3%83%BB%E5%81%9C%E6%AD%A2"><strong>2．3．Rabbit-in-a-Hatの起動・停止</strong></h2>
 <h3 id="231rabbit-in-a-hat%E3%81%AE%E8%B5%B7%E5%8B%95"><strong>2．3．1．Rabbit-in-a-Hatの起動</strong></h3>
 <p>2．2と同様の手順で起動することができます。<br>
 3．2でダウンロードしたファイルの［bin］フォルダを開きます。</p>
-<p><img src="Files/WhiteRabbit/image/image7.png" alt=""></p>
+<p><img src="./WhiteRabbit/image/image7.png" alt="" width="700px"></p>
 <br>
 <p>RabbitInAHat.batをダブルクリックすると、Rabbit-in-a-Hatが起動して画面が表示されます。</p>
-<p><img src="Files/WhiteRabbit/image/image3.png" alt=""></p>
+<p><img src="./WhiteRabbit/image/image3.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="232rabbit-in-a-hat%E3%81%AE%E5%81%9C%E6%AD%A2"><strong>2．3．2．Rabbit-in-a-Hatの停止</strong></h3>
 <p>Rabbit-in-a-Hat終了時は、画面右上の［×］をクリックして画面を閉じます。</p>
-<p><img src="Files/WhiteRabbit/image/image8.png" alt=""></p>
-
+<p><img src="./WhiteRabbit/image/image8.png" alt="" width="1200px"></p>
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>

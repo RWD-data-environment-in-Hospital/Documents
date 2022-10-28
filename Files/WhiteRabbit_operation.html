@@ -3,6 +3,7 @@
 <head>
 <title>WhiteRabbit_operation.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
 
 <style>
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
@@ -13,7 +14,7 @@
 
 body {
 	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 14px);
+	font-size: var(--vscode-markdown-font-size, 16px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
 	word-wrap: break-word;
@@ -99,10 +100,21 @@ body.showEditorSelection li.code-line:hover:before {
 	border-left: none;
 }
 
-img {
+p, li, pre {
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+■img横幅調整無効
+/* img {
 	max-width: 100%;
 	max-height: 100%;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -352,6 +364,57 @@ code {
 	page-break-after: always;
 }
 
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -365,6 +428,7 @@ code {
           : 'default'
     });
   </script>
+<div id="page_top"><a href="#"></a></div>
 <h1 id="white-rabbitrabbit-in-a-hat-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>White Rabbit、Rabbit-in-a-Hat 操作手順</strong></h1>
 <h2 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h2>
 <p><a href="#1%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1．本手順について</a></p>
@@ -415,7 +479,7 @@ code {
 <ul>
 <li>Windows10（64ビット）</li>
 <li>Java（バージョン1.8以降）</li>
-<li><a href="https://github.com/OHDSI/WhiteRabbit/releases/tag/v0.10.3"><ins>White Rabbitのインストール</ins></a></li>
+<li><a href="https://github.com/OHDSI/WhiteRabbit/releases/tag/v0.10.3" target="_blank" rel="nofollow noopener"><ins>White Rabbitのインストール</ins></a></li>
 </ul>
 <br>
 <hr>
@@ -423,14 +487,14 @@ code {
 <p>入力ソースデータは、電子カルテデータになります。<br>
 OMOP CDMの各リソースへマッピング支援するのが、Rabbit-in-a-Hatです。
 Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitでは入力データをRabbi-in-a-Hatで取り込み可能な形式に加工します。</p>
-<p><img src="Files/WhiteRabbit_2/image/image28.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image28.png" alt=""></p>
 <br>
 <hr>
 <h1 id="3white-rabbit"><strong>3．White Rabbit</strong></h1>
 <hr>
 <h2 id="31%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>3．1．操作の流れ</strong></h2>
 <p>操作の流れを以下に示します。</p>
-<p><img src="Files/WhiteRabbit_2/image/image27.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image27.png" alt=""></p>
 <br>
 <hr>
 <h2 id="32%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>3．2．操作手順</strong></h2>
@@ -447,12 +511,12 @@ CSVファイルを読み込ませる場合、「Delimited text files」を選択
 [Data type]にてデータベースを選択した場合は、
 サーバーの場所（②）、ユーザー名（③）、パスワード（④）、データベース名（⑤）を入力し、[Test Connection]ボタン（⑥）をクリックします。</p>
 <p>接続に成功すると⑦のメッセージが表示されます。</p>
-<p><img src="Files/WhiteRabbit_2/image/image2.png" alt="">
-<img src="Files/WhiteRabbit_2/image/image3.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image2.png" alt="" width="1200px">
+<img src="./WhiteRabbit_2/image/image3.png" alt=""></p>
 <br>
 <p><strong>出力データ</strong><br>
 [Locations]タブを開き、[Working Folder]の[Pick folder]ボタンをクリックし、生成されるファイル（Scan report）の格納先フォルダーを選択します。</p>
-<p><img src="Files/WhiteRabbit_2/image/image4.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image4.png" alt=""  width="1200px"></p>
 <br>
 <p>以上でデータベース or テキストファイルの選択作業は終了です。</p>
 <br>
@@ -472,13 +536,13 @@ CSVファイルを読み込ませる場合、「Delimited text files」を選択
 <li>[Add]ボタン（②）を押し、ローカルに保存されたテキストファイルを選択して追加することができます。</li>
 <li>[Remove]ボタン（③）で、追加済みのテーブルを選択して削除することができます。</li>
 </ul>
-<p><img src="Files/WhiteRabbit_2/image/image5.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image5.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h2 id="323%E5%BF%85%E9%A0%88%E3%83%87%E3%83%BC%E3%82%BFscan-report%E3%81%AE%E5%87%BA%E5%8A%9B"><strong>3．2．3．【必須】データ（Scan report）の出力</strong></h2>
 <p>[Scan tables]ボタン（①）を選択すると追加したテーブルが読み込まれ、読み込みが成功するとコンソールに Scan report generated と表示されます。（②）<br>
 3．2．1で指定したファルダに、「ScanReport.xlsx」が生成されています。</p>
-<p><img src="Files/WhiteRabbit_2/image/image6.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image6.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h2 id="324%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B9%E3%82%AD%E3%83%A3%E3%83%B3%E6%9D%A1%E4%BB%B6%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>3．2．4．【オプション】スキャン条件の設定</strong></h2>
@@ -521,13 +585,13 @@ Rabbit-in-a-Hatで生データの情報を確認しながらマッピングし�
 </tr>
 </tbody>
 </table>
-<p><img src="Files/WhiteRabbit_2/image/image7.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image7.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h2 id="325%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3fake-data-generation"><strong>3．2．5．【オプション】Fake data generation</strong></h2>
 <p>Fake data generation では、テストデータを作成することができます。<br>
 3．2．3で生成された「ScanReport.xlsx」を読み込むことで、元のソースデータの値がランダムに並べられたソースデータが生成されます。</p>
-<p><img src="Files/WhiteRabbit_2/image/image8.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image8.png" alt="" width="1200px"></p>
 <p>White Rabbitでの作業説明は以上です。</p>
 <br>
 <hr>
@@ -535,7 +599,7 @@ Rabbit-in-a-Hatで生データの情報を確認しながらマッピングし�
 <hr>
 <h2 id="41%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>4．1．操作の流れ</strong></h2>
 <p>Rabbit-in-a-Hatの操作の流れを以下に示します。</p>
-<p><img src="Files/WhiteRabbit_2/image/image26.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image26.png" alt=""></p>
 <p>本手順では、CDM Version6.0のpersonテーブルとのマッピングを例に挙げて操作説明を進めていきます。</p>
 <br>
 <hr>
@@ -549,16 +613,16 @@ Rabbit-in-a-Hatで生データの情報を確認しながらマッピングし�
 選択後、ファイルが読み込まれて左側の[Source]にWhite Rabbitで読み込んだデータのテーブル名がオレンジ色の箱に表示されます。（②）</p>
 <br>
 <p><strong>＜読み込み前＞</strong>
-<img src="Files/WhiteRabbit_2/image/image9.png" alt=""></p>
+<img src="./WhiteRabbit_2/image/image9.png" alt="" width="1200px"></p>
 <br>
 <p><strong>＜読み込み後＞</strong>
-<img src="Files/WhiteRabbit_2/image/image10.png" alt=""></p>
+<img src="./WhiteRabbit_2/image/image10.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="422%E5%BF%85%E9%A0%88%EF%BD%83%EF%BD%84%EF%BD%8D%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E9%81%B8%E6%8A%9E"><strong>4．2．2．【必須】ＣＤＭのバージョン選択</strong></h3>
 <p>[Edit]タブの[Set Target Database]（①）より、CDMのバージョンを選択可能することができます。<br>
 本手順では、CDM v6.0を選択します。（デフォルトですでに設定されています）</p>
-<p><img src="Files/WhiteRabbit_2/image/image11.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image11.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="423%E5%BF%85%E9%A0%88%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0"><strong>4．2．3．【必須】マッピング</strong></h3>
@@ -575,41 +639,41 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 矢印は１つのソーステーブルから複数のCDMテーブルに対して接続可能です。<br>
 また、複数のテーブルから１つのCDMのテーブルに接続することも可能です。</p>
 <p>personとpatient_profileを矢印でつなぎマッピングをします。</p>
-<p><img src="Files/WhiteRabbit_2/image/image12.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image12.png" alt="" width="1200px"></p>
 <br>
 <p>矢印をクリックすると、マッピング画面の右側に[Detail]欄が表示されます。<br>
 ここでは、ソーステーブル(Scan report)とターゲットテーブル（CDM）が表示される（③）ほかLogic（④）にはマッピングに関するロジックに関する伝達事項、Comments（⑤）には特記事項がある場合に自由に記載可能です。</p>
-<p><img src="Files/WhiteRabbit_2/image/image13.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image13.png" alt="" width="1200px"></p>
 <br>
 <p>箱をクリックすると、マッピング画面右側に[Details]欄が表示され、各テーブルの詳細情報が記載されています。<br>
 テーブル名（⑥）、テーブルの行数（⑦）、項目名（⑧）、項目のデータ型（⑨）を確
 認することができます。</p>
 <p>画面下には[Comments]欄（⑩）があり、記載事項があれば記入することが可能です。</p>
-<p><img src="Files/WhiteRabbit_2/image/image14.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image14.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <p><strong>2．テーブル内の項目間マッピング</strong><br>
 1でマッピングした矢印をダブルクリックすると、双方のテーブルの各項目が表示されます。（①）</p>
-<p><img src="Files/WhiteRabbit_2/image/image15.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image15.png" alt="" width="1200px"></p>
 <br>
 <p>下図のように各項目をマッピングしていきます。<br>
 マッピングの方法は、１と同様の操作です。（見えやすくするために、箱は初期位置から移動させています。）</p>
 <p>&lt;patient_profileとpersonの項目間のマッピング&gt;
-<img src="Files/WhiteRabbit_2/image/image16.png" alt=""></p>
+<img src="./WhiteRabbit_2/image/image16.png" alt="" width="1200px"></p>
 <br>
 <p>項目の箱をクリックするとマッピング画面右側に[Details]欄が表示されて、詳細情報を確認することができます。</p>
 <p>項目名（②）、データ型（③）、データの固有値（④）、生データ（⑤）が表示されます。
 下部には[Comments]欄（⑥）があり、特記事項があれば記入することが可能です。</p>
-<p><img src="Files/WhiteRabbit_2/image/image17.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image17.png" alt="" width="1200px"></p>
 <p>以上でpatient_profileテーブルとpersonテーブルのマッピング操作は終了です。</p>
 <br>
 <hr>
 <h3 id="424%E5%BF%85%E9%A0%88%E3%83%87%E3%83%BC%E3%82%BF%E5%87%BA%E5%8A%9B"><strong>4．2．4．【必須】データ出力</strong></h3>
 <p>マッピングしたデータを出力する場合は、[File]タブの[Save As]をクリックし（①）、任意の場所にGZIP形式で保存（②）します。</p>
-<p><img src="Files/WhiteRabbit_2/image/image18.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image18.png" alt="" width="1200px"></p>
 <br>
 <p>[File]タブの[Open ETL specs]（①）からGZIPファイルを開くことで（②）、マッピング処理が保持された状態で再開することができます。（③）</p>
-<p><img src="Files/WhiteRabbit_2/image/image19.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image19.png" alt="" width="1200px"></p>
 <br>
 <p>他にも、必要に応じて以下のデータを出力することができます。</p>
 <table>
@@ -638,7 +702,7 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 </tr>
 </tbody>
 </table>
-<p><img src="Files/WhiteRabbit_2/image/image20.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image20.png" alt="" width="1200px"></p>
 <hr>
 <h2 id="43%E5%8F%82%E8%80%83%E6%A9%9F%E8%83%BD%E7%B4%B9%E4%BB%8B"><strong>4．3．【参考】機能紹介</strong></h2>
 <p>Rabbit-in-a-Hatで使用できる機能を紹介します。必須機能ではありません。</p>
@@ -649,14 +713,14 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 矢印をクリックして選択後（①）に[Arrows]タブの[Mark Highlighted As Complete]をクリック（②）します。<br>
 処理を実施した矢印の色が変化して、他と差別化可能（③）となります。<br>
 [Mark Highlighted As Incomplete]（④）で元の色の矢印に戻すことが可能です。</p>
-<p><img src="Files/WhiteRabbit_2/image/image21.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image21.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="432discard-value-counts"><strong>4．3．2．Discard Value Counts</strong></h3>
 <p>ソースデータの集計値やCDMの項目内のコンセプト情報を破棄します。<br>
 テーブル名をダブルクリックしてテーブル内の項目を選択後、[Edit]タブの[Discard Value Counts]（①）をクリックすると、[Value Counts]欄に表示されていた集計値が消えます。（②）</p>
 <p>この処理を実施したデータを保存した場合、破棄状態も保持されます。</p>
-<p><img src="Files/WhiteRabbit_2/image/image22.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image22.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="433stem-table"><strong>4．3．3．Stem table</strong></h3>
@@ -666,7 +730,7 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 使用方法を以下に記載します。<br>
 [Edit]タブの[Add stem table]を選択する（①）と、紫色のstem_tableの箱がtables画面の中央上部に表示されます。（②）<br>
 デフォルトでは、図に示されるように７つのテーブルに接続済みです。（③）</p>
-<p><img src="Files/WhiteRabbit_2/image/image23.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image23.png" alt="" width="1200px"></p>
 <br>
 <hr>
 <h3 id="434cdm%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA"><strong>4．3．4．CDMのカスタマイズ</strong></h3>
@@ -674,11 +738,15 @@ Sourceテーブルにカーソルを合わせると矢印が表示されます�
 カスタマイズするためには、github上に共有されている「CDMV5.csv」の形式に則ったCSVファイルを作成する必要があります。</p>
 <p>[Edit]タブの[Set Target Database]（①）から[Load custom...]（②）を選択し、作成した新たなCDMファイルを選択します。<br>
 このとき、ファイル名がCDM名として表示されます。（③）</p>
-<p><img src="Files/WhiteRabbit_2/image/image24.png" alt=""></p>
+<p><img src="./WhiteRabbit_2/image/image24.png" alt="" width="1200px"></p>
 <br>
 <p>&lt;CDMV5の形式に従って作成したCDM_custom&gt;
-<img src="Files/WhiteRabbit_2/image/image1.png" alt="">
-<img src="Files/WhiteRabbit_2/image/image25.png" alt=""></p>
-
+<img src="./WhiteRabbit_2/image/image1.png" alt="" width="1200px">
+<img src="./WhiteRabbit_2/image/image25.png" alt="" width="1200px"></p>
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>
