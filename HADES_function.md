@@ -97,7 +97,8 @@ Cyclops (Cyclic coordinate descent for Logistic、 Poisson and survival analysis
 
 ---
 ## **【 DatabaseConnector 】**
-このRパッケージは、**様々なDBMSに接続するための機能**を提供します。  SqlRenderパッケージとともに、DatabaseConnectorの主な目的は、データベースプラットフォーム間で統一されたインターフェイスを提供することです。  
+このRパッケージは、**様々なDBMSに接続するための機能**を提供します。  
+  SqlRenderパッケージとともに、DatabaseConnectorの主な目的は、データベースプラットフォーム間で統一されたインターフェイスを提供することです。  
 
 参考URL：[https://ohdsi.github.io/DatabaseConnector/](https://ohdsi.github.io/DatabaseConnector/)
 
@@ -105,7 +106,7 @@ Cyclops (Cyclic coordinate descent for Logistic、 Poisson and survival analysis
 
 ---
 ## **【 SqlRender 】**
-**パラメータ化されたSQLをレンダリングし、異なるSQL言語に変換する**ためのRパッケージです。
+**パラメータ化されたSQLをレンダリングし、異なるSQL言語に変換する**ためのRパッケージです。  
 SqlRenderはスタンドアローンのJavaライブラリやコマンドラインの実行ファイルとしても使用できます。
 
 参考URL：[https://ohdsi.github.io/SqlRender/](https://ohdsi.github.io/SqlRender/)
@@ -131,7 +132,7 @@ OMOP共通データモデルのデータを用いて、コホートの特徴量�
 <br>
 
 ---
-
+## **【Andromeda】**
 AsynchroNous Disk-based Representation of MassivE DAta (ANDROMEDA): 大規模なデータオブジェクトを保存するためのRパッケージです。  
 アンドロメダは、データオブジェクトをローカルドライブに保存しつつ、データを効率的に操作することができます。  
 
@@ -195,15 +196,15 @@ Eunomiaは「the Book of OHDSI」 ([https://ohdsi.github.io/TheBookOfOhdsi/](htt
 ---
 # **CohortMethod 使用例（CohortMethodパッケージを用いた単一研究）**
 ## **目次**
-1．本書について  
-2．参考資料  
-3．CohortMethod 処理の流れ  
-4．データの抽出・調査対象データモデルの作成  
-5．調査対象集団の定義  
-6．傾向スコア分析  
-7．共変量バランスの評価  
-8．フォローアップと検出力  
-9．アウトカムモデル  
+[1．本書について](#1本書について)  
+[2．参考資料](#2参考資料)  
+[3．CohortMethod 処理の流れ](#3cohortmethod-処理の流れ)  
+[4．データの抽出・調査対象データモデルの作成](#4データの抽出・調査対象データモデルの作成)  
+[5．調査対象集団の定義](#5調査対象集団の定義)  
+[6．傾向スコア分析](#6傾向スコア分析)  
+[7．共変量バランスの評価](#7共変量バランスの評価)  
+[8．フォローアップと検出力](#8フォローアップと検出力)  
+[9．アウトカムモデル](#9アウトカムモデル)  
 
 ---
 # **1．本書について**
