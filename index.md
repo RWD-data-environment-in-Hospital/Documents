@@ -28,7 +28,9 @@ Atlasは、OMOP 共通データモデル（CDM）に変換され、標準化さ�
 ```
 - [セットアップ手順](./Atlas_setup.md)
 - [操作手順（CohortPathways編）](./Atlas_operation_CohortPathways.md)
+※テストデータ（Eunomia）のセットアップ手順含む
 - [機能調査資料](./Atlas_functional_survey.md)
+- [アプリケーションのバージョン](./Verified_Version.md)
 - [プロキシ設定手順](./Proxy_setting.md)
 ※プロキシサーバによりインストールの通信がブロックされる場合は、設定が必要です
 
