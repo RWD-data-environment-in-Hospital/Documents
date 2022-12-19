@@ -74,7 +74,7 @@ AthenaサイトからダウンロードしたCONCEPTテーブルや、マッピ�
 ---
 # **2．利用準備**
 ## **2－1．Athenaサイトからファイルをダウンロード**
-Usagiを利用するにあたり、下記のCONEPT、およびVOCABULARYの情報が必要となるため、Athenaサイトで取得します。  
+Usagiを利用するにあたり、下記のCONCEPT、およびVOCABULARYの情報が必要となるため、Athenaサイトで取得します。  
 取得した以下４つのファイルは任意のフォルダにまとめて格納します。
 
 - CONCEPT.CSV  
@@ -153,6 +153,7 @@ Indexの作成が完了すると、メッセージ画面が表示されるので
 Indexの作成が完了すると、Usagi格納フォルダ配下に以下フォルダ・ファイルが自動で作成されます。
 
 ![](./Files/Usagi_2/image/image34.png)  
+※derivedIndexフォルダは、「4-1．ソースデータの取込」時に作成されます。  
 
 <br>
 
@@ -203,7 +204,7 @@ Usagiを起動し、「File」メニューから「Import codes」を選択し�
 元システムにおいて既にCONCEPT_IDとの紐付けが完了している場合、CONCEPT_IDとの紐付けをする事でマッピング制限をかけます。
 
   - ATC column  
-CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」のものを対象としてマッピングを行います。  
+CONCEPTテーブルに登録された情報のうち、Vocabularyが「ATC」のものを対象としてマッピングを行います。  
 ※[Auto concept ID column]から[ATC column]に切り替えて項目を指定します。
 
   - Additional info column  
@@ -224,15 +225,15 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
   - Filter by concept class  
 マッピング対象とするCONCEPT CLASSを選択します。（※）
 
-  - Filter by vocaburlary
-マッピング対象とするVOCABURALYを選択します。（※）
+  - Filter by vocabulary  
+マッピング対象とするVOCABULARYを選択します。（※）
 
-  - Filter by domain
+  - Filter by domain  
 マッピング対象とするDOMAINを選択します。（※）  
+
 ※3－3で作成したIndexに含まれる内容が表示されますので、その内容から選択します。
 
-ソースデータ項目の選択、及びFilters設定を行った後、「Import」ボタンをクリックすると取込が行われます。（データ量により、15～30分かかります）  
-
+ソースデータ項目の選択、及びFilters設定を行った後、「Import」ボタンをクリックすると取込が行われます。（データ量により15～30分かかります）  
 ※具体的なマッピング手順の例は、「9．参考）マッピング手順例」を参照ください。
 
 <br>
@@ -249,7 +250,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 ② Source code  
 　①で選択したレコードについて、現在マッピング候補となっているCONCEPTの内容が表示されます。
 
-③ Serch  
+③ Search  
 　①で選択したレコードについて、その他の候補も含めた候補一覧が表示されます。
 
 <br>
@@ -279,11 +280,11 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 <br>
 
 - **マッピング候補を削除する場合**  
-下図の「② Target Concepts」からレコードを選択し、「Remove concepts」ボタンをクリックします。
+下図の「② Target concepts」からレコードを選択し、「Remove concept」ボタンをクリックします。
 
 ![](./Files/Usagi_2/image/image25.png)  
 
-下図の「② Target Concepts」から選択したレコードが削除されます。
+下図の「② Target concepts」から選択したレコードが削除されます。
 
 ![](./Files/Usagi_2/image/image24.png)  
 
@@ -333,7 +334,7 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 
 <br>
 
-選択した「④ Current concept」に対する親CONCEPTの情報が「⑤ Parent concets」へ、子CONCEPTの情報が「⑥ Children Concepts」へ表示されます。
+選択した「④ Current concept」に対する親CONCEPTの情報が「⑤ Parent concepts」へ、子CONCEPTの情報が「⑥ Children concepts」へ表示されます。
 
 ![](./Files/Usagi_2/image/image19.png)  
 
@@ -438,7 +439,7 @@ Usagiを起動し、「File」メニューから「Open」を選択します。
 - Approved and Unapproved  
 承認済み及び未承認レコードを出力
 
-次に、「Source_vocaburary」の入力画面が表示されます。  
+次に、「Source_vocabulary」の入力画面が表示されます。  
 出力データの「source_vocabulary_id」列に出力する値を指定し、「Export」ボタンをクリックします。  
 ※１回のCSVファイル出力について、１種類しか指定できないため出力単位を考慮する必要があります。
 
@@ -501,6 +502,6 @@ Usagiによる、具体的なマッピング手順の一例として、薬品を
 当例では「VIZIMPRO Tablet」という英字薬品名に対し、「dacomitinib 15 MG Oral Tablet[Vizimpro]」がマッピングされました。  
 画面下部の「Results」にはその他候補が表示されます。  
 
-また、「Serch」では「Query」や「Filters」の条件を再設定する事で、「Results」に表示される候補を再検索する事も可能です。  
+また、「Search」では「Query」や「Filters」の条件を再設定する事で、「Results」に表示される候補を再検索する事も可能です。  
 
 マッピング結果が正しくないと判断された場合など、必要に応じて「Results」に表示された内容からマッピング候補の追加・入れ替えを行います。

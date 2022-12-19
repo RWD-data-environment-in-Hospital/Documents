@@ -36,7 +36,7 @@ Usagiの動作環境を構築します。
 
 ---
 # **2．1．Athenaへの会員登録**
-GithubのOHDSI/Usagiページの［Getting Started］項目内の[<ins>Athena</ins>](https://athena.ohdsi.org/search-terms/start)（赤枠）をクリックします。  
+[<ins>GithubのOHDSI/Usagi</ins>](https://github.com/OHDSI/Usagi)ページの［Getting Started］項目内の[<ins>Athena</ins>](https://athena.ohdsi.org/search-terms/start)（赤枠）をクリックします。  
 
 ![](Files/Usagi/image/image6.png)  
 
@@ -59,7 +59,7 @@ Athenaを初めて使用する際には会員登録が必要です。
 
 ---
 # **2．2．Usagiのインストール**
-GithubのOHDSI/Usagiページの［Getting Started］項目内の[<ins>Releases</ins>](https://github.com/OHDSI/Usagi/releases)（赤枠）をクリックします。  
+[<ins>GithubのOHDSI/Usagi</ins>](https://github.com/OHDSI/Usagi)ページの［Getting Started］項目内の[<ins>Releases</ins>](https://github.com/OHDSI/Usagi/releases)（赤枠）をクリックします。  
 
 ![](Files/Usagi/image/image7.png)  
 
@@ -72,8 +72,7 @@ Usagi_v1.4.3.jar（赤枠）をクリックし、ファイルをダウンロー�
 
 <br>
 
-ダウンロードしたファイルをクリックした後、  
-「この種類のファイルはコンピューターに損害を与える可能性があります。」と表示されますが、「保存」をクリックし、任意の場所に保存します。
+ダウンロードしたファイルをクリックした後、「この種類のファイルはコンピューターに損害を与える可能性があります。」と表示されますが、「保存」をクリックし、任意の場所に保存します。
 
 ![](Files/Usagi/image/image9.png)  
 
@@ -234,18 +233,38 @@ Athenaを開き、ログインします。
 ［DOWNLOAD SUMMARY］が表示されるので、［name bundle］欄に任意の名前を入力してください。  
 （［name bundle］に入力した名前は、［DOWNLOAD HISTORY］に表示されるファイル名になります）  
 ［Notify me about changes in these vocabularies］にチェックを入れて、［DOWNLOAD］をクリックします。  
-vocabularyが準備中であるというメッセージが表示されます。  
 
 ![](Files/Usagi/image/image17.png)  
+*Odysseus Data Services, Inc. 「Athena」*  
+
+<br>
+
+vocabularyのダウンロードが準備中であるというメッセージが表示されます。  
+[SHOW HISTORY]をクリックします。  
+
 ![](Files/Usagi/image/image18.png)  
 *Odysseus Data Services, Inc. 「Athena」*  
 
 <br>
 
-準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）  
-メール受領後、Athenaの画面右上の［SHOW HISTORY］をクリックし、［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。  
+ダウンロードの準備が完了するまで状態が「PENDING」となります。
 
-![](Files/Usagi/image/image19.png)  
+![](Files/Usagi/image/image20.png)  
+*Odysseus Data Services, Inc. 「Athena」*  
+
+<br>
+
+ダウンロードの準備が完了すると、Athenaからメールが届きます。（ダウンロードクリックから数分程度かかります）  
+メール受領後、Athena画面右上の［REFRESH］をクリックします。
+
+![](Files/Usagi/image/image21.png)  
+*Odysseus Data Services, Inc. 「Athena」*  
+
+<br>
+
+［name bundle］で指定した名称の項目の［DOWNLOAD］をクリックするとvocabularyがダウンロードされます。  
+
+![](Files/Usagi/image/image22.png)  
 *Odysseus Data Services, Inc. 「Athena」*  
 
 <br>

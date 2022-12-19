@@ -507,7 +507,7 @@ html{
 <hr>
 <h1 id="2%E5%88%A9%E7%94%A8%E6%BA%96%E5%82%99"><strong>2．利用準備</strong></h1>
 <h2 id="2%EF%BC%8D1athena%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%82%92%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89"><strong>2－1．Athenaサイトからファイルをダウンロード</strong></h2>
-<p>Usagiを利用するにあたり、下記のCONEPT、およびVOCABULARYの情報が必要となるため、Athenaサイトで取得します。<br>
+<p>Usagiを利用するにあたり、下記のCONCEPT、およびVOCABULARYの情報が必要となるため、Athenaサイトで取得します。<br>
 取得した以下４つのファイルは任意のフォルダにまとめて格納します。</p>
 <ul>
 <li>
@@ -571,6 +571,7 @@ Indexの作成が完了すると、メッセージ画面が表示されるので
 <br>
 <p>Indexの作成が完了すると、Usagi格納フォルダ配下に以下フォルダ・ファイルが自動で作成されます。</p>
 <p><img src="./Usagi_2/image/image34.png" alt=""></p>
+<p>※derivedIndexフォルダは、「4-1．ソースデータの取込」時に作成されます。</p>
 <br>
 <p>※補足　Rebuild indexについて<br>
 CONCEPTやVOCABULARYの内容に変更・更新があった場合等、UsagiのIndexを再作成したい場合は、「Help」メニューより「Rebuild index」を選択する事で「3－3．Indexの作成指示」を再度行う事が出来ます。</p>
@@ -612,7 +613,7 @@ Usagiを起動し、「File」メニューから「Import codes」を選択し�
 </li>
 <li>
 <p>ATC column<br>
-CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」のものを対象としてマッピングを行います。<br>
+CONCEPTテーブルに登録された情報のうち、Vocabularyが「ATC」のものを対象としてマッピングを行います。<br>
 ※[Auto concept ID column]から[ATC column]に切り替えて項目を指定します。</p>
 </li>
 <li>
@@ -632,7 +633,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 マッピング対象を、STANDARD CONCEPTに制限したい場合チェックします。</p>
 </li>
 <li>
-<p>Include source terms
+<p>Include source terms<br>
 マッピング対象とするCONCEPTの絞り込みに、元システムの名称を含ませる場合チェックします。（基本的にチェックのままとしておく）</p>
 </li>
 <li>
@@ -640,17 +641,18 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 マッピング対象とするCONCEPT CLASSを選択します。（※）</p>
 </li>
 <li>
-<p>Filter by vocaburlary
-マッピング対象とするVOCABURALYを選択します。（※）</p>
+<p>Filter by vocabulary<br>
+マッピング対象とするVOCABULARYを選択します。（※）</p>
 </li>
 <li>
-<p>Filter by domain
+<p>Filter by domain<br>
 マッピング対象とするDOMAINを選択します。（※）<br>
+<br>
 ※3－3で作成したIndexに含まれる内容が表示されますので、その内容から選択します。</p>
 </li>
 </ul>
-<p>ソースデータ項目の選択、及びFilters設定を行った後、「Import」ボタンをクリックすると取込が行われます。（データ量により、15～30分かかります）</p>
-<p>※具体的なマッピング手順の例は、「9．参考）マッピング手順例」を参照ください。</p>
+<p>ソースデータ項目の選択、及びFilters設定を行った後、「Import」ボタンをクリックすると取込が行われます。（データ量により15～30分かかります）<br>
+具体的なマッピング手順の例は、「9．参考）マッピング手順例」を参照ください。</p>
 <br>
 <hr>
 <h1 id="5%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E4%BD%9C%E6%A5%AD"><strong>5．マッピング作業</strong></h1>
@@ -660,7 +662,7 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 <p>① マッピング結果が表示されます。</p>
 <p>② Source code<br>
 　①で選択したレコードについて、現在マッピング候補となっているCONCEPTの内容が表示されます。</p>
-<p>③ Serch<br>
+<p>③ Search<br>
 　①で選択したレコードについて、その他の候補も含めた候補一覧が表示されます。</p>
 <br>
 <hr>
@@ -683,10 +685,10 @@ CONCEPTテーブルに登録された情報のうち、Vocablaryが「ATC」の�
 <br>
 <ul>
 <li><strong>マッピング候補を削除する場合</strong><br>
-下図の「② Target Concepts」からレコードを選択し、「Remove concepts」ボタンをクリックします。</li>
+下図の「② Target concepts」からレコードを選択し、「Remove concept」ボタンをクリックします。</li>
 </ul>
 <p><img src="./Usagi_2/image/image25.png" alt="" width="1200px"></p><br>
-<p>　　下図の「② Target Concepts」から選択したレコードが削除されます。</p>
+<p>　　下図の「② Target concepts」から選択したレコードが削除されます。</p>
 <p><img src="./Usagi_2/image/image24.png" alt="" width="1200px"></p>
 <br>
 <hr>
@@ -716,7 +718,7 @@ CONCEPTの補足情報となります。マッピング作業の参考にして�
 <p>「View」メニューから「Concept information」を選択します。</p>
 <p><img src="./Usagi_2/image/image20.png" alt="" width="1200px"></p>
 <br>
-<p>選択した「④ Current concept」に対する親CONCEPTの情報が「⑤ Parent concets」へ、子CONCEPTの情報が「⑥ Children Concepts」へ表示されます。</p>
+<p>選択した「④ Current concept」に対する親CONCEPTの情報が「⑤ Parent concepts」へ、子CONCEPTの情報が「⑥ Children concepts」へ表示されます。</p>
 <p><img src="./Usagi_2/image/image19.png" alt="" width="1200px"></p>
 <br>
 <hr>
@@ -781,7 +783,7 @@ Usagiを起動し、「File」メニューから「Open」を選択します。<
 <li>Approved and Unapproved<br>
 承認済み及び未承認レコードを出力</li>
 </ul>
-<p>次に、「Source_vocaburary」の入力画面が表示されます。<br>
+<p>次に、「Source_vocabulary」の入力画面が表示されます。<br>
 出力データの「source_vocabulary_id」列に出力する値を指定し、「Export」ボタンをクリックします。<br>
 ※１回のCSVファイル出力について、１種類しか指定できないため出力単位を考慮する必要があります。</p>
 <p><img src="./Usagi_2/image/image5.png" alt=""></p>
@@ -825,8 +827,12 @@ Usagiを起動し、「File」メニューから「Open」を選択します。<
 <p><img src="./Usagi_2/image/image42.png" alt="" width="1200px"></p>
 <p>当例では「VIZIMPRO Tablet」という英字薬品名に対し、「dacomitinib 15 MG Oral Tablet[Vizimpro]」がマッピングされました。<br>
 画面下部の「Results」にはその他候補が表示されます。</p>
-<p>また、「Serch」では「Query」や「Filters」の条件を再設定する事で、「Results」に表示される候補を再検索する事も可能です。</p>
+<p>また、「Search」では「Query」や「Filters」の条件を再設定する事で、「Results」に表示される候補を再検索する事も可能です。</p>
 <p>マッピング結果が正しくないと判断された場合など、必要に応じて「Results」に表示された内容からマッピング候補の追加・入れ替えを行います。</p>
-
+<br>
+<br>
+<br>
+<br>
+<br>
 </body>
 </html>
