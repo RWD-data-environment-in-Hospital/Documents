@@ -96,7 +96,7 @@ Atlas の操作手順について説明します。
 インポートを始める前に、エクスポートしたデータの内容を一部修正します。  
 
 - CONCEPT_ANCESTOR.csv  
-ファイルを開き「3.60e+07」を「36000000」に、「3.70e+07」を「37000000」に置き換えます。
+ファイルを開き「3.6e+07」を「36000000」に、「3.7e+07」を「37000000」に置き換えます。
 
 - DRUG_EXPOSURE.csv  
 ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に
@@ -157,8 +157,8 @@ psql -U ohdsi_admin_user -d OHDSI
 # \copy DOMAIN from 'D:\\tmp\output\\DOMAIN.csv' with delimiter ',' csv header
 # \copy DRUG_ERA from 'D:\\tmp\output\\DRUG_ERA.csv' with delimiter ',' csv header
 # \copy DRUG_EXPOSURE from 'D:\\tmp\output\\DRUG_EXPOSURE.csv' with delimiter ',' csv header
-# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' withdelimiter ',' csv header
-# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' withdelimiter ',' csv header
+# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' with delimiter ',' csv header
+# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' with delimiter ',' csv header
 # \copy OBSERVATION_PERIOD from 'D:\\tmp\output\\OBSERVATION_PERIOD.csv' with delimiter ',' csv header
 # \copy PERSON from 'D:\\tmp\output\\PERSON.csv' with delimiter ',' csv header
 # \copy PROCEDURE_OCCURRENCE from 'D:\\tmp\output\\PROCEDURE_OCCURRENCE.csv' with delimiter ',' csv header
@@ -269,47 +269,51 @@ Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラッ�
 
 <br>
 
-画面上部に新規に作成するコンセプトセットの名前を入力します。  
+画面上部の Concept Set テキスト入力欄に、新規に作成するコンセプトセットの名前を入力後、「Concept Set Expression」タブの「Add Concepts」をクリックします。  
+Search 画面に遷移します。  
 
-![](./Files/Atlas_3/image/image15.png)
-
-<br>
-
-「Concept Set Expression」タブの「Add Concepts」をクリックするとSearch 画面に遷移します。  
-
-![](./Files/Atlas_3/image/image39.png)
+![](./Files/Atlas_3/image/image65.png)
 
 <br>
 
-Search では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。  
+Search 画面では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。 
 
-![](./Files/Atlas_3/image/image41.png)
-
-<br>
-
-追加する以下のコンセプトの左側のボックスにチェックを入れていきます。  
+以下のコンセプトを検索し、Concept Sets へ登録します。  
 |Id|Code|Name|Class|Domain|Vocabulary|
 |:---|:---|:---|:---|:---|:---|
 |192671|74474003|Gastrointestinal hemorrhage|Clinical Finding|Condition|SNOMED|
 
 <br>
 
-ページ下の「Select Concept Set」で先ほど入力した「Gastrointestinal hemorrhage」を選択し、「Add to Concept Set」をクリックします。  
-「Gastrointestinal hemorrhage」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。  
+➀Search 画面のテキスト入力欄へ id 「192671」 を入力します。  
+②検索ボタンをクリックすると、対象のリストが表示されます。  
+③表示されたリストから「162671：Gastrointestinal hemorrhage」にチェックを入れます。  
+④Select Concept Set に「Gastrointestinal hemorrhage」が選択されていることを確認します。  
+⑤Descendants にチェックを入れます。  
+⑥Add To Concept Set をクリックします。
 
-![](./Files/Atlas_3/image/image16.jpeg)
+![](./Files/Atlas_3/image/image67.png)
 
 <br>
 
-各コンセプトについて、「Exclude」、「Descendants」、「Mapped」が設定できます。  
-派生するコンセプトも分析に含める想定のため、以下のように「Descendants」にチェックを入れます。  
+左メニューの「Concept Sets」をクリックします。  
+「Gastrointestinal hemorrhage」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。  
 
-![](./Files/Atlas_3/image/image17.jpeg)
+![](./Files/Atlas_3/image/image68.png)
+
+<br>
+
+派生するコンセプトも分析に含める想定のため、以下のように「Descendants」を有効にしました。  （各コンセプトについて、「Exclude」、「Descendants」、「Mapped」がここからも設定できます）  
+
+![](./Files/Atlas_3/image/image69.png)
 
 <br>
 
 画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。  
 以上でコンセプトセット「Gastrointestinal hemorrhage」の作成が完了しました。  
+×ボタンをクリックして、コンセプトセット「Gastrointestinal hemorrhage」の画面を閉じます。
+
+![](./Files/Atlas_3/image/image70.png)
 
 同様の操作で、以下のコンセプトセットについても作成します。
 

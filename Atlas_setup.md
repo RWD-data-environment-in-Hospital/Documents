@@ -101,6 +101,13 @@ https://git-scm.com/
 
 <br>
 
+Standalone Installer の「64-bit Git for Windows Setup.」をクリックし、インストーラーをダウンロードします。  
+
+![](./Files/Atlas/image/image1363.png)  
+*出典：「Git」*
+
+<br>
+
 ダウンロードが完了したら、「Git-2.33.1-64-bit.exe」をダブルクリックします。  
 
 ![](./Files/Atlas/image/image52.png)  
@@ -277,7 +284,8 @@ Wizard 画面が出るので「Next」をクリックします。
 
 <br>
 
-データディレクトリについては、C ドライブ以外を設定して「Next」をクリックします。
+データディレクトリはデフォルトのままで「Next」をクリックします。  
+※データディレクトリについては、システムドライブ以外を指定することで、Cドライブの容量消費を抑えることができます。（データドライブがある場合）
 
 ![](./Files/Atlas/image/image77.jpeg)  
 
@@ -525,20 +533,20 @@ pgAdmin 4 の画面左の「Databases」を右クリックし、「Create」内�
 ## **3．2．4　OMOP 共通データモデルテーブルの作成**
 psql を実行するための環境設定を実施します。  
 ※ＯＳやソフトのバージョンにより画面構成が異なる場合があります。  
-環境変数PATH を追加します。  
-「エクスプローラー」を開き、左側の「PC」を右クリックして「プロパティ」を開きます。  
+環境変数PATHを追加します。  
+Windowsマークを右クリックし、「システム」をクリックします。
 
-![](./Files/Atlas/image/image114.png)  
-
-<br>
-
-コントロールパネルの「システム」の「システムの詳細設定」をクリックします。  
-
-![](./Files/Atlas/image/image115.png)  
+![](./Files/Atlas/image/image1365.png)  
 
 <br>
 
-「システムのプロパティ」の「環境変数」をクリックします。  
+「システムの詳細設定」をクリックします。  
+
+![](./Files/Atlas/image/image1364.png)  
+
+<br>
+
+「システムのプロパティ」の「詳細設定」タブにある「環境変数」をクリックします。  
 
 ![](./Files/Atlas/image/image116.jpeg)  
 
@@ -566,7 +574,7 @@ C:\Program Files\PostgreSQL\10\bin
 <br>
 
 環境変数の追加が終了したら、コマンドプロンプトからpsql を実行できるかを確認します。  
-再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。  
+PCを再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。  
 
 ![](./Files/Atlas/image/image120.jpeg)  
 
@@ -651,7 +659,7 @@ https://github.com/OHDSI/CommonDataModel/releases
 <br>
 
 DDL を実行する前に、データ型を修正します。  
-「ddl.txt」をテキストエディタで開き、文字列置換を利用して以下のように一括換を実施します。  
+「ddl.txt」をテキストエディタで開き、文字列置換を利用して以下のように一括置換を実施します。  
 
 変更前：「DATETIME2」→変更後：「TIMESTAMP」  
 
@@ -732,13 +740,31 @@ https://a5m2.mmatsubara.com/
 
 <br>
 
-手順3.4 で作成したデータベースを追加します。  
-起動後、「データベースの追加と削除」画面が表示されなかった場合は、点線枠内の手順に従って「データベースの追加と削除」画面を表示します。  
+下記のメッセージが表示されるので、「はい」を選択します。  
 
-「データベースの追加と削除」画面の表示方法  
+![](./Files/Atlas/image/image1366.png)  
+
+<br>
+
+任意のパスワードを設定します。  
+
+![](./Files/Atlas/image/image1367.png)  
+
+<br>
+
+手順3.4 で作成したデータベースを追加します。 
+
+![](./Files/Atlas/image/image1368.png)  
+
+<br>
+
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※  
+起動後、「データベースの追加と削除」画面が表示されなかった場合は、枠内の手順に従って「データベースの追加と削除」画面を表示します。  
+
 「localhost」を右クリックして「データベースの追加と削除」を選択します。  
 
 ![](./Files/Atlas/image/image141.jpeg)  
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※ 
 
 <br>
 
@@ -819,15 +845,21 @@ C ドライブに「maven」フォルダを作成し、ダウンロードした�
 
 <br>
 
-「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。
+Windowsマークを右クリックし、「システム」をクリックします。
 
-![](./Files/Atlas/image/image152.png)  
+![](./Files/Atlas/image/image1365.png)    
 
 <br>
 
-「システムの詳細設定」内の「環境変数」をクリックする。
+「システムのプロパティ」の「詳細設定」タブにある「環境変数」をクリックします。
 
-![](./Files/Atlas/image/image153.png)  
+![](./Files/Atlas/image/image1364.png)  
+
+<br>
+
+「システムのプロパティ」の「環境変数」をクリックします。  
+
+![](./Files/Atlas/image/image116.jpeg)  
 
 <br>
 
@@ -921,7 +953,7 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-(1)datasource.password app1 をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。  
+(1)datasource.password app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。  
 下記例ではpostadmin に書き換えています。  
 
 変更前  
@@ -932,7 +964,7 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-(2)flyway.datasource.password !PASSWORD!をログインロールの作成の際に設定したパスワードに書き換えます。  
+(2)flyway.datasource.password !PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。  
 下記例ではadmin1 に書き換えています。
 
 変更前
@@ -962,7 +994,7 @@ Git Bash で「Git」-「OHDSI」-「webapi」フォルダに移動します。
 
 次のコマンドを入力します。  
 ```
-$ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml - P webapi-postgresql
+$ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P webapi-postgresql
 ```
 
 ![](./Files/Atlas/image/image173.jpeg)  
@@ -1192,7 +1224,7 @@ psql コンソール上で以下のSQL を順次入力して実行します。
     type VARCHAR(255) NOT NULL,
     fa_type VARCHAR(255) NOT NULL,
     cc_generation_id BIGINT NOT NULL,
-    a  nalysis_id INTEGER,
+    analysis_id INTEGER,
     analysis_name VARCHAR(1000),
     covariate_id BIGINT,
     covariate_name VARCHAR(1000),
@@ -1257,7 +1289,7 @@ psql コンソール上で以下のSQL を順次入力して実行します。
 
 **■WebAPI v2.7.0 対応**  
 ```
-CREATE TABLE webapi.cohort_censor_stats(
+# CREATE TABLE webapi.cohort_censor_stats(
 cohort_definition_id int NOT NULL,
 lost_count BIGINT NOT NULL
 );
@@ -1268,9 +1300,8 @@ lost_count BIGINT NOT NULL
 <br>
 
 ```
-ALTER TABLE webapi.cc_results ADD COLUMN strata_id BIGINT;
-ALTER TABLE webapi.cc_results ADD COLUMN strata_name
-VARCHAR(1000);
+# ALTER TABLE webapi.cc_results ADD COLUMN strata_id BIGINT;
+# ALTER TABLE webapi.cc_results ADD COLUMN strata_name VARCHAR(1000);
 ```
 
 ![](./Files/Atlas/image/image206.png)  
@@ -1279,7 +1310,7 @@ VARCHAR(1000);
 
 **■WebAPI v2.7.2 対応**
 ```
-CREATE TABLE webapi.pathway_analysis_codes
+# CREATE TABLE webapi.pathway_analysis_codes
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 code BIGINT NOT NULL,
@@ -1294,7 +1325,7 @@ is_combo int NOT NULL
 
 
 ```
-CREATE TABLE webapi.pathway_analysis_paths
+# CREATE TABLE webapi.pathway_analysis_paths
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 target_cohort_id INTEGER NOT NULL,
@@ -1318,8 +1349,8 @@ count_value BIGINT NOT NULL
 
 **■WebAPI v2.7.3 対応**
 ```
-DROP TABLE webapi.pathway_analysis_stats;
-CREATE TABLE webapi.pathway_analysis_stats
+# DROP TABLE webapi.pathway_analysis_stats;
+# CREATE TABLE webapi.pathway_analysis_stats
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 target_cohort_id INTEGER NOT NULL,
@@ -1332,10 +1363,10 @@ pathways_count BIGINT NOT NULL
 
 **■WebAPI v2.8.0 対応**
 ```
-ALTER TABLE webapi.cohort_inclusion ADD design_hash int NULL;
-ALTER TABLE webapi.cc_results ADD aggregate_id int NULL;
-ALTER TABLE webapi.cc_results ADD aggregate_name varchar(1000);
-ALTER TABLE webapi.cc_results ADD missing_means_zero int NULL;
+# ALTER TABLE webapi.cohort_inclusion ADD design_hash int NULL;
+# ALTER TABLE webapi.cc_results ADD aggregate_id int NULL;
+# ALTER TABLE webapi.cc_results ADD aggregate_name varchar(1000);
+# ALTER TABLE webapi.cc_results ADD missing_means_zero int NULL;
 ```
 
 ![](./Files/Atlas/image/image210.png)  
@@ -1343,7 +1374,7 @@ ALTER TABLE webapi.cc_results ADD missing_means_zero int NULL;
 <br>
 
 ```
-CREATE TABLE webapi.cohort_cache (
+# CREATE TABLE webapi.cohort_cache (
 design_hash int NOT NULL,
 SUBJECT_ID bigint NOT NULL,
 cohort_start_date date NOT NULL,
@@ -1356,7 +1387,7 @@ cohort_end_date date NOT NULL
 <br>
 
 ```
-CREATE TABLE webapi.cohort_censor_stats_cache (
+# CREATE TABLE webapi.cohort_censor_stats_cache (
 design_hash int NOT NULL,
 lost_count BIGINT NOT NULL
 );
@@ -1367,7 +1398,7 @@ lost_count BIGINT NOT NULL
 <br>
 
 ```
-CREATE TABLE webapi.cohort_inclusion_result_cache (
+# CREATE TABLE webapi.cohort_inclusion_result_cache (
 design_hash int NOT NULL,
 mode_id int NOT NULL,
 inclusion_rule_mask bigint NOT NULL,
@@ -1380,7 +1411,7 @@ person_count bigint NOT NULL
 <br>
 
 ```
-CREATE TABLE webapi.cohort_inclusion_stats_cache (
+# CREATE TABLE webapi.cohort_inclusion_stats_cache (
 design_hash int NOT NULL,
 rule_sequence int NOT NULL,
 mode_id int NOT NULL,
@@ -1395,7 +1426,7 @@ person_total bigint NOT NULL
 <br>
 
 ```
-CREATE TABLE webapi.cohort_summary_stats_cache (
+# CREATE TABLE webapi.cohort_summary_stats_cache (
 design_hash int NOT NULL,
 mode_id int NOT NULL,
 base_count bigint NOT NULL,
@@ -1408,7 +1439,7 @@ final_count bigint NOT NULL
 <br>
 
 ```
-CREATE TABLE webapi.cohort_sample_element(
+# CREATE TABLE webapi.cohort_sample_element(
 cohort_sample_id int NOT NULL,
 rank_value int NOT NULL,
 person_id bigint NOT NULL,
@@ -1422,7 +1453,7 @@ gender_concept_id int
 <br>
 
 ```
-CREATE TABLE webapi.concept_hierarchy
+# CREATE TABLE webapi.concept_hierarchy
 (
 concept_id INT,
 concept_name VARCHAR(400),
