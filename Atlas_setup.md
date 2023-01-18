@@ -1892,14 +1892,16 @@ source_id,
 source_name,
 source_key,
 source_connection,
-source_dialect
+source_dialect,
+is_cache_enabled
 )
 values(
 1,
 'CDM V5 Database',
 'cdmv5',
 'jdbc:postgresql://127.0.0.1:5432/OHDSI?user=ohdsi_app_user&password=XXXX',
-'postgresql'
+'postgresql',
+true
 )
 ;
 ```
