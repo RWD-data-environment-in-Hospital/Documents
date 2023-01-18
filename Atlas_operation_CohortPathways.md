@@ -290,7 +290,7 @@ Search 画面では、キーワードやコンセプトID を入力すること�
 ③表示されたリストから「162671：Gastrointestinal hemorrhage」にチェックを入れます。  
 ④Select Concept Set に「Gastrointestinal hemorrhage」が選択されていることを確認します。  
 ⑤Descendants にチェックを入れます。  
-⑥Add To Concept Set をクリックします。
+⑥Add To Concept Set をクリックします。(ConceptSetsに組み込まれます)  
 
 ![](./Files/Atlas_3/image/image67.png)
 
@@ -303,17 +303,20 @@ Search 画面では、キーワードやコンセプトID を入力すること�
 
 <br>
 
-派生するコンセプトも分析に含める想定のため、以下のように「Descendants」を有効にしました。  （各コンセプトについて、「Exclude」、「Descendants」、「Mapped」がここからも設定できます）  
+画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されます。  
+※派生するコンセプトも分析に含める想定のため、「Descendants」を有効にしています。  
+（各コンセプトについて、「Exclude」、「Descendants」、「Mapped」をこの画面からも設定できます）  
 
 ![](./Files/Atlas_3/image/image69.png)
 
 <br>
 
-画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。  
 以上でコンセプトセット「Gastrointestinal hemorrhage」の作成が完了しました。  
 ×ボタンをクリックして、コンセプトセット「Gastrointestinal hemorrhage」の画面を閉じます。
 
 ![](./Files/Atlas_3/image/image70.png)
+
+<br>
 
 同様の操作で、以下のコンセプトセットについても作成します。
 

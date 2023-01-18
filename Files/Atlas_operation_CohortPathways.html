@@ -500,7 +500,7 @@ html{
 <ul>
 <li>
 <p>CONCEPT_ANCESTOR.csv<br>
-ファイルを開き「3.60e+07」を「36000000」に、「3.70e+07」を「37000000」に置き換えます。</p>
+ファイルを開き「3.6e+07」を「36000000」に、「3.7e+07」を「37000000」に置き換えます。</p>
 </li>
 <li>
 <p>DRUG_EXPOSURE.csv<br>
@@ -549,8 +549,8 @@ html{
 # \copy DOMAIN from 'D:\\tmp\output\\DOMAIN.csv' with delimiter ',' csv header
 # \copy DRUG_ERA from 'D:\\tmp\output\\DRUG_ERA.csv' with delimiter ',' csv header
 # \copy DRUG_EXPOSURE from 'D:\\tmp\output\\DRUG_EXPOSURE.csv' with delimiter ',' csv header
-# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' withdelimiter ',' csv header
-# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' withdelimiter ',' csv header
+# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' with delimiter ',' csv header
+# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' with delimiter ',' csv header
 # \copy OBSERVATION_PERIOD from 'D:\\tmp\output\\OBSERVATION_PERIOD.csv' with delimiter ',' csv header
 # \copy PERSON from 'D:\\tmp\output\\PERSON.csv' with delimiter ',' csv header
 # \copy PROCEDURE_OCCURRENCE from 'D:\\tmp\output\\PROCEDURE_OCCURRENCE.csv' with delimiter ',' csv header
@@ -632,49 +632,57 @@ optimizeAtlasCache=TRUE)
 <p>新たにコンセプトセットを作成するので、画面右の「New Concept Set」をクリックして作成画面に遷移します。</p>
 <p><img src="./Atlas_3/image/image37.png" alt=""></p>
 <br>
-<p>画面上部に新規に作成するコンセプトセットの名前を入力します。</p>
-<p><img src="./Atlas_3/image/image15.png" alt=""></p>
+<p>画面上部の Concept Set テキスト入力欄に、新規に作成するコンセプトセットの名前を入力後、「Concept Set Expression」タブの「Add Concepts」をクリックします。<br>
+Search 画面に遷移します。</p>
+<p><img src="./Atlas_3/image/image65.png" alt="" width="1200px"></p>
 <br>
-<p>「Concept Set Expression」タブの「Add Concepts」をクリックするとSearch 画面に遷移します。</p>
-<p><img src="./Atlas_3/image/image39.png" alt=""></p>
+<p>Search 画面では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。<br>
 <br>
-<p>Search では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。</p>
-<p><img src="./Atlas_3/image/image41.png" alt=""></p>
-<br>
-<p>追加する以下のコンセプトの左側のボックスにチェックを入れていきます。</p>
+下のコンセプトを検索し、Concept Sets へ登録します。</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Id</th>
-<th style="text-align:left">Code</th>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Class</th>
-<th style="text-align:left">Domain</th>
-<th style="text-align:left">Vocabulary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">192671</td>
-<td style="text-align:left">74474003</td>
-<td style="text-align:left">Gastrointestinal hemorrhage</td>
-<td style="text-align:left">Clinical Finding</td>
-<td style="text-align:left">Condition</td>
-<td style="text-align:left">SNOMED</td>
-</tr>
-</tbody>
-</table>
+	<thead>
+	<tr>
+	<th style="text-align:left">Id</th>
+	<th style="text-align:left">Code</th>
+	<th style="text-align:left">Name</th>
+	<th style="text-align:left">Class</th>
+	<th style="text-align:left">Domain</th>
+	<th style="text-align:left">Vocabulary</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+	<td style="text-align:left">192671</td>
+	<td style="text-align:left">74474003</td>
+	<td style="text-align:left">Gastrointestinal hemorrhage</td>
+	<td style="text-align:left">Clinical Finding</td>
+	<td style="text-align:left">Condition</td>
+	<td style="text-align:left">SNOMED</td>
+	</tr>
+	</tbody>
+	</table>
 <br>
-<p>ページ下の「Select Concept Set」で先ほど入力した「Gastrointestinal hemorrhage」を選択し、「Add to Concept Set」をクリックします。<br>
+<p>	➀Search 画面のテキスト入力欄へ id 「192671」 を入力します。<br>
+②検索ボタンをクリックすると、対象のリストが表示されます。<br>
+③表示されたリストから「162671：Gastrointestinal hemorrhage」にチェックを入れます。<br>
+④Select Concept Set に「Gastrointestinal hemorrhage」が選択されていることを確認します。<br>
+⑤Descendants にチェックを入れます。<br>
+⑥Add To Concept Set をクリックします。(ConceptSetsに組み込まれます)</p>
+<p><img src="./Atlas_3/image/image67.png" alt="" width="1200px"></p>
+<br>
+<p>左メニューの「Concept Sets」をクリックします。<br>
 「Gastrointestinal hemorrhage」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。</p>
-<p><img src="./Atlas_3/image/image16.jpeg" alt=""></p>
+<p><img src="./Atlas_3/image/image68.png" alt="" width="1200px"></p>
 <br>
-<p>各コンセプトについて、「Exclude」、「Descendants」、「Mapped」が設定できます。<br>
-派生するコンセプトも分析に含める想定のため、以下のように「Descendants」にチェックを入れます。</p>
-<p><img src="./Atlas_3/image/image17.jpeg" alt=""></p>
+<p>画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されます。<br>
+※派生するコンセプトも分析に含める想定のため、「Descendants」を有効にしています。<br>
+（各コンセプトについて、「Exclude」、「Descendants」、「Mapped」をこの画面からも設定できます）</p>
+<p><img src="./Atlas_3/image/image69.png" alt="" width="1200px"></p>
 <br>
-<p>画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。<br>
-以上でコンセプトセット「Gastrointestinal hemorrhage」の作成が完了しました。</p>
+<p>以上でコンセプトセット「Gastrointestinal hemorrhage」の作成が完了しました。<br>
+×ボタンをクリックして、コンセプトセット「Gastrointestinal hemorrhage」の画面を閉じます。</p>
+<p><img src="./Atlas_3/image/image70.png" alt="" width="1200px"></p>
+<br>
 <p>同様の操作で、以下のコンセプトセットについても作成します。</p>
 <ul>
 <li>diclofenac</li>

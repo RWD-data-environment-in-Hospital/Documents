@@ -557,6 +557,10 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <p><img src="./Atlas/image/image51.jpeg" alt="" width="900"><br>
 <em>出典：「Git」</em></p>
 <br>
+<p>Standalone Installer の「64-bit Git for Windows Setup.」をクリックし、インストーラーをダウンロードします。</p>
+<p><img src="./Atlas/image/image1363.png" alt="" width="900"><br>
+<em>出典：「Git」</em></p>
+<br>
 <p>ダウンロードが完了したら、「Git-2.33.1-64-bit.exe」をダブルクリックします。</p>
 <p><img src="./Atlas/image/image52.png" alt=""></p>
 <br>
@@ -653,7 +657,10 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <p>セットアップコンポーネントについても、デフォルトのままで「Next」をクリックします。</p>
 <p><img src="./Atlas/image/image76.jpeg" alt="" width="600"></p>
 <br>
-<p>データディレクトリについては、C ドライブ以外を設定して「Next」をクリックします。</p>
+<p>データディレクトリはデフォルトのままで「Next」をクリックします。<br>
+<br>
+※データディレクトリについては、Dドライブ以降を指定しても構いません。<br>
+（データドライブがある場合、システムドライブ以外を指定することで、Cドライブの容量消費を抑えることができます）</p>
 <p><img src="./Atlas/image/image77.jpeg" alt="" width="600"></p>
 <br>
 <p>データベースのパスワードを設定します。任意のパスワードを入力して、「Next」をクリックします。</p>
@@ -805,13 +812,13 @@ pgAdmin 4 の画面左の「Databases」を右クリックし、「Create」内�
 <p>psql を実行するための環境設定を実施します。<br>
 ※ＯＳやソフトのバージョンにより画面構成が異なる場合があります。<br>
 環境変数PATH を追加します。<br>
-「エクスプローラー」を開き、左側の「PC」を右クリックして「プロパティ」を開きます。</p>
-<p><img src="./Atlas/image/image114.png" alt=""></p>
+Windowsマークを右クリックし、「システム」をクリックします。</p>
+<p><img src="./Atlas/image/image1365.png" alt="" width="500"></p>
 <br>
-<p>コントロールパネルの「システム」の「システムの詳細設定」をクリックします。</p>
-<p><img src="./Atlas/image/image115.png" alt="" width="300"></p>
+<p>「システムの詳細設定」をクリックします。</p>
+<p><img src="./Atlas/image/image1364.png" alt="" width="800"></p>
 <br>
-<p>「システムのプロパティ」の「環境変数」をクリックします。</p>
+<p>「システムのプロパティ」の「詳細設定」タブにある「環境変数」をクリックします。</p>
 <p><img src="./Atlas/image/image116.jpeg" alt="" width="600"></p>
 <br>
 <p>「システム環境変数」内の「Path」を選択して「編集」をクリックします。</p>
@@ -826,7 +833,7 @@ pgAdmin 4 の画面左の「Databases」を右クリックし、「Create」内�
 <p><img src="./Atlas/image/image119.jpeg" alt=""></p>
 <br>
 <p>環境変数の追加が終了したら、コマンドプロンプトからpsql を実行できるかを確認します。<br>
-再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。</p>
+PCを再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。</p>
 <p><img src="./Atlas/image/image120.jpeg" alt="" width="800"></p>
 <br>
 <p>下記のコマンドを入力します。</p>
@@ -877,7 +884,7 @@ current_schema
 <p><img src="./Atlas/image/image129.jpeg" alt="" width="1000"></p>
 <br>
 <p>DDL を実行する前に、データ型を修正します。<br>
-「ddl.txt」をテキストエディタで開き、文字列置換を利用して以下のように一括換を実施します。</p>
+「ddl.txt」をテキストエディタで開き、文字列置換を利用して以下のように一括置換を実施します。</p>
 <p>変更前：「DATETIME2」→変更後：「TIMESTAMP」</p>
 <p><img src="./Atlas/image/image130.jpeg" alt=""></p>
 <br>
@@ -923,12 +930,21 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 <p><img src="./Atlas/image/image139.jpeg" alt=""><br>
 <img src="./Atlas/image/image140.jpeg" alt=""></p>
 <br>
-<p>手順3.4 で作成したデータベースを追加します。<br>
-起動後、「データベースの追加と削除」画面が表示されなかった場合は、点線枠内の手順に従って「データベースの追加と削除」画面を表示します。</p>
+<p>下記のメッセージが表示されるので、「はい」を選択します。</p>
+<p><img src="./Atlas/image/image1366.png" alt="" width="500"><br>
 <br>
-<p>「データベースの追加と削除」画面の表示方法<br>
-「localhost」を右クリックして「データベースの追加と削除」を選択します。</p>
+<p>任意のパスワードを設定します。</p>
+<p><img src="./Atlas/image/image1367.png" alt="" width="650"><br>
+<br>
+<p>手順3.4 で作成したデータベースを追加します。</p>
+<p><img src="./Atlas/image/image1368.png" alt="" width="550"><br>
+<br>
+<p>※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※</p>
+<p>補足：起動後、「データベースの追加と削除」画面が表示されなかった場合は、点線枠内の手順に従って「データベースの追加と削除」画面を表示します。</p>
+<br>
+<p>「localhost」を右クリックして「データベースの追加と削除」を選択します。</p>
 <p><img src="./Atlas/image/image141.jpeg" alt=""></p>
+<p>※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※</p>
 <br>
 <p>「データベースの追加と削除」画面左下の「追加」をクリックします。</p>
 <p><img src="./Atlas/image/image142.jpeg" alt=""></p>
@@ -977,11 +993,14 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 ダウンロードが完了したら、環境変数の設定を実施します。</p>
 <p><img src="./Atlas/image/image151.png" alt=""></p>
 <br>
-<p>「エクスプローラ」の「PC」を右クリックして、「プロパティ」を開きます。</p>
-<p><img src="./Atlas/image/image152.png" alt="" width="500"></p>
+<p>Windowsマークを右クリックし、「システム」をクリックします。</p>
+<p><img src="./Atlas/image/image1365.png" alt="" width="500"></p>
 <br>
-<p>「システムの詳細設定」内の「環境変数」をクリックする。</p>
-<p><img src="./Atlas/image/image153.png" alt="" width="600"></p>
+<p>「システムの詳細設定」をクリックします。</p>
+<p><img src="./Atlas/image/image1364.png" alt="" width="800"></p>
+<br>
+<p>「システムのプロパティ」の「詳細設定」タブにある「環境変数」をクリックします。</p>
+<p><img src="./Atlas/image/image116.jpeg" alt="" width="600"></p>
 <br>
 <p>「システム環境変数」の「新規」をクリックして、以下のPath を新たに追加します。作成後、「OK」をクリックします。</p>
 <pre class="hljs"><code><div>MAVEN_HOME=C:\maven
@@ -1031,24 +1050,24 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 <p>「settings.xml」ファイルを開き、赤枠の部分を修正します。</p>
 <p><img src="./Atlas/image/image165.jpeg" alt=""></p>
 <br>
-<p>(1)datasource.password app1 をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。<br>
+<p>(1)datasource.password app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。<br>
 下記例ではpostadmin に書き換えています。</p>
-<p>変更前<br>
+<p>【変更前】<br>
 <img src="./Atlas/image/image166.jpeg" alt=""></p>
-<p>変更後
+<p>【変更後】<br>
 <img src="./Atlas/image/image167.jpeg" alt=""></p>
 <br>
-<p>(2)flyway.datasource.password !PASSWORD!をログインロールの作成の際に設定したパスワードに書き換えます。<br>
+<p>(2)flyway.datasource.password !PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。<br>
 下記例ではadmin1 に書き換えています。</p>
-<p>変更前
+<p>【変更前】<br>
 <img src="./Atlas/image/image168.jpeg" alt=""></p>
-<p>変更後
+<p>【変更後】<br>
 <img src="./Atlas/image/image169.jpeg" alt=""></p>
 <br>
 <p>(3)security.origin *をlocalhost に書き換えます。</p>
-<p>変更前<br>
+<p>【変更前】<br>
 <img src="./Atlas/image/image170.jpeg" alt=""></p>
-<p>変更後<br>
+<p>【変更後】<br>
 <img src="./Atlas/image/image171.jpeg" alt=""></p>
 <br>
 <p>WebAPI をビルドします。<br>
@@ -1056,7 +1075,7 @@ Git Bash で「Git」-「OHDSI」-「webapi」フォルダに移動します。<
 <p><img src="./Atlas/image/image172.jpeg" alt=""></p>
 <br>
 <p>次のコマンドを入力します。</p>
-<pre class="hljs"><code><div>$ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml - P webapi-postgresql
+<pre class="hljs"><code><div>$ mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P webapi-postgresql
 </div></code></pre>
 <p><img src="./Atlas/image/image173.jpeg" alt="" width="750"></p>
 <br>
@@ -1190,7 +1209,7 @@ C:\tomcat\bin にあるshutdown.bat を実行し、Tomcat8 を終了します。
     type VARCHAR(255) NOT NULL,
     fa_type VARCHAR(255) NOT NULL,
     cc_generation_id BIGINT NOT NULL,
-    a  nalysis_id INTEGER,
+    analysis_id INTEGER,
     analysis_name VARCHAR(1000),
     covariate_id BIGINT,
     covariate_name VARCHAR(1000),
@@ -1239,21 +1258,20 @@ C:\tomcat\bin にあるshutdown.bat を実行し、Tomcat8 を終了します。
 <p><img src="./Atlas/image/image204.png" alt="" width="750"></p>
 <br>
 <p><strong>■WebAPI v2.7.0 対応</strong></p>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_censor_stats(
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_censor_stats(
 cohort_definition_id int NOT NULL,
 lost_count BIGINT NOT NULL
 );
 </div></code></pre>
 <p><img src="./Atlas/image/image205.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>ALTER TABLE webapi.cc_results ADD COLUMN strata_id BIGINT;
-ALTER TABLE webapi.cc_results ADD COLUMN strata_name
-VARCHAR(1000);
+<pre class="hljs"><code><div># ALTER TABLE webapi.cc_results ADD COLUMN strata_id BIGINT;
+# ALTER TABLE webapi.cc_results ADD COLUMN strata_name VARCHAR(1000);
 </div></code></pre>
 <p><img src="./Atlas/image/image206.png" alt="" width="750"></p>
 <br>
 <p><strong>■WebAPI v2.7.2 対応</strong></p>
-<pre class="hljs"><code><div>CREATE TABLE webapi.pathway_analysis_codes
+<pre class="hljs"><code><div># CREATE TABLE webapi.pathway_analysis_codes
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 code BIGINT NOT NULL,
@@ -1263,7 +1281,7 @@ is_combo int NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image207.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.pathway_analysis_paths
+<pre class="hljs"><code><div># CREATE TABLE webapi.pathway_analysis_paths
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 target_cohort_id INTEGER NOT NULL,
@@ -1283,8 +1301,8 @@ count_value BIGINT NOT NULL
 <p><img src="./Atlas/image/image208.png" alt="" width="750"></p>
 <br>
 <p><strong>■WebAPI v2.7.3 対応</strong></p>
-<pre class="hljs"><code><div>DROP TABLE webapi.pathway_analysis_stats;
-CREATE TABLE webapi.pathway_analysis_stats
+<pre class="hljs"><code><div># DROP TABLE webapi.pathway_analysis_stats;
+# CREATE TABLE webapi.pathway_analysis_stats
 (
 pathway_analysis_generation_id BIGINT NOT NULL,
 target_cohort_id INTEGER NOT NULL,
@@ -1294,14 +1312,14 @@ pathways_count BIGINT NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image209.png" alt="" width="750"></p>
 <p><strong>■WebAPI v2.8.0 対応</strong></p>
-<pre class="hljs"><code><div>ALTER TABLE webapi.cohort_inclusion ADD design_hash int NULL;
-ALTER TABLE webapi.cc_results ADD aggregate_id int NULL;
-ALTER TABLE webapi.cc_results ADD aggregate_name varchar(1000);
-ALTER TABLE webapi.cc_results ADD missing_means_zero int NULL;
+<pre class="hljs"><code><div># ALTER TABLE webapi.cohort_inclusion ADD design_hash int NULL;
+# ALTER TABLE webapi.cc_results ADD aggregate_id int NULL;
+# ALTER TABLE webapi.cc_results ADD aggregate_name varchar(1000);
+# ALTER TABLE webapi.cc_results ADD missing_means_zero int NULL;
 </div></code></pre>
 <p><img src="./Atlas/image/image210.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_cache (
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_cache (
 design_hash int NOT NULL,
 SUBJECT_ID bigint NOT NULL,
 cohort_start_date date NOT NULL,
@@ -1310,14 +1328,14 @@ cohort_end_date date NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image211.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_censor_stats_cache (
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_censor_stats_cache (
 design_hash int NOT NULL,
 lost_count BIGINT NOT NULL
 );
 </div></code></pre>
 <p><img src="./Atlas/image/image212.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_inclusion_result_cache (
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_inclusion_result_cache (
 design_hash int NOT NULL,
 mode_id int NOT NULL,
 inclusion_rule_mask bigint NOT NULL,
@@ -1326,7 +1344,7 @@ person_count bigint NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image213.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_inclusion_stats_cache (
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_inclusion_stats_cache (
 design_hash int NOT NULL,
 rule_sequence int NOT NULL,
 mode_id int NOT NULL,
@@ -1337,7 +1355,7 @@ person_total bigint NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image214.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_summary_stats_cache (
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_summary_stats_cache (
 design_hash int NOT NULL,
 mode_id int NOT NULL,
 base_count bigint NOT NULL,
@@ -1346,7 +1364,7 @@ final_count bigint NOT NULL
 </div></code></pre>
 <p><img src="./Atlas/image/image215.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.cohort_sample_element(
+<pre class="hljs"><code><div># CREATE TABLE webapi.cohort_sample_element(
 cohort_sample_id int NOT NULL,
 rank_value int NOT NULL,
 person_id bigint NOT NULL,
@@ -1356,7 +1374,7 @@ gender_concept_id int
 </div></code></pre>
 <p><img src="./Atlas/image/image216.png" alt="" width="750"></p>
 <br>
-<pre class="hljs"><code><div>CREATE TABLE webapi.concept_hierarchy
+<pre class="hljs"><code><div># CREATE TABLE webapi.concept_hierarchy
 (
 concept_id INT,
 concept_name VARCHAR(400),
