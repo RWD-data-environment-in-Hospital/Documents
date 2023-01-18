@@ -108,7 +108,7 @@ Profiles では、ある一人の患者のテーブルごとのデータが時�
 上図の「調査したい母集団に関する分析の前準備」は以下のようなフローで実施します。  
 Atlas の機能を用いる手順をオレンジ色で示しています。  
 
-![](./Files/Atlas_2/image/image9.jpeg)
+![](./Files/Atlas_2/image/image9.png)
 
 <br>
 
