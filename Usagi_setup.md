@@ -42,15 +42,24 @@ Usagiの動作環境を構築します。
 
 <br>
 
-右上の［LOGIN］をクリックします。  
-Athenaを初めて使用する際には会員登録が必要です。  
+ATHENAサイトに初めて訪問すると、ライセンスの認証画面が表示されます。  
+右下のACCEPTボタンをクリックします。  
+※表示されない場合は次に進みます  
+
+![](Files/Usagi/image/image23.png)  
+*Odysseus Data Services, Inc. 「Athena」*  
+
+<br>
+
+右上の [LOGIN] をクリックします。  
+※用語の検索は会員登録不要ですが、Vocabularyのダウンロードを行うには会員登録が必要となります  
 
 ![](Files/Usagi/image/image5.png)  
 *Odysseus Data Services, Inc. 「Athena」*  
 
 <br>
 
-会員登録後にログインし、各領域の語彙を入手することができるようになります。  
+会員登録後にログインし、各領域のVocabularyを入手することができるようになります。  
 
 ![](Files/Usagi/image/image2.png)  
 *Odysseus Data Services, Inc. 「Athena」*  

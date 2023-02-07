@@ -43,3 +43,11 @@ Atlasは、OMOP 共通データモデル（CDM）に変換され、標準化さ�
 ```
 - [セットアップ手順](./HADES_setup.md)
 - 機能概要
+
+<br>
+
+---
+各ツールのドキュメントにおいて、GitHub Issues で課題の管理を行っています。  
+https://github.com/RWD-data-environment-in-Hospital/Documents/issues
+
+[GitHub Issues について](./GitHub_Issues.md)

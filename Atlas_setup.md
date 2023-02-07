@@ -24,6 +24,8 @@
 [6．Atlas のインストール](#6-atlas-のインストール)  
 　[6．1　Atlas のインストール](#61-atlas-のインストール)  
 　[6．2　source テーブルへのレコード追加](#62-source-テーブルへのレコード追加)  
+　[6．3　Atlas の環境設定](#63-atlasの環境設定)  
+　[6．4　tomcat の起動](#64-tomcat-の起動)  
 [7．補足：オフラインインストール手順](#7-補足オフラインインストール手順)  
 　[7．1　WebAPI のオフラインインストール](#71-webapi-のオフラインインストール)  
 　[7．2　R のオフラインインストール](#72-r-のオフラインインストール)  
@@ -254,7 +256,7 @@ http://www.postgresql.org/download/
 <br>
 
 Version 10 のWindowsx86-64 をダウンロードします。  
-下記手順では10.18 となっていますが、Version10 の最新モジュールをダウンロードします。  
+※下記手順では10.18 となっていますが、Version10 が選択できない場合、できるだけ近いバージョンを利用することをお勧めします  
 
 ![](./Files/Atlas/image/image72.jpeg)  
 
@@ -334,7 +336,10 @@ Wizard 画面が出るので「Next」をクリックします。
 
 <br>
 
-## **3．2．2　PostgreSQL 10 の設定**
+## **3．2．2　PostgreSQL 10 の設定**  
+※PostgreSQLのバージョンにより、画面構成が異なります  
+　手順の画像はバージョン 10.18 です  
+
 スタートメニューの「PostgreSQL 10」フォルダ内の「pgAdmin 4」を開きます。
 
 ![](./Files/Atlas/image/image84.png)  
@@ -955,7 +960,8 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-(1)datasource.password app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。  
+(1)datasource.password  
+app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。  
 下記例ではpostadmin に書き換えています。  
 
 変更前  
@@ -966,7 +972,8 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-(2)flyway.datasource.password !PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。  
+(2)flyway.datasource.password  
+!PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。  
 下記例ではadmin1 に書き換えています。
 
 変更前
@@ -977,7 +984,8 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-(3)security.origin *をlocalhost に書き換えます。
+(3)security.origin  
+*をlocalhost に書き換えます。
 
 変更前  
 ![](./Files/Atlas/image/image170.jpeg)
@@ -1548,9 +1556,9 @@ R のセットアップウィザード完了画面が出てくるので「完了
 ---
 ## **4．2　R tools のインストール**
 下記のサイトにアクセスし、「Download R for Windows」、「Rtools」 の順にクリックし、RTools の最新バージョン（64-bit）を選択してダウンロードします。  
+※下記手順は、バージョン 4.0
 
 https://cran.r-project.org/
-
 ![](./Files/Atlas/image/image1307.png)  
 *出典：The R Foundation「The Comprehensive R Archive Network」*
 
@@ -1983,6 +1991,66 @@ values (
 ```
 右上の×ボタンをクリックしてpsql を閉じます。  
 
+<br>
+
+---
+## **6．3　Atlasの環境設定**
+Atlasのサイトへ接続するための環境設定を行います。  
+環境設定にはAtlasをセットアップした端末、またはサーバーのIPアドレスが必要となります。  
+IPアドレスが不明な場合は、6.3.1の手順に従い、IPアドレスの確認を行ってください。  
+IPアドレスが確認できている場合は、6.3.2へ進んでください。  
+
+## **6．3．1　IPアドレスの確認**  
+ネットワークプロパティ画面を表示します。  
+ 「インターネット プロトコル バージョン4（TCP/IPｖ４）」を選択し、「プロパティ」ボタンをクリックします。  
+
+ ![](./Files/Atlas/image/image1369.png)  
+
+ <br>
+
+表示されたIPアドレスを確認します。  
+
+ ![](./Files/Atlas/image/image1370.png)  
+
+ ※「IPアドレスを自動的に取得する」となっている場合、端末を再起動する都度、IPアドレスが変更となるため、以降の設定やサーバーへのアクセスもその都度変更となってしまいます。  
+ 固定のIPアドレスを設定するようにしてください。  
+
+<br>
+
+## **6．3．2　Atlas の環境設定**
+Apache Tomcat のインストールフォルダの配下にある、下図のフォルダを開きます。  
+
+![](./Files/Atlas/image/image1371.png)  
+
+<br>
+
+ファイル名「configlocal.js」として、新規ファイルを作成します。
+
+![](./Files/Atlas/image/image1372.png)  
+
+<br>
+
+「config-local.js」 ファイルに下記の内容を入力し、保存します。  
+[Atlas Server IP] には、手順6.3.1で確認したIPアドレスを入力します。  
+```
+define([], function () {
+    var configLocal = {};
+    
+    configLocal.api = {
+        name: 'Atlas Server',
+        url: 'http://[Atlas Server IP]/WebAPI/'
+    };
+
+    return configLocal;
+});
+```
+
+以上で Atlas の環境設定は完了です。  
+
+<br>
+
+---
+## **6．4　tomcat の起動**
 次にtomcat を起動するために、コマンドプロンプトを起動します。  
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動します。  
 
@@ -2000,7 +2068,7 @@ values (
 
 ![](./Files/Atlas/image/image272.jpeg)  
 
-以下URL をブラウザで指定して起動します。  
+以下URL をブラウザで指定して起動します。（[Atlas Server IP] には、Atlas をセットアップしたサーバーのIPアドレスを入力してください）  
 
 http://localhost:8080/manager  
 
