@@ -68,7 +68,7 @@ Characterizations による分析は、上記事例に従い、以下のテス�
 
   <br>
 
-  - ＜受けた検査＞  
+- ＜受けた検査＞  
   - Globulin [Mass/volume] in Serum by calculation（血清中のグロブリン [質量/体積] ）  
   - Hematocrit（ヘマトクリット（血中赤血球容積））  
   - Hemoglobin（ヘモグロビン（Hb））
