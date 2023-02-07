@@ -157,4 +157,239 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。  
 
 以上でコンセプトセット「Cholecystectomy」の作成が完了しました。  
+
+<br>
+<br>
+
 同様の操作で、以下のコンセプトセットについても作成します。  
+
+＜術式＞
+- Laparoscopic cholecystectomy
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|4163971|45595009|Laparoscopic cholecystectomy|Procedure|Standard||✓||
+
+<br>
+<br>
+
+＜病名＞  
+- Gallstone
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|196456|235919008|Gallstone|Condition|Standard||✓||
+
+<br>
+
+- Acute cholecystitis
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|198809|65275009|Acute cholecystitis|Condition|Standard||✓||
+
+<br>
+<br>
+
+＜薬剤＞  
+- 1 ML Morphine Sulfate 5 MG/ML Injection
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|35605858|1732136|1 ML Morphine Sulfate 5 MG/ML|Drug|Standard||✓||
+
+<br>
+
+- 2 ML Ondansetron 2 MG/ML Injection
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|35605482|1740467|2 ML Ondansetron 2 MG/ML Injection|Drug|Standard||✓||
+
+<br>
+
+- 100 ML Propofol 10 MG/ML Injection
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|40220386|1808217|100 ML Propofol 10 MG/ML Injection|Drug|Standard||✓||
+
+<br>
+
+- Acetaminophen 160 MG Oral Tablet
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|1127078|282464|Acetaminophen|160 MG Oral Tablet|Drug|Standard||✓||
+
+<br>
+
+- heparin
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|1367571|5224|heparin|Drug|Standard||✓||
+
+<br>
+
+- Isoflurane 999 MG/ML Inhalant Solution
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|782047|542347|Isoflurane 999 MG/ML Inhalant Solution|Drug|Standard||✓||
+
+<br>
+
+- Meperidine Hydrochloride 50 MG Oral Tablet
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|40165015|861467|Meperidine Hydrochloride 50 MG Oral Tablet|Drug|Standard||✓||
+
+<br>
+
+- Midazolam 1 MG/ML Injectable Solution
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|19078924|311700|Midazolam 1 MG/ML Injectable|Solution|Drug|Standard||✓||
+
+<br>
+
+- Piperacillin 4000 MG/tazobactam 500 MG
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|46275444|1659149|Piperacillin 4000 MG/tazobactam 500 MG|Drug|Standard||✓||
+
+<br>
+
+- remifentanil
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|19016749|73032|remifentanil|Drug|Standard||✓||
+
+<br>
+
+- rocuronium bromide 10 MG/ML Injectable Solution
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|42707627|1234995|rocuronium bromide 10 MG/ML Injectable Solution|Drug|Standard||✓||
+
+<br>
+
+- sevoflurane 1000 MG/ML Inhalant Solution
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|19023398|200243|sevoflurane 1000 MG/ML Inhalant Solution|Drug|Standard||✓||
+
+<br>
+
+- Sodium Chloride 9 MG/ML Injectable Solution
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|19079524|313002|Sodium Chloride 9 MG/ML Injectable Solution|Drug|Standard||✓||
+
+<br>
+
+- Sufentanil
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|19078219|56795|Sufentanil|Drug|Standard||✓||
+
+<br>
+<br>
+
+＜検査項目＞  
+- Globulin [Mass/volume] in Serum by calculation
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|3027970|10834-0|Globulin [Mass/volume] in Serum by calculation|Measurement|Standard||✓||
+
+<br>
+
+- Hematocrit
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|3009542|20570-8|Hematocrit|Measurement|Standard||✓||
+
+<br>
+
+- Hemoglobin
+
+|Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|3000963|718-7|Hemoglobin|Measurement|Standard||✓||
+
+<br>
+
+以上でコンセプトセットの作成は完了です。  
+
+<br>
+
+---
+# **4　Cohort Definitionsの作成**
+
+コホートとは、「一定期間1つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。  
+作成されたコホートは、その後の Characterizations 機能での分析における母集団設定に使用されます。
+
+コホート定義では、「Cohort entry events（コホート開始イベント）」、「Inclusion Criteria（包含基準）」、「Cohort exit event（コホート終了イベント）」を設定する構成となっており、各項目の詳細を以下に記載しています。  
+
+- コホート開始イベント：  
+共通データモデルに記録された任意のイベント（薬物曝露、疾病、検査など）を設定し、人々がコホートに入る時間を定義するものです。  
+例えば、発生時の年齢、最初の診断・手順、開始日と終了日の指定、などを定義します。
+
+- 包含基準：  
+開始イベントで定義された人々をさらに絞り込むためのイベントを設定します。  
+予選コホートは、すべての包括基準を満たす最初のイベントコホート内のすべての人々を指します。  
+
+- コホート終了イベント：  
+人々がコホートメンバーシップの資格を失うイベントのことです。  
+例えば、観察期間の終了、最初の開始イベントに対する固定時間間隔、一連の関連する観察の最後のイベント（持続的な薬物曝露）、など複数の方法で定義可能です。  
+コホートの出口戦略は、人が異なる時間間隔の間に複数回コホートに所属できるかどうかに影響します。  
+
+<br>
+
+ここでは、「腹腔鏡下 胆嚢摘出術と胆嚢摘出術の手術を受けている患者」を例に Cohort Definitions の使用方法を説明します。  
+
+<br>
+
+以下の２つの術式についてのコンセプトセットを登録します。  
+- Laparoscopic cholecystectomy
+- Cholecystectomy
+
+<br>
+
+Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内ですでに作成されたコホートが表示されます。  
+コホートを新規作成するので、「New Cohort」をクリックします。  
+
+![](./Files/Atlas_4/image/image119.png)
+
+<br>
+
+コホート作成画面が表示されます。  
+画面上部にコホート名を入力する欄があるので、「Cholecystectomy Definition」と入力します。  
+
+![](./Files/Atlas_4/image/image9.png)
+
+<br>
+
+初めに、コホートエントリーイベントを設定していきます。  
+
+![](./Files/Atlas_4/image/image10.jpeg)
+
+<br>
+
+「Cohort Entry Events」欄右側の「+Add Initial Event...」をクリックして、「Add Procedure Occurrence」を選択します。  
+
+![](./Files/Atlas_4/image/image11.png)
+
+<br>
+
