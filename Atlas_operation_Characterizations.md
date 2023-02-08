@@ -127,12 +127,7 @@ Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラッ�
 <br>
 
 Search 画面では、キーワードやコンセプトIDを入力することで対象とするコンセプトを探すことができます。  
-
-![](./Files/Atlas_4/image/image4.png)
-
-<br>
-
-追加する以下のコンセプトの左側のボックスにチェックを入れていきます。  
+下記のコンセプトを検索し、Concept Sets へ登録します。  
 
 |Id|Code|Name|Class|Domain|Vocabulary|
 |:---|:---|:---|:---|:---|:---|
@@ -140,25 +135,37 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 
 <br>
 
-ページ下の「Select Concept Set」で先ほど入力した「Cholecystectomy」を選択し、「Add to Concept Set」をクリックします。  
+➀Search 画面のテキスト入力欄へ  「Cholecystectomy」 と入力します。  
+②検索ボタンをクリックすると、対象のリストが表示されます。  
+③表示されたリストから「4242997：Cholecystectomy」にチェックを入れます。  
+④Select Concept Set に「Cholecystectomy」が選択されていることを確認します。  
+⑤Descendants にチェックを入れます。  
+⑥Add To Concept Set をクリックします。(ConceptSetsに組み込まれます)  
+
+![](./Files/Atlas_4/image/image120.png)
+
+<br>
+
+左メニューの「Concept Sets」をクリックします。  
 「Cholecystectomy」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。  
 
-![](./Files/Atlas_4/image/image5.png)
+![](./Files/Atlas_4/image/image121.png)
 
 <br>
 
-各コンセプトについて、「Exclude」、「Descendants」、「Mapped」が設定できます。  
-派生するコンセプトも分析に含める想定のため、以下のように「Descendants」にチェックを入れます。  
+画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されます。  
+※派生するコンセプトも分析に含める想定のため、「Descendants」を有効にしています。  
+（各コンセプトについて、「Exclude」、「Descendants」、「Mapped」をこの画面からも設定できます）  
 
-![](./Files/Atlas_4/image/image6.png)
+![](./Files/Atlas_4/image/image122.png)
 
 <br>
-
-画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されています。  
 
 以上でコンセプトセット「Cholecystectomy」の作成が完了しました。  
+×ボタンをクリックして、コンセプトセット「Gastrointestinal hemorrhage」の画面を閉じます。  
 
-<br>
+![](./Files/Atlas_4/image/image123.png)
+
 <br>
 
 同様の操作で、以下のコンセプトセットについても作成します。  
@@ -252,7 +259,7 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 
 |Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|19078924|311700|Midazolam 1 MG/ML Injectable|Solution|Drug|Standard||✓||
+|19078924|311700|Midazolam 1 MG/ML Injectable Solution|Drug|Standard||✓||
 
 <br>
 
@@ -392,4 +399,43 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
 ![](./Files/Atlas_4/image/image11.png)
 
 <br>
+
+「Any Procedure」で対象とする手術のコンセプトセットの選択が必要になります。  
+「Any Procedure」の▼をクリックし、「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、「Cholecystectomy」をクリックして選択します。  
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます  
+
+![](./Files/Atlas_4/image/image12.png)
+
+<br>
+
+手術前後の観察期間については、特に指定しないのでデフォルトのままにします。  
+※「0 days」の選択で全期間のデータが対象となります  
+対象イベントは「all events」を選択します。  
+
+以上で、術式Cholecystectomyの「Cohort Entry Events」の設定は完了です。  
+
+<br>
+
+次に、「Inclusion Criteria」欄の設定を実施します。  
+
+![](./Files/Atlas_4/image/image13.png)
+
+<br>
+
+緑色ボタンの「New inclusion criteria」をクリックし、横の空欄内に包含基準名として「Cholecystectomy」を入力します。  
+左側に入力した名前が反映されます。  
+
+![](./Files/Atlas_4/image/image14.png)
+
+<br>
+
+術式の診断を基準としているので、「+Add Initial Event...」から「Add Procedure Occurrence」を選択します。  
+
+![](./Files/Atlas_4/image/image15.png)
+
+<br>
+
+選択後、欄内に図のような詳細設定画面が表示されます。  
+
+![](./Files/Atlas_4/image/image16.jpeg)
 
