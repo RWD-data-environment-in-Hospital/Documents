@@ -439,3 +439,120 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
 
 ![](./Files/Atlas_4/image/image16.jpeg)
 
+<br>
+
+「Any Procedure」に対象のProcedureのコンセプトセットを設定します。  
+「Any Procedure」の▼をクリックすると、コンセプトセットの一覧が表示されるので、前章で作成したコンセプトセット「Cholecystectomy」をクリックして選択します。  
+対象イベントは「all events」を選択します。  
+
+![](./Files/Atlas_4/image/image17.png)
+
+<br>
+
+以上で包含基準「Cholecystectomy」の作成は完了です。  
+
+<br>
+
+最後に、「Cohort Exit」欄の設定について説明します。  
+
+![](./Files/Atlas_4/image/image18.png)
+
+<br>
+
+本手順では、コホートの終了条件は、「継続的観察の終了」として設定するため、「Event Persistence」は「end of continuous observation」を選択します。  
+
+![](./Files/Atlas_4/image/image19.png)
+
+<br>
+
+「Cohort Exit」の設定は完了です。  
+
+以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして「Cholecystectomy Definition」を保存します。  
+
+![](./Files/Atlas_4/image/image124.png)
+
+<br>
+
+以上で「Cholecystectomy Definition」のコホートの作成は完了です。  
+
+<br>
+
+同様にして、以下の術式 Laparoscopic cholecystectomy のコホートについても作成します。  
+
+Cohort Definitions 名：Laparoscopic cholecystectomy Definition  
+- ＜Cohort Entry Events＞  
+「+Add Initial Event...」をクリックして「Add Procedure Occurrence」を選択  
+「Any Procedure」→「Import Concept Set」→「Laparoscopic cholecystectomy」を選択  
+手術前後の観察期間は設定しない  
+対象イベントは「all events」を選択  
+
+- ＜Inclusion Criteria＞  
+New inclusion criteria 名：Laparoscopic cholecystectomy  
+「+Add criteria to group...」から「Add Procedure Occurrence」を選択  
+「Any Procedure」→「Import Concept Set」→「Laparoscopic cholecystectomy」を選択  
+対象イベントは「all events」を選択  
+
+- ＜Cohort Exit Event＞  
+「Event Persistence」では「end of continuous observation」を選択  
+
+以上でCohort Definitionsの作成は完了です。  
+
+<br>
+
+---
+# **5　Feature Analyses（特徴分析）の作成**
+
+Feature Analyses とは、Characterizations による分析で調査したい項目として登録し、調査項目ごとの患者統計や発生率を結果としてレポートに出力します。  
+作成された Feature Analyses は、他の Characterizations 機能での分析における出力項目として設定することができます。  
+
+Atlasでは、標準で利用できる Feature Analyses が 100 件以上あります。（表1）  
+標準の Feature Analyses を選択することで、簡単に Characterizations の調査項目を設定できます。  
+標準以外でも、新規に Feature Analyses を作成できますので、観察研究のニーズに合わせて、特定の Characterizations 調査項目を作成することができます。  
+
+|Domain|ドメイン|件数|
+|:---|:---|:---|
+|CONDITION|病名|32|
+|DRUG|薬剤|23|
+|MEASUREMENT|検査|15|
+|Demographics|人口統計|11|
+|Observation|観察|7|
+|Procedure|手術|7|
+|Visit|通院歴|6|
+|Device|機材|4|
+
+*表１：標準化 Feature Analyses のドメイン別件数*  
+*※ Feature Analyses 項目は「７章　補足資料」で説明します*  
+
+<br>
+
+新規の Feature Analyses 定義では、1つまたは1つ以上の「Criteria Feature（特徴疾病）」を設定することができます。  
+
+本章では、新規の Feature Analyses 定義の作成方法について説明します。  
+2章で作成した＜病名＞、＜薬剤＞および＜検査項目＞の Concept Sets を用いて、Feature Analyses 定義を作成します。  
+ここでは、＜薬剤＞の Concept Sets を例に Feature Analyses 定義の作成手順を説明します。  
+
+Feature Analyses 定義を新規作成するので、「New Feature Analysis」をクリックします。  
+
+![](./Files/Atlas_4/image/image20.png)
+
+<br>
+
+Feature Analyses 作成画面が表示されます。  
+画面上部に Feature Analyses の名称を入力する欄があるので、「Gall Bladder Drug Feature Analysis」と入力します。  
+
+![](./Files/Atlas_4/image/image21.png)
+
+<br>
+
+次に、Feature Analyses の種別を選択します。  
+ここでは、薬剤の項目を設定するので、Description は「Drug」を選択します。  
+※Characterizations 画面に、Feature Analyses 定義をインポートする際に、「Drug」分類から選択できます。  
+
+![](./Files/Atlas_4/image/image22.png)
+
+<br>
+
+次に、薬剤の Concept Sets を「Criteria Feature」に設定します。  
+Design のグレーボタン「Criteria」をクリックします。  
+クリックすると設定画面が表示されます。  
+
