@@ -64,7 +64,7 @@ Characterizations による分析は、上記事例に従い、以下のテス�
   - rocuronium bromide 10 MG/ML Injectable Solution (臭化ロクロニウム 10 MG/ML 注射液)  
   - sevoflurane 1000 MG/ML Inhalant Solution (セボフルラン 1000 MG/ML 吸入剤溶液)  
   - Sodium Chloride 9 MG/ML Injectable Solution (塩化ナトリウム 9 MG/ML 注射液)  
-  - Fentanyl (スフェンタニル)  
+  - sufentanil (スフェンタニル)  
 
   <br>
 
@@ -303,11 +303,11 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 
 <br>
 
-- Sufentanil
+- sufentanil
 
 |Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|19078219|56795|Sufentanil|Drug|Standard||✓||
+|19078219|56795|sufentanil|Drug|Standard||✓||
 
 <br>
 <br>
@@ -556,3 +556,1008 @@ Feature Analyses 作成画面が表示されます。
 Design のグレーボタン「Criteria」をクリックします。  
 クリックすると設定画面が表示されます。  
 
+![](./Files/Atlas_4/image/image125.png)
+
+<br>
+
+「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。  
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。  
+
+![](./Files/Atlas_4/image/image25.png)
+
+<br>
+
+次に、薬剤のConcept Setsを「Criteria Feature」に設定します。  
+
+1つ目の薬剤の Concept Sets を追加します。  
+Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfate 5 MG/ML Injection」と入力します。  
+
+![](./Files/Atlas_4/image/image26.png)
+
+<br>
+
+「+Add criteria to group …」をクリックして、「Add Drug Exposure」を選択します。  
+
+![](./Files/Atlas_4/image/image27.png)
+
+<br>
+
+「Any Drug」で対象とする薬品のコンセプトセットの選択が必要になります。  
+「Any Drug」の▼をクリックし、「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、「1 ML Morphine Sulfate 5 MG／ML Injection」をクリックして選択します。  
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。  
+
+![](./Files/Atlas_4/image/image28.png)
+
+<br>
+
+2つ目以降の薬剤のコンセプトセットを追加します。  
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。  
+
+![](./Files/Atlas_4/image/image126.png)
+
+<br>
+<br>
+
+以下、同様の作成手順で、薬剤のコンセプトセットを追加します。  
+
+- 100 ML Propofol 10 MG/ML Injection  
+
+![](./Files/Atlas_4/image/image30.png)
+
+<br>
+
+- 2 ML Ondansetron 2 MG/ML Injection
+
+![](./Files/Atlas_4/image/image37.png)
+
+<br>
+
+- Acetaminophen 160 MG Oral Tablet
+
+![](./Files/Atlas_4/image/image39.png)
+
+<br>
+
+- heparin
+
+![](./Files/Atlas_4/image/image38.png)
+
+<br>
+
+- Isoflurane 999 MG/ML Inhalant Solution
+
+![](./Files/Atlas_4/image/image35.png)
+
+<br>
+
+- Meperidine Hydrochloride 50 MG Oral Tablet
+
+![](./Files/Atlas_4/image/image127.png)
+
+<br>
+
+- Midazolam 1 MG/ML Injectable Solution
+
+![](./Files/Atlas_4/image/image36.png)
+
+<br>
+
+- Piperacillin 4000 MG / tazobactam 500 MG Injection
+
+![](./Files/Atlas_4/image/image31.png)
+
+<br>
+
+- remifentanil
+
+![](./Files/Atlas_4/image/image33.png)
+
+<br>
+
+- rocuronium bromide 10 MG/ML Injectable Solution
+
+![](./Files/Atlas_4/image/image34.png)
+
+<br>
+
+- sevoflurane 1000 MG/ML Inhalant Solution
+
+![](./Files/Atlas_4/image/image41.png)
+
+<br>
+
+- Sodium Chloride 9 MG/ML Injectable Solution
+
+![](./Files/Atlas_4/image/image40.png)
+
+<br>
+
+- sufentanil
+
+![](./Files/Atlas_4/image/image32.png)
+
+<br>
+
+すべての薬剤のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。  
+
+![](./Files/Atlas_4/image/image42.png)
+
+<br>
+
+以上で、Feature Analysesの「Gall Bladder Drug Feature Analysis」の設定は完了です。  
+
+同様に、＜病名＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。
+「New Feature Analysis」をクリックして Feature Analyses 作成画面を表示します。  
+画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Condition Feature Analysis」と入力します。  
+
+![](./Files/Atlas_4/image/image43.png)
+
+<br>
+
+次に、Feature Analyses の種別を選択します。  
+ここでは、病名の項目を設定するので、Description は「Condition」を選択します。  
+
+![](./Files/Atlas_4/image/image44.png)
+
+<br>
+
+次に、病名のConcept Setsを「Criteria Feature」に設定します。  
+グレーボタン「Criteria」をクリックすると、設定画面が表示されます。  
+
+![](./Files/Atlas_4/image/image125.png)
+
+<br>
+
+「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。  
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。  
+
+![](./Files/Atlas_4/image/image25.png)
+
+<br>
+
+次に、病名のConcept Setsを「Criteria Feature」に設定します。  
+
+１つ目の病名のConcept Setsを追加します。  
+Criteria名を入力する欄があるので、病名「Acute cholecystitis」と入力します。  
+
+![](./Files/Atlas_4/image/image47.png)
+
+<br>
+
+「+Add criteria to group …」をクリックして、「Add Condition Occurrence」を選択します。  
+
+![](./Files/Atlas_4/image/image48.png)
+
+<br>
+
+「Any Condition」で対象とする病名のコンセプトセットの選択が必要になります。  
+「Any Condition」の▼をクリックし、「Import Concept Set」を選択します。  
+
+![](./Files/Atlas_4/image/image49.jpeg)  
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。  
+
+「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されます。  
+「Filter」欄に病名のコンセプトセット「Acute cholecystitis」を入力し、一覧から「Acute cholecystitis」を選択します。  
+
+![](./Files/Atlas_4/image/image50.jpeg)  
+
+<br>
+
+「Acute cholecystitis」のコンセプトセットが設定されます。  
+
+![](./Files/Atlas_4/image/image51.jpeg)  
+
+<br>
+
+続いて、2つ目以降の病名の Concept Sets を追加します。  
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。  
+
+![](./Files/Atlas_4/image/image52.png)  
+
+<br>
+
+以下、同様の手順で、病名のコンセプトセット（Gallstone）を追加します。  
+
+<br>
+
+- Gallstone
+
+![](./Files/Atlas_4/image/image53.png)  
+
+すべての病名のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。  
+
+![](./Files/Atlas_4/image/image54.png)  
+
+<br>
+
+以上で、Feature Analysesの「Gall Bladder Condition Feature Analysis」の設定は完了です。  
+
+<br>
+<br>
+
+同様に、＜検査項目＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。  
+「New Feature Analysis」をクリックして、Feature Analyses 作成画面が表示します。  
+画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Measurement Feature Analysis」と入力します。  
+
+![](./Files/Atlas_4/image/image55.png)  
+
+<br>
+
+次に、Feature Analyses の種別を選択します。  
+ここでは、検査項目を設定するので、Description は「Measurement」を選択します。
+
+![](./Files/Atlas_4/image/image56.png)  
+
+<br>
+
+次に、検査項目の Concept Sets を「Criteria Feature」に設定します。  
+グレーボタン「Criteria」をクリックします。  
+設定画面が表示されます。  
+
+![](./Files/Atlas_4/image/image125.png)  
+
+<br>
+
+「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。  
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。  
+
+![](./Files/Atlas_4/image/image25.png)  
+
+<br>
+
+次に、検査項目の Concept Sets を「Criteria Feature」に設定します。  
+
+1つ目の検査項目の Concept Sets を追加します。  
+Criteria 名を入力する欄があるので、検査項目名「Hemoglobin」と入力します。  
+
+![](./Files/Atlas_4/image/image59.png)  
+
+<br>
+
+「+Add criteria to group …」をクリックして、「Add Measurement」を選択します。  
+
+![](./Files/Atlas_4/image/image60.png)  
+
+<br>
+
+「Any Measurement」で対象とする検査項目のコンセプトセットの選択が必要になります。  
+「Any Measurement」の▼をクリックし、「Import Concept Set」を選択します。  
+
+![](./Files/Atlas_4/image/image61.png)  
+
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。  
+
+<br>
+
+「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されます。  
+「Filter」欄に検査項目のコンセプトセット「Hemoglobin」を入力し、一覧から「Hemoglobin」を選択します。  
+
+![](./Files/Atlas_4/image/image62.jpeg)  
+
+<br>
+
+「Hemoglobin」のコンセプトセットが設定されます。  
+
+![](./Files/Atlas_4/image/image63.jpeg)  
+
+<br>
+
+続いて、2つ目以降の検査項目のConcept Setsを追加します。  
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。
+
+![](./Files/Atlas_4/image/image64.png)  
+
+<br>
+<br>
+
+以下、同様の作成手順で、検査項目のコンセプトセットを追加します。  
+
+<br>
+
+- Hematocrit
+
+![](./Files/Atlas_4/image/image65.png)  
+
+<br>
+
+- Globulin
+
+![](./Files/Atlas_4/image/image66.png)  
+
+<br>
+
+すべての検査項目のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。  
+
+![](./Files/Atlas_4/image/image54.png)
+
+<br>
+
+ここまで、Feature Analysesの「Gall Bladder Measurement Feature Analysis」の設定は完了です。  
+
+以上でFeature Analyses定義の作成は完了です。  
+
+<br>
+
+---
+# **6　Characterizations（特性評価）**
+
+本章では、Characterizations による分析の操作手順を説明します。  
+Characterizations による分析では、1つ以上の Cohort definition と1つ以上の Feature Analyses を必須項目として設定します。  
+
+操作手順については、「6.1 Characterizations の作成と実行」、「6.2 Characterizations の結果画面構成」、「6.3 Characterizations の分析結果」と順を追って説明します。  
+また、任意設定項目となる Subgroup analyses という設定をすることもできます。  
+より細かな分析結果を知りたい場合は、この Subgroup analyses 機能を使用し、サブグループの条件を定義します。（例えば、分析結果に女性の患者数を出力したい場合、Subgroup analysesに「女性」の定義を設定する事で実現できます）  
+こちらは「6.4 Subgroup analyses の作成と分析」において説明します。  
+まず、Characterizations 機能における、「作成画面」と「分析結果画面」について説明します。  
+
+Characterizations の作成手順は、「6.1 Characterizations の作成と実行」から説明します。  
+
+<br>
+
+１）Characterizationsの作成画面  
+作成画面には「Cohort definition」と「Feature Analyses」の設定項目があります。  
+「Cohort definition」項目には、分析対象とする母集団を設定します。  
+
+![](./Files/Atlas_4/image/image67.png)
+
+<br>
+
+「Feature Analyses」項目には、特徴分析で統計したい出力項目を定義します。  
+
+![](./Files/Atlas_4/image/image68.png)
+
+<br>
+
+２）Characterizationsの分析結果画面  
+Characterizations の分析結果は、表形式で表示されます。  
+集計表には、統計された患者人数と発生率が表示されます。  
+
+![](./Files/Atlas_4/image/image69.png)
+
+<br>
+
+また、「Cohort definition」を２つ選択していた場合、分散図が表示されます。  
+分析結果は青い点で描画され、カーソルを合わせると対象の発生率を確認できます。  
+
+![](./Files/Atlas_4/image/image70.jpeg)
+
+<br>
+
+続いて、操作手順について説明します。  
+本手順書の分析では、Cohort Definitions の定義は4章で設定した項目を使用します。  
+Feature Analyses の定義は5章で設定した項目、および Atlas 標準の分析項目を使用します。（以下の内容となります）  
+
+- Cohort Definitions  
+  - Cholecystectomy Definition（胆嚢摘出術）  
+  - Laparoscopic cholecystectomy Definition（腹腔鏡下 胆嚢摘出術）  
+
+- Feature Analyses
+  - Gall Bladder Drug Feature Analysis（薬剤）
+  - Gall Bladder Condition Feature Analysis（病名）
+  - Gall Bladder Measurement Feature Analysis（検査項目）
+  - Demographics Gender （年齢別統計）　→　Atlas標準化の分析項目
+
+手順としては、Cohort Definitions に上記2つの調査項目を設定、Feature Analyses に上記4つの分析項目を設定し、分析を実施します。  
+
+<br>
+
+---
+## **6．1　Characterizations の作成と実行**
+
+Atlasの画面左側の「Characterizations」タブをクリックすると、既に Atlas プラットフォーム内で設計された特徴評価一覧が表示されます。  
+
+![](./Files/Atlas_4/image/image71.jpeg)
+
+<br>
+
+「Characterizations」に新規特性評価を作成します。  
+画面左上の「Characterizations」タブをクリックし、画面右上の「New Characterization」をクリックすると、特性評価の疾病設定画面が表示されます。  
+
+![](./Files/Atlas_4/image/image72.png)
+
+<br>
+
+画面上部に Characterizations 名称「Gall Bladder Characterization」を入力します。  
+
+![](./Files/Atlas_4/image/image73.png)
+
+<br>
+
+１）Cohort Definitionの設定  
+「Cohort Definition」に「Cholecystectomy Definition」と「Laparoscopic cholecystectomy Definition」を設定します。  
+
+- Cholecystectomy Definition のインポート  
+「Cohort Definition」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image74.png)
+
+<br>
+
+「Choose a Cohort Definition」画面が表示され、Cohort Definition の一覧が表示されます。  
+「Filter」欄に「Cholecystectomy Definition」と入力し、表示された「Cholecystectomy Definition」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image75.jpeg)
+
+<br>
+
+Cohort Definition の一覧に、インポートされた「Cholecystectomy Definition」が表示されます。  
+
+![](./Files/Atlas_4/image/image76.png)
+
+<br>
+
+- Laparoscopic cholecystectomy Definition のインポート  
+引き続き、「Cohort Definition」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image77.png)
+
+<br>
+
+「Choose a Cohort Definition」画面が表示され、Cohort Definition の一覧が表示されます。  
+「Filter」欄に「Laparoscopic cholecystectomy Definition」と入力し、表示された「Laparoscopic cholecystectomy Definition」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image78.jpeg)
+
+<br>
+
+Cohort Definition の一覧に、インポートされた「Laparoscopic cholecystectomy Definition」が表示されます。  
+
+![](./Files/Atlas_4/image/image79.png)
+
+<br>
+
+２）Feature Analysesの設定  
+「Feature Analyses」に、「Gall Bladder Drug Feature Analysis」、「Gall Bladder Condition Feature Analysis」、「Gall Bladder Measurement Feature Analysis」、「Demographics Gender」を設定します。  
+
+- Gall Bladder Drug Feature Analysis のインポート  
+「Feature Analyses」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image80.png)
+
+<br>
+
+「Choose a Feature Analyses…」の画面が表示され、Feature analysesの一覧が表示されます。  
+「Filter」欄に「Gall Bladder Drug Feature Analysis」と入力し、表示された「Gall Bladder Drug Feature Analysis」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image81.jpeg)
+
+<br>
+
+Feature analyses の一覧に、インポートされた「Gall Bladder Drug Feature Analysis」が表示されます。  
+
+![](./Files/Atlas_4/image/image82.png)
+
+<br>
+
+- Gall Bladder Condition Feature Analysis のインポート  
+「Feature Analyses」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image83.png)
+
+<br>
+
+「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。  
+「Filter」欄に「Gall Bladder Condition Feature Analysis」と入力し、「Gall Bladder Condition Feature Analysis」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image84.jpeg)
+
+<br>
+
+Feature analyses の一覧に、インポートされた「Gall Bladder Condition Feature Analysis」が表示されます。  
+
+![](./Files/Atlas_4/image/image85.png)
+
+<br>
+
+- Gall Bladder Measurement Feature Analysisのインポート  
+「Feature Analyses」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image86.png)
+
+<br>
+
+「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。  
+「Filter」欄に「Gall Bladder Measurement Feature Analysis」と入力し、表示された「Gall Bladder Measurement Feature Analysis」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image87.jpeg)
+
+<br>
+
+Feature analyses の一覧に、インポートされた「Gall Bladder Measurement Feature Analysis」が表示されます。  
+
+![](./Files/Atlas_4/image/image88.png)
+
+<br>
+
+- Demographics Gender のインポート
+「Feature Analyses」の「Import」ボタンをクリックします。  
+
+![](./Files/Atlas_4/image/image89.png)
+
+<br>
+
+「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。
+「Filter」欄に「Demographics Gender」と入力し、表示された「Demographics Gender」にチェックを入れ、「Import」をクリックします。  
+
+![](./Files/Atlas_4/image/image90.jpeg)
+
+<br>
+
+Feature analyses の一覧に、インポートされた「Demographics Gender」が表示されます。
+
+![](./Files/Atlas_4/image/image91.png)
+
+<br>
+
+コホートを選択し終えたら、画面右上の保存ボタン（緑のボタン）をクリックします。  
+
+![](./Files/Atlas_4/image/image92.png)
+
+<br>
+
+保存が完了したら、分析実施のため、「Execution」タブに移動します。
+
+「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回はEunomiaを用いた検証のため、CDM V5 Databaseが表示されます）  
+
+対象とするデータソース欄の「Generate」ボタンをクリックすると分析が実行されます。  
+
+![](./Files/Atlas_4/image/image93.png)
+
+<br>
+
+結果が生成されたら、「Executions」の「All executions」タブをクリックして、「View reports」から結果を表示します。  
+
+![](./Files/Atlas_4/image/image94.png)
+
+<br>
+
+以上で、Characterizations の作成は完了です。
+
+<br>
+
+---
+## **6．2　Characterizations の結果画面構成（View reports の画面構成）**
+
+結果画面では、Cohort Definitions ごとの分析結果が表形式で表示されます。  
+選択した全ての Feature Analyses の結果一覧表と、個々の Feature Analyses の結果一覧表が表示されます。  
+結果画面には、フィルタ（Filter panel）機能が提供されています。  
+フィルタを使用して結果を絞り込んで表示することができます。  
+
+１）フィルタ（Filter panel）機能
+- Cohorts  
+コホートの表示切替ができます。  
+複数のコホートを選択することもできます。  
+
+![](./Files/Atlas_4/image/image95.png)
+
+<br>
+
+- Analyses  
+特徴分析（Feature Analyses）の表示切替ができます。  
+複数の特徴分析を選択することができます。  
+
+![](./Files/Atlas_4/image/image96.png)
+
+<br>
+
+- Domains  
+ドメインの切替表示ができます。  
+複数のドメインを選択することができます。  
+
+![](./Files/Atlas_4/image/image97.png)
+
+<br>
+
+２）分析結果の一覧表  
+- All prevalence covariates  
+「Filter panel」で選択したCohortsについて、特徴分析の結果が表示されます。  
+
+![](./Files/Atlas_4/image/image98.png)
+
+<br>
+
+- 「Feature Analyses 名称」  
+各 Feature Analyses 毎の結果が表示されます。  
+※下記の例は「Gall Bladder Drug Feature Analysis」の表示例となります。  
+
+![](./Files/Atlas_4/image/image99.png)
+
+<br>
+
+---
+## **6．3　Characterizations の分析結果**
+
+本書における分析結果では、「胆嚢摘出手術」と「腹腔鏡下 胆嚢摘出術」の手術を受けた患者に関連する診断病名、処方薬、検査項目について、患者数と発生率が統計され、表形式で表示されます。  
+
+１）男女の患者数統計  
+- Laparoscopic cholecystectomy の手術を受けた患者について、性別毎の人数と発生率が確認できます。  
+
+Laparoscopic cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|MALE|6|17.14%|
+|FEMALE|29|82.86%|
+
+<br>
+
+- Cholecystectomy の手術を受けた患者について、性別毎の人数と発生率が確認できます。  
+
+Cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|MALE|0|0.00%|
+|FEMALE|3|100.00%|
+
+<br>
+
+Characterizations 分析結果画面では、男女の患者数統計の一覧表が下表のように表示されます。  
+
+![](./Files/Atlas_4/image/image100.png)
+
+<br>
+
+２）薬剤別の患者数統計  
+- Laparoscopic cholecystectomy の手術を受けた患者に処方された薬剤について、薬剤別の患者数と発生率が確認できます。  
+
+Laparoscopic cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|1 ML Morphine Sulfate 5 MG/ML Injection|35|100.00%|
+|100 ML Propofol 10 MG/ML Injection|35|100.00%|
+|2 ML Ondansetron 2 MG/ML Injection|35|100.00%|
+|Acetaminophen 160 MG Oral Tablet|16|45.71%|
+|heparin|35|100.00%|
+|Isoflurane 999 MG/ML Inhalant Solution|27|77.14%|
+|Meperidine Hydrochloride 50 MG Oral Tablet|12|34.29%|
+|Midazolam 1 MG/ML Injectable Solution|33|94.29%|
+|Piperacillin 4000 MG/tazobactam 500 MG Injection|35|100.00%|
+|remifentanil|16|45.71%|
+|rocuronium bromide 10 MG/ML Injectable Solution|35|100.00%|
+|sevoflurane 1000 MG/ML Inhalant Solution|3|8.57%|
+|Sodium Chloride 9 MG/ML Injectable Solution|35|100.00%|
+|sufentanil|0|0.00%|
+
+<br>
+
+- Cholecystectomy の手術を受けた患者に処方された薬剤について、薬剤別の患者数と発生率が確認できます。  
+
+Cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|1 ML Morphine Sulfate 5 MG/ML Injection|3|100.00%|
+|100 ML Propofol 10 MG/ML Injection|3|100.00%|
+|2 ML Ondansetron 2 MG/ML Injection|3|100.00%|
+|Acetaminophen 160 MG Oral Tablet|3|100.00%|
+|heparin|3|100.00%|
+|Isoflurane 999 MG/ML Inhalant Solution|2|66.67%|
+|Meperidine Hydrochloride 50 MG Oral Tablet|3|100.00%|
+|Midazolam 1 MG/ML Injectable Solution|3|100.00%|
+|Piperacillin 4000 MG/tazobactam 500 MG Injection|3|100.00%|
+|remifentanil|0|0.00%|
+|rocuronium bromide 10 MG/ML Injectable Solution|3|100.00%|
+|sevoflurane 1000 MG/ML Inhalant Solution|1|33.33%|
+|Sodium Chloride 9 MG/ML Injectable Solution|3|100.00%|
+|sufentanil|0|0.00%|
+
+<br>
+
+Characterizations分析結果画面では、処方された薬剤別の患者数統計の一覧表が下表のように表示されます。  
+
+![](./Files/Atlas_4/image/image101.png)
+
+<br>
+
+また、2つの手術を選択して分析結果を表示した場合、分散図も表示されます。  
+分散図の青い点にカーソルを合わせると、そのコホートの発生率が表示されます。  
+この例では、X軸は「Laparoscopic cholecystectomy 術式」、Ｙ軸は「Cholecystectomy 術式」の発生率を表します。  
+「Isoflurane 999 MG/ML Inhalant Solution」の青い点にカーソルを合わせると、薬剤を処方した患者の発生率が表示されます。  
+「Laparoscopic cholecystectomy術式」で「Isoflurane 999 MG/ML Inhalant Solution」の薬剤の発生率は77.14%、「Cholecystectomy術式」で「Isoflurane 999 MG/ML Inhalant Solution」の薬剤の発生率は66.6％であることが確認できます。  
+
+![](./Files/Atlas_4/image/image128.jpeg)
+
+<br>
+
+３）病名別の患者数統計  
+- Laparoscopic cholecystectomy の手術を受けた患者について、診断された病名別の患者数と発生率が確認できます。  
+
+Laparoscopic cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|MALE|35|100.00%|
+|FEMALE|35|100.00%|
+
+- Cholecystectomy の手術を受けた患者について、診断された病名別の患者数と発生率が確認できます。  
+
+Cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|MALE|3|100.00%|
+|FEMALE|3|100.00%|
+
+<br>
+
+Characterizations 分析結果画面では、診断された病名別の患者数統計の一覧表が下表のように表示されます。  
+
+![](./Files/Atlas_4/image/image102.png)
+
+<br>
+
+４）検査項目別の患者数統計  
+・Laparoscopic cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。  
+
+Laparoscopic cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|Hematocrit|35|100.00%|
+|Globulin|35|100.00%|
+|Hemoglobin|35|100.00%|
+
+<br>
+
+- Cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。  
+
+Cholecystectomy Definition
+|項目|人数|発生率|
+|:---:|:---:|:---:|
+|Hematocrit|3|100.00%|
+|Globulin|3|100.00%|
+|Hemoglobin|3|100.00%|
+
+Characterizations 分析結果画面では、受けた検査項目別の患者数統計の一覧表が下表のように表示されます。  
+
+![](./Files/Atlas_4/image/image129.png)
+
+<br>
+
+---
+## **6．4　Subgroup analysesの作成と分析**
+
+本節では、Subgroup analyses の作成方法と分析結果について説明します。  
+この例では、更に女性の患者数を分析結果に出力するために、女性の「Subgroup analyses」定義を追加し、女性の患者数を統計する操作方法を説明します。  
+この例では、「女性」のサブグループ条件を定義します。  
+
+「Subgroup analyses」の青いボタン「New subgroup」をクリックし、新規 Subgroup analyses が表示されます。  
+
+![](./Files/Atlas_4/image/image130.png)
+
+<br>
+
+「Subgroup analyses」のタイトル欄に、「Female」を入力します。  
+
+![](./Files/Atlas_4/image/image106.png)
+
+<br>
+
+「+Add criteria to group…」タイトル欄に「Female」を入力します。  
+
+![](./Files/Atlas_4/image/image107.png)
+
+<br>
+
+右側の青いボタン「+Add criteria to group…」をクリックして、「Add Demographic」を選択します。  
+
+![](./Files/Atlas_4/image/image108.png)
+
+<br>
+
+「with the following event criteria」の青いボタン「Add attribute…」をクリックして、「Add Gender Criteria」を選択します。  
+
+![](./Files/Atlas_4/image/image109.png)
+
+<br>
+
+「Add」ボタンをクリックして、条件の選択画面が表示されます。  
+
+![](./Files/Atlas_4/image/image110.png)
+
+<br>
+
+「FEMALE」条件の列の先頭にある黒い✔をクリックします。  
+オレンジの✔が選択された状態となります。  
+
+![](./Files/Atlas_4/image/image113.jpeg)
+
+<br>
+
+「Add Selected」ボタンをクリックします。  
+最後に「Close」をクリックし、条件選択画面を閉じます。
+
+![](./Files/Atlas_4/image/image114.png)
+
+<br>
+
+「女性」のサブグループ条件は、下図のように定義されます。  
+
+![](./Files/Atlas_4/image/image115.png)
+
+<br>
+
+Subgroup analyses の条件を作成し終えたら、画面右上の保存ボタン（緑ボタン）をクリックします。  
+
+![](./Files/Atlas_4/image/image116.png)
+
+<br>
+
+分析実施のため、「Execution」タブに移動します。  
+「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回は Eunomia を用いた検証のため、CDM V5 Database が表示されます）  
+対象とするデータソース欄の「Generate」ボタンをクリックすると Atlas での分析が実行されます。  
+
+![](./Files/Atlas_4/image/image93.png)
+
+<br>
+
+結果が生成されたら、「All executions」をクリックして、「View reports」から結果を表示します。  
+
+![](./Files/Atlas_4/image/image131.png)
+
+<br>
+
+Characterizations 分析結果の一覧表には、「女性」の患者数と発生率の情報が出力されます。  
+下表のように、「薬剤別の患者数統計」の一覧表に全患者の統計情報と女性の統計情が表示されていることが分かります。  
+
+![](./Files/Atlas_4/image/image117.png)
+
+<br>
+
+Characterizations を用いた分析の操作は以上になります。
+
+<br>
+
+---
+# **7　補足資料**
+## **7．1　標準の Feature Analyses 項目**
+
+Atlas では、105件の Feature Analyses 項目が標準で提供されています。  
+OMOP CDM モデルの特性分析（Characterizations）を行う際に利用できます。  
+「Demographics」の名称で始まる特徴分析項目は、コホート開始日における患者の人口統計情報を計算します。  
+ドメイン名で始まる特徴分析項目(Visit、Procedure、Condition、Drugなど) については、ドメイン内に記録されたすべてのレコード観察値を統計します。  
+また、各ドメインの特徴分析項目には、下記4つのコホート開始前の観察期間オプションがあります。  
+- Any Time Prior（より前任意時間）: 人の観察期間内におけるコホート開始前
+のすべての時間  
+- Long Term（長期）: コホート開始日を含む 365 日前  
+- Medium Term（中期）: コホート開始日を含む 180 日前  
+- Short Term（短期）: コホート開始日を含む 30 日前  
+
+下記表が標準のFeature Analyses項目の一覧となります。  
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|2|Condition Group Era Start Long Term|疾病グループ歴開始 長期（365日）|CONDITION|
+|4|Condition Era Short Term|疾病歴 短期（30日）|CONDITION|
+|6|Condition Group Era Overlapping|疾病グループ歴 重複期間|CONDITION|
+|9|Condition Era Start Long Term|疾病歴開始 長期（365日）|CONDITION|
+|10|Condition Era Any Time Prior|疾病歴 任意期間|CONDITION|
+|11|Condition Group Era Start Medium Term|疾病グループ歴の開始 中期（180日）|CONDITION|
+|16|Condition Era Medium Term|疾病歴 中期（180日）|CONDITION|
+|17|Condition Era Overlapping|疾病歴 重複期間|CONDITION|
+|18|Condition Era Start Short Term|疾病歴開始 短期（30日）|CONDITION|
+|20|Condition Group Era Short Term|疾病グループの歴 短期（30日）|CONDITION|
+|21|Condition Era Start Medium Term|疾病歴開始 中期（180日）|CONDITION|
+|23|Condition Era Long Term|疾病歴 長期（365日）|CONDITION|
+|27|Condition Group Era Any Time Prior|疾病グループ歴 任意期間|CONDITION|
+|29|Condition Group Era Start Short Term|疾病グループ歴開始 短期（30日）|CONDITION|
+|30|Condition Group Era Long Term|疾病群の歴 長期（365日）|CONDITION|
+|32|Condition Group Era Medium Term|疾病群の歴 中期（180日）|CONDITION|
+|36|Dcsi|DCSI|CONDITION|
+|41|Distinct Condition Count Long Term|個別疾病カウント 長期（365日）|CONDITION|
+|48|Distinct Condition Count Short Term|個別疾病カウント 短期（30日）|CONDITION|
+|49|Charlson Index|チャールソン指数|CONDITION|
+|54|Distinct Condition Count Medium Term|個別疾病カウント 中期（180日）|CONDITION|
+|67|Condition Occurrence Long Term|疾病発生 長期（365日）|CONDITION|
+|69|Condition Occurrence Any Time Prior|疾病発生前 任意期間|CONDITION|
+|76|Condition Occurrence Medium Term|疾病発生 中期（180日）|CONDITION|
+|78|Chads 2|Chads 2|CONDITION|
+|82|Chads 2 Vasc|Chads 2 Vasc|CONDITION|
+|83|Condition Occurrence Primary Inpatient Long Term|疾病発生 初回入院患者 長期（365日）|CONDITION|
+|85|Condition Occurrence Primary Inpatient Any Time Prior|疾病発生 初回入院患者 任意期間|CONDITION|
+|90|Condition Occurrence Short Term|疾病発生 短期（30日）|CONDITION|
+|102|Occurrence Primary Inpatient Short Term|初回入院患者 短期（30日）|CONDITION|
+|104|Occurrence Primary Inpatient Medium Term|初回入院患者 中期（180日）|CONDITION|
+|105|Hospital Frailty Risk Score|入院患者フレイルリスクスコア|CONDITION|
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|68|Demographics Index Month|人口統計 月別|Demographics |
+|70|Demographics Ethnicity|人口統計 民族別|Demographics |
+|71|Demographics Gender|人口統計 年齢別|Demographics |
+|72|Demographics Race|人口統計 人種別|Demographics |
+|73|Demographics Prior Observation Time|人口統計 事前観察期間|Demographics |
+|74|Demographics Gender|人口統計 性別|Demographics |
+|75|Demographics Index Year Month|人口統計 指数年月|Demographics |
+|77|Demographics Age|人口統計 年齢別|Demographics |
+|79|Demographics Time In Cohort|人口統計 コホート内の時間|Demographics |
+|80|Demographics Index Year|人口統計指数年|Demographics |
+|81|Demographics Post Observation Time|人口統計 観察後の時間|Demographics |
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|52|Device Exposure Any Time Prior|デバイスの暴露 任意期間|Device|
+|57|Device Exposure Long Term|デバイス暴露 長期（365日）|Device|
+|59|Device Exposure Medium Term|デバイス暴露 中期（180日）|Device|
+|65|Device Exposure Short Term|デバイス暴露 短期（30日）|Device|
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|3|Drug Group Era Start Medium Term|薬剤グループ歴の開始 中期（180日）|DRUG|
+|5|Drug Group Era Long Term|薬剤グループ歴 ​​長期（365日）|DRUG|
+|7|Drug Group Era Short Term|薬剤グループ歴 ​​短期（30日）|DRUG|
+|8|Drug Group Era Medium Term|薬剤グループ歴 中期（180日）|DRUG|
+|12|Drug Exposure Long Term|薬物暴露 長期（365日）|DRUG|
+|15|Drug Group Era Any Time Prior|薬物グループ歴 任意期間前|DRUG|
+|19|Drug Group Era Start Short Term|薬剤グループ歴の開始 短期（30日）|DRUG|
+|24|Drug Group Era Start Long Term|薬剤グループ歴の開始 長期（365日）|DRUG|
+|25|Drug Group Era Overlapping|薬物群歴の重複期間|DRUG|
+|28|Drug Exposure Any Time Prior|任意期間の薬物暴露|DRUG|
+|31|Drug Exposure Short Term|薬物曝露 短期（30日）|DRUG|
+|33|Drug Exposure Medium Term|薬物曝露 中期（180日）|DRUG|
+|35|Drug Era Start Long Term|薬物歴の開始 長期（365日）|DRUG|
+|37|Drug Era Start Short Term|薬物歴の開始 短期（30日）|DRUG|
+|38|Distinct Ingredient Count Medium Term|個別成分カウント 中期（180日）|DRUG|
+|43|Drug Era Short Term|薬剤歴の短期（30日）|DRUG|
+|44|Drug Era Overlapping|薬剤歴 重複期間|DRUG|
+|46|Distinct Ingredient Count Long Term|個別成分カウント 長期（365日）|DRUG|
+|62|Drug Era Start Medium Term|薬物歴の開始 中期（180日）|DRUG|
+|64|Distinct Ingredient Count Short Term|個別成分カウント 短期（30日）|DRUG|
+|86|Drug Era Long Term|薬剤歴 長期（365日）|DRUG|
+|88|Drug Era Medium Term|薬剤歴 中期（180日）|DRUG|
+|89|Drug Era Any Time Prior|薬剤歴 任意期間|DRUG|
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|1|Measurement Range Group Short Term|検査範囲 グループ 短期（30日）|MEASUREMENT|
+|13|Measurement Range Group Long Term|検査範囲 グループ 長期（365日）|MEASUREMENT|
+|14|Measurement Range Group Medium Term|検査範囲 グループ 中期（180日）|MEASUREMENT|
+|26|Measurement Range Group Any Time Prior|検査範囲グループ 任意期間|MEASUREMENT|
+|39|Measurement Any Time Prior|検査 任意期間|MEASUREMENT|
+|40|Measurement Medium Term|検査 中期（180日）|MEASUREMENT|
+|42|Measurement Value Long Term|検査値 長期（365日）|MEASUREMENT|
+|50|Measurement Short Term|検査 短期（30日）|MEASUREMENT|
+|58|Measurement Value Short Term|検査値 短期（30日）|MEASUREMENT|
+|60|Measurement Long Term|検査 長期（365日）|MEASUREMENT|
+|61|Measurement Value Medium Term|検査値 中期（180日）|MEASUREMENT|
+|63|Measurement Value Any Time Prior|検査値 任意期間|MEASUREMENT|
+|91|Distinct Measurement Count Short Term|個別検査カウント 短期（30日）|MEASUREMENT|
+|95|Distinct Measurement Count Long Term|個別検査カウント長期（365日）|MEASUREMENT|
+|96|Distinct Measurement Count Medium Term|個別検査カウント中期（180日）|MEASUREMENT|
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|34|Observation Short Term|観察期間 短期（30日）|Observation |
+|45|Observation Any Time Prior|観察期間 任意期間|Observation |
+|53|Observation Long Term|観察期間 長期（365日）|Observation |
+|56|Observation Medium Term|観察期間 中期（180日）|Observation |
+|93|Distinct Observation Count Medium Term|観察期間カウント 中期（180日）|Observation |
+|94|Distinct Observation Count Long Term|観察期間カウント 長期（365日）|Observation |
+|97|Distinct Observation Count Short Term|観察期間カウント 短期（30日）|Observation |
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|22|Procedure Occurrence Medium Term|手術処置発生 中期（180日）|Procedure|
+|47|Distinct Procedure Count Short Term|手術処置発生カウント 短期（30日）|Procedure|
+|51|Distinct Procedure Count Medium Term|手術処置発生カウント 中期（180日）|Procedure|
+|55|Procedure Occurrence Short Term|手術処置発生 短期（30日）|Procedure|
+|66|Distinct Procedure Count Long Term|手術処置発生カウント 長期（365日）|Procedure|
+|84|Procedure Occurrence Long Term|手術処置発生 長期（365日）|Procedure|
+|87|Procedure Occurrence Any Time Prior|手術処置発生 任意期間|Procedure|
+
+<br>
+
+|ID|項目名（英語）|項目名（日本語訳）|ドメイン|
+|:---|:---|:---|:---|
+|92|Visit Concept Count Short Term|訪問コンセプトカウント 短期（30日）|Visit|
+|98|Visit Concept Count Long Term|訪問コンセプトカウント 長期（365日）|Visit|
+|99|Visit Concept Count Medium Term|訪問コンセプトカウント 中期（180日）|Visit|
+|100|Visit Count Medium Term|訪問回数 中期（180日）|Visit|
+|101|Visit Count Short Term|訪問回数 短期（30日）|Visit|
+|103|Visit Count Long Term|訪問回数 長期（365日）|Visit|
