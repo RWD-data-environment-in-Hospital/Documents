@@ -65,6 +65,8 @@ https://github.com/OHDSI/Achilles#getting-started
 
 セットアップに要する総作業時間は3 日を想定しています。  
 
+※テストデータ「Eunomia」のセットアップ手順は、[操作手順（CohortPathways 編）](https://github.com/RWD-data-environment-in-Hospital/Documents/blob/main/Atlas_operation_CohortPathways.md)を参照してください
+
 <br>
 
 ---
@@ -2095,6 +2097,11 @@ Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」
 ![](./Files/Atlas/image/image1357.png)  
 
 以上でAtlas のセットアップは完了です。  
+
+※テストデータ「Eunomia」のセットアップ手順は、[操作手順（CohortPathways 編）](https://github.com/RWD-data-environment-in-Hospital/Documents/blob/main/Atlas_operation_CohortPathways.md)を参照してください
+
+<br>
+<br>
 
 ---
 # **7　補足：オフラインインストール手順**
