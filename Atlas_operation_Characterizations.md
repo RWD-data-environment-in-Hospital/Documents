@@ -686,7 +686,7 @@ Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfat
 
 以上で、Feature Analysesの「Gall Bladder Drug Feature Analysis」の設定は完了です。  
 
-同様に、＜病名＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。
+同様に、＜病名＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。  
 「New Feature Analysis」をクリックして Feature Analyses 作成画面を表示します。  
 画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Condition Feature Analysis」と入力します。  
 
@@ -1283,7 +1283,7 @@ Characterizations 分析結果画面では、診断された病名別の患者�
 <br>
 
 ４）検査項目別の患者数統計  
-・Laparoscopic cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。  
+- Laparoscopic cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。  
 
 Laparoscopic cholecystectomy Definition
 |項目|人数|発生率|
