@@ -642,7 +642,7 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <em>出典：PostgreSQL: The world's most advanced open source database</em></p>
 <br>
 <p>Version 10 のWindowsx86-64 をダウンロードします。<br>
-下記手順では10.18 となっていますが、Version10 の最新モジュールをダウンロードします。</p>
+※下記手順では10.18 となっていますが、Version10 が選択できない場合、できるだけ近いバージョンを利用することをお勧めします</p>
 <p><img src="./Atlas/image/image72.jpeg" alt=""></p>
 <br>
 <p>ダウンロードが完了したら、「postgresql-10.18-2-windows-x64.exe」をダブルクリックし、「このアプリがデバイスに変更を加えることを許可しますか？」と出るので「はい」をクリックします。</p>
@@ -685,7 +685,8 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 以上でPostgreSQL 10 のインストールは完了です。</p>
 <br>
 <h2 id="322-postgresql-10-%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>3．2．2　PostgreSQL 10 の設定</strong></h2>
-<p>スタートメニューの「PostgreSQL 10」フォルダ内の「pgAdmin 4」を開きます。</p>
+<p>※PostgreSQLのバージョンにより、画面構成が異なります（手順の画像はバージョン 10.18 です）<br><br>
+スタートメニューの「PostgreSQL 10」フォルダ内の「pgAdmin 4」を開きます。</p>
 <p><img src="./Atlas/image/image84.png" alt="" width="300"></p>
 <br>
 <p>起動後、master password の設定画面がでるので任意のパスワードを入力します。</p>
@@ -1050,21 +1051,24 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 <p>「settings.xml」ファイルを開き、赤枠の部分を修正します。</p>
 <p><img src="./Atlas/image/image165.jpeg" alt=""></p>
 <br>
-<p>(1)datasource.password app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。<br>
+<p>(1)datasource.password<br>
+app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパスワードに書き換えます。<br>
 下記例ではpostadmin に書き換えています。</p>
 <p>【変更前】<br>
 <img src="./Atlas/image/image166.jpeg" alt=""></p>
 <p>【変更後】<br>
 <img src="./Atlas/image/image167.jpeg" alt=""></p>
 <br>
-<p>(2)flyway.datasource.password !PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。<br>
+<p>(2)flyway.datasource.password<br>
+!PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。<br>
 下記例ではadmin1 に書き換えています。</p>
 <p>【変更前】<br>
 <img src="./Atlas/image/image168.jpeg" alt=""></p>
 <p>【変更後】<br>
 <img src="./Atlas/image/image169.jpeg" alt=""></p>
 <br>
-<p>(3)security.origin *をlocalhost に書き換えます。</p>
+<p>(3)security.origin<br>
+*をlocalhost に書き換えます。</p>
 <p>【変更前】<br>
 <img src="./Atlas/image/image170.jpeg" alt=""></p>
 <p>【変更後】<br>
@@ -1434,7 +1438,8 @@ level4_concept_name VARCHAR(255)
 <br>
 <hr>
 <h2 id="42-r-tools-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．2　R tools のインストール</strong></h2>
-<p>下記のサイトにアクセスし、「Download R for Windows」、「Rtools」 の順にクリックし、RTools の最新バージョン（64-bit）を選択してダウンロードします。</p>
+<p>下記のサイトにアクセスし、「Download R for Windows」、「Rtools」 の順にクリックし、RTools の最新バージョン（64-bit）を選択してダウンロードします。<br>
+※下記手順は、バージョン 4.0</p>
 <p><a href="https://cran.r-project.org/" target="_blank" rel="nofollow noopener">https://cran.r-project.org/</a></p>
 <p><img src="./Atlas/image/image1307.png" alt=""><br>
 <em>出典：The R Foundation「The Comprehensive R Archive Network」</em></p>
