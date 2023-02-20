@@ -1,13 +1,13 @@
 # **Atlas 操作手順 ～Characterizations～**
 
 ### **目次**
-1　本手順について  
-2　Characterizations 操作の流れ  
-3　Concept Sets の作成  
-4　Cohort Definitions の作成  
-5　Feature Analyses （特徴分析）の作成  
-6　Characterizations （特性評価）  
-7　補足資料  
+[1　本手順について](#1-本手順について)  
+[2　Characterizations 操作の流れ](#2-characterizations-操作の流れ)  
+[3　Concept Sets の作成](#3-concept-sets-の作成)  
+[4　Cohort Definitions の作成](#4-cohort-definitionsの作成)  
+[5　Feature Analyses （特徴分析）の作成](#5-feature-analyses特徴分析の作成)  
+[6　Characterizations （特性評価）](#6-characterizations特性評価)  
+[7　補足資料](#7-補足資料)  
 
 <br>
 
@@ -18,8 +18,8 @@ Atlas の Characterizations 操作手順について説明します。
 
 - Windows10（64 ビット）  
 - Java 8 Java Development Kit (JDK)  
-- Atlas セットアップ（「Atlas セットアップ手順」参照）  
-- Eunomia テストデータのセットアップ（「Atlas 操作手順 Eunomia のテストデータセットアップについて」参照）  
+- Atlas セットアップ（[「Atlas セットアップ手順」](https://github.com/RWD-data-environment-in-Hospital/Documents/blob/main/Atlas_setup.md)参照）  
+- Eunomia テストデータのセットアップ（[「Atlas 操作手順 Eunomia のテストデータセットアップについて」](https://github.com/RWD-data-environment-in-Hospital/Documents/blob/main/Atlas_operation_CohortPathways.md)(参照）  
 
 <br>
 
