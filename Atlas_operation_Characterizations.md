@@ -227,7 +227,7 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 
 |Concept Id|Concept Code|Concept Name|Domain|Standard Concept Caption|Exclude|Descendants|Mapped|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|1127078|282464|Acetaminophen|160 MG Oral Tablet|Drug|Standard||✓||
+|1127078|282464|Acetaminophen 160 MG Oral Tablet|Drug|Standard||✓||
 
 <br>
 
