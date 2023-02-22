@@ -287,12 +287,6 @@ Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラッ�
 
 <br>
 
-検索した内容から、追加するコンセプト情報の左側のボックスにチェックを入れ、ページ下の「Select Concept Set」から「Add to Concept Set」をクリックし、コンセプトセットへ追加します。  
-
-![](./Files/Atlas_5/image/image11.png)
-
-<br>
-
 薬剤のコンセプトセット「Rate Gallstone Drug」にコンセプト情報が追加されたことを確認します。  
 
 ![](./Files/Atlas_5/image/image12.png)
@@ -341,12 +335,6 @@ Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラッ�
 
 <br>
 
-検索した内容から、追加するコンセプト情報の左側のボックスにチェックを入れ、ページ下の「Select Concept Set」から「Add to Concept Set」をクリックし、コンセプトセットへ追加します。  
-
-![](./Files/Atlas_5/image/image21.png)
-
-<br>
-
 術式のコンセプトセット「Rate Laparoscopic cholecystectomy Procedure」にコンセプト情報が追加されたことを確認します。
 
 ![](./Files/Atlas_5/image/image22.png)
@@ -379,6 +367,8 @@ Incidence Rates による分析では、前章で登録したコンセプトセ�
 
 - Target Cohorts ：Acute cholecystitis（急性胆嚢炎）の治療を受けている患者集団  
 - Outcome Cohorts：Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）の手術を受けた患者
+
+<br>
 
 本章では、Incidence Rates 機能で分析に使用する「Target Cohorts」と「Outcome Cohorts」について、コホート定義の登録方法を説明します。  
 
