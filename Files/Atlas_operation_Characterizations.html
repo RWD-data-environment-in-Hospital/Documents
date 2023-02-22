@@ -1,0 +1,3030 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Atlas_operation_Characterizations.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 16px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+p, li, pre{
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+/* img {
+	max-width: 100%;
+	max-height: 100%;
+} */
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
+
+table {
+  border-collapse: collapse;
+  width:1000px
+}
+
+table th{
+	color: #ffffffc4;
+	background: #003142;
+	border: solid 1px #4d4d4c;
+}
+
+table td {
+	border: solid 1px #4d4d4c;
+}
+
+table.conceptsets{
+	width: 1200px;
+}
+
+.CI{
+	width: 90px;
+}
+
+.CC{
+	width: 110px;
+}
+
+/* .CN{
+	width: 500px;
+} */
+
+.DO{
+	width: 100px;
+}
+
+.SC{
+	width: 80px;
+}
+
+.EX{
+	width: 100px;
+}
+
+.DE{
+	width: 100px;
+}
+
+.MA{
+	width: 100px;
+}
+/* ------------------------------ */
+.ID{
+	width: 30px;
+}
+
+/* .IN{
+	width: 450px;
+} */
+
+.JA{
+	width: 350px;
+}
+
+.DM{
+	width: 150px;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div id="page_top"><a href="#"></a></div>
+<h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86-characterizations"><strong>Atlas 操作手順 ～Characterizations～</strong></h1>
+<h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
+<p><a href="#1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1　本手順について</a><br>
+<a href="#2-characterizations-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Characterizations 操作の流れ</a><br>
+<a href="#3-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90">3　Concept Sets の作成</a><br>
+<a href="#4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90">4　Cohort Definitions の作成</a><br>
+<a href="#5-feature-analyses%E7%89%B9%E5%BE%B4%E5%88%86%E6%9E%90%E3%81%AE%E4%BD%9C%E6%88%90">5　Feature Analyses （特徴分析）の作成</a><br>
+<a href="#6-characterizations%E7%89%B9%E6%80%A7%E8%A9%95%E4%BE%A1">6　Characterizations （特性評価）</a><br>
+<a href="#7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99">7　補足資料</a></p>
+<br>
+<hr>
+<h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順について</strong></h1>
+<p>Atlas の Characterizations 操作手順について説明します。<br>
+本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。</p>
+<ul>
+<li>Windows10（64 ビット）</li>
+<li>Java 8 Java Development Kit (JDK)</li>
+<li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
+<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank"  rel="nofollow">「Atlas 操作手順 Eunomia のテストデータセットアップについて」</a>(参照）</li>
+</ul>
+<br>
+<hr>
+<h1 id="2-characterizations-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Characterizations 操作の流れ</strong></h1>
+<p>本操作手順書では、以下に示す Characterizations を用いた分析を対象にした手順を記載しています。</p>
+<p><img src="./Atlas_4/image/image0.png" alt="" width="1200px"></p>
+<p>本書では、Eunomia のテストデータを使用して Atlas の Characterizations による分析を実施します。<br>
+Characterizations による分析の操作手順では、次の事例を取り上げて説明します。</p>
+<ul>
+<li>「胆嚢摘出手術」と「腹腔鏡下 胆嚢摘出術」の術式を母集団とし、該当の手術を受けた患者における診断された病名、処方された薬剤、受けた検査項目の人数と発生率を統計します。</li>
+</ul>
+<br>
+<p>Characterizations による分析は、上記事例に従い、以下のテストデータを用いて説明します。<br><br>
+1）Cohort Definitions - 調査項目（母集団）</p>
+<ul>
+<li>＜術式＞
+<ul>
+<li>Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）</li>
+<li>Cholecystectomy（胆嚢摘出術）</li>
+</ul>
+</li>
+</ul>
+<br>
+<p>2）Feature analyses - 分析項目（レポート）</p>
+<ul>
+<li>＜診断された病名＞
+<ul>
+<li>Gallstone（胆石）</li>
+<li>Acute cholecystitis（急性胆嚢炎）</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>
+<p>＜処方された薬剤＞</p>
+<ul>
+<li>1 ML Morphine Sulfate 5 MG/ML Injection (1 ML モルヒネ硫酸塩 5 MG/ML 注射)</li>
+<li>100 ML Propofol 10 MG/ML Injection (100 ML プロポフォール 10 MG/ML 注射)</li>
+<li>2 ML Ondansetron 2 MG/ML Injection (2 ML オンダンセトロン 2 MG/ML インジェクション)</li>
+<li>Acetaminophen 160 MG Oral Tablet (アセトアミノフェン 160 MG 経口錠剤)</li>
+<li>heparin (ヘパリン)</li>
+<li>Isoflurane 999 MG/ML Inhalant Solution (イソフルラン 999 MG/ML 吸入剤溶液)</li>
+<li>Meperidine Hydrochloride 50 MG Oral Tablet (メペリジン塩酸塩50 MG 経口錠剤)</li>
+<li>Midazolam 1 MG/ML Injectable Solution (ミダゾラム 1 MG/ML 注射液)</li>
+<li>Piperacillin 4000 MG/tazobactam 500 MG Injection (ピペラシリン 4000 MG/タゾバクタム 500 MG 注射)</li>
+<li>remifentanil (レミフェンタニル)</li>
+<li>rocuronium bromide 10 MG/ML Injectable Solution (臭化ロクロニウム 10 MG/ML 注射液)</li>
+<li>sevoflurane 1000 MG/ML Inhalant Solution (セボフルラン 1000 MG/ML 吸入剤溶液)</li>
+<li>Sodium Chloride 9 MG/ML Injectable Solution (塩化ナトリウム 9 MG/ML 注射液)</li>
+<li>sufentanil (スフェンタニル)</li>
+</ul>
+<br>
+</li>
+<li>
+<p>＜受けた検査＞</p>
+<ul>
+<li>Globulin [Mass/volume] in Serum by calculation（血清中のグロブリン [質量/体積] ）</li>
+<li>Hematocrit（ヘマトクリット（血中赤血球容積））</li>
+<li>Hemoglobin（ヘモグロビン（Hb））</li>
+</ul>
+</li>
+</ul>
+<br><br>
+<hr>
+<h1 id="3-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>3　Concept Sets の作成</strong></h1>
+<p>「Concept Sets」では、分析で使用する独自のリストを作成します。<br>
+分析対象の用語のセットを特定して作成し、再利用することも可能です。<br>
+コンセプトセットは、以下の属性を持つコンセプトのリストで構成します。</p>
+<ul>
+<li>
+<p>Exclude：<br>
+選択したコンセプト（Descendantsにチェックを入れた場合はその派生も含めて）をコンセプトセットから除外する。</p>
+</li>
+<li>
+<p>Descendants：<br>
+選択したコンセプトだけでなく、その派生のコンセプトについても考慮する。</p>
+</li>
+<li>
+<p>Mapped：<br>
+非標準のコンセプトを検索可能にする。</p>
+</li>
+</ul>
+<br>
+<p>Characterizations による分析では、事前に「Cohort Definitions - 調査項目」と「Feature analyses - 分析項目」の詳細項目を Concept Sets に登録します。<br>
+前章に取り上げた＜術式＞、＜病名＞、＜薬剤＞および＜検査項目＞は、すべて登録対象になります。</p>
+<br>
+<p>以下で作成方法を示します。<br>
+本手順では、「Cholecystectomy（胆嚢摘出術）」のコンセプトセットの作成を例として取り上げます。</p>
+<br>
+<p>Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラットフォーム内ですでに作成されたコンセプトセットが表示されます。</p>
+<p><img src="./Atlas_4/image/image1.png" alt="" width="1000px"></p>
+<br>
+<p>新たにコンセプトセットを作成するので、画面右の「New Concept Set」をクリックして作成画面に遷移します。</p>
+<p><img src="./Atlas_4/image/image118.png" alt="" width="1000px"></p>
+<br>
+<p>画面上部に新規に作成するコンセプトセットの名前を入力します。</p>
+<p><img src="./Atlas_4/image/image2.png" alt=""></p>
+<br>
+<p>「Concept Set Expression」タブの「Add Concepts」をクリックすると Search 画面に遷移します。</p>
+<p><img src="./Atlas_4/image/image3.jpeg" alt="" width="800px"></p>
+<br>
+<p>Search 画面では、キーワードやコンセプトIDを入力することで対象とするコンセプトを探すことができます。<br>
+下記のコンセプトを検索し、Concept Sets へ登録します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Id</th>
+<th style="text-align:center">Code</th>
+<th style="text-align:center">Name</th>
+<th style="text-align:center">Class</th>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4242997</td>
+<td style="text-align:center">38102005</td>
+<td style="text-align:center">Cholecystectomy</td>
+<td style="text-align:center">Procedure</td>
+<td style="text-align:center">Procedure</td>
+<td style="text-align:center">SNOMED</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>➀Search 画面のテキスト入力欄へ  「Cholecystectomy」 と入力します。<br>
+②検索ボタンをクリックすると、対象のリストが表示されます。<br>
+③表示されたリストから「4242997：Cholecystectomy」にチェックを入れます。<br>
+④Select Concept Set に「Cholecystectomy」が選択されていることを確認します。<br>
+⑤Descendants にチェックを入れます。<br>
+⑥Add To Concept Set をクリックします。(ConceptSetsに組み込まれます)</p>
+<p><img src="./Atlas_4/image/image120.png" alt="" width="1200px"></p>
+<br>
+<p>左メニューの「Concept Sets」をクリックします。<br>
+「Cholecystectomy」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。</p>
+<p><img src="./Atlas_4/image/image121.png" alt="" width="1200px"></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されます。<br>
+※派生するコンセプトも分析に含める想定のため、「Descendants」を有効にしています。<br>
+（各コンセプトについて、「Exclude」、「Descendants」、「Mapped」をこの画面からも設定できます）</p>
+<p><img src="./Atlas_4/image/image122.png" alt="" width="1200px"></p>
+<br>
+<p>以上でコンセプトセット「Cholecystectomy」の作成が完了しました。<br>
+×ボタンをクリックして、コンセプトセット「Gastrointestinal hemorrhage」の画面を閉じます。</p>
+<p><img src="./Atlas_4/image/image123.png" alt="" width="1200px"></p>
+<br>
+<p>同様の操作で、以下のコンセプトセットについても作成します。</p>
+<p>＜術式＞</p>
+<ul>
+<li>Laparoscopic cholecystectomy</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+<th class="CI" style="text-align:center">Concept Id</th>
+<th class="CC" style="text-align:center">Concept Code</th>
+<th class="CN" style="text-align:center">Concept Name</th>
+<th class="DO" style="text-align:center">Domain</th>
+<th class="SC" style="text-align:center">Standard Concept Caption</th>
+<th class="EX" style="text-align:center">Exclude</th>
+<th class="DE" style="text-align:center">Descendants</th>
+<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4163971</td>
+<td style="text-align:center">45595009</td>
+<td style="text-align:center">Laparoscopic cholecystectomy</td>
+<td style="text-align:center">Procedure</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<p>＜病名＞</p>
+<ul>
+<li>Gallstone</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">196456</td>
+<td style="text-align:center">235919008</td>
+<td style="text-align:center">Gallstone</td>
+<td style="text-align:center">Condition</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Acute cholecystitis</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">198809</td>
+<td style="text-align:center">65275009</td>
+<td style="text-align:center">Acute cholecystitis</td>
+<td style="text-align:center">Condition</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<p>＜薬剤＞</p>
+<ul>
+<li>1 ML Morphine Sulfate 5 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">35605858</td>
+<td style="text-align:center">1732136</td>
+<td style="text-align:center">1 ML Morphine Sulfate 5 MG/ML</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>2 ML Ondansetron 2 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">35605482</td>
+<td style="text-align:center">1740467</td>
+<td style="text-align:center">2 ML Ondansetron 2 MG/ML Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>100 ML Propofol 10 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">40220386</td>
+<td style="text-align:center">1808217</td>
+<td style="text-align:center">100 ML Propofol 10 MG/ML Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Acetaminophen 160 MG Oral Tablet</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1127078</td>
+<td style="text-align:center">282464</td>
+<td style="text-align:center">Acetaminophen 160 MG Oral Tablet</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>heparin</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1367571</td>
+<td style="text-align:center">5224</td>
+<td style="text-align:center">heparin</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Isoflurane 999 MG/ML Inhalant Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">782047</td>
+<td style="text-align:center">542347</td>
+<td style="text-align:center">Isoflurane 999 MG/ML Inhalant Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Meperidine Hydrochloride 50 MG Oral Tablet</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">40165015</td>
+<td style="text-align:center">861467</td>
+<td style="text-align:center">Meperidine Hydrochloride 50 MG Oral Tablet</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Midazolam 1 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19078924</td>
+<td style="text-align:center">311700</td>
+<td style="text-align:center">Midazolam 1 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Piperacillin 4000 MG/tazobactam 500 MG</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">46275444</td>
+<td style="text-align:center">1659149</td>
+<td style="text-align:center">Piperacillin 4000 MG/tazobactam 500 MG</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>remifentanil</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19016749</td>
+<td style="text-align:center">73032</td>
+<td style="text-align:center">remifentanil</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>rocuronium bromide 10 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">42707627</td>
+<td style="text-align:center">1234995</td>
+<td style="text-align:center">rocuronium bromide 10 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>sevoflurane 1000 MG/ML Inhalant Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19023398</td>
+<td style="text-align:center">200243</td>
+<td style="text-align:center">sevoflurane 1000 MG/ML Inhalant Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Sodium Chloride 9 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19079524</td>
+<td style="text-align:center">313002</td>
+<td style="text-align:center">Sodium Chloride 9 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>sufentanil</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19078219</td>
+<td style="text-align:center">56795</td>
+<td style="text-align:center">sufentanil</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<p>＜検査項目＞</p>
+<ul>
+<li>Globulin [Mass/volume] in Serum by calculation</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3027970</td>
+<td style="text-align:center">10834-0</td>
+<td style="text-align:center">Globulin [Mass/volume] in Serum by calculation</td>
+<td style="text-align:center">Measurement</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Hematocrit</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3009542</td>
+<td style="text-align:center">20570-8</td>
+<td style="text-align:center">Hematocrit</td>
+<td style="text-align:center">Measurement</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Hemoglobin</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">3000963</td>
+<td style="text-align:center">718-7</td>
+<td style="text-align:center">Hemoglobin</td>
+<td style="text-align:center">Measurement</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>以上でコンセプトセットの作成は完了です。</p>
+<br>
+<hr>
+<h1 id="4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90"><strong>4　Cohort Definitionsの作成</strong></h1>
+<p>コホートとは、「一定期間1つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。<br>
+作成されたコホートは、その後の Characterizations 機能での分析における母集団設定に使用されます。</p>
+<p>コホート定義では、「Cohort entry events（コホート開始イベント）」、「Inclusion Criteria（包含基準）」、「Cohort exit event（コホート終了イベント）」を設定する構成となっており、各項目の詳細を以下に記載しています。</p>
+<ul>
+<li>
+<p>コホート開始イベント：<br>
+共通データモデルに記録された任意のイベント（薬物曝露、疾病、検査など）を設定し、人々がコホートに入る時間を定義するものです。<br>
+例えば、発生時の年齢、最初の診断・手順、開始日と終了日の指定、などを定義します。</p>
+</li>
+<li>
+<p>包含基準：<br>
+開始イベントで定義された人々をさらに絞り込むためのイベントを設定します。<br>
+予選コホートは、すべての包括基準を満たす最初のイベントコホート内のすべての人々を指します。</p>
+</li>
+<li>
+<p>コホート終了イベント：<br>
+人々がコホートメンバーシップの資格を失うイベントのことです。<br>
+例えば、観察期間の終了、最初の開始イベントに対する固定時間間隔、一連の関連する観察の最後のイベント（持続的な薬物曝露）、など複数の方法で定義可能です。<br>
+コホートの出口戦略は、人が異なる時間間隔の間に複数回コホートに所属できるかどうかに影響します。</p>
+</li>
+</ul>
+<br>
+<p>ここでは、「腹腔鏡下 胆嚢摘出術と胆嚢摘出術の手術を受けている患者」を例に Cohort Definitions の使用方法を説明します。</p>
+<br>
+<p>以下の２つの術式についてのコンセプトセットを登録します。</p>
+<ul>
+<li>Laparoscopic cholecystectomy</li>
+<li>Cholecystectomy</li>
+</ul>
+<br>
+<p>Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内ですでに作成されたコホートが表示されます。<br>
+コホートを新規作成するので、「New Cohort」をクリックします。</p>
+<p><img src="./Atlas_4/image/image119.png" alt="" width="1200px"></p>
+<br>
+<p>コホート作成画面が表示されます。<br>
+画面上部にコホート名を入力する欄があるので、「Cholecystectomy Definition」と入力します。</p>
+<p><img src="./Atlas_4/image/image9.png" alt=""></p>
+<br>
+<p>初めに、コホートエントリーイベントを設定していきます。</p>
+<p><img src="./Atlas_4/image/image10.jpeg" alt="" width="1100px"></p>
+<br>
+<p>「Cohort Entry Events」欄右側の「+Add Initial Event...」をクリックして、「Add Procedure Occurrence」を選択します。</p>
+<p><img src="./Atlas_4/image/image11.png" alt="" width="1100px"></p>
+<br>
+<p>「Any Procedure」で対象とする手術のコンセプトセットの選択が必要になります。<br>
+「Any Procedure」の▼をクリックし、「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、「Cholecystectomy」をクリックして選択します。<br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます</p>
+<p><img src="./Atlas_4/image/image12.png" alt="" width="600px"></p>
+<br>
+<p>手術前後の観察期間については、特に指定しないのでデフォルトのままにします。<br>
+※「0 days」の選択で全期間のデータが対象となります<br>
+対象イベントは「all events」を選択します。</p>
+<p>以上で、術式Cholecystectomyの「Cohort Entry Events」の設定は完了です。</p>
+<br>
+<p>次に、「Inclusion Criteria」欄の設定を実施します。</p>
+<p><img src="./Atlas_4/image/image13.png" alt="" width="1100px"></p>
+<br>
+<p>緑色ボタンの「New inclusion criteria」をクリックし、横の空欄内に包含基準名として「Cholecystectomy」を入力します。<br>
+左側に入力した名前が反映されます。</p>
+<p><img src="./Atlas_4/image/image14.png" alt=""></p>
+<br>
+<p>術式の診断を基準としているので、「+Add Initial Event...」から「Add Procedure Occurrence」を選択します。</p>
+<p><img src="./Atlas_4/image/image15.png" alt=""></p>
+<br>
+<p>選択後、欄内に図のような詳細設定画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image16.jpeg" alt=""></p>
+<br>
+<p>「Any Procedure」に対象のProcedureのコンセプトセットを設定します。<br>
+「Any Procedure」の▼をクリックすると、コンセプトセットの一覧が表示されるので、前章で作成したコンセプトセット「Cholecystectomy」をクリックして選択します。<br>
+対象イベントは「all events」を選択します。</p>
+<p><img src="./Atlas_4/image/image17.png" alt="" width="1000px"></p>
+<br>
+<p>以上で包含基準「Cholecystectomy」の作成は完了です。</p>
+<br>
+<p>最後に、「Cohort Exit」欄の設定について説明します。</p>
+<p><img src="./Atlas_4/image/image18.png" alt="" width="1000px"></p>
+<br>
+<p>本手順では、コホートの終了条件は、「継続的観察の終了」として設定するため、「Event Persistence」は「end of continuous observation」を選択します。</p>
+<p><img src="./Atlas_4/image/image19.png" alt=""></p>
+<br>
+<p>「Cohort Exit」の設定は完了です。</p>
+<p>以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして「Cholecystectomy Definition」を保存します。</p>
+<p><img src="./Atlas_4/image/image124.png" alt="" width="1000px"></p>
+<br>
+<p>以上で「Cholecystectomy Definition」のコホートの作成は完了です。</p>
+<br>
+<p>同様にして、以下の術式 Laparoscopic cholecystectomy のコホートについても作成します。</p>
+<p>Cohort Definitions 名：Laparoscopic cholecystectomy Definition</p>
+<ul>
+<li>
+<p>＜Cohort Entry Events＞<br>
+「+Add Initial Event...」をクリックして「Add Procedure Occurrence」を選択<br>
+「Any Procedure」→「Import Concept Set」→「Laparoscopic cholecystectomy」を選択<br>
+手術前後の観察期間は設定しない<br>
+対象イベントは「all events」を選択</p>
+</li>
+<li>
+<p>＜Inclusion Criteria＞<br>
+New inclusion criteria 名：Laparoscopic cholecystectomy<br>
+「+Add criteria to group...」から「Add Procedure Occurrence」を選択<br>
+「Any Procedure」→「Import Concept Set」→「Laparoscopic cholecystectomy」を選択<br>
+対象イベントは「all events」を選択</p>
+</li>
+<li>
+<p>＜Cohort Exit Event＞<br>
+「Event Persistence」では「end of continuous observation」を選択</p>
+</li>
+</ul>
+<br>
+<p>以上でCohort Definitionsの作成は完了です。</p>
+<br>
+<hr>
+<h1 id="5-feature-analyses%E7%89%B9%E5%BE%B4%E5%88%86%E6%9E%90%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5　Feature Analyses（特徴分析）の作成</strong></h1>
+<p>Feature Analyses とは、Characterizations による分析で調査したい項目として登録し、調査項目ごとの患者統計や発生率を結果としてレポートに出力します。<br>
+作成された Feature Analyses は、他の Characterizations 機能での分析における出力項目として設定することができます。</p>
+<p>Atlasでは、標準で利用できる Feature Analyses が 100 件以上あります。（表1）<br>
+標準の Feature Analyses を選択することで、簡単に Characterizations の調査項目を設定できます。<br>
+標準以外でも、新規に Feature Analyses を作成できますので、観察研究のニーズに合わせて、特定の Characterizations 調査項目を作成することができます。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Domain</th>
+<th style="text-align:center">ドメイン</th>
+<th style="text-align:center">件数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CONDITION</td>
+<td style="text-align:center">病名</td>
+<td style="text-align:center">32</td>
+</tr>
+<tr>
+<td style="text-align:left">DRUG</td>
+<td style="text-align:center">薬剤</td>
+<td style="text-align:center">23</td>
+</tr>
+<tr>
+<td style="text-align:left">MEASUREMENT</td>
+<td style="text-align:center">検査</td>
+<td style="text-align:center">15</td>
+</tr>
+<tr>
+<td style="text-align:left">Demographics</td>
+<td style="text-align:center">人口統計</td>
+<td style="text-align:center">11</td>
+</tr>
+<tr>
+<td style="text-align:left">Observation</td>
+<td style="text-align:center">観察</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:left">Procedure</td>
+<td style="text-align:center">手術</td>
+<td style="text-align:center">7</td>
+</tr>
+<tr>
+<td style="text-align:left">Visit</td>
+<td style="text-align:center">通院歴</td>
+<td style="text-align:center">6</td>
+</tr>
+<tr>
+<td style="text-align:left">Device</td>
+<td style="text-align:center">機材</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+<p><em>表１：標準化 Feature Analyses のドメイン別件数</em><br>
+<em>※ Feature Analyses 項目は「７章　補足資料」で説明します</em></p>
+<br>
+<p>新規の Feature Analyses 定義では、1つまたは1つ以上の「Criteria Feature（特徴疾病）」を設定することができます。</p>
+<p>本章では、新規の Feature Analyses 定義の作成方法について説明します。<br>
+2章で作成した＜病名＞、＜薬剤＞および＜検査項目＞の Concept Sets を用いて、Feature Analyses 定義を作成します。<br>
+ここでは、＜薬剤＞の Concept Sets を例に Feature Analyses 定義の作成手順を説明します。</p>
+<p>Feature Analyses 定義を新規作成するので、「New Feature Analysis」をクリックします。</p>
+<p><img src="./Atlas_4/image/image20.png" alt="" width="1200px"></p>
+<br>
+<p>Feature Analyses 作成画面が表示されます。<br>
+画面上部に Feature Analyses の名称を入力する欄があるので、「Gall Bladder Drug Feature Analysis」と入力します。</p>
+<p><img src="./Atlas_4/image/image21.png" alt=""></p>
+<br>
+<p>次に、Feature Analyses の種別を選択します。<br>
+ここでは、薬剤の項目を設定するので、Description は「Drug」を選択します。<br>
+※Characterizations 画面に、Feature Analyses 定義をインポートする際に、「Drug」分類から選択できます。</p>
+<p><img src="./Atlas_4/image/image22.png" alt="" width="1000px"></p>
+<br>
+<p>次に、薬剤の Concept Sets を「Criteria Feature」に設定します。<br>
+Design のグレーボタン「Criteria」をクリックします。<br>
+クリックすると設定画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image125.png" alt="" width="1000px"></p>
+<br>
+<p>「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。<br>
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。</p>
+<p><img src="./Atlas_4/image/image25.png" alt="" width="1000px"></p>
+<br>
+<p>次に、薬剤のConcept Setsを「Criteria Feature」に設定します。</p>
+<p>1つ目の薬剤の Concept Sets を追加します。<br>
+Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfate 5 MG/ML Injection」と入力します。</p>
+<p><img src="./Atlas_4/image/image26.png" alt="" width="800px"></p>
+<br>
+<p>「+Add criteria to group …」をクリックして、「Add Drug Exposure」を選択します。</p>
+<p><img src="./Atlas_4/image/image27.png" alt="" width="800px"></p>
+<br>
+<p>「Any Drug」で対象とする薬品のコンセプトセットの選択が必要になります。<br>
+「Any Drug」の▼をクリックし、「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、「1 ML Morphine Sulfate 5 MG／ML Injection」をクリックして選択します。<br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<p><img src="./Atlas_4/image/image28.png" alt="" width="600px"></p>
+<br>
+<p>2つ目以降の薬剤のコンセプトセットを追加します。<br>
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。</p>
+<p><img src="./Atlas_4/image/image126.png" alt="" width="900px"></p>
+<br>
+<br>
+<p>以下、同様の作成手順で、薬剤のコンセプトセットを追加します。</p>
+<ul>
+<li>100 ML Propofol 10 MG/ML Injection</li>
+</ul>
+<p><img src="./Atlas_4/image/image30.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>2 ML Ondansetron 2 MG/ML Injection</li>
+</ul>
+<p><img src="./Atlas_4/image/image37.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Acetaminophen 160 MG Oral Tablet</li>
+</ul>
+<p><img src="./Atlas_4/image/image39.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>heparin</li>
+</ul>
+<p><img src="./Atlas_4/image/image38.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Isoflurane 999 MG/ML Inhalant Solution</li>
+</ul>
+<p><img src="./Atlas_4/image/image35.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Meperidine Hydrochloride 50 MG Oral Tablet</li>
+</ul>
+<p><img src="./Atlas_4/image/image127.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Midazolam 1 MG/ML Injectable Solution</li>
+</ul>
+<p><img src="./Atlas_4/image/image36.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Piperacillin 4000 MG / tazobactam 500 MG Injection</li>
+</ul>
+<p><img src="./Atlas_4/image/image31.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>remifentanil</li>
+</ul>
+<p><img src="./Atlas_4/image/image33.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>rocuronium bromide 10 MG/ML Injectable Solution</li>
+</ul>
+<p><img src="./Atlas_4/image/image34.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>sevoflurane 1000 MG/ML Inhalant Solution</li>
+</ul>
+<p><img src="./Atlas_4/image/image41.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>Sodium Chloride 9 MG/ML Injectable Solution</li>
+</ul>
+<p><img src="./Atlas_4/image/image40.png" alt="" width="850px"></p>
+<br>
+<ul>
+<li>sufentanil</li>
+</ul>
+<p><img src="./Atlas_4/image/image32.png" alt="" width="850px"></p>
+<br>
+<p>すべての薬剤のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
+<p><img src="./Atlas_4/image/image42.png" alt="" width="850px"></p>
+<br>
+<p>以上で、Feature Analysesの「Gall Bladder Drug Feature Analysis」の設定は完了です。</p>
+<p>同様に、＜病名＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。<br>
+「New Feature Analysis」をクリックして Feature Analyses 作成画面を表示します。<br>
+画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Condition Feature Analysis」と入力します。</p>
+<p><img src="./Atlas_4/image/image43.png" alt=""></p>
+<br>
+<p>次に、Feature Analyses の種別を選択します。<br>
+ここでは、病名の項目を設定するので、Description は「Condition」を選択します。</p>
+<p><img src="./Atlas_4/image/image44.png" alt="" width="850px"></p>
+<br>
+<p>次に、病名のConcept Setsを「Criteria Feature」に設定します。<br>
+グレーボタン「Criteria」をクリックすると、設定画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image125.png" alt="" width="1000px"></p>
+<br>
+<p>「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。<br>
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。</p>
+<p><img src="./Atlas_4/image/image25.png" alt="" width="1000px"></p>
+<br>
+<p>次に、病名のConcept Setsを「Criteria Feature」に設定します。</p>
+<p>１つ目の病名のConcept Setsを追加します。<br>
+Criteria名を入力する欄があるので、病名「Acute cholecystitis」と入力します。</p>
+<p><img src="./Atlas_4/image/image47.png" alt="" width="800px"></p>
+<br>
+<p>「+Add criteria to group …」をクリックして、「Add Condition Occurrence」を選択します。</p>
+<p><img src="./Atlas_4/image/image48.png" alt="" width="800px"></p>
+<br>
+<p>「Any Condition」で対象とする病名のコンセプトセットの選択が必要になります。<br>
+「Any Condition」の▼をクリックし、「Import Concept Set」を選択します。</p>
+<p><img src="./Atlas_4/image/image49.jpeg" alt="" width="680px"><br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<p>「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されます。<br>
+「Filter」欄に病名のコンセプトセット「Acute cholecystitis」を入力し、一覧から「Acute cholecystitis」を選択します。</p>
+<p><img src="./Atlas_4/image/image50.jpeg" alt="" width="1000px"></p>
+<br>
+<p>「Acute cholecystitis」のコンセプトセットが設定されます。</p>
+<p><img src="./Atlas_4/image/image51.jpeg" alt="" width="680px"></p>
+<br>
+<p>続いて、2つ目以降の病名の Concept Sets を追加します。<br>
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。</p>
+<p><img src="./Atlas_4/image/image52.png" alt="" width="800px"></p>
+<br>
+<p>以下、同様の手順で、病名のコンセプトセット（Gallstone）を追加します。</p>
+<br>
+<ul>
+<li>Gallstone</li>
+</ul>
+<p><img src="./Atlas_4/image/image53.png" alt="" width="680px"></p>
+<br>
+<p>すべての病名のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
+<p><img src="./Atlas_4/image/image54.png" alt="" width="800px"></p>
+<br>
+<p>以上で、Feature Analysesの「Gall Bladder Condition Feature Analysis」の設定は完了です。</p>
+<br>
+<br>
+<p>同様に、＜検査項目＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。<br>
+「New Feature Analysis」をクリックして、Feature Analyses 作成画面が表示します。<br>
+画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Measurement Feature Analysis」と入力します。</p>
+<p><img src="./Atlas_4/image/image55.png" alt=""></p>
+<br>
+<p>次に、Feature Analyses の種別を選択します。<br>
+ここでは、検査項目を設定するので、Description は「Measurement」を選択します。</p>
+<p><img src="./Atlas_4/image/image56.png" alt="" width="800px"></p>
+<br>
+<p>次に、検査項目の Concept Sets を「Criteria Feature」に設定します。<br>
+グレーボタン「Criteria」をクリックします。<br>
+設定画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image125.png" alt="" width="1000px"></p>
+<br>
+<p>「Analysis type」は、「Prevalence（発生率）」と「Distribution（分布）」があります。<br>
+ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。</p>
+<p><img src="./Atlas_4/image/image25.png" alt="" width="1000px"></p>
+<br>
+<p>次に、検査項目の Concept Sets を「Criteria Feature」に設定します。</p>
+<p>1つ目の検査項目の Concept Sets を追加します。<br>
+Criteria 名を入力する欄があるので、検査項目名「Hemoglobin」と入力します。</p>
+<p><img src="./Atlas_4/image/image59.png" alt="" width="800px"></p>
+<br>
+<p>「+Add criteria to group …」をクリックして、「Add Measurement」を選択します。</p>
+<p><img src="./Atlas_4/image/image60.png" alt="" width="800px"></p>
+<br>
+<p>「Any Measurement」で対象とする検査項目のコンセプトセットの選択が必要になります。<br>
+「Any Measurement」の▼をクリックし、「Import Concept Set」を選択します。</p>
+<p><img src="./Atlas_4/image/image61.png" alt="" width="680px"></p>
+<p>※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<br>
+<p>「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されます。<br>
+「Filter」欄に検査項目のコンセプトセット「Hemoglobin」を入力し、一覧から「Hemoglobin」を選択します。</p>
+<p><img src="./Atlas_4/image/image62.jpeg" alt="" width="1000px"></p>
+<br>
+<p>「Hemoglobin」のコンセプトセットが設定されます。</p>
+<p><img src="./Atlas_4/image/image63.jpeg" alt="" width="680px"></p>
+<br>
+<p>続いて、2つ目以降の検査項目のConcept Setsを追加します。<br>
+緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。</p>
+<p><img src="./Atlas_4/image/image64.png" alt="" width="800px"></p>
+<br>
+<br>
+<p>以下、同様の作成手順で、検査項目のコンセプトセットを追加します。</p>
+<br>
+<ul>
+<li>Hematocrit</li>
+</ul>
+<p><img src="./Atlas_4/image/image65.png" alt="" width="800px"></p>
+<br>
+<ul>
+<li>Globulin</li>
+</ul>
+<p><img src="./Atlas_4/image/image66.png" alt="" width="800px"></p>
+<br>
+<p>すべての検査項目のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
+<p><img src="./Atlas_4/image/image54.png" alt="" width="800px"></p>
+<br>
+<p>ここまで、Feature Analysesの「Gall Bladder Measurement Feature Analysis」の設定は完了です。</p>
+<p>以上でFeature Analyses定義の作成は完了です。</p>
+<br>
+<hr>
+<h1 id="6-characterizations%E7%89%B9%E6%80%A7%E8%A9%95%E4%BE%A1"><strong>6　Characterizations（特性評価）</strong></h1>
+<p>本章では、Characterizations による分析の操作手順を説明します。<br>
+Characterizations による分析では、1つ以上の Cohort definition と1つ以上の Feature Analyses を必須項目として設定します。</p>
+<p>操作手順については、「6.1 Characterizations の作成と実行」、「6.2 Characterizations の結果画面構成」、「6.3 Characterizations の分析結果」と順を追って説明します。<br>
+また、任意設定項目となる Subgroup analyses という設定をすることもできます。<br>
+より細かな分析結果を知りたい場合は、この Subgroup analyses 機能を使用し、サブグループの条件を定義します。（例えば、分析結果に女性の患者数を出力したい場合、Subgroup analysesに「女性」の定義を設定する事で実現できます）<br>
+こちらは「6.4 Subgroup analyses の作成と分析」において説明します。<br>
+まず、Characterizations 機能における、「作成画面」と「分析結果画面」について説明します。</p>
+<p>Characterizations の作成手順は、「6.1 Characterizations の作成と実行」から説明します。</p>
+<br>
+<p>１）Characterizationsの作成画面<br>
+作成画面には「Cohort definition」と「Feature Analyses」の設定項目があります。<br>
+「Cohort definition」項目には、分析対象とする母集団を設定します。</p>
+<p><img src="./Atlas_4/image/image67.png" alt=""></p>
+<br>
+<p>「Feature Analyses」項目には、特徴分析で統計したい出力項目を定義します。</p>
+<p><img src="./Atlas_4/image/image68.png" alt=""></p>
+<br>
+<p>２）Characterizationsの分析結果画面<br>
+Characterizations の分析結果は、表形式で表示されます。<br>
+集計表には、統計された患者人数と発生率が表示されます。</p>
+<p><img src="./Atlas_4/image/image69.png" alt="" width="1000px"></p>
+<br>
+<p>また、「Cohort definition」を２つ選択していた場合、分散図が表示されます。<br>
+分析結果は青い点で描画され、カーソルを合わせると対象の発生率を確認できます。</p>
+<p><img src="./Atlas_4/image/image70.jpeg" alt="" width="700px"></p>
+<br>
+<p>続いて、操作手順について説明します。<br>
+本手順書の分析では、Cohort Definitions の定義は4章で設定した項目を使用します。<br>
+Feature Analyses の定義は5章で設定した項目、および Atlas 標準の分析項目を使用します。（以下の内容となります）</p>
+<ul>
+<li>
+<p>Cohort Definitions</p>
+<ul>
+<li>Cholecystectomy Definition（胆嚢摘出術）</li>
+<li>Laparoscopic cholecystectomy Definition（腹腔鏡下 胆嚢摘出術）</li>
+</ul>
+</li>
+<li>
+<p>Feature Analyses</p>
+<ul>
+<li>Gall Bladder Drug Feature Analysis（薬剤）</li>
+<li>Gall Bladder Condition Feature Analysis（病名）</li>
+<li>Gall Bladder Measurement Feature Analysis（検査項目）</li>
+<li>Demographics Gender （年齢別統計）　→　Atlas標準化の分析項目</li>
+</ul>
+</li>
+</ul>
+<p>手順としては、Cohort Definitions に上記2つの調査項目を設定、Feature Analyses に上記4つの分析項目を設定し、分析を実施します。</p>
+<br>
+<hr>
+<h2 id="61-characterizations-%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E5%AE%9F%E8%A1%8C"><strong>6．1　Characterizations の作成と実行</strong></h2>
+<p>Atlasの画面左側の「Characterizations」タブをクリックすると、既に Atlas プラットフォーム内で設計された特徴評価一覧が表示されます。</p>
+<p><img src="./Atlas_4/image/image71.jpeg" alt="" width="1200px"></p>
+<br>
+<p>「Characterizations」に新規特性評価を作成します。<br>
+画面左上の「Characterizations」タブをクリックし、画面右上の「New Characterization」をクリックすると、特性評価の疾病設定画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image72.png" alt="" width="1200px"></p>
+<br>
+<p>画面上部に Characterizations 名称「Gall Bladder Characterization」を入力します。</p>
+<p><img src="./Atlas_4/image/image73.png" alt=""></p>
+<br>
+<p>１）Cohort Definitionの設定<br>
+「Cohort Definition」に「Cholecystectomy Definition」と「Laparoscopic cholecystectomy Definition」を設定します。</p>
+<ul>
+<li>Cholecystectomy Definition のインポート<br>
+「Cohort Definition」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image74.png" alt="" width="1000px"></p>
+<br>
+<p>「Choose a Cohort Definition」画面が表示され、Cohort Definition の一覧が表示されます。<br>
+「Filter」欄に「Cholecystectomy Definition」と入力し、表示された「Cholecystectomy Definition」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image75.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Cohort Definition の一覧に、インポートされた「Cholecystectomy Definition」が表示されます。</p>
+<p><img src="./Atlas_4/image/image76.png" alt="" width="1000px"></p>
+<br>
+<ul>
+<li>Laparoscopic cholecystectomy Definition のインポート<br>
+引き続き、「Cohort Definition」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image77.png" alt="" width="1000px"></p>
+<br>
+<p>「Choose a Cohort Definition」画面が表示され、Cohort Definition の一覧が表示されます。<br>
+「Filter」欄に「Laparoscopic cholecystectomy Definition」と入力し、表示された「Laparoscopic cholecystectomy Definition」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image78.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Cohort Definition の一覧に、インポートされた「Laparoscopic cholecystectomy Definition」が表示されます。</p>
+<p><img src="./Atlas_4/image/image79.png" alt=""></p>
+<br>
+<p>２）Feature Analysesの設定<br>
+「Feature Analyses」に、「Gall Bladder Drug Feature Analysis」、「Gall Bladder Condition Feature Analysis」、「Gall Bladder Measurement Feature Analysis」、「Demographics Gender」を設定します。</p>
+<ul>
+<li>Gall Bladder Drug Feature Analysis のインポート<br>
+「Feature Analyses」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image80.png" alt=""></p>
+<br>
+<p>「Choose a Feature Analyses…」の画面が表示され、Feature analysesの一覧が表示されます。<br>
+「Filter」欄に「Gall Bladder Drug Feature Analysis」と入力し、表示された「Gall Bladder Drug Feature Analysis」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image81.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Feature analyses の一覧に、インポートされた「Gall Bladder Drug Feature Analysis」が表示されます。</p>
+<p><img src="./Atlas_4/image/image82.png" alt=""></p>
+<br>
+<ul>
+<li>Gall Bladder Condition Feature Analysis のインポート<br>
+「Feature Analyses」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image83.png" alt=""></p>
+<br>
+<p>「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。<br>
+「Filter」欄に「Gall Bladder Condition Feature Analysis」と入力し、「Gall Bladder Condition Feature Analysis」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image84.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Feature analyses の一覧に、インポートされた「Gall Bladder Condition Feature Analysis」が表示されます。</p>
+<p><img src="./Atlas_4/image/image85.png" alt=""></p>
+<br>
+<ul>
+<li>Gall Bladder Measurement Feature Analysisのインポート<br>
+「Feature Analyses」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image86.png" alt=""></p>
+<br>
+<p>「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。<br>
+「Filter」欄に「Gall Bladder Measurement Feature Analysis」と入力し、表示された「Gall Bladder Measurement Feature Analysis」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image87.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Feature analyses の一覧に、インポートされた「Gall Bladder Measurement Feature Analysis」が表示されます。</p>
+<p><img src="./Atlas_4/image/image88.png" alt=""></p>
+<br>
+<ul>
+<li>Demographics Gender のインポート
+「Feature Analyses」の「Import」ボタンをクリックします。</li>
+</ul>
+<p><img src="./Atlas_4/image/image89.png" alt=""></p>
+<br>
+<p>「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。
+「Filter」欄に「Demographics Gender」と入力し、表示された「Demographics Gender」にチェックを入れ、「Import」をクリックします。</p>
+<p><img src="./Atlas_4/image/image90.jpeg" alt="" width="1000px"></p>
+<br>
+<p>Feature analyses の一覧に、インポートされた「Demographics Gender」が表示されます。</p>
+<p><img src="./Atlas_4/image/image91.png" alt=""></p>
+<br>
+<p>コホートを選択し終えたら、画面右上の保存ボタン（緑のボタン）をクリックします。</p>
+<p><img src="./Atlas_4/image/image92.png" alt="" width="1000px"></p>
+<br>
+<p>保存が完了したら、分析実施のため、「Execution」タブに移動します。</p>
+<p>「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回はEunomiaを用いた検証のため、CDM V5 Databaseが表示されます）</p>
+<p>対象とするデータソース欄の「Generate」ボタンをクリックすると分析が実行されます。</p>
+<p><img src="./Atlas_4/image/image93.png" alt="" width="800px"></p>
+<br>
+<p>結果が生成されたら、「Executions」の「All executions」タブをクリックして、「View reports」から結果を表示します。</p>
+<p><img src="./Atlas_4/image/image94.png" alt="" width="800px"></p>
+<br>
+<p>以上で、Characterizations の作成は完了です。</p>
+<br>
+<hr>
+<h2 id="62-characterizations-%E3%81%AE%E7%B5%90%E6%9E%9C%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90view-reports-%E3%81%AE%E7%94%BB%E9%9D%A2%E6%A7%8B%E6%88%90"><strong>6．2　Characterizations の結果画面構成（View reports の画面構成）</strong></h2>
+<p>結果画面では、Cohort Definitions ごとの分析結果が表形式で表示されます。<br>
+選択した全ての Feature Analyses の結果一覧表と、個々の Feature Analyses の結果一覧表が表示されます。<br>
+結果画面には、フィルタ（Filter panel）機能が提供されています。<br>
+フィルタを使用して結果を絞り込んで表示することができます。</p>
+<p>１）フィルタ（Filter panel）機能</p>
+<ul>
+<li>Cohorts<br>
+コホートの表示切替ができます。<br>
+複数のコホートを選択することもできます。</li>
+</ul>
+<p><img src="./Atlas_4/image/image95.png" alt="" width="550px"></p>
+<br>
+<ul>
+<li>Analyses<br>
+特徴分析（Feature Analyses）の表示切替ができます。<br>
+複数の特徴分析を選択することができます。</li>
+</ul>
+<p><img src="./Atlas_4/image/image96.png" alt="" width="550px"></p>
+<br>
+<ul>
+<li>Domains<br>
+ドメインの切替表示ができます。<br>
+複数のドメインを選択することができます。</li>
+</ul>
+<p><img src="./Atlas_4/image/image97.png" alt="" width="550px"></p>
+<br>
+<p>２）分析結果の一覧表</p>
+<ul>
+<li>All prevalence covariates<br>
+「Filter panel」で選択したCohortsについて、特徴分析の結果が表示されます。</li>
+</ul>
+<p><img src="./Atlas_4/image/image98.png" alt="" width="1200px"></p>
+<br>
+<ul>
+<li>「Feature Analyses 名称」<br>
+各 Feature Analyses 毎の結果が表示されます。<br>
+※下記の例は「Gall Bladder Drug Feature Analysis」の表示例となります。</li>
+</ul>
+<p><img src="./Atlas_4/image/image99.png" alt="" width="1200px"></p>
+<br>
+<hr>
+<h2 id="63-characterizations-%E3%81%AE%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C"><strong>6．3　Characterizations の分析結果</strong></h2>
+<p>本書における分析結果では、「胆嚢摘出手術」と「腹腔鏡下 胆嚢摘出術」の手術を受けた患者に関連する診断病名、処方薬、検査項目について、患者数と発生率が統計され、表形式で表示されます。</p>
+<br>
+<p>１）男女の患者数統計</p>
+<ul>
+<li>Laparoscopic cholecystectomy の手術を受けた患者について、性別毎の人数と発生率が確認できます。</li>
+</ul>
+<p>Laparoscopic cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">MALE</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">17.14%</td>
+</tr>
+<tr>
+<td style="text-align:center">FEMALE</td>
+<td style="text-align:center">29</td>
+<td style="text-align:center">82.86%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Cholecystectomy の手術を受けた患者について、性別毎の人数と発生率が確認できます。</li>
+</ul>
+<p>Cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">MALE</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0.00%</td>
+</tr>
+<tr>
+<td style="text-align:center">FEMALE</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+</tbody>
+</table>
+<p>Characterizations 分析結果画面では、男女の患者数統計の一覧表が下表のように表示されます。</p>
+<p><img src="./Atlas_4/image/image100.png" alt="" width="1200px"></p>
+<br>
+<p>２）薬剤別の患者数統計</p>
+<p>Laparoscopic cholecystectomy の手術を受けた患者に処方された薬剤について、薬剤別の患者数と発生率が確認できます。</p>
+<p>Laparoscopic cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1 ML Morphine Sulfate 5 MG/ML Injection</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">100 ML Propofol 10 MG/ML Injection</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">2 ML Ondansetron 2 MG/ML Injection</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Acetaminophen 160 MG Oral Tablet</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">45.71%</td>
+</tr>
+<tr>
+<td style="text-align:left">heparin</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Isoflurane 999 MG/ML Inhalant Solution</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">77.14%</td>
+</tr>
+<tr>
+<td style="text-align:left">Meperidine Hydrochloride 50 MG Oral Tablet</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center">34.29%</td>
+</tr>
+<tr>
+<td style="text-align:left">Midazolam 1 MG/ML Injectable Solution</td>
+<td style="text-align:center">33</td>
+<td style="text-align:center">94.29%</td>
+</tr>
+<tr>
+<td style="text-align:left">Piperacillin 4000 MG/tazobactam 500 MG Injection</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">remifentanil</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">45.71%</td>
+</tr>
+<tr>
+<td style="text-align:left">rocuronium bromide 10 MG/ML Injectable Solution</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">sevoflurane 1000 MG/ML Inhalant Solution</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">8.57%</td>
+</tr>
+<tr>
+<td style="text-align:left">Sodium Chloride 9 MG/ML Injectable Solution</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">sufentanil</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0.00%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Cholecystectomy の手術を受けた患者に処方された薬剤について、薬剤別の患者数と発生率が確認できます。</p>
+<p>Cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1 ML Morphine Sulfate 5 MG/ML Injection</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">100 ML Propofol 10 MG/ML Injection</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">2 ML Ondansetron 2 MG/ML Injection</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Acetaminophen 160 MG Oral Tablet</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">heparin</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Isoflurane 999 MG/ML Inhalant Solution</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">66.67%</td>
+</tr>
+<tr>
+<td style="text-align:left">Meperidine Hydrochloride 50 MG Oral Tablet</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Midazolam 1 MG/ML Injectable Solution</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Piperacillin 4000 MG/tazobactam 500 MG Injection</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">remifentanil</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">rocuronium bromide 10 MG/ML Injectable Solution</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">sevoflurane 1000 MG/ML Inhalant Solution</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">33.33%</td>
+</tr>
+<tr>
+<td style="text-align:left">Sodium Chloride 9 MG/ML Injectable Solution</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">sufentanil</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0.00%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Characterizations分析結果画面では、処方された薬剤別の患者数統計の一覧表が下表のように表示されます。</p>
+<p><img src="./Atlas_4/image/image101.png" alt="" width="1200px"></p>
+<br>
+<p>また、2つの手術を選択して分析結果を表示した場合、分散図も表示されます。<br>
+分散図の青い点にカーソルを合わせると、そのコホートの発生率が表示されます。<br>
+この例では、X軸は「Laparoscopic cholecystectomy 術式」、Ｙ軸は「Cholecystectomy 術式」の発生率を表します。<br>
+「Isoflurane 999 MG/ML Inhalant Solution」の青い点にカーソルを合わせると、薬剤を処方した患者の発生率が表示されます。<br>
+「Laparoscopic cholecystectomy術式」で「Isoflurane 999 MG/ML Inhalant Solution」の薬剤の発生率は77.14%、「Cholecystectomy術式」で「Isoflurane 999 MG/ML Inhalant Solution」の薬剤の発生率は66.6％であることが確認できます。</p>
+<p><img src="./Atlas_4/image/image128.jpeg" alt="" width="700px"></p>
+<br>
+<p>３）病名別の患者数統計</p>
+<p>Laparoscopic cholecystectomy の手術を受けた患者について、診断された病名別の患者数と発生率が確認できます。</p>
+<p>Laparoscopic cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">MALE</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:center">FEMALE</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Cholecystectomy の手術を受けた患者について、診断された病名別の患者数と発生率が確認できます。</p>
+<p>Cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">MALE</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:center">FEMALE</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Characterizations 分析結果画面では、診断された病名別の患者数統計の一覧表が下表のように表示されます。</p>
+<p><img src="./Atlas_4/image/image102.png" alt="" width="1000px"></p>
+<br>
+<p>４）検査項目別の患者数統計</p>
+<p>Laparoscopic cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。</p>
+<p>Laparoscopic cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Hematocrit</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Globulin</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Hemoglobin</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>Cholecystectomy の手術を受けた患者について、受けた検査項目別の患者数と発生率が確認できます。</p>
+<p>Cholecystectomy Definition</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">項目</th>
+<th style="text-align:center">人数</th>
+<th style="text-align:center">発生率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Hematocrit</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Globulin</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+<tr>
+<td style="text-align:left">Hemoglobin</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">100.00%</td>
+</tr>
+</tbody>
+</table>
+<p>Characterizations 分析結果画面では、受けた検査項目別の患者数統計の一覧表が下表のように表示されます。</p>
+<p><img src="./Atlas_4/image/image129.png" alt="" width="1000px"></p>
+<br>
+<hr>
+<h2 id="64-subgroup-analyses%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E5%88%86%E6%9E%90"><strong>6．4　Subgroup analysesの作成と分析</strong></h2>
+<p>本節では、Subgroup analyses の作成方法と分析結果について説明します。<br>
+この例では、更に女性の患者数を分析結果に出力するために、女性の「Subgroup analyses」定義を追加し、女性の患者数を統計する操作方法を説明します。<br>
+この例では、「女性」のサブグループ条件を定義します。</p>
+<p>「Subgroup analyses」の青いボタン「New subgroup」をクリックし、新規 Subgroup analyses が表示されます。</p>
+<p><img src="./Atlas_4/image/image130.png" alt="" width="800px"></p>
+<br>
+<p>「Subgroup analyses」のタイトル欄に、「Female」を入力します。</p>
+<p><img src="./Atlas_4/image/image106.png" alt="" width="800px"></p>
+<br>
+<p>「+Add criteria to group…」タイトル欄に「Female」を入力します。</p>
+<p><img src="./Atlas_4/image/image107.png" alt="" width="800px"></p>
+<br>
+<p>右側の青いボタン「+Add criteria to group…」をクリックして、「Add Demographic」を選択します。</p>
+<p><img src="./Atlas_4/image/image108.png" alt="" width="800px"></p>
+<br>
+<p>「with the following event criteria」の青いボタン「Add attribute…」をクリックして、「Add Gender Criteria」を選択します。</p>
+<p><img src="./Atlas_4/image/image109.png" alt="" width="800px"></p>
+<br>
+<p>「Add」ボタンをクリックして、条件の選択画面が表示されます。</p>
+<p><img src="./Atlas_4/image/image110.png" alt="" width="800px"></p>
+<br>
+<p>「FEMALE」条件の列の先頭にある黒い✔をクリックします。<br>
+オレンジの✔が選択された状態となります。</p>
+<p><img src="./Atlas_4/image/image113.jpeg" alt="" width="800px"></p>
+<br>
+<p>「Add Selected」ボタンをクリックします。<br>
+最後に「Close」をクリックし、条件選択画面を閉じます。</p>
+<p><img src="./Atlas_4/image/image114.png" alt="" width="800px"></p>
+<br>
+<p>「女性」のサブグループ条件は、下図のように定義されます。</p>
+<p><img src="./Atlas_4/image/image115.png" alt="" width="800px"></p>
+<br>
+<p>Subgroup analyses の条件を作成し終えたら、画面右上の保存ボタン（緑ボタン）をクリックします。</p>
+<p><img src="./Atlas_4/image/image116.png" alt="" width="800px"></p>
+<br>
+<p>分析実施のため、「Execution」タブに移動します。<br>
+「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回は Eunomia を用いた検証のため、CDM V5 Database が表示されます）<br>
+対象とするデータソース欄の「Generate」ボタンをクリックすると Atlas での分析が実行されます。</p>
+<p><img src="./Atlas_4/image/image93.png" alt="" width="800px"></p>
+<br>
+<p>結果が生成されたら、「All executions」をクリックして、「View reports」から結果を表示します。</p>
+<p><img src="./Atlas_4/image/image131.png" alt="" width="800px"></p>
+<br>
+<p>Characterizations 分析結果の一覧表には、「女性」の患者数と発生率の情報が出力されます。<br>
+下表のように、「薬剤別の患者数統計」の一覧表に全患者の統計情報と女性の統計情が表示されていることが分かります。</p>
+<p><img src="./Atlas_4/image/image117.png" alt="" width="1200px"></p>
+<br>
+<p>Characterizations を用いた分析の操作は以上になります。</p>
+<br>
+<hr>
+<h1 id="7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99"><strong>7　補足資料</strong></h1>
+<h2 id="71-%E6%A8%99%E6%BA%96%E3%81%AE-feature-analyses-%E9%A0%85%E7%9B%AE"><strong>7．1　標準の Feature Analyses 項目</strong></h2>
+<p>Atlas では、105件の Feature Analyses 項目が標準で提供されています。<br>
+OMOP CDM モデルの特性分析（Characterizations）を行う際に利用できます。<br>
+「Demographics」の名称で始まる特徴分析項目は、コホート開始日における患者の人口統計情報を計算します。<br>
+ドメイン名で始まる特徴分析項目(Visit、Procedure、Condition、Drugなど) については、ドメイン内に記録されたすべてのレコード観察値を統計します。<br>
+また、各ドメインの特徴分析項目には、下記4つのコホート開始前の観察期間オプションがあります。</p>
+<ul>
+<li>Any Time Prior（より前任意時間）: 人の観察期間内におけるコホート開始前
+のすべての時間</li>
+<li>Long Term（長期）: コホート開始日を含む 365 日前</li>
+<li>Medium Term（中期）: コホート開始日を含む 180 日前</li>
+<li>Short Term（短期）: コホート開始日を含む 30 日前</li>
+</ul>
+<p>下記表が標準のFeature Analyses項目の一覧となります。</p>
+<table>
+<thead>
+<tr>
+<th class="ID" style="text-align:center">ID</th>
+<th class="IN" style="text-align:center">項目名（英語）</th>
+<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">Condition Group Era Start Long Term</td>
+<td style="text-align:left">疾病グループ歴開始 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">Condition Era Short Term</td>
+<td style="text-align:left">疾病歴 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">Condition Group Era Overlapping</td>
+<td style="text-align:left">疾病グループ歴 重複期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">Condition Era Start Long Term</td>
+<td style="text-align:left">疾病歴開始 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">Condition Era Any Time Prior</td>
+<td style="text-align:left">疾病歴 任意期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left">Condition Group Era Start Medium Term</td>
+<td style="text-align:left">疾病グループ歴の開始 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left">Condition Era Medium Term</td>
+<td style="text-align:left">疾病歴 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left">Condition Era Overlapping</td>
+<td style="text-align:left">疾病歴 重複期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left">Condition Era Start Short Term</td>
+<td style="text-align:left">疾病歴開始 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left">Condition Group Era Short Term</td>
+<td style="text-align:left">疾病グループの歴 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left">Condition Era Start Medium Term</td>
+<td style="text-align:left">疾病歴開始 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left">Condition Era Long Term</td>
+<td style="text-align:left">疾病歴 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">27</td>
+<td style="text-align:left">Condition Group Era Any Time Prior</td>
+<td style="text-align:left">疾病グループ歴 任意期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">29</td>
+<td style="text-align:left">Condition Group Era Start Short Term</td>
+<td style="text-align:left">疾病グループ歴開始 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td style="text-align:left">Condition Group Era Long Term</td>
+<td style="text-align:left">疾病群の歴 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">32</td>
+<td style="text-align:left">Condition Group Era Medium Term</td>
+<td style="text-align:left">疾病群の歴 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">36</td>
+<td style="text-align:left">Dcsi</td>
+<td style="text-align:left">DCSI</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">41</td>
+<td style="text-align:left">Distinct Condition Count Long Term</td>
+<td style="text-align:left">個別疾病カウント 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">48</td>
+<td style="text-align:left">Distinct Condition Count Short Term</td>
+<td style="text-align:left">個別疾病カウント 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">49</td>
+<td style="text-align:left">Charlson Index</td>
+<td style="text-align:left">チャールソン指数</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">54</td>
+<td style="text-align:left">Distinct Condition Count Medium Term</td>
+<td style="text-align:left">個別疾病カウント 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">67</td>
+<td style="text-align:left">Condition Occurrence Long Term</td>
+<td style="text-align:left">疾病発生 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">69</td>
+<td style="text-align:left">Condition Occurrence Any Time Prior</td>
+<td style="text-align:left">疾病発生前 任意期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">76</td>
+<td style="text-align:left">Condition Occurrence Medium Term</td>
+<td style="text-align:left">疾病発生 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">78</td>
+<td style="text-align:left">Chads 2</td>
+<td style="text-align:left">Chads 2</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">82</td>
+<td style="text-align:left">Chads 2 Vasc</td>
+<td style="text-align:left">Chads 2 Vasc</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">83</td>
+<td style="text-align:left">Condition Occurrence Primary Inpatient Long Term</td>
+<td style="text-align:left">疾病発生 初回入院患者 長期（365日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">85</td>
+<td style="text-align:left">Condition Occurrence Primary Inpatient Any Time Prior</td>
+<td style="text-align:left">疾病発生 初回入院患者 任意期間</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">90</td>
+<td style="text-align:left">Condition Occurrence Short Term</td>
+<td style="text-align:left">疾病発生 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">102</td>
+<td style="text-align:left">Occurrence Primary Inpatient Short Term</td>
+<td style="text-align:left">初回入院患者 短期（30日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">104</td>
+<td style="text-align:left">Occurrence Primary Inpatient Medium Term</td>
+<td style="text-align:left">初回入院患者 中期（180日）</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+<tr>
+<td style="text-align:left">105</td>
+<td style="text-align:left">Hospital Frailty Risk Score</td>
+<td style="text-align:left">入院患者フレイルリスクスコア</td>
+<td style="text-align:left">CONDITION</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">68</td>
+<td style="text-align:left">Demographics Index Month</td>
+<td style="text-align:left">人口統計 月別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">70</td>
+<td style="text-align:left">Demographics Ethnicity</td>
+<td style="text-align:left">人口統計 民族別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">71</td>
+<td style="text-align:left">Demographics Gender</td>
+<td style="text-align:left">人口統計 年齢別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">72</td>
+<td style="text-align:left">Demographics Race</td>
+<td style="text-align:left">人口統計 人種別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">73</td>
+<td style="text-align:left">Demographics Prior Observation Time</td>
+<td style="text-align:left">人口統計 事前観察期間</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">74</td>
+<td style="text-align:left">Demographics Gender</td>
+<td style="text-align:left">人口統計 性別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">75</td>
+<td style="text-align:left">Demographics Index Year Month</td>
+<td style="text-align:left">人口統計 指数年月</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">77</td>
+<td style="text-align:left">Demographics Age</td>
+<td style="text-align:left">人口統計 年齢別</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">79</td>
+<td style="text-align:left">Demographics Time In Cohort</td>
+<td style="text-align:left">人口統計 コホート内の時間</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">80</td>
+<td style="text-align:left">Demographics Index Year</td>
+<td style="text-align:left">人口統計指数年</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+<tr>
+<td style="text-align:left">81</td>
+<td style="text-align:left">Demographics Post Observation Time</td>
+<td style="text-align:left">人口統計 観察後の時間</td>
+<td style="text-align:left">Demographics</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">52</td>
+<td style="text-align:left">Device Exposure Any Time Prior</td>
+<td style="text-align:left">デバイスの暴露 任意期間</td>
+<td style="text-align:left">Device</td>
+</tr>
+<tr>
+<td style="text-align:left">57</td>
+<td style="text-align:left">Device Exposure Long Term</td>
+<td style="text-align:left">デバイス暴露 長期（365日）</td>
+<td style="text-align:left">Device</td>
+</tr>
+<tr>
+<td style="text-align:left">59</td>
+<td style="text-align:left">Device Exposure Medium Term</td>
+<td style="text-align:left">デバイス暴露 中期（180日）</td>
+<td style="text-align:left">Device</td>
+</tr>
+<tr>
+<td style="text-align:left">65</td>
+<td style="text-align:left">Device Exposure Short Term</td>
+<td style="text-align:left">デバイス暴露 短期（30日）</td>
+<td style="text-align:left">Device</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">Drug Group Era Start Medium Term</td>
+<td style="text-align:left">薬剤グループ歴の開始 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">Drug Group Era Long Term</td>
+<td style="text-align:left">薬剤グループ歴 ​​長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">Drug Group Era Short Term</td>
+<td style="text-align:left">薬剤グループ歴 ​​短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">Drug Group Era Medium Term</td>
+<td style="text-align:left">薬剤グループ歴 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">Drug Exposure Long Term</td>
+<td style="text-align:left">薬物暴露 長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left">Drug Group Era Any Time Prior</td>
+<td style="text-align:left">薬物グループ歴 任意期間前</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left">Drug Group Era Start Short Term</td>
+<td style="text-align:left">薬剤グループ歴の開始 短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left">Drug Group Era Start Long Term</td>
+<td style="text-align:left">薬剤グループ歴の開始 長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left">Drug Group Era Overlapping</td>
+<td style="text-align:left">薬物群歴の重複期間</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">28</td>
+<td style="text-align:left">Drug Exposure Any Time Prior</td>
+<td style="text-align:left">任意期間の薬物暴露</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">31</td>
+<td style="text-align:left">Drug Exposure Short Term</td>
+<td style="text-align:left">薬物曝露 短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">33</td>
+<td style="text-align:left">Drug Exposure Medium Term</td>
+<td style="text-align:left">薬物曝露 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">35</td>
+<td style="text-align:left">Drug Era Start Long Term</td>
+<td style="text-align:left">薬物歴の開始 長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">37</td>
+<td style="text-align:left">Drug Era Start Short Term</td>
+<td style="text-align:left">薬物歴の開始 短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">38</td>
+<td style="text-align:left">Distinct Ingredient Count Medium Term</td>
+<td style="text-align:left">個別成分カウント 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">43</td>
+<td style="text-align:left">Drug Era Short Term</td>
+<td style="text-align:left">薬剤歴の短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">44</td>
+<td style="text-align:left">Drug Era Overlapping</td>
+<td style="text-align:left">薬剤歴 重複期間</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">46</td>
+<td style="text-align:left">Distinct Ingredient Count Long Term</td>
+<td style="text-align:left">個別成分カウント 長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">62</td>
+<td style="text-align:left">Drug Era Start Medium Term</td>
+<td style="text-align:left">薬物歴の開始 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">64</td>
+<td style="text-align:left">Distinct Ingredient Count Short Term</td>
+<td style="text-align:left">個別成分カウント 短期（30日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">86</td>
+<td style="text-align:left">Drug Era Long Term</td>
+<td style="text-align:left">薬剤歴 長期（365日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">88</td>
+<td style="text-align:left">Drug Era Medium Term</td>
+<td style="text-align:left">薬剤歴 中期（180日）</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+<tr>
+<td style="text-align:left">89</td>
+<td style="text-align:left">Drug Era Any Time Prior</td>
+<td style="text-align:left">薬剤歴 任意期間</td>
+<td style="text-align:left">DRUG</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">Measurement Range Group Short Term</td>
+<td style="text-align:left">検査範囲 グループ 短期（30日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">Measurement Range Group Long Term</td>
+<td style="text-align:left">検査範囲 グループ 長期（365日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left">Measurement Range Group Medium Term</td>
+<td style="text-align:left">検査範囲 グループ 中期（180日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">26</td>
+<td style="text-align:left">Measurement Range Group Any Time Prior</td>
+<td style="text-align:left">検査範囲グループ 任意期間</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">39</td>
+<td style="text-align:left">Measurement Any Time Prior</td>
+<td style="text-align:left">検査 任意期間</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">40</td>
+<td style="text-align:left">Measurement Medium Term</td>
+<td style="text-align:left">検査 中期（180日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">42</td>
+<td style="text-align:left">Measurement Value Long Term</td>
+<td style="text-align:left">検査値 長期（365日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">50</td>
+<td style="text-align:left">Measurement Short Term</td>
+<td style="text-align:left">検査 短期（30日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">58</td>
+<td style="text-align:left">Measurement Value Short Term</td>
+<td style="text-align:left">検査値 短期（30日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">60</td>
+<td style="text-align:left">Measurement Long Term</td>
+<td style="text-align:left">検査 長期（365日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">61</td>
+<td style="text-align:left">Measurement Value Medium Term</td>
+<td style="text-align:left">検査値 中期（180日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">63</td>
+<td style="text-align:left">Measurement Value Any Time Prior</td>
+<td style="text-align:left">検査値 任意期間</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">91</td>
+<td style="text-align:left">Distinct Measurement Count Short Term</td>
+<td style="text-align:left">個別検査カウント 短期（30日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">95</td>
+<td style="text-align:left">Distinct Measurement Count Long Term</td>
+<td style="text-align:left">個別検査カウント長期（365日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+<tr>
+<td style="text-align:left">96</td>
+<td style="text-align:left">Distinct Measurement Count Medium Term</td>
+<td style="text-align:left">個別検査カウント中期（180日）</td>
+<td style="text-align:left">MEASUREMENT</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">34</td>
+<td style="text-align:left">Observation Short Term</td>
+<td style="text-align:left">観察期間 短期（30日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">45</td>
+<td style="text-align:left">Observation Any Time Prior</td>
+<td style="text-align:left">観察期間 任意期間</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">53</td>
+<td style="text-align:left">Observation Long Term</td>
+<td style="text-align:left">観察期間 長期（365日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">56</td>
+<td style="text-align:left">Observation Medium Term</td>
+<td style="text-align:left">観察期間 中期（180日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">93</td>
+<td style="text-align:left">Distinct Observation Count Medium Term</td>
+<td style="text-align:left">観察期間カウント 中期（180日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">94</td>
+<td style="text-align:left">Distinct Observation Count Long Term</td>
+<td style="text-align:left">観察期間カウント 長期（365日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+<tr>
+<td style="text-align:left">97</td>
+<td style="text-align:left">Distinct Observation Count Short Term</td>
+<td style="text-align:left">観察期間カウント 短期（30日）</td>
+<td style="text-align:left">Observation</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left">Procedure Occurrence Medium Term</td>
+<td style="text-align:left">手術処置発生 中期（180日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">47</td>
+<td style="text-align:left">Distinct Procedure Count Short Term</td>
+<td style="text-align:left">手術処置発生カウント 短期（30日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">51</td>
+<td style="text-align:left">Distinct Procedure Count Medium Term</td>
+<td style="text-align:left">手術処置発生カウント 中期（180日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">55</td>
+<td style="text-align:left">Procedure Occurrence Short Term</td>
+<td style="text-align:left">手術処置発生 短期（30日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">66</td>
+<td style="text-align:left">Distinct Procedure Count Long Term</td>
+<td style="text-align:left">手術処置発生カウント 長期（365日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">84</td>
+<td style="text-align:left">Procedure Occurrence Long Term</td>
+<td style="text-align:left">手術処置発生 長期（365日）</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+<tr>
+<td style="text-align:left">87</td>
+<td style="text-align:left">Procedure Occurrence Any Time Prior</td>
+<td style="text-align:left">手術処置発生 任意期間</td>
+<td style="text-align:left">Procedure</td>
+</tr>
+</tbody>
+</table>
+<br>
+<table>
+<thead>
+<tr>
+	<th class="ID" style="text-align:center">ID</th>
+	<th class="IN" style="text-align:center">項目名（英語）</th>
+	<th class="JA" style="text-align:center">項目名（日本語訳）</th>
+	<th class="DM" style="text-align:center">ドメイン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">92</td>
+<td style="text-align:left">Visit Concept Count Short Term</td>
+<td style="text-align:left">訪問コンセプトカウント 短期（30日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+<tr>
+<td style="text-align:left">98</td>
+<td style="text-align:left">Visit Concept Count Long Term</td>
+<td style="text-align:left">訪問コンセプトカウント 長期（365日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+<tr>
+<td style="text-align:left">99</td>
+<td style="text-align:left">Visit Concept Count Medium Term</td>
+<td style="text-align:left">訪問コンセプトカウント 中期（180日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+<tr>
+<td style="text-align:left">100</td>
+<td style="text-align:left">Visit Count Medium Term</td>
+<td style="text-align:left">訪問回数 中期（180日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+<tr>
+<td style="text-align:left">101</td>
+<td style="text-align:left">Visit Count Short Term</td>
+<td style="text-align:left">訪問回数 短期（30日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+<tr>
+<td style="text-align:left">103</td>
+<td style="text-align:left">Visit Count Long Term</td>
+<td style="text-align:left">訪問回数 長期（365日）</td>
+<td style="text-align:left">Visit</td>
+</tr>
+</tbody>
+</table>
+<br><br><br><br><br>
+</body>
+</html>
