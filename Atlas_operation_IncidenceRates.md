@@ -317,7 +317,7 @@ Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラッ�
 <br>
 
 ---
-## **3.3　術式コンセプトセットの登録**
+## **3．3　術式コンセプトセットの登録**
 同様の操作で、術式のコンセプトセットについても作成します。  
 画面上部に新規に作成する術式のコンセプトセットの名称「Rate Laparoscopic cholecystectomy Procedure」を入力します。  
 
@@ -433,7 +433,7 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
 
 「Any Drug」の▼をクリックし、「Import Concept Set」を選択します。  
 
-![](./Files/Atlas_5/image/image29.png)
+![](./Files/Atlas_5/image/image29.png)  
 ※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。
 
 <br>
@@ -475,7 +475,7 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
 「Any Condition」に組み入れ基準とする病名のコンセプトセットを設定します。
 「Any Condition」の▼をクリックし、「Import Concept Set」を選択します。
 
-![](./Files/Atlas_5/image/image36.png)
+![](./Files/Atlas_5/image/image36.png)  
 ※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。  
 
 <br>
@@ -558,7 +558,7 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
 
 「Any Procedure」の▼をクリックし、「Import Concept Set」を選択します。  
 
-![](./Files/Atlas_5/image/image46.png)
+![](./Files/Atlas_5/image/image46.png)  
 ※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。  
 
 <br>
@@ -1051,6 +1051,8 @@ Incidence Rates（発生率）の分析結果についての説明は以上で�
 Incidence Ratesによる分析では、複数の「Target Cohorts」と「Outcome Cohorts」を設定することができます。
 
 本章では、複数の「Target Cohorts」と「Outcome Cohorts」の設定方法について、補足説明します。
+
+<br>
 
 ---
 ## **7．1	複数の「Target Cohorts」と「Outcome Cohorts」の設定**
