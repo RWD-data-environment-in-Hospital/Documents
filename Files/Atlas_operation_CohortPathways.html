@@ -414,6 +414,75 @@ html{
   scroll-behavior: smooth;
 }
 /* ------------------------------ */
+
+table {
+  border-collapse: collapse;
+  width:1000px
+}
+
+table th{
+	color: #ffffffc4;
+	background: #4b4b4b;
+	/* background: #003142; */
+	border: solid 1px #4d4d4c;
+}
+
+table td {
+	border: solid 1px #4d4d4c;
+}
+
+table.conceptsets{
+	width: 1200px;
+}
+
+.CI{
+	width: 90px;
+}
+
+.CC{
+	width: 110px;
+}
+
+/* .CN{
+	width: 500px;
+} */
+
+.DO{
+	width: 100px;
+}
+
+.SC{
+	width: 80px;
+}
+
+.EX{
+	width: 100px;
+}
+
+.DE{
+	width: 100px;
+}
+
+.MA{
+	width: 100px;
+}
+/* ------------------------------ */
+.ID{
+	width: 30px;
+}
+
+/* .IN{
+	width: 450px;
+} */
+
+.JA{
+	width: 350px;
+}
+
+.DM{
+	width: 150px;
+}
+
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -443,19 +512,20 @@ html{
 <hr>
 <h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順について</strong></h1>
 <p>Atlas の操作手順について説明します。<br>
-本操作手順は、以下のAtlas 動作環境が整備されていることを前提としています。</p>
+本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。</p>
 <ul>
 <li>Windows10（64 ビット）</li>
 <li>Java 8 Java Development Kit (JDK)</li>
-<li>Atlas セットアップ（「Atlas セットアップ手順」参照）</li>
+<li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
 </ul>
 <br>
 <hr>
 <h1 id="2-atlas-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Atlas 操作の流れ</strong></h1>
 <p>本操作手順では、Cohort Pathways を用いた分析を対象にして手順を記載しています。</p>
+<br>
 <p><img src="./Atlas_3/image/image34.png" alt=""></p>
 <br>
-<p>本手順では、Eunomia のテストデータを使用してAtlas で分析を実施します。</p>
+<p>本手順では、Eunomia のテストデータを使用して Atlas で分析を実施します。</p>
 <p>＜病名＞</p>
 <ul>
 <li>消化管出血（Gastrointestinal hemorrhage）</li>
@@ -465,31 +535,32 @@ html{
 <li>セレコキシブ（celecoxib）</li>
 <li>ジクロフェナク（diclofenac）</li>
 </ul>
+<br>
 <p>上記の例に従って各機能の操作手順を説明します。</p>
 <br>
 <hr>
 <h1 id="3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>3　Eunomia テストデータのセットアップについて</strong></h1>
-<p>本章ではインストールしたEunomia のテストデータをデータベースへインポートする手順を記載します。</p>
+<p>本章では Eunomia のテストデータをデータベースへインポートする手順を記載します。</p>
 <br>
 <hr>
 <h2 id="31-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>3．1　Eunomia からデータのエクスポート</strong></h2>
-<p>以下の手順に従い、インポートするデータをEunomia からエクスポートします。<br>
+<p>以下の手順に従い、インポートするデータを Eunomia からエクスポートします。<br>
 まず、エクスポートするテストデータを格納するフォルダを作成しておきます。</p>
 <p><img src="./Atlas_3/image/image1.png" alt=""></p>
 <br>
 <p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
-<p>続いてR コンソールを起動し、以下のコマンドを入力します。</p>
+<p>続いて R コンソールを起動し、以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(Eunomia)
 </div></code></pre>
-<p><img src="./Atlas_3/image/image2.png" alt=""></p>
+<p><img src="./Atlas_3/image/image2.png" alt="" width="500px"></p>
 <br>
 <pre class="hljs"><code><div>&gt; folder &lt;- &quot;D:\\tmp\\output&quot;
 &gt; exportToCsv(folder)
 </div></code></pre>
-<p><img src="./Atlas_3/image/image3.png" alt=""></p>
+<p><img src="./Atlas_3/image/image3.png" alt="" width="500px"></p>
 <br>
 <p>下図のメッセージが表示されたら実行は完了です。</p>
-<p><img src="./Atlas_3/image/image4.png" alt=""></p>
+<p><img src="./Atlas_3/image/image4.png" alt="" width="500px"></p>
 <br>
 <p>作成したフォルダを表示し、エクスポートしたデータが格納されている事を確認します。</p>
 <p><img src="./Atlas_3/image/image5.png" alt=""></p>
@@ -504,22 +575,19 @@ html{
 </li>
 <li>
 <p>DRUG_EXPOSURE.csv<br>
-ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に
-置き換えます。</p>
+ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に置き換えます。</p>
 </li>
 <li>
 <p>MEASUREMENT.csv<br>
-ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に
-置き換えます。</p>
+ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に置き換えます。</p>
 </li>
 <li>
 <p>OBSERVATION.csv<br>
-ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に
-置き換えます。<br>
-ファイルの修正が完了したら、以下の手順に従いEunomia からエクスポートした
-データをインポートします。</p>
+ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に置き換えます。<br>
+ファイルの修正が完了したら、以下の手順に従い Eunomia からエクスポートしたデータをインポートします。</p>
 </li>
 </ul>
+<br>
 <p>psql を起動し、データベース「OHDSI」へ接続します。<br>
 コマンドプロンプトを起動し以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>psql -U ohdsi_admin_user -d OHDSI
@@ -566,8 +634,8 @@ html{
 <br>
 <hr>
 <h1 id="4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>4　Achilles の実行</strong></h1>
-<p>Achilles は、Atlas 内でData Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
-Data Source 機能を使用するためにAchilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
+<p>Achilles は、Atlas 内で Data Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
+Data Source 機能を使用するために Achilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
 データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。</p>
 <p>R コンソールを起動し、以下のコマンドを入力し、Achilles を実行します。</p>
 <pre class="hljs"><code><div>&gt; library(Achilles)
@@ -623,18 +691,22 @@ optimizeAtlasCache=TRUE)
 非標準のコンセプトを検索可能にする。</p>
 </li>
 </ul>
+<br>
 <p>以下で作成方法を示します。<br>
 本手順では、「Gastrointestinal hemorrhage（消化管出血）」のコンセプトセットの作成を例として取り上げます。</p>
 <br>
 <p>Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラットフォーム内ですでに作成されたコンセプトセットが表示されます。</p>
-<p><img src="./Atlas_3/image/image36.png" alt=""></p>
+<p><img src="./Atlas_3/image/image36.png" alt="" width="1200px"></p>
 <br>
 <p>新たにコンセプトセットを作成するので、画面右の「New Concept Set」をクリックして作成画面に遷移します。</p>
-<p><img src="./Atlas_3/image/image37.png" alt=""></p>
+<p><img src="./Atlas_3/image/image37.png" alt="" width="1200px"></p>
 <br>
-<p>画面上部の Concept Set テキスト入力欄に、新規に作成するコンセプトセットの名前を入力後、「Concept Set Expression」タブの「Add Concepts」をクリックします。<br>
-Search 画面に遷移します。</p>
-<p><img src="./Atlas_3/image/image65.png" alt="" width="1200px"></p>
+<p>画面上部に、新規に作成する病名のコンセプトセットの名称「Gastrointestinal hemorrhage」を入力します。</p>
+<p><img src="./Atlas_3/image/image65.png" alt="" width="600px"></p>
+<br>
+<p>名称の入力後、コンセプト情報の選択をします。<br>
+「Concept Set Expression」タブの「Add Concepts」をクリックすると「Search」画面に遷移します。</p>
+<p><img src="./Atlas_3/image/image71.png" alt="" width="1200px"></p>
 <br>
 <p>Search 画面では、キーワードやコンセプトID を入力することで対象とするコンセプトを探すことができます。<br>
 <br>
@@ -687,17 +759,17 @@ Search 画面に遷移します。</p>
 <ul>
 <li>diclofenac</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Concept Id</th>
-<th style="text-align:center">Concept Code</th>
-<th style="text-align:center">Concept Name</th>
-<th style="text-align:center">Domain</th>
-<th style="text-align:center">Standard Concept Caption</th>
-<th style="text-align:center">Exclude</th>
-<th style="text-align:center">Descendants</th>
-<th style="text-align:center">Mapped</th>
+<table class="conceptsets">
+	<thead>
+	<tr>
+		<th class="CI" style="text-align:center">Concept Id</th>
+		<th class="CC" style="text-align:center">Concept Code</th>
+		<th class="CN" style="text-align:center">Concept Name</th>
+		<th class="DO" style="text-align:center">Domain</th>
+		<th class="SC" style="text-align:center">Standard Concept Caption</th>
+		<th class="EX" style="text-align:center">Exclude</th>
+		<th class="DE" style="text-align:center">Descendants</th>
+		<th class="MA" style="text-align:center">Mapped</th>
 </tr>
 </thead>
 <tbody>
@@ -717,17 +789,17 @@ Search 画面に遷移します。</p>
 <ul>
 <li>celecoxib</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Concept Id</th>
-<th style="text-align:center">Concept Code</th>
-<th style="text-align:center">Concept Name</th>
-<th style="text-align:center">Domain</th>
-<th style="text-align:center">Standard Concept Caption</th>
-<th style="text-align:center">Exclude</th>
-<th style="text-align:center">Descendants</th>
-<th style="text-align:center">Mapped</th>
+<table class="conceptsets">
+	<thead>
+	<tr>
+		<th class="CI" style="text-align:center">Concept Id</th>
+		<th class="CC" style="text-align:center">Concept Code</th>
+		<th class="CN" style="text-align:center">Concept Name</th>
+		<th class="DO" style="text-align:center">Domain</th>
+		<th class="SC" style="text-align:center">Standard Concept Caption</th>
+		<th class="EX" style="text-align:center">Exclude</th>
+		<th class="DE" style="text-align:center">Descendants</th>
+		<th class="MA" style="text-align:center">Mapped</th>
 </tr>
 </thead>
 <tbody>
@@ -747,17 +819,17 @@ Search 画面に遷移します。</p>
 <ul>
 <li>cohort drug set</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">Concept Id</th>
-<th style="text-align:center">Concept Code</th>
-<th style="text-align:center">Concept Name</th>
-<th style="text-align:center">Domain</th>
-<th style="text-align:center">Standard Concept Caption</th>
-<th style="text-align:center">Exclude</th>
-<th style="text-align:center">Descendants</th>
-<th style="text-align:center">Mapped</th>
+<table class="conceptsets">
+	<thead>
+	<tr>
+		<th class="CI" style="text-align:center">Concept Id</th>
+		<th class="CC" style="text-align:center">Concept Code</th>
+		<th class="CN" style="text-align:center">Concept Name</th>
+		<th class="DO" style="text-align:center">Domain</th>
+		<th class="SC" style="text-align:center">Standard Concept Caption</th>
+		<th class="EX" style="text-align:center">Exclude</th>
+		<th class="DE" style="text-align:center">Descendants</th>
+		<th class="MA" style="text-align:center">Mapped</th>
 </tr>
 </thead>
 <tbody>
@@ -788,7 +860,7 @@ Search 画面に遷移します。</p>
 <hr>
 <h1 id="6-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>6　Cohort Definitions の作成</strong></h1>
 <p>コホートとは、「一定期間1 つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。<br>
-作成されたコホートは、その後のCohort Pathways など各機能での分析における母集団設定に使用されます。</p>
+作成されたコホートは、その後の Cohort Pathways など各機能での分析における母集団設定に使用されます。</p>
 <p>コホート定義では、「Cohort entry event（コホート開始イベント）」、「Inclusion Criteria（包含基準）」、「Cohort exit event（コホート終了イベント）」を設定する構成となっており、各項目の詳細を以下に記載しています。</p>
 <ul>
 <li>
@@ -811,7 +883,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 <p>ここでは、「消化管出血を患い、ジクロフェナクとセレコキシブを服用している患者」を例にCohort Definitions の使用方法を説明します。</p>
 <p>Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内ですでに作成されたコホートが表示されます。<br>
 コホートを新規作成するので、「New Cohort」をクリックします。</p>
-<p><img src="./Atlas_3/image/image44.png" alt="" width="1000"></p>
+<p><img src="./Atlas_3/image/image44.png" alt="" width="1200"></p>
 <br>
 <p>コホート作成画面が表示されます。画面上部にコホート名を入力する欄があるので、「Test Cohort Definition」と入力します。</p>
 <p><img src="./Atlas_3/image/image18.png" alt="" width="600"></p>
@@ -940,11 +1012,12 @@ Persistence window を「30」に設定</p>
 <li>セレコキシブ（celecoxib）</li>
 <li>ジクロフェナク（diclofenac）</li>
 </ul>
+<br>
 <p>本章の流れとしては、ターゲットコホートとして、「Test Cohort Definition」コホート、イベントコホートとして「Celeco Test Def」、「Diclofenac Test Def」コホートを設定し、その後分析を実施していきます。</p>
 <br>
-<p>以下Cohort Pathways の操作方法を記載します。</p>
-<p>Atlas の画面左側の「Cohort Pathways」タブをクリックすると、既にAtlas プラットフォーム内で設計されたコホート経路分析が表示されます。</p>
-<p><img src="./Atlas_3/image/image28.jpeg" alt=""></p>
+<p>以下 Cohort Pathways の操作方法を記載します。</p>
+<p>Atlas の画面左側の「Cohort Pathways」タブをクリックすると、既に Atlas プラットフォーム内で設計されたコホート経路分析が表示されます。</p>
+<p><img src="./Atlas_3/image/image28.jpeg" alt="" width="1200px"></p>
 <br>
 <p>以下、新たにコホートを作成する方法を記載します。<br>
 画面右上の「New Cohort Pathways」（青ボタン）をクリックすると、コホート経路分析の条件設定画面が表示されます。</p>
