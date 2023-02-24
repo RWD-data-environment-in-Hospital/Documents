@@ -414,6 +414,21 @@ html{
 }
 /* ------------------------------ */
 
+table {
+  border-collapse: collapse;
+  width:600px
+}
+
+table th{
+	color: #ffffffc4;
+	background: #4b4b4b;
+	/* background: #003142; */
+	border: solid 1px #4d4d4c;
+}
+
+table td {
+	border: solid 1px #4d4d4c;
+}
 
 </style>
 
@@ -469,15 +484,15 @@ html{
 </ul>
 <p>また本書でインストールするツールのバージョンを以下に記載しています。<br>
 特にバージョンの指定がない場合は、最新版をダウンロードしてください。<br>
-バージョン指定があるツールについて、以下のURL を参考にして記載しています。</p>
+バージョン指定があるツールについて、以下の URL を参考にして記載しています。</p>
 <p><a href="https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide</a></p>
 <p><a href="https://github.com/OHDSI/Achilles#getting-started" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/Achilles#getting-started</a></p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">ツール</th>
-<th style="text-align:right">本書のバージョン</th>
-<th style="text-align:left">備考（バージョン指定など）</th>
+<th style="text-align:center">ツール</th>
+<th style="text-align:center">本書のバージョン</th>
+<th style="text-align:center">備考（バージョン指定など）</th>
 </tr>
 </thead>
 <tbody>
@@ -529,20 +544,20 @@ html{
 </tbody>
 </table>
 <br>
-<p>セットアップに要する総作業時間は3 日を想定しています。</p>
+<p>セットアップに要する総作業時間は3日を想定しています。</p>
 <p>※テストデータ「Eunomia」のセットアップ手順は、<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank" rel="nofollow noopener">ATLAS 操作手順（CohortPathways 編）3章</a>を参照してください</p>
 <br>
 <hr>
 <h1 id="2atlas-%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2．Atlas セットアップの流れ</strong></h1>
-<p>本手順書では以下の流れでAtlas のセットアップを実施します。</p>
+<p>本手順書では以下の流れで Atlas のセットアップを実施します。</p>
 <p><img src="./Atlas/image/image307.png" alt="" ></p>
 <br>
 <hr>
 <h1 id="3ohdsi-webapi"><strong>3．OHDSI WebAPI</strong></h1>
-<p>OHDSI WebAPI は、OHDSI CDM v5 に変換されたデータベースを操作するための一元化されたAPI を提供します。<br>
-WebAPI には、環境内のCDM への接続方法を定義する構成の格納に使用される独自の専用データベースが用意されています。<br>データベースは観察研究の設計と実行に使用される資産（Cohort Definitions, Concept Sets, 分析仕様）の保存に使用されます。<br>
-WebAPI を利用する主要なWeb アプリケーションとして、Atlas が挙げられます。<br>
-本手順は下記URL のサイトを参考にしています。</p>
+<p>OHDSI WebAPI は、OHDSI CDM v5 に変換されたデータベースを操作するための一元化された API を提供します。<br>
+WebAPI には、環境内の CDM への接続方法を定義する構成の格納に使用される独自の専用データベースが用意されています。<br>データベースは観察研究の設計と実行に使用される資産（Cohort Definitions, Concept Sets, 分析仕様）の保存に使用されます。<br>
+WebAPI を利用する主要な Web アプリケーションとして、Atlas が挙げられます。<br>
+本手順は下記 URL のサイトを参考にしています。</p>
 <p><a href="https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide</a></p>
 <p>※本書は以下バージョンの画面を元に作成しており、最新版では画面が異なる場合があります。<br>　その場合、同じ画面項目のみ同様の選択を行ってください。</p>
 <ul>
@@ -585,7 +600,8 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 いので、デフォルトのまま「Next」をクリックします。</p>
 <p><img src="./Atlas/image/image58.jpeg" alt="" width="600"></p>
 <br>
-<p>Git の新しいリポジトリでデフォルトのブランチ名の設定画面が出ます。特に変更しない場合は、デフォルトのまま「Next」をクリックする。</p>
+<p>Git の新しいリポジトリでデフォルトのブランチ名の設定画面が出ます。<br>
+特に変更しない場合は、デフォルトのまま「Next」をクリックする。</p>
 <p><img src="./Atlas/image/image59.jpeg" alt="" width="600"></p>
 <br>
 <p>PATH の設定画面が出るので、（Recommended）となっている選択肢を選び
@@ -632,18 +648,18 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <li>PostgreSQL 10</li>
 <li>Oracle 11gXE</li>
 </ul>
-<p>WebAPI 3.0 以降では、SQL server とOracle の利用を停止する予定となっています。<br>
+<p>WebAPI 3.0 以降では、SQL server と Oracle の利用を停止する予定となっています。<br>
 そのため本手順書では、PostgreSQL 10 のインストールを実施します。</p>
 <br>
 <h2 id="321-postgresql-10-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．2．1　PostgreSQL 10 のインストール</strong></h2>
-<p>PostgreSQL コアディストリビューションは、以下のURL からインストール可能です。</p>
+<p>PostgreSQL コアディストリビューションは、以下の URL からインストール可能です。</p>
 <p><a href="http://www.postgresql.org/download/" target="_blank rel="nofollow noopener">http://www.postgresql.org/download/</a></p>
 <p>「Windows」アイコンを選択し、「Download the installer」をクリックします。</p>
 <p><img src="./Atlas/image/image71.png" alt="" width="900"><br>
 <em>出典：PostgreSQL: The world's most advanced open source database</em></p>
 <br>
 <p>Version 10 のWindowsx86-64 をダウンロードします。<br>
-※下記手順では10.18 となっていますが、Version10 が選択できない場合、できるだけ近いバージョンを利用することをお勧めします</p>
+※下記手順では 10.18 となっていますが、Version10 が選択できない場合、できるだけ近いバージョンを利用することをお勧めします</p>
 <p><img src="./Atlas/image/image72.jpeg" alt=""></p>
 <br>
 <p>ダウンロードが完了したら、「postgresql-10.18-2-windows-x64.exe」をダブルクリックし、「このアプリがデバイスに変更を加えることを許可しますか？」と出るので「はい」をクリックします。</p>
@@ -660,11 +676,12 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <br>
 <p>データディレクトリはデフォルトのままで「Next」をクリックします。<br>
 <br>
-※データディレクトリについては、Dドライブ以降を指定しても構いません。<br>
-（データドライブがある場合、システムドライブ以外を指定することで、Cドライブの容量消費を抑えることができます）</p>
+※データディレクトリについては、D ドライブ以降を指定しても構いません。<br>
+（データドライブがある場合、システムドライブ以外を指定することで、C ドライブの容量消費を抑えることができます）</p>
 <p><img src="./Atlas/image/image77.jpeg" alt="" width="600"></p>
 <br>
-<p>データベースのパスワードを設定します。任意のパスワードを入力して、「Next」をクリックします。</p>
+<p>データベースのパスワードを設定します。<br>
+任意のパスワードを入力して、「Next」をクリックします。</p>
 <p><img src="./Atlas/image/image78.jpeg" alt="" width="600"></p>
 <br>
 <p>ポート番号の設定は、デフォルトのまま「Next」をクリックします。</p>
@@ -679,7 +696,7 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <p>以上でインストールを開始するための準備が整ったので、「Next」をクリックしてインストールを実施します。</p>
 <p><img src="./Atlas/image/image82.jpeg" alt="" width="600"></p>
 <br>
-<p>インストール終了後の画面で、セットアップ完了後にStack Builder を開始するかどうかのチェックボックスがありますが、特に開始する必要はないのでチェックを外して、「Finish」をクリックします。</p>
+<p>インストール終了後の画面で、セットアップ完了後に Stack Builder を開始するかどうかのチェックボックスがありますが、特に開始する必要はないのでチェックを外して、「Finish」をクリックします。</p>
 <p><img src="./Atlas/image/image83.jpeg" alt="" width="600"></p>
 <br>
 <p>スタートメニュー内に「PostgreSQL 10」が追加されていることを確認します。<br>
@@ -693,7 +710,7 @@ Git のサイトを開き、「Download for Windows」をクリックします�
 <p>起動後、master password の設定画面がでるので任意のパスワードを入力します。</p>
 <p><img src="./Atlas/image/image85.jpeg" alt=""></p>
 <br>
-<p>pgAdmin の画面が表示され、接続先PostgreSQL を選択できるので、「PostgreSQL 10」をクリックします。</p>
+<p>pgAdmin の画面が表示され、接続先 PostgreSQL を選択できるので、「PostgreSQL 10」をクリックします。</p>
 <p><img src="./Atlas/image/image86.jpeg" alt=""></p>
 <br>
 <p>PostgreSQL 10 のインストール時に設定したパスワードを入力し、「OK」をクリックします。（3.2.1 参照）<br>
@@ -806,14 +823,14 @@ pgAdmin 4 の画面左の「Databases」を右クリックし、「Create」内�
 <p>「Types」タブ<br>
 <img src="./Atlas/image/image112.jpeg" alt="" width="750"></p>
 <br>
-<p>以上でpgAdmin のセットアップは完了です。<br>
-※pgAdmin の画面を閉じる時に下記画面が表示された場合は、「このページを離れる」をクリックし、画面を閉じてください。</p>
+<p>以上で pgAdmin のセットアップは完了です。<br>
+※ pgAdmin の画面を閉じる時に下記画面が表示された場合は、「このページを離れる」をクリックし、画面を閉じてください。</p>
 <p><img src="./Atlas/image/image113.jpeg" alt="" width="500"></p>
 <br>
 <h2 id="324-omop-%E5%85%B1%E9%80%9A%E3%83%87%E3%83%BC%E3%82%BF%E3%83%A2%E3%83%87%E3%83%AB%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90"><strong>3．2．4　OMOP 共通データモデルテーブルの作成</strong></h2>
 <p>psql を実行するための環境設定を実施します。<br>
 ※ＯＳやソフトのバージョンにより画面構成が異なる場合があります。<br>
-環境変数PATH を追加します。<br>
+環境変数 PATH を追加します。<br>
 Windowsマークを右クリックし、「システム」をクリックします。</p>
 <p><img src="./Atlas/image/image1365.png" alt="" width="500"></p>
 <br>
@@ -834,8 +851,8 @@ Windowsマークを右クリックし、「システム」をクリックしま�
 <p>「環境変数」の画面についても「OK」をクリックします。</p>
 <p><img src="./Atlas/image/image119.jpeg" alt=""></p>
 <br>
-<p>環境変数の追加が終了したら、コマンドプロンプトからpsql を実行できるかを確認します。<br>
-PCを再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。</p>
+<p>環境変数の追加が終了したら、コマンドプロンプトから psql を実行できるかを確認します。<br>
+PC を再起動してから、タスクバーの検索で「コマンド」と入力してコマンドプロンプトを起動します。</p>
 <p><img src="./Atlas/image/image120.jpeg" alt="" width="800"></p>
 <br>
 <p>下記のコマンドを入力します。</p>
@@ -871,7 +888,7 @@ current_schema
 </div></code></pre>
 <p><img src="./Atlas/image/image127.png" alt="" width="600"></p>
 <br>
-<p>GitHub に掲載されているCDM バージョンからzip ファイルをダウンロードします。（本手順では「CommonDataModel-5.3.1.zip」を選択しています）</p>
+<p>GitHub に掲載されている CDM バージョンからzip ファイルをダウンロードします。（本手順では「CommonDataModel-5.3.1.zip」を選択しています）</p>
 <p><a href="https://github.com/OHDSI/CommonDataModel/releases" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/CommonDataModel/releases</a></p>
 <p>該当バージョンの「Assets」をクリックして展開し、「Source code (zip)」をダウンロードします。</p>
 <p><img src="./Atlas/image/image128.jpeg" alt=""></p>
@@ -893,8 +910,8 @@ current_schema
 <p>「TIMESTAMP」に変換されていることを確認します。</p>
 <p><img src="./Atlas/image/image131.jpeg" alt=""></p>
 <br>
-<p>修正後のDDL を使用して、テーブルを作成します。<br>
-コマンドプロンプトに以下のように入力して、テキストファイルのSQL を実行します。</p>
+<p>修正後の DDL を使用して、テーブルを作成します。<br>
+コマンドプロンプトに以下のように入力して、テキストファイルの SQL を実行します。</p>
 <pre class="hljs"><code><div># \i 'C:\\Git\\OHDSI\\cdm\\ddl.txt'
 </div></code></pre>
 <br>
@@ -909,12 +926,12 @@ current_schema
 <p>以下のように表示されていれば、インデックスの作成に成功しています。</p>
 <p><img src="./Atlas/image/image135.jpeg" alt="" width="600"></p>
 <br>
-<p>以上でOMOP 共通データモデルテーブルの作成は完了です。</p>
+<p>以上で OMOP 共通データモデルテーブルの作成は完了です。</p>
 <br>
 <hr>
 <h2 id="33-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%82%AF%E3%82%A8%E3%83%AA%E3%83%BC%E3%83%84%E3%83%BC%E3%83%ABa5sql-mk-2%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89"><strong>3．3　データベースクエリーツール（A5:SQL Mk-2）のダウンロード</strong></h2>
 <p>データベースクエリーツールは、データベースの設定を確認するために使用します。<br>
-本手順書では、ツールとしてA5:SQL Mk-2 を使用します。<br>
+本手順では、ツールとしてA5:SQL Mk-2 を使用します。<br>
 A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をクリックします。</p>
 <p><a href="https://a5m2.mmatsubara.com/" target="_blank" rel="nofollow noopener">https://a5m2.mmatsubara.com/</a></p>
 <p><img src="./Atlas/image/image136.jpeg" alt=""></p>
@@ -974,20 +991,20 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 <p>データベースログイン画面で以下のように入力されていることを確認して、「接続」をクリックします。</p>
 <p><img src="./Atlas/image/image147.png" alt="" width="750"></p>
 <br>
-<p>画面左側のOHDSI データベース内に画像のようにスキーマが表示されれば接続は成功です。</p>
+<p>画面左側の OHDSI データベース内に画像のようにスキーマが表示されれば接続は成功です。</p>
 <p><img src="./Atlas/image/image148.png" alt="" width="750"></p>
 <br>
-<p>以上でA5:SQL Mk-2 のセッティングは完了です。</p>
+<p>以上で A5:SQL Mk-2 のセッティングは完了です。</p>
 <hr>
 <h2 id="34-apache-maven-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．4　Apache Maven のインストール</strong></h2>
-<p>Apache Maven はJava サーブレットコンテナにインストールするJava プロジェクトを構築します。<br>
+<p>Apache Maven は Java サーブレットコンテナにインストールする Java プロジェクトを構築します。<br>
 「Apache Maven」のサイトの「Download」をクリックします。</p>
 <p><a href="https://maven.apache.org/" target="_blank" ref="nooprner">https://maven.apache.org/</a></p>
 <p><img src="./Atlas/image/image149.jpeg" alt=""><br>
 <em>出典：Apache Software Foundation「Apache」</em></p>
 <br>
-<p>Apache-maven-3 のzip ファイルをクリックしてダウンロードします。<br>
-下記手順ではApache-maven-3.8.3 となっていますが、バージョン3 の最新モジュールをダウンロードします。</p>
+<p>Apache-maven-3 の zip ファイルをクリックしてダウンロードします。<br>
+下記手順では Apache-maven-3.8.3 となっていますが、バージョン3の最新モジュールをダウンロードします。</p>
 <p><img src="./Atlas/image/image150.jpeg" alt=""><br>
 <em>出典：Apache Software Foundation「Apache」</em></p>
 <br>
@@ -1023,19 +1040,20 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 <p>「環境変数」の「OK」をクリックして、環境変数の設定は終了となります。</p>
 <p><img src="./Atlas/image/image157.jpeg" alt=""></p>
 <br>
-<p>以上でApache Maven のインストールは完了です。</p>
+<p>以上で Apache Maven のインストールは完了です。</p>
 <br>
 <hr>
 <h2 id="35-webapi-%E3%81%AE%E6%A7%8B%E7%AF%89"><strong>3．5　WebAPI の構築</strong></h2>
 <p>ローカルディスクの「Git」フォルダ内に「OHDSI」フォルダを作成します。</p>
 <p><img src="./Atlas/image/image159.png" alt=""></p>
-<p>プロキシサーバ経由の通信を行っている場合、プロキシ設定手順書の「3．GitBash 用プロキシ設定」を行ってください。</p>
+<p>※プロキシサーバ経由の通信を行っている場合、<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Proxy_setting.html#3-gitbash-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A" target="_blank"  rel="nofollow">プロキシ設定手順の「3．GitBash 用プロキシ設定」</a>を行ってください。</p>
 <br>
-<p>スタートメニューからGit Bash を起動し、作成した「OHDSI」フォルダに移動
+<p>スタートメニューから Git Bash を起動し、作成した「OHDSI」フォルダに移動
 します。</p>
 <p><img src="./Atlas/image/image160.png" alt=""></p>
 <br>
-<p>WebAPI のクローンを作成します。Git Bash に次のように入力します。</p>
+<p>WebAPI のクローンを作成します。<br>
+Git Bash に次のように入力します。</p>
 <pre class="hljs"><code><div>$ git clone https://github.com/OHDSI/WebAPI.git
 </div></code></pre>
 <p><img src="./Atlas/image/image161.png" alt=""></p>
@@ -1084,18 +1102,18 @@ Git Bash で「Git」-「OHDSI」-「webapi」フォルダに移動します。<
 </div></code></pre>
 <p><img src="./Atlas/image/image173.jpeg" alt="" width="750"></p>
 <br>
-<p>コマンド実行時にWarning が表示されることがありますが問題はありません。<br>
+<p>コマンド実行時に Warning が表示されることがありますが問題はありません。<br>
 「BUILD SUCCESS」と表示されれば、ビルドは完了です。</p>
 <p><img src="./Atlas/image/image174.png" alt=""></p>
 <br>
 <p>「ローカルディスク」-「Git」-「OHDSI」-「WebAPI」フォルダ内に「target」フォルダが作成され、「WebAPI.war」があることを確認します。</p>
 <p><img src="./Atlas/image/image175.jpeg" alt=""></p>
 <br>
-<p>以上でWebAPI のセットアップは完了です。</p>
+<p>以上で WebAPI のセットアップは完了です。</p>
 <p>（※オフラインインストールを実施する場合、「手順7 補足」の「手順7．1　WebAPI のオフラインインストール」を参考に、記載されている手順を引き続き実施する必要があります。）</p>
 <hr>
 <h2 id="36-apache-tomcat-8-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．6　Apache Tomcat 8 のインストール</strong></h2>
-<p>Tomcat のバージョンとJava のバージョンが一致していることを確認します。<br>
+<p>Tomcat のバージョンと Java のバージョンが一致していることを確認します。<br>
 Tomcat のサイトを開き、「Download」を開きます。</p>
 <p><a href="http://tomcat.apache.org/" target="_blank" rel="nofollow noopener">http://tomcat.apache.org/</a></p>
 <p><img src="./Atlas/image/image176.png" alt=""><br>
@@ -1106,7 +1124,7 @@ Tomcat のサイトを開き、「Download」を開きます。</p>
 <em>出典：Apache Software Foundation 「Apache Tomcat®」</em></p>
 <br>
 <p>ダウンロードが完了したら、ファイルを解凍します。<br>
-あらかじめCドライブに「tomcat」フォルダを作成しておき、Apachetomcat-
+あらかじめ C ドライブに「tomcat」フォルダを作成しておき、「Apachetomcat-
 8.5.72-windows-x64.zip」を解凍して作成したフォルダ内にコピーしま
 す。</p>
 <p><img src="./Atlas/image/image178.png" alt=""></p>
@@ -1124,7 +1142,7 @@ Path を新たに追加します。</p>
 <p>次に、「システム環境変数」内の「Path」を選択して「編集」をクリックします。</p>
 <p><img src="./Atlas/image/image181.JPEG" alt=""></p>
 <br>
-<p>「環境変数名の編集」の「新規」をクリックして、以下のPath を新たに作成し、「OK」をクリックします。</p>
+<p>「環境変数名の編集」の「新規」をクリックして、以下の Path を新たに作成し、「OK」をクリックします。</p>
 <pre class="hljs"><code><div>Path=C:\tomcat\bin
 </div></code></pre>
 <p><img src="./Atlas/image/image182.JPEG" alt=""></p>
@@ -1132,7 +1150,7 @@ Path を新たに追加します。</p>
 <p>「OK」をクリックして環境変数の設定は終了となります。</p>
 <p><img src="./Atlas/image/image183.JPEG" alt=""></p>
 <br>
-<p>ローカルディスクに作成したtomcat フォルダ内のconf フォルダにある「tomcat-users.xml」を開き、編集します。</p>
+<p>ローカルディスクに作成した tomcat フォルダ内の conf フォルダにある「tomcat-users.xml」を開き、編集します。</p>
 <p><img src="./Atlas/image/image184.pnG" alt="" width="500"></p>
 <br>
 <p>下図の赤枠で囲っている箇所を図に記載されている内容に変更します。</p>
@@ -1152,7 +1170,7 @@ Path を新たに追加します。</p>
 <p>変更後<br>
 <img src="./Atlas/image/image188.jpeg" alt=""></p>
 <br>
-<p>続いて、コマンドプロンプトからtomcat を起動します。<br>
+<p>続いて、コマンドプロンプトから tomcat を起動します。<br>
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動し、下図のコマンドを入力します。</p>
 <pre class="hljs"><code><div>C:\tomcat\bin&gt; Catalina.bat run
 </div></code></pre>
@@ -1161,9 +1179,9 @@ Path を新たに追加します。</p>
 <p>Server startup in XXXXms の行が表示されれば起動が完了しています。</p>
 <p><img src="./Atlas/image/image190.jpeg" alt=""></p>
 <br>
-<p>下記URL からブラウザにアクセスします。</p>
+<p>下記 URL からブラウザにアクセスします。</p>
 <p><a href="http://localhost:8080/manager" target="_blank" rel="nofollow noopener">http://localhost:8080/manager</a></p>
-<p>ユーザー名とパスワード入力画面が表示された場合、「tomcat-users.xml」に設定したusername/password を入力します。</p>
+<p>ユーザー名とパスワード入力画面が表示された場合、「tomcat-users.xml」に設定した username/password を入力します。</p>
 <p><img src="./Atlas/image/image191.jpeg" alt=""></p>
 <br>
 <p>TomcatWeb アプリケーションマネージャが起動します。</p>
@@ -1197,7 +1215,7 @@ C:\tomcat\bin にあるshutdown.bat を実行し、Tomcat8 を終了します。
 <p>パスワード： pgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワード</p>
 <p><img src="./Atlas/image/image198.jpeg" alt=""></p>
 <br>
-<p>psql コンソール上で以下のSQL を順次入力して実行します。<br>
+<p>psql コンソール上で以下の SQL を順次入力して実行します。<br>
 記載の順番に全てのSQL を実行してください。</p>
 <p><img src="./Atlas/image/image199.png" alt="" width="750"></p>
 <br>
@@ -1393,7 +1411,7 @@ level4_concept_name VARCHAR(255)
 </div></code></pre>
 <p><img src="./Atlas/image/image217.png" alt="" width="750"></p>
 <br>
-<p>以上でWebAPI のセッティングは完了です。</p>
+<p>以上で WebAPI のセッティングは完了です。</p>
 <hr>
 <h1 id="4achilles-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．Achilles のインストール</strong></h1>
 <p>ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する<br>
@@ -1417,8 +1435,7 @@ level4_concept_name VARCHAR(255)
 <p>情報を読み終わった後、「次へ」をクリックします。</p>
 <p><img src="./Atlas/image/image1300.png" alt="" width="600"></p>
 <br>
-<p>インストール先の設定画面で、デフォルトではProgramFiles へインストールす
-る設定になっているが、「C:\R\R-4.1.1」のフォルダに変更して「次へ」をクリックします。</p>
+<p>インストール先の設定画面で、ProgramFiles がデフォルト指定されているが、「C:\R\R-4.1.1」のフォルダに変更して「次へ」をクリックします。</p>
 <p><img src="./Atlas/image/image1301.png" alt="" width="600"></p>
 <br>
 <p>コンポーネントの選択について、「32bit Files」のチェックを外して「次へ」をクリックします。</p>
@@ -1461,7 +1478,7 @@ level4_concept_name VARCHAR(255)
 <hr>
 <h2 id="43-r-studio-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．3　R studio のインストール</strong></h2>
 <p>R studio のサイトにアクセスし、「Download」をクリックし、「DOWNLOADRSTUDIO FOR WINDOWS」をクリックします。</p>
-<p>https://www.rstudio.com/</p>
+<p><a href="https://www.rstudio.com/" target="_blank"  rel="nofollow">https://www.rstudio.com/</a></p>
 <p><img src="./Atlas/image/image1312.png" alt=""></p>
 <br>
 <p>ダウンロード完了後、ファイルをダブルクリックして実行します。「次へ」をクリックします。</p>
@@ -1476,13 +1493,13 @@ level4_concept_name VARCHAR(255)
 <p>インストールが終了したら、「完了」をクリックします。</p>
 <p><img src="./Atlas/image/image1316.png" alt="" width="600"></p>
 <br>
-<p>スタートメニューを開き、RStudio とR を起動します。<br>
+<p>スタートメニューを開き、RStudio と R を起動します。<br>
 R のコンソールに以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; writeLines('PATH=&quot;${RTOOLS40_HOME}\\usr\\bin;${PATH}&quot;', con =&quot;~/.Renviron&quot;)
 </div></code></pre>
 <p><img src="./Atlas/image/image1317.png" alt="" width="750"></p>
 <br>
-<p>プロキシサーバ経由の通信を行っている場合、プロキシ設定手順書の「5. Ｒ用プロキシ設定」を行ってください。<br>
+<p>プロキシサーバ経由の通信を行っている場合、<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Proxy_setting.html#5%EF%BD%92%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A" target="_blank"  rel="nofollow">プロキシ設定手順の「5. Ｒ用プロキシ設定」</a>を行ってください。<br>
 R コンソールを再起動して、下記のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; Sys.which(&quot;make&quot;)
 &quot;C:\\rtools40\\usr\\bin\\make.exe&quot;
@@ -1512,7 +1529,7 @@ R コンソールを再起動して、下記のコマンドを入力します。
 <br>
 <hr>
 <h2 id="44-achilles-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．4　Achilles インストール</strong></h2>
-<p>初めにR コンソールを開き、下記のコマンドを入力してdevtools をインストー
+<p>初めに R コンソールを開き、下記のコマンドを入力して devtools をインストー
 ルします。</p>
 <pre class="hljs"><code><div>&gt; install.packages(“devtools”)
 </div></code></pre>
@@ -1540,7 +1557,8 @@ R コンソールを再起動して、下記のコマンドを入力します。
 <br>
 <hr>
 <h1 id="5-nodejs-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>5　NodeJS のインストール</strong></h1>
-<p>ATLAS では、アプリケーションのすべてのJavaScript 依存関係を取得するために、ノードパッケージマネージャー（npm）を使用します。ATLAS のインストール中に使用されるnpm ユーティリティを含むNodeJS をダウンロードします。<br>
+<p>ATLAS では、アプリケーションのすべての JavaScript 依存関係を取得するために、ノードパッケージマネージャー（npm）を使用します。<br>
+ATLAS のインストール中に使用される npm ユーティリティを含む NodeJS をダウンロードします。<br>
 NodeJS のサイトを開き、Windows 版インストーラー（赤枠）をダウンロードします。</p>
 <p><a href="https://nodejs.org/en/download/" target="_blank" rel="nofollow noopener">https://nodejs.org/en/download/</a></p>
 <p><img src="./Atlas/image/image1328.png" alt="" width="750"><br>
@@ -1567,7 +1585,7 @@ NodeJS のサイトを開き、Windows 版インストーラー（赤枠）を�
 <br>
 <p>インストールの終了画面が表示されたら「Finish」をクリックします。</p>
 <p><img src="./Atlas/image/image1335.png" alt="" width="600"></p>
-<p>以上でNodeJS のインストールは完了です。</p>
+<p>以上で NodeJS のインストールは完了です。</p>
 <br>
 <hr>
 <h1 id="6-atlas-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>6　Atlas のインストール</strong></h1>
@@ -1587,7 +1605,7 @@ $ cd Atlas
 <p><img src="./Atlas/image/image258.jpeg" alt="" width="750"></p>
 <br>
 <p>Atlas のインストールを実施します。<br>
-下記のサイトにアクセスして、「Atlas Installation」内の「Code Deployment」に「latest release of ATLAS」リンクがあるので、クリックして最新バージョンのAtlas が提供されているページに移動します。</p>
+下記のサイトにアクセスして、「Atlas Installation」内の「Code Deployment」に「latest release of ATLAS」リンクがあるので、クリックして最新バージョンの Atlas が提供されているページに移動します。</p>
 <p><a href="https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide</a></p>
 <p><img src="./Atlas/image/image260.jpeg" alt=""></p>
 <br>
@@ -1633,7 +1651,7 @@ Client Encoding : SJIS
 </div></code></pre>
 <p><img src="./Atlas/image/image1347.png" alt="" width="600"></p>
 <br>
-<p>下記のSQL を実行して、SOURCE テーブルにレコードを追加します。</p>
+<p>下記の SQL を実行して、SOURCE テーブルにレコードを追加します。</p>
 <pre class="hljs"><code><div>insert into source(
 source_id,
 source_name,
@@ -1652,7 +1670,7 @@ true
 )
 ;
 </div></code></pre>
-<p>上記のSQL に関しては以下のような注意点があります。<br>
+<p>上記の SQL に関しては以下のような注意点があります。<br>
 ① 9 行目の「1」は後述のSQL と一致させる必要があります。<br>
 ② 11 行目の「cdmv5」は接続スキーマ名です。<br>
 ③ 12 行目の「127.0.0.1:5432/OHDSI」は「ホストアドレス:ポート/データベース名」となります。<br>
@@ -1661,7 +1679,7 @@ true
 XXXX の部分には「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力します。</p>
 <p><img src="./Atlas/image/image1349.png" alt="" width="600"></p>
 <br>
-<p>同様にして、下記のようにSOURCE_DAIMON テーブルにレコードを4 つ追加しま
+<p>同様にして、下記のように SOURCE_DAIMON テーブルにレコードを4 つ追加しま
 す。</p>
 <pre class="hljs"><code><div>insert into source_daimon (
 source_daimon_id,
@@ -1724,8 +1742,8 @@ values (
 )
 ;
 </div></code></pre>
-<p>右上の×ボタンをクリックしてpsql を閉じます。</p>
-<p>次にtomcat を起動するために、コマンドプロンプトを起動します。<br>
+<p>右上の×ボタンをクリックして psql を閉じます。</p>
+<p>次に tomcat を起動するために、コマンドプロンプトを起動します。<br>
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動します。</p>
 <p><img src="./Atlas/image/image1351.png" alt=""></p>
 <br>
@@ -1734,7 +1752,7 @@ values (
 <br>
 <p>起動が完了します。</p>
 <p><img src="./Atlas/image/image272.jpeg" alt=""></p>
-<p>以下URL をブラウザで指定して起動します。</p>
+<p>以下 URL をブラウザで指定して起動します。</p>
 <p><a href="http://localhost:8080/manager" target="_blank" rel="nofollow noopener">http://localhost:8080/manager</a></p>
 <p>Tomcat のユーザー名とパスワードを入力します。</p>
 <p><img src="./Atlas/image/image273.jpeg" alt=""></p>
@@ -1747,7 +1765,7 @@ values (
 <br>
 <p>Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」を実行します。</p>
 <p><img src="./Atlas/image/image1357.png" alt=""></p>
-<p>以上でAtlas のセットアップは完了です。</p>
+<p>以上で Atlas のセットアップは完了です。</p>
 <p>※テストデータ「Eunomia」のセットアップ手順は、<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank" rel="nofollow noopener">ATLAS 操作手順（CohortPathways 編）3章</a>を参照してください</p>
 <br>
 <br>
@@ -1757,18 +1775,15 @@ values (
 <br></p>
 <hr>
 <h2 id="71-webapi-%E3%81%AE%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>7．1　WebAPI のオフラインインストール</strong></h2>
-<p>ビルドの完了までは通常の手順と同様になります。「手順3.5 WebAPI の構築」
-のビルド完了後の手順を以下に記載します。<br>
-ビルドしたWebAPI のtarget フォルダをオフライン環境の任意のフォルダへコ
-ピーします。<br>
-「手順3.6 Tomcat インストール」でwar ファイルを配備する際、コピーした
-target フォルダ内にある、WebAPI.war を選択します。</p>
+<p>ビルドの完了までは通常の手順と同様になります。「手順3.5 WebAPI の構築」のビルド完了後の手順を以下に記載します。<br>
+ビルドした WebAPI のtarget フォルダをオフライン環境の任意のフォルダへコピーします。<br>
+「手順3.6 Tomcat インストール」で war ファイルを配備する際、コピーした target フォルダ内にある、WebAPI.war を選択します。</p>
 <p><img src="./Atlas/image/image1359.png" alt=""></p>
 <br>
 <hr>
 <h2 id="72-r-%E3%81%AE%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>7．2　R のオフラインインストール</strong></h2>
 <p>Achilles のインストールまでは通常の手順と同様になります。「手順4.4 Achillesのインストール」のインストール完了後の手順を以下に記載します。<br>
-Achilles のインストールが完了したPC でR コンソールを起動し、下記コマンドを実行します。</p>
+Achilles のインストールが完了した PC で R コンソールを起動し、下記コマンドを実行します。</p>
 <pre class="hljs"><code><div>&gt; Install.packages(“miniCRAN”)
 </div></code></pre>
 <p><img src="./Atlas/image/image277.jpeg" alt=""></p>
@@ -1802,7 +1817,7 @@ Achilles のインストールが完了したPC でR コンソールを起動し
 <p>次にパッケージダウンロード先のフォルダを下記のように指定します。</p>
 <pre class="hljs"><code><div>&gt; setwd(&quot;C:\\tmp\\R_pkgs\\&quot;)
 </div></code></pre>
-<p>上記のコマンドで指定したディレクトリ内のdownload フォルダに対象のファイルをダウンロードするために、下記のようにコマンド入力します。</p>
+<p>上記のコマンドで指定したディレクトリ内の download フォルダに対象のファイルをダウンロードするために、下記のようにコマンド入力します。</p>
 <pre class="hljs"><code><div>&gt; download.packages(pkgs, destdir=&quot;download\\&quot;, type=&quot;win.binary&quot;)
 </div></code></pre>
 <p><img src="./Atlas/image/image284.jpeg" alt=""><br>
@@ -1845,10 +1860,10 @@ Achilles のインストールが完了したPC でR コンソールを起動し
 <p><img src="./Atlas/image/image295.jpeg" alt=""><br>
 <img src="./Atlas/image/image296.jpeg" alt=""></p>
 <br>
-<p>devtools とAchilles のパッケージがダウンロードされたことを確認します。</p>
+<p>devtools と Achilles のパッケージがダウンロードされたことを確認します。</p>
 <p><img src="./Atlas/image/image1362.png" alt=""></p>
 <br>
-<p>追加でrjson とParallelLogger をダウンロードします。<br>
+<p>追加で rjson と ParallelLogger をダウンロードします。<br>
 下記のコマンドを順次入力します。</p>
 <pre class="hljs"><code><div>&gt; download.packages(”rjson&quot;, destdir=&quot;download\\&quot;, type=&quot;win.binary&quot;)
 </div></code></pre>
@@ -1880,15 +1895,10 @@ Achilles のインストールが完了したPC でR コンソールを起動し
 <h2 id="73-atlas-%E3%81%AE%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>7．3　Atlas のオフラインインストール</strong></h2>
 <p>ビルド完了までは通常手順と同様になります。<br>
 「手順6.1 Atlas インストール」のビルド完了後の手順を以下に記載します。<br>
-ビルドが完了したAtlas フォルダをオフライン環境のTomcat フォルダ（tomcat\webapps\）へコピーします。</p>
+ビルドが完了した Atlas フォルダをオフライン環境の Tomcat フォルダ（tomcat\webapps\）へコピーします。</p>
 <p><img src="./Atlas/image/image306.jpeg" alt=""></p>
-<p>以降の手順はオンラインインストールと同様で、Source テーブルへレコードを追加してTomcat を起動します。<br>
+<p>以降の手順はオンラインインストールと同様で、Source テーブルへレコードを追加して Tomcat を起動します。<br>
 手順6 を参照してください。</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<br><br><br><br><br>
 </body>
 </html>

@@ -414,7 +414,21 @@ html{
   scroll-behavior: smooth;
 }
 /* ------------------------------ */
+table {
+  border-collapse: collapse;
+  width:600px
+}
 
+table th{
+	color: #ffffffc4;
+	background: #4b4b4b;
+	/* background: #003142; */
+	border: solid 1px #4d4d4c;
+}
+
+table td {
+	border: solid 1px #4d4d4c;
+}
 </style>
 
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
@@ -451,9 +465,9 @@ html{
 <table>
 <thead>
 <tr>
-<th style="text-align:left">ツール</th>
-<th style="text-align:right">本手順のバージョン</th>
-<th style="text-align:left">備考（バージョン指定など）</th>
+<th style="text-align:center">ツール</th>
+<th style="text-align:center">本手順のバージョン</th>
+<th style="text-align:center">備考（バージョン指定など）</th>
 </tr>
 </thead>
 <tbody>
@@ -495,7 +509,8 @@ html{
 <p>「システムの詳細設定」内の「環境変数」をクリックします。</p>
 <p><img src="./proxy/image/image2.png" alt="" width="600px"></p>
 <br>
-<p>「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。作成後、「OK」をクリックします。</p>
+<p>「システム環境変数」の「新規」をクリックして、以下の2つの変数を新たに追加します。<br>
+作成後、「OK」をクリックします。</p>
 <ul>
 <li>変数名：http_proxy</li>
 <li>変数値：http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span></li>
@@ -514,8 +529,8 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 <br>
 <hr>
 <h2 id="3-gitbash-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>3． GitBash 用プロキシ設定</strong></h2>
-<p>Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。<br>
-スタートメニューからGit Bash を起動し、下記コマンドを実行します。</p>
+<p>Atlas セットアップ手順「3．5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。<br>
+スタートメニューから Git Bash を起動し、下記コマンドを実行します。</p>
 <pre class="hljs"><code><div>$ git config --global http.proxy http://[proxy]:[port]
 </div></code></pre>
 <p><img src="./proxy/image/image7.jpeg" alt=""></p>
@@ -589,16 +604,16 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 </div></code></pre>
 <br>
 <hr>
-<h2 id="5%EF%BD%92%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>5．Ｒ用プロキシ設定</strong></h2>
-<p>Atlas セットアップ手順「4.3 R studio のインストール」で実施します。<br>
-R インストール後に１回のみ実施してください。<br>
-スタートメニューを開き、Ｒコンソールを起動します。<br>
+<h2 id="5%EF%BD%92%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>5．R 用プロキシ設定</strong></h2>
+<p>Atlas セットアップ手順「4．3　R studio のインストール」で実施します。<br>
+R インストール後に1回のみ実施してください。<br>
+スタートメニューを開き、R コンソールを起動します。<br>
 コンソールに以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; file.edit('~/.Renviron')
 </div></code></pre>
 <p><img src="./proxy/image/image9.jpeg" alt=""></p>
 <br>
-<p>R エディタが起動しますので、以下２行を追加します。</p>
+<p>R エディタが起動しますので、以下2行を追加します。</p>
 <p>http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span><br>
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span></p>
 <p><img src="./proxy/image/image10.jpeg" alt=""></p>
@@ -607,12 +622,12 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。</p>
 <p><img src="./proxy/image/image11.jpeg" alt=""></p>
 <br>
-<p>Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。</p>
+<p>Atlas 手順「4．3　R studio のインストール」の手順を、続けて実行してください。</p>
 <br>
 <hr>
 <h2 id="6r%E3%83%BBdevtools-%E7%94%A8%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7%E8%A8%AD%E5%AE%9A"><strong>6．R・devtools 用プロキシ設定</strong></h2>
-<p>Atlas セットアップ手順「4.4 Achilles インストール」で実施します。
-スタートメニューを開き、Ｒコンソールを起動します。<br>
+<p>Atlas セットアップ手順「4．4　Achilles インストール」で実施します。
+スタートメニューを開き、R コンソールを起動します。<br>
 以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(devtools)
 </div></code></pre>
@@ -624,12 +639,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 </div></code></pre>
 <p><img src="./proxy/image/image13.jpeg" alt=""></p>
 <br>
-<p>Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。</p>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<p>Atlas 手順「4．3　R studio のインストール」の Achilles インストール手順を、続けて実行してください。</p>
+<br><br><br><br><br>
 </body>
 </html>

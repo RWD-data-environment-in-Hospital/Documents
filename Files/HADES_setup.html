@@ -469,8 +469,8 @@ html{
 <br>
 <hr>
 <h1 id="1-hades-%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　HADES セットアップについて</strong></h1>
-<p>HADES はR で作成されたパッケージ群で構成されています。<br>
-よってHADES のセットアップは、個々のパッケージ毎にR コンソールからインストールコマンドを実行する事で実施します。<br>
+<p>HADES は R で作成されたパッケージ群で構成されています。<br>
+よって HADES のセットアップは、個々のパッケージ毎に R コンソールからインストールコマンドを実行する事で実施します。<br>
 本手順書は、HADES に含まれる各パッケージのインストールコマンドについて記載します。<br>
 なお、本手順書はオンラインインストールを前提として記載し、オフラインインストールの手順は「5 オフラインインストールについて」で補足するものとします。<br>
 また、R 実行環境については、Atlas セットアップ手順書の4．1～4．3 に従って構築されたものとします。<br>
@@ -489,7 +489,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="31-remotes-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．1　remotes のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;remotes&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image2.jpeg" alt=""></p>
@@ -499,7 +499,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="32-drat-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．2　drat のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;drat&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image4.jpeg" alt=""></p>
@@ -509,7 +509,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="33-devtools-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>3．3　devtools のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;devtools&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image6.jpeg" alt=""></p>
@@ -527,7 +527,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <hr>
 <h1 id="4-hades-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4　HADES パッケージのインストール</strong></h1>
 <h2 id="41-cohortmethod-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．1　CohortMethod のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/CohortMethod&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image9.jpeg" alt=""></p>
@@ -543,7 +543,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="42-selfcontrolledcaseseries-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．2　SelfControlledCaseSeries のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/SelfControlledCaseSeries&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image12.jpeg" alt=""></p>
@@ -553,7 +553,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="43-selfcontrolledcohort-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．3　SelfControlledCohort のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/SelfControlledCohort&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image14.jpeg" alt=""></p>
@@ -563,7 +563,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="44-evidencesynthesis-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．4　EvidenceSynthesis のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;EvidenceSynthesis&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image16.jpeg" alt=""></p>
@@ -573,12 +573,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="45-patientlevelprediction-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．5　PatientLevelPrediction のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「drat」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「drat」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; drat::addRepo(&quot;OHDSI&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image18.jpeg" alt=""></p>
 <br>
-<p>続けて、下記のコマンドをR コンソールより実行します。</p>
+<p>続けて、下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;PatientLevelPrediction&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image19.jpeg" alt=""></p>
@@ -591,7 +591,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="46-empiricalcalibration-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．6　EmpiricalCalibration のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;EmpiricalCalibration&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image22.jpeg" alt=""></p>
@@ -601,7 +601,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="47-methodevaluation-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．7　MethodEvaluation のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/MethodEvaluation&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image24.jpeg" alt=""></p>
@@ -611,7 +611,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="48-cohortdiagnostics-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．8　CohortDiagnostics のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;OHDSI/CohortDiagnostics&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image26.jpeg" alt=""></p>
@@ -627,7 +627,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="49-cyclops-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．9　Cyclops のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;Cyclops&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image29.jpeg" alt=""></p>
@@ -637,7 +637,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="410-databaseconnector-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．10　DatabaseConnector のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;DatabaseConnector&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image31.jpeg" alt=""></p>
@@ -647,7 +647,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="411-sqlrender-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．11　SqlRender のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;SqlRender&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image33.jpeg" alt=""></p>
@@ -657,7 +657,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="412-parallellogger-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．12　ParallelLogger のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;ParallelLogger&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image35.jpeg" alt=""></p>
@@ -667,12 +667,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="413-featureextraction-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．13　FeatureExtraction のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「drat」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「drat」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; drat::addRepo(&quot;OHDSI&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image37.jpeg" alt=""></p>
 <br>
-<p>続いて、下記のコマンドをR コンソールより実行します。</p>
+<p>続いて、下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;FeatureExtraction&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image38.jpeg" alt=""></p>
@@ -682,7 +682,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="414-andromeda-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．14　Andromeda のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「devtools」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「devtools」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; devtools::install_github(&quot;ohdsi/Andromeda&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image40.jpeg" alt=""></p>
@@ -692,7 +692,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="415-bigknn-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．15　BigKnn のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/BigKnn&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image42.jpeg" alt=""></p>
@@ -702,7 +702,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="416-rohdsiwebapi-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．16　ROhdsiWebApi のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;OHDSI/ROhdsiWebApi&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image44.jpeg" alt=""></p>
@@ -712,12 +712,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="417-ohdsisharing-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．17　OhdsiSharing のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「drat」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「drat」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; drat::addRepo(&quot;OHDSI&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image46.jpeg" alt=""></p>
 <br>
-<p>続けて、下記のコマンドをR コンソールより実行します。</p>
+<p>続けて、下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;OhdsiSharing&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image47.jpeg" alt=""></p>
@@ -727,7 +727,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="418-hydra-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．18　Hydra のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/Hydra&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image49.jpeg" alt=""></p>
@@ -737,7 +737,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="419-eunomia-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．19　Eunomia のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「devtools」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「devtools」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; devtools::install_github(&quot;ohdsi/Eunomia&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image51.jpeg" alt=""></p>
@@ -747,7 +747,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h2 id="420-circer-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．20　CirceR のインストール</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。（「remotes」パッケージが必要です）</p>
+<p>下記のコマンドを R コンソールより実行します。（「remotes」パッケージが必要です）</p>
 <pre class="hljs"><code><div>&gt; remotes::install_github(&quot;ohdsi/CirceR&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image53.jpeg" alt=""></p>
@@ -757,12 +757,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h1 id="5-%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>5　オフラインインストールについて</strong></h1>
-<p>オフライン環境の端末にHADES パッケージのセットアップを行う場合、HADES パッケージのインストールが完了した端末において、インストールされたパッケージ情報からダウンロード対象とするパッケージを指定し、必要なファイルをダウンロードします。<br>
+<p>オフライン環境の端末に HADES パッケージのセットアップを行う場合、HADES パッケージのインストールが完了した端末において、インストールされたパッケージ情報からダウンロード対象とするパッケージを指定し、必要なファイルをダウンロードします。<br>
 ファイルダウンロード後、オフライン環境の端末にファイルを移設し、パッケージのインストールを実施する手順となります。</p>
 <br>
 <hr>
 <h2 id="51-%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E3%81%AE%E6%BA%96%E5%82%99"><strong>5．1　ダウンロードの準備</strong></h2>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;miniCRAN&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image55.jpeg" alt=""></p>
@@ -770,7 +770,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <p>インストールが完了すると、下記の内容が表示されます。</p>
 <p><img src="./HADES/image/image56.jpeg" alt=""></p>
 <br>
-<p>続いて、下記のコマンドをR コンソールより実行します。</p>
+<p>続いて、下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; install.packages(&quot;igraph&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image57.jpeg" alt=""></p>
@@ -778,7 +778,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <p>インストールが完了すると、下記の内容が表示されます。</p>
 <p><img src="./HADES/image/image58.jpeg" alt=""></p>
 <br>
-<p>インストール完了後、下記コマンドをR コンソールより実行します。</p>
+<p>インストール完了後、下記コマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; library(miniCRAN)
 &gt; library(tools)
 </div></code></pre>
@@ -791,12 +791,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <hr>
 <h2 id="52-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E6%8C%87%E5%AE%9A%E3%83%BB%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%EF%BC%91"><strong>5．2　パッケージの指定・ダウンロード（１）</strong></h2>
 <p>※以下の手順は「EvidenceSynthesis」「EmpiricalCalibration」「Cyclops」「DatabaseConnector」「SqlRender」「ParallelLogger」「Andromeda」を対象としています。<br>
-下記のコマンドをR コンソールより実行します。</p>
+下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; setwd(.libPaths())
 </div></code></pre>
 <p><img src="./HADES/image/image61.jpeg" alt=""></p>
 <br>
-<p>続いて、下記のコマンドをR コンソールより実行し、ファイルリストを取得するパッケージを指定します。（ここでは「EvidenceSynthesis」を指定しています）</p>
+<p>続いて、下記のコマンドを R コンソールより実行し、ファイルリストを取得するパッケージを指定します。（ここでは「EvidenceSynthesis」を指定しています）</p>
 <pre class="hljs"><code><div>&gt; pkgname &lt;- c(&quot;EvidenceSynthesis&quot;)
 &gt; pkgs &lt;- pkgDep(pkgname)
 </div></code></pre>
@@ -808,7 +808,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 </div></code></pre>
 <p><img src="./HADES/image/image63.jpeg" alt=""></p>
 <br>
-<p>下記のコマンドをR コンソールより実行し、パッケージをダウンロードします。</p>
+<p>下記のコマンドを R コンソールより実行し、パッケージをダウンロードします。</p>
 <pre class="hljs"><code><div>&gt; download.packages(pkgs, destdir=&quot;download\\&quot;, type=&quot;win.binary&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image64.jpeg" alt=""></p>
@@ -817,23 +817,23 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <p><img src="./HADES/image/image65.jpeg" alt=""></p>
 <br>
 <p>R コンソールから実行するコマンド「pkgname &lt;- c(&quot;[パッケージ名]&quot;)」における[パッケージ名]の部分を変更して実行することで、別のパッケージの準備もできます。<br>
-また、格納先フォルダは、同一のフォルダのままで構いません。（複数のパッケージ情報を１つのフォルダにまとめて格納する事ができます）</p>
+また、格納先フォルダは、同一のフォルダのままで構いません。（複数のパッケージ情報を1つのフォルダにまとめて格納する事ができます）</p>
 <br>
 <hr>
 <h2 id="53-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E6%8C%87%E5%AE%9A%E3%83%BB%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%EF%BC%92"><strong>5．3　パッケージの指定・ダウンロード（２）</strong></h2>
 <p>※以下の手順は「CohortMethod」「SelfControlledCaseSeries」「SelfControlledCohort」「PatientLevelPrediction」「MethodEvaluation」「CohortDiagnostics」「FeatureExtraction」「BigKnn」「ROhdsiWebApi」「OhdsiSharing」「Hydra」「Eunomia」「CirceR」を対象としています。</p>
-<p>下記のコマンドをR コンソールより実行します。</p>
+<p>下記のコマンドを R コンソールより実行します。</p>
 <pre class="hljs"><code><div>&gt; setwd(.libPaths())
 </div></code></pre>
 <p><img src="./HADES/image/image61.jpeg" alt=""></p>
 <br>
-<p>続けて、下記のコマンドをR コンソールより実行し、ファイル格納先フォルダを指定します。</p>
+<p>続けて、下記のコマンドを R コンソールより実行し、ファイル格納先フォルダを指定します。</p>
 <pre class="hljs"><code><div>&gt; wfld &lt;- &quot;c:\\tmp\\R_pkgs\\&quot;
 &gt; sfld &lt;- &quot;download\\&quot;
 </div></code></pre>
 <p><img src="./HADES/image/image66.jpeg" alt=""></p>
 <br>
-<p>下記のコマンドをR コンソールより実行し、ダウンロードしたパッケージを圧縮して指定のフォルダに格納します。</p>
+<p>下記のコマンドを R コンソールより実行し、ダウンロードしたパッケージを圧縮して指定のフォルダに格納します。</p>
 <pre class="hljs"><code><div>&gt; zip(paste0(wfld,sfld,&quot;CohortMethod&quot;,&quot;.zip&quot;),&quot;CohortMethod&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image67.jpeg" alt=""></p>
@@ -854,34 +854,33 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 </div></code></pre>
 <p><img src="./HADES/image/image64.jpeg" alt=""></p>
 <br>
-<p>続けて、下記のコマンドをR コンソールより実行し、パッケージをダウンロードします。</p>
+<p>続けて、下記のコマンドを R コンソールより実行し、パッケージをダウンロードします。</p>
 <pre class="hljs"><code><div>&gt; download.packages(pkgs, destdir=&quot;download\\&quot;, type=&quot;win.binary&quot;)
 </div></code></pre>
 <br>
 <p>必要なファイルが、指定したフォルダにダウンロードされます。</p>
 <p><img src="./HADES/image/image70.jpeg" alt=""></p>
 <br>
-<p>5．2　の手順と同様に、R コンソールから実行する下記コマンドの [パッケージ名]の部分を変更して実行することで、別のパッケージの準備もできます。
-格納先フォルダも、５．２ の手順と同一のフォルダのままで構いません（複数のパッケージ
-情報を１つのフォルダにまとめて格納する事ができます）。</p>
+<p>5．2 の手順と同様に、R コンソールから実行する下記コマンドの [パッケージ名]の部分を変更して実行することで、別のパッケージの準備もできます。<br>
+格納先フォルダも、5．2 の手順と同一のフォルダのままで構いません。（複数のパッケージ情報を1つのフォルダにまとめて格納する事ができます）</p>
 <pre class="hljs"><code><div>&gt; zip(paste0(wfld,sfld,&quot;[パッケージ名]&quot;,&quot;.zip&quot;),&quot;[パッケージ名]&quot;)
 &gt; pdb &lt;- addPackageListingGithub(pdb=available.packages(),&quot;ohdsi/[パッケージ名]&quot;)
 &gt; bpkgs &lt;- package_dependencies(packages=&quot;[パッケージ名]&quot;,pdb,which=&quot;Depends&quot;)[[1]]
 </div></code></pre>
 <hr>
 <h2 id="54-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E3%81%AE%E8%A4%87%E5%86%99%E3%83%BB%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>5．4　パッケージの複写・インストール</strong></h2>
-<p>5.2・5.3 の手順で準備したファイルをオフライン環境の端末の任意のフォルダへコピーします。<br>
+<p>5．2、5．3 の手順で準備したファイルをオフライン環境の端末の任意のフォルダへコピーします。<br>
 以降の例では「d:\tmp\R_pkgs\download\」にファイルをコピーした想定としています。</p>
 <p><img src="./HADES/image/image71.jpeg" alt=""></p>
 <br>
-<p>下記のコマンドをR コンソールから実行し、コピーしたファイルのリストを作成します。</p>
+<p>下記のコマンドを R コンソールから実行し、コピーしたファイルのリストを作成します。</p>
 <pre class="hljs"><code><div>&gt; zipdir &lt;- 'd:\\tmp\\R_pkgs\\download
 &gt; ziplist &lt;- list.files(zipdir, pattern=&quot;.zip&quot;, recursive=T)
 &gt; pkglist &lt;- as.character(lapply(ziplist, function(f) { paste(zipdir, '\\', f, sep=&quot;&quot;) }))
 </div></code></pre>
 <p><img src="./HADES/image/image72.jpeg" alt=""></p>
 <br>
-<p>続いて、下記のコマンドをR コンソールから実行し、作成したリストに含まれるファイル（パッケージ）をインストールします。</p>
+<p>続いて、下記のコマンドを R コンソールから実行し、作成したリストに含まれるファイル（パッケージ）をインストールします。</p>
 <pre class="hljs"><code><div>&gt; install.packages(pkglist, repos = NULL, type=&quot;win.binary&quot;)
 </div></code></pre>
 <p><img src="./HADES/image/image73.jpeg" alt=""></p>
@@ -893,7 +892,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <br>
 <hr>
 <h1 id="%E8%A3%9C%E8%B6%B3r-%E5%AE%9F%E8%A1%8C%E7%92%B0%E5%A2%83%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>補足．R 実行環境のインストールについて</strong></h1>
-<h2 id="1-%EF%BD%92%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>1　Ｒのインストール</strong></h2>
+<h2 id="1-%EF%BD%92%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>1　R のインストール</strong></h2>
 <p>下記のサイトにアクセスし、「Download R for Windows」、「base」の順にクリックし、下のスクリーンショットに示されている 「Download」 リンクをクリックします。（バージョン3.6.0 以降である必要があります）</p>
 <p><a href="https://cran.r-project.org/" target="_blank" rel="nofollow noopener">https://cran.r-project.org/</a></p>
 <p><img src="./HADES/image/image1298.png" alt=""><br>
@@ -906,11 +905,12 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <p>情報を読み終わった後、「次へ」をクリックします。</p>
 <p><img src="./HADES/image/image1300.png" alt="" width="600px"></p>
 <br>
-<p>インストール先の設定画面で、デフォルトではProgramFiles へインストールする設定になっていますが、「C:\R\R-4.1.1」のフォルダに変更して「次へ」をクリックします。</p>
+<p>インストール先の設定画面で、ProgramFiles がデフォルト指定されていますが、「C:\R\R-4.1.1」のフォルダに変更して「次へ」をクリックします。</p>
 <p><img src="./HADES/image/image1301.png" alt="" width="600px"></p>
 <br>
 <p>コンポーネントの選択について、「32bit Files」のチェックを外して「次へ」をクリックします。</p>
 <p><img src="./HADES/image/image1302.png" alt="" width="600px"></p>
+<br>
 <p>起動時のオプションはデフォルトのまま「次へ」をクリックします。</p>
 <p><img src="./HADES/image/image1303.png" alt="" width="600px"></p>
 <br>
@@ -950,7 +950,8 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <p><img src="./HADES/image/image1312.png" alt=""><br>
 <em>出典：RStudio, PBC「RStudio」</em></p>
 <br>
-<p>ダウンロード完了後、ファイルをダブルクリックして実行します。「次へ」をクリックします。</p>
+<p>ダウンロード完了後、ファイルをダブルクリックして実行します。<br>
+「次へ」をクリックします。</p>
 <p><img src="./HADES/image/image1313.png" alt="" width="600px"></p>
 <br>
 <p>インストール先のフォルダに「C:\RStudio」を指定して「次へ」をクリックします。</p>
@@ -975,7 +976,7 @@ Atlas セットアップ手順書、または本手順書の補足を参照く�
 <pre class="hljs"><code><div>&quot;C:\\rtools40\\usr\\bin\\make.exe&quot;
 </div></code></pre>
 <br>
-<p>以上でR 実行環境のインストールは完了となります。</p>
+<p>以上で R 実行環境のインストールは完了となります。</p>
 <br>
 <br>
 <br>

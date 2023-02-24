@@ -47,7 +47,8 @@ Windows 環境変数へ変数を追加します。
 
 <br>
 
-「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。作成後、「OK」をクリックします。
+「システム環境変数」の「新規」をクリックして、以下の２つの変数を新たに追加します。  
+作成後、「OK」をクリックします。  
 - 変数名：http_proxy
 - 変数値：http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>
 - 変数名：https_proxy
@@ -73,7 +74,7 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 ---
 ## **3． GitBash 用プロキシ設定**
 Atlas セットアップ手順「3.5 WebAPI の構築」で、「OHDSI」フォルダを作成後、「git clone」などのコマンドを実行する前に実行します。  
-スタートメニューからGit Bash を起動し、下記コマンドを実行します。  
+スタートメニューから Git Bash を起動し、下記コマンドを実行します。  
 ```
 $ git config --global http.proxy http://[proxy]:[port]
 ```
@@ -161,10 +162,10 @@ Apache Maven インストールフォルダ(本手順では「c:\maven」)にあ
 <br>
 
 ---
-## **5．Ｒ用プロキシ設定**
-Atlas セットアップ手順「4.3 R studio のインストール」で実施します。  
-R インストール後に１回のみ実施してください。  
-スタートメニューを開き、Ｒコンソールを起動します。  
+## **5．Ｒ 用プロキシ設定**
+Atlas セットアップ手順「4．3 R studio のインストール」で実施します。  
+R インストール後に1回のみ実施してください。  
+スタートメニューを開き、Ｒ コンソールを起動します。  
 コンソールに以下のコマンドを入力します。
 
 ```
@@ -175,7 +176,7 @@ R インストール後に１回のみ実施してください。
 
 <br>
 
-R エディタが起動しますので、以下２行を追加します。
+R エディタが起動しますので、以下2行を追加します。
 
 http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
 https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
@@ -191,13 +192,13 @@ https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="col
 
 <br>
 
-Atlas 手順「4.3 R studio のインストール」の手順を、続けて実行してください。  
+Atlas 手順「4．3 R studio のインストール」の手順を、続けて実行してください。  
 
 <br>
 
 ---
 ## **6．R・devtools 用プロキシ設定**
-Atlas セットアップ手順「4.4 Achilles インストール」で実施します。
+Atlas セットアップ手順「4．4 Achilles インストール」で実施します。  
 スタートメニューを開き、Ｒコンソールを起動します。  
 以下のコマンドを入力します。  
 ```
@@ -218,4 +219,4 @@ Atlas セットアップ手順「4.4 Achilles インストール」で実施し�
 
 <br>
 
-Atlas 手順「4.3 R studio のインストール」のAchilles インストール手順を、続けて実行してください。
+Atlas 手順「4．3 R studio のインストール」の Achilles インストール手順を、続けて実行してください。
