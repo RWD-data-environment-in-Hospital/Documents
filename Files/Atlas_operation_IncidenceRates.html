@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Atlas_operation_IncidenceRates.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 16px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+p, li, pre{
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+/* img {
+	max-width: 100%;
+	max-height: 100%;
+} */
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
+
+table {
+  border-collapse: collapse;
+  width:1000px
+}
+
+table th{
+	color: #ffffffc4;
+	background: #4b4b4b;
+	/* background: #003142; */
+	border: solid 1px #4d4d4c;
+}
+
+table td {
+	border: solid 1px #4d4d4c;
+}
+
+table.conceptsets{
+	width: 1200px;
+}
+
+.CI{
+	width: 90px;
+}
+
+.CC{
+	width: 110px;
+}
+
+/* .CN{
+	width: 500px;
+} */
+
+.DO{
+	width: 100px;
+}
+
+.SC{
+	width: 80px;
+}
+
+.EX{
+	width: 100px;
+}
+
+.DE{
+	width: 100px;
+}
+
+.MA{
+	width: 100px;
+}
+/* ------------------------------ */
+.ID{
+	width: 30px;
+}
+
+/* .IN{
+	width: 450px;
+} */
+
+.JA{
+	width: 350px;
+}
+
+.DM{
+	width: 150px;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div id="page_top"><a href="#"></a></div>
+<h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86-incidence-rates"><strong>Atlas 操作手順 ～Incidence Rates～</strong></h1>
+<h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
+<p><a href="#1-%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1　本手順書について</a><br>
+<a href="#2-incidence-rates%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Incidence Rates操作の流れ</a><br>
+<a href="#3-concept-sets%E3%81%AE%E4%BD%9C%E6%88%90">3　Concept Setsの作成</a><br>
+<a href="#4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90">4　Cohort Definitionsの作成</a><br>
+<a href="#5-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90">5　Incidence Rates（発生率）の分析</a><br>
+<a href="#6-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90%E5%AE%9F%E8%A1%8C">6　Incidence Rates（発生率）の分析実行</a><br>
+<a href="#7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99">7　補足資料</a></p>
+<br>
+<hr>
+<h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順書について</strong></h1>
+<p>AtlasのIncidence Rates 操作手順について説明します。<br>
+本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。</p>
+<ul>
+<li>Windows10（64 ビット）</li>
+<li>Java 8 Java Development Kit (JDK)</li>
+<li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
+<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank"  rel="nofollow">「Atlas 操作手順 Eunomia のテストデータセットアップについて」</a>(参照）</li>
+</ul>
+<br>
+<hr>
+<h1 id="2-incidence-rates%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Incidence Rates操作の流れ</strong></h1>
+<p>本操作手順では、以下に示す Incidence Rates を用いた分析を対象にした手順を記載しています。</p>
+<br>
+<p><img src="./Atlas_5/image/image1.png" alt=""></p>
+<br>
+<p>本書では、Eunomia のテストデータを使用して Atlas の Incidence Rates による分析を実施します。<br>
+Incidence Rates による分析の操作手順では、下記の事例を取り上げて説明します。</p>
+<ul>
+<li>Target Cohorts ：Acute cholecystitis（急性胆嚢炎）の治療を受けている患者集団</li>
+<li>Outcome Cohorts：Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）の手術を受けた患者</li>
+</ul>
+<br>
+<p>上記のコホートを使用し、「急性胆嚢炎」の治療を受けている患者集団が、「腹腔鏡下 胆嚢摘出術」の手術を受けるリスクある患者の発生率を分析します。</p>
+<p>Incidence Rates による分析は、上記事例に従い、下記のテストデータを用いて説明します。</p>
+<br>
+<h3 id="%EF%BC%91target-cohorts"><strong>１）Target Cohorts</strong></h3>
+<p>＜診断された病名＞</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left" width="450px">病名（英語名称）</th>
+<th style="text-align:left">病名（日本語名称）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Acute cholecystitis</td>
+<td style="text-align:left">急性胆嚢炎</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>＜処方された薬剤＞</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left" width="450px">薬剤（英語名称）</th>
+<th style="text-align:left">薬剤（日本語名称）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1 ML Morphine Sulfate 5 MG/ML Injection</td>
+<td style="text-align:left">1 ML モルヒネ硫酸塩 5 MG/ML 注射</td>
+</tr>
+<tr>
+<td style="text-align:left">100 ML Propofol 10 MG/ML Injection</td>
+<td style="text-align:left">100 MLプロポフォール 10 MG/ML注射</td>
+</tr>
+<tr>
+<td style="text-align:left">2 ML Ondansetron 2 MG/ML Injection</td>
+<td style="text-align:left">2 ML オンダンセトロン 2 MG/ML インジェクション</td>
+</tr>
+<tr>
+<td style="text-align:left">Acetaminophen 160 MG Oral Tablet</td>
+<td style="text-align:left">アセトアミノフェン160 MG経口錠剤</td>
+</tr>
+<tr>
+<td style="text-align:left">Heparin</td>
+<td style="text-align:left">ヘパリン</td>
+</tr>
+<tr>
+<td style="text-align:left">Midazolam 1 MG/ML Injectable Solution</td>
+<td style="text-align:left">ミダゾラム1 MG/ML注射液</td>
+</tr>
+<tr>
+<td style="text-align:left">Piperacillin 4000 MG/tazobactam 500 MG Injection</td>
+<td style="text-align:left">ピペラシリン 4000 MG/タゾバクタム 500 MG注射</td>
+</tr>
+<tr>
+<td style="text-align:left">rocuronium bromide 10 MG/ML Injectable Solution</td>
+<td style="text-align:left">臭化ロクロニウム 10 MG/ML注射液</td>
+</tr>
+<tr>
+<td style="text-align:left">sevoflurane 1000 MG/ML Inhalant Solution</td>
+<td style="text-align:left">セボフルラン 1000 MG/ML吸入剤溶液</td>
+</tr>
+<tr>
+<td style="text-align:left">Sodium Chloride 9 MG/ML Injectable Solution</td>
+<td style="text-align:left">塩化ナトリウム 9 MG/ML 注射液</td>
+</tr>
+<tr>
+<td style="text-align:left">Sufentanil</td>
+<td style="text-align:left">スフェンタニル</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3 id="%EF%BC%92outcome-cohorts"><strong>２）Outcome Cohorts</strong></h3>
+<p>＜術式＞</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left" width="450px">術式（英語名称）</th>
+<th style="text-align:left">術式（日本語名称）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Laparoscopic cholecystectomy</td>
+<td style="text-align:left">腹腔鏡下 胆嚢摘出術</td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr>
+<h1 id="3-concept-sets%E3%81%AE%E4%BD%9C%E6%88%90"><strong>3	Concept Setsの作成</strong></h1>
+<p>本章では、コンセプトセットの登録方法を説明します。<br>
+登録したコンセプトセットは、4章でコホート定義の登録に使用します。</p>
+<p>コンセプトセットには、以下の属性を設定します。</p>
+<ul>
+<li>
+<p>Exclude：<br>
+選択したコンセプトをコンセプトセットから除外します。（コンセプトセットに含めない）<br>
+なお、下記の Descendants にチェックを入れている場合は、選択したコンセプトに関係するコンセプトも除外します。</p>
+</li>
+<li>
+<p>Descendants：<br>
+選択したコンセプトに加えて、選択したコンセプトに関係するコンセプトについてもコンセプトセットに含めます。</p>
+</li>
+<li>
+<p>Mapped：<br>
+非標準に設定されているコンセプトもコンセプトセットに含めます。</p>
+</li>
+</ul>
+<br>
+<p>Incidence Rates による分析では、事前に「Target Cohorts」と「Outcome Cohorts」で使用する項目をコンセプトセットに登録します。</p>
+<p>コンセプトセットの作成方法を次章より示します。</p>
+<br>
+<hr>
+<h2 id="31-%E7%97%85%E5%90%8D%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E7%99%BB%E9%8C%B2"><strong>3．1　病名コンセプトセットの登録</strong></h2>
+<p>Atlas 画面左の「Concept Sets」をクリックすると、Atlas プラットフォーム内で既に作成されているコンセプトセットが表示されます。</p>
+<p><img src="./Atlas_5/image/image2.png" alt="" width="1200px"></p>
+<br>
+<p>ここでは、新しくコンセプトセットを作成するので、画面右の「New Concept Set」をクリックして作成画面に遷移します。</p>
+<p><img src="./Atlas_5/image/image105.png" alt="" width="1200px"></p>
+<br>
+<p>画面上部に、新規に作成する病名のコンセプトセットの名称「Rate Acute cholecystitis Condition」を入力します。</p>
+<p><img src="./Atlas_5/image/image3.png" alt="" width="500px"></p>
+<br>
+<p>名称の入力後、コンセプト情報の選択をします。<br>
+「Concept Set Expression」タブの「Add Concepts」をクリックすると「Search」画面に遷移します。</p>
+<p><img src="./Atlas_5/image/image4.png" alt="" width="1200px"></p>
+<br>
+<p>「Search」画面では、キーワードやコンセプトIDを入力することで対象とするコンセプト情報を検索することができます。</p>
+<p><img src="./Atlas_5/image/image5.png" alt="" width="1200px"></p>
+<br>
+<p>下記のコンセプト情報をコンセプトセットに登録するため、「Search」画面で検索します。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Id</th>
+<th style="text-align:left">Code</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Class</th>
+<th style="text-align:left">Domain</th>
+<th style="text-align:left">Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">198809</td>
+<td style="text-align:left">65275009</td>
+<td style="text-align:left">Acute cholecystitis</td>
+<td style="text-align:left">Clinical Finding</td>
+<td style="text-align:left">Condition</td>
+<td style="text-align:left">SNOMED</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>➀Search 画面のテキスト入力欄へ id 「198809」 を入力します。<br>
+②検索ボタンをクリックすると、対象のリストが表示されます。<br>
+③表示されたリストから「198809：Acute cholecystitis」にチェックを入れます。<br>
+④Select Concept Set に「Rate Acute cholecystitis Condition」が選択されていることを確認します。<br>
+⑤Descendants にチェックを入れます。<br>
+⑥Add To Concept Set をクリックします。(ConceptSetsに組み込まれます)</p>
+<p><img src="./Atlas_5/image/image106.png" alt="" width="1200px"></p>
+<br>
+<p>左メニューの「Concept Sets」をクリックします。<br>
+「Rate Acute cholecystitis Condition」セットにコンセプトが追加され、独自のコンセプトセットが形成されたことを確認します。</p>
+<p><img src="./Atlas_5/image/image107.png" alt="" width="1200px"></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックすると、「Concept Sets」のトップ画面の一覧に作成したコンセプトセットが追加されます。<br>
+※派生するコンセプトも分析に含める想定のため、「Descendants」を有効にしています。<br>
+（各コンセプトについて、「Exclude」、「Descendants」、「Mapped」をこの画面からも設定できます）</p>
+<p><img src="./Atlas_5/image/image108.png" alt="" width="1200px"></p>
+<br>
+<p>以上でコンセプトセット「Rate Acute cholecystitis Condition」の作成が完了しました。<br>
+×ボタンをクリックして、コンセプトセット「Rate Acute cholecystitis Condition」の画面を閉じます。</p>
+<p><img src="./Atlas_5/image/image109.png" alt="" width="1200px"></p>
+<br>
+<hr>
+<h2 id="32-%E8%96%AC%E5%89%A4%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E7%99%BB%E9%8C%B2"><strong>3．2　薬剤コンセプトセットの登録</strong></h2>
+<p>薬剤のコンセプトセットを作成します。<br>
+画面上部に、新規に作成する薬剤のコンセプトセットの名称「Rate Gallstone Drug」を入力します。</p>
+<p><img src="./Atlas_5/image/image10.png" alt="" width="500px"></p>
+<br>
+<p>「Concept Set Expression」タブの「Add Concepts」をクリックすると「Search」画面に遷移します。</p>
+<p><img src="./Atlas_5/image/image4.png" alt="" width="1200px"></p>
+<br>
+<p>「3．1　病名コンセプトセットの登録」と同様の操作で、「Rate Gallstone Drug」のコンセプトセットに、下記の薬剤群のコンセプトセットを追加して登録します。</p>
+<ul>
+<li>1 ML Morphine Sulfate 5 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">35605858</td>
+<td style="text-align:center">1732136</td>
+<td style="text-align:center">1 ML Morphine Sulfate 5 MG/ML	Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>100 ML Propofol 10 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">40220386</td>
+<td style="text-align:center">1808217</td>
+<td style="text-align:center">100 ML Propofol 10 MG/ML Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>2 ML Ondansetron 2 MG/ML Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">35605482</td>
+<td style="text-align:center">1740467</td>
+<td style="text-align:center">2 ML Ondansetron 2 MG/ML Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Acetaminophen 160 MG Oral Tablet</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1127078</td>
+<td style="text-align:center">282464</td>
+<td style="text-align:center">Acetaminophen 160 MG Oral Tablet</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>heparin</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1367571</td>
+<td style="text-align:center">5224</td>
+<td style="text-align:center">heparin</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Midazolam 1 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19078924</td>
+<td style="text-align:center">311700</td>
+<td style="text-align:center">Midazolam 1 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Piperacillin 4000 MG/tazobactam 500 MG Injection</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">46275444</td>
+<td style="text-align:center">1659149</td>
+<td style="text-align:center">Piperacillin 4000 MG/tazobactam 500 MG Injection</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>rocuronium bromide 10 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">42707627</td>
+<td style="text-align:center">1234995</td>
+<td style="text-align:center">rocuronium bromide 10 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>sevoflurane 1000 MG/ML Inhalant Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19023398</td>
+<td style="text-align:center">200243</td>
+<td style="text-align:center">sevoflurane 1000 MG/ML Inhalant Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Sodium Chloride 9 MG/ML Injectable Solution</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19079524</td>
+<td style="text-align:center">313002</td>
+<td style="text-align:center">Sodium Chloride 9 MG/ML Injectable Solution</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<ul>
+<li>Sufentanil</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">19078219</td>
+<td style="text-align:center">56795</td>
+<td style="text-align:center">Sufentanil</td>
+<td style="text-align:center">Drug</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br><br>
+<p>薬剤のコンセプトセット「Rate Gallstone Drug」にコンセプト情報が追加されたことを確認します。</p>
+<p><img src="./Atlas_5/image/image12.png" alt=""></p>
+<br>
+<p>このコンセプトセットも、関係するコンセプト情報を分析に含める想定のため、以下のように「Descendants」にチェック入っていることを確認します。</p>
+<p><img src="./Atlas_5/image/image13.png" alt=""></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックすると、コンセプトセットが保存されます。<br>
+「Concept Sets」のトップ画面に戻ると、一覧に作成したコンセプトセットが表示されています。</p>
+<p><img src="./Atlas_5/image/image14.png" alt=""></p>
+<br>
+<p>以上で薬剤のコンセプトセット「Rate Gallstone Drug」の作成が完了しました。</p>
+<br>
+<hr>
+<h2 id="33-%E8%A1%93%E5%BC%8F%E3%82%B3%E3%83%B3%E3%82%BB%E3%83%97%E3%83%88%E3%82%BB%E3%83%83%E3%83%88%E3%81%AE%E7%99%BB%E9%8C%B2"><strong>3．3　術式コンセプトセットの登録</strong></h2>
+<p>同様の操作で、術式のコンセプトセットについても作成します。<br>
+画面上部に新規に作成する術式のコンセプトセットの名称「Rate Laparoscopic cholecystectomy Procedure」を入力します。</p>
+<p><img src="./Atlas_5/image/image15.png" alt="" width="500px"></p>
+<br>
+<p>「Concept Set Expression」タブの「Add Concepts」をクリックすると「Search」画面に遷移します。</p>
+<p><img src="./Atlas_5/image/image4.png" alt="" width="1200px"></p>
+<br>
+<p>「Rate Laparoscopic cholecystectomy Procedure」のコンセプトセットに、下記の術式のコンセプト情報を追加して登録します。</p>
+<ul>
+<li>Laparoscopic cholecystectomy</li>
+</ul>
+<table class="conceptsets">
+<thead>
+<tr>
+	<th class="CI" style="text-align:center">Concept Id</th>
+	<th class="CC" style="text-align:center">Concept Code</th>
+	<th class="CN" style="text-align:center">Concept Name</th>
+	<th class="DO" style="text-align:center">Domain</th>
+	<th class="SC" style="text-align:center">Standard Concept Caption</th>
+	<th class="EX" style="text-align:center">Exclude</th>
+	<th class="DE" style="text-align:center">Descendants</th>
+	<th class="MA" style="text-align:center">Mapped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">4163971</td>
+<td style="text-align:center">45595009</td>
+<td style="text-align:center">Laparoscopic cholecystectomy</td>
+<td style="text-align:center">Procedure</td>
+<td style="text-align:center">Standard</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">✓</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<br><br>
+<p>術式のコンセプトセット「Rate Laparoscopic cholecystectomy Procedure」にコンセプト情報が追加されたことを確認します。</p>
+<p><img src="./Atlas_5/image/image22.png" alt=""></p>
+<br>
+<p>このコンセプト情報も、派生するコンセプトを分析に含める想定のため、以下のように「Descendants」にチェックが入っていることを確認します。</p>
+<p><img src="./Atlas_5/image/image23.png" alt=""></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックすると、コンセプトセットが保存されます。
+「Concept Sets」のトップ画面に戻ると、一覧に作成したコンセプトセットが表示されています。</p>
+<p><img src="./Atlas_5/image/image24.png" alt=""></p>
+<br>
+<p>以上で術式のコンセプトセット「Rate Laparoscopic cholecystectomy Procedure」の作成が完了しました。</p>
+<p>以上でコンセプトセットの作成は完了です。</p>
+<br>
+<hr>
+<h1 id="4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90"><strong>4　Cohort Definitionsの作成</strong></h1>
+<p>Incidence Rates による分析では、前章で登録したコンセプトセットを用いて、「Target Cohorts」と「Outcome Cohorts」の Cohort Definitions（コホート定義）を登録する必要があります。</p>
+<ul>
+<li>Target Cohorts ：Acute cholecystitis（急性胆嚢炎）の治療を受けている患者集団</li>
+<li>Outcome Cohorts：Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）の手術を受けた患者</li>
+</ul>
+<br>
+<p>本章では、Incidence Rates 機能で分析に使用する「Target Cohorts」と「Outcome Cohorts」について、コホート定義の登録方法を説明します。</p>
+<br>
+<p>本書において、「Target Cohorts」には、以下の２つのコンセプトセットを登録します。</p>
+<ul>
+<li>
+<p>病名のコンセプトセット<br>
+Rate Acute cholecystitis Condition</p>
+</li>
+<li>
+<p>薬剤のコンセプトセット<br>
+Rate Gallstone Drug</p>
+</li>
+</ul>
+<br>
+<p>「Outcome Cohorts」には、以下の１つのコンセプトセットを登録します。</p>
+<ul>
+<li>術式のコンセプトセット<br>
+Rate Laparoscopic cholecystectomy Procedure</li>
+</ul>
+<br>
+<hr>
+<h2 id="41-target-cohorts%E3%81%AE%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E5%AE%9A%E7%BE%A9%E3%81%AE%E7%99%BB%E9%8C%B2"><strong>4．1　「Target Cohorts」のコホート定義の登録</strong></h2>
+<p>Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内で既に作成されているコホート定義が表示されます。<br>
+ここでは、コホート定義を新規作成するので、「New Cohort」をクリックします。</p>
+<p><img src="./Atlas_5/image/image25.png" alt="" width="1200px"></p>
+<br>
+<p>「New Cohort」をクリックすると、「New Cohort Definition」画面（コホート定義作成画面）が表示されます。</p>
+<p><img src="./Atlas_5/image/image26.png" alt="" width="1100px"></p>
+<br>
+<p>コホート定義作成画面の上部に、コホート名を入力する欄があるので、目標コホート名称「Cohort Definition Target Cohort」と入力します。</p>
+<p><img src="./Atlas_5/image/image27.png" alt="" width="600px"></p>
+<br>
+<h3 id="%EF%BC%91cohort-entry-events%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E9%96%8B%E5%A7%8B%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>１）「Cohort Entry Events（コホート開始イベント）」の設定</strong></h3>
+<p>「Cohort Entry Events」欄右側の「＋Add Initial Event...」をクリックして、「Add Drug Exposure」を選択します。</p>
+<p><img src="./Atlas_5/image/image28.png" alt="" width="900px"></p>
+<br>
+<p>「Any Drug」の▼をクリックし、「Import Concept Set」を選択します。</p>
+<p><img src="./Atlas_5/image/image29.png" alt="" width="900px"><br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<br>
+<p>「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されるので、薬剤のコンセプトセット「Rate Gallstone Drug」を選択します。</p>
+<p><img src="./Atlas_5/image/image30.png" alt=""></p>
+<br>
+<p>観察期間については指定の必要がないので、デフォルトのままにします。<br>
+※「0」daysの選択で全期間のデータが対象となります。<br>
+対象イベントは「all events」を選択します。</p>
+<p><img src="./Atlas_5/image/image31.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%92inclusion-criteria%E7%B5%84%E3%81%BF%E5%85%A5%E3%82%8C%E5%9F%BA%E6%BA%96%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>２）「Inclusion Criteria（組み入れ基準）」の設定</strong></h3>
+<p>緑色ボタンの「New inclusion criteria」をクリックし、ボタン横に表示される空欄内に組み入れ基準名として「Rate Acute cholecystitis Condition」を入力します。</p>
+<p><img src="./Atlas_5/image/image110.png" alt="" width="900px"></p>
+<br>
+<p>病名を基準とするので、「＋Add criteria to group...」から「Add Condition Occurrence」を選択します。</p>
+<p><img src="./Atlas_5/image/image34.png" alt=""></p>
+<br>
+<p>「Add Condition Occurrence」を選択すると、欄内に図のような詳細設定画面が表示されます。</p>
+<p><img src="./Atlas_5/image/image35.png" alt="" width="900px"></p>
+<br>
+<p>「Any Condition」に組み入れ基準とする病名のコンセプトセットを設定します。
+「Any Condition」の▼をクリックし、「Import Concept Set」を選択します。</p>
+<p><img src="./Atlas_5/image/image36.png" alt="" width="900px"><br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<br>
+<p>「Import Concept Set」を開くと作成されているコンセプトセットの一覧が表示されるので、病名のコンセプトセット「Rate Acute cholecystitis Condition」をクリックして選択します。</p>
+<p><img src="./Atlas_5/image/image37.png" alt=""></p>
+<br>
+<p>対象イベントは「all events」を選択します。</p>
+<p><img src="./Atlas_5/image/image38.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%93cohort-exit%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>３）「Cohort Exit（コホート終了条件）」の設定</strong></h3>
+<p>本章では、コホートの終了条件を、「薬剤の継続的観察の終了」として設定します。<br>
+このため、「Event Persistence」は「end of a continuous drug exposure」を選択します。</p>
+<p><img src="./Atlas_5/image/image39.png" alt="" width="900px"></p>
+<br>
+<p>「Select Drug Concept Set」の▼をクリックし、薬剤のコンセプトセット「Rate Gallstone Drug」を選択します。</p>
+<p><img src="./Atlas_5/image/image40.png" alt="" width="900px"></p>
+<br>
+<p>薬剤のコンセプトセット「Rate Gallstone Drug」を設定した後、以下の設定を行います。</p>
+<ul>
+<li>
+<p>Persistence window（持続性ウィンドウ）<br>
+持続性ウィンドウのExposure Recordsの最大日数は、「０」daysを設定します。<br>
+※「0」daysを設定する事で、全期間の日数となります。</p>
+</li>
+<li>
+<p>Surveillance window（監視ウィンドウ）<br>
+監視ウィンドウの終了期間に追加する日数は、「０」daysを設定します。</p>
+</li>
+</ul>
+<p><img src="./Atlas_5/image/image41.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%94cohort-eras%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E6%AD%B4%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>４）「Cohort Eras（コホート歴）」の設定</strong></h3>
+<p>「Specify era collapse gap size」に、「1095」daysを設定します。</p>
+<p><img src="./Atlas_5/image/image42.png" alt="" width="900px"></p>
+<br>
+<p>以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして「Cohort Definition Target Cohort」を保存します。</p>
+<p><img src="./Atlas_5/image/image43.png" alt="" width="900px"></p>
+<br>
+<p>以上で、目標コホートのコホート定義「Cohort Definition Target Cohort」の作成は完了です。</p>
+<br>
+<hr>
+<h2 id="42-outcome-cohorts%E3%81%AE%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E5%AE%9A%E7%BE%A9%E3%81%AE%E7%99%BB%E9%8C%B2"><strong>4．2　「Outcome Cohorts」のコホート定義の登録</strong></h2>
+<p>同様に「Cohort Definitions」より、「New Cohort」をクリックします。<br>
+コホート定義作成画面が表示されるので、画面上部のコホート名入力欄に「Cohort Definition Outcome Cohort」と入力します。</p>
+<p><img src="./Atlas_5/image/image44.png" alt=""></p>
+<br>
+<h3 id="%EF%BC%91cohort-entry-events%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E9%96%8B%E5%A7%8B%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>１）「Cohort Entry Events（コホート開始イベント）」の設定</strong></h3>
+<p>「Cohort Entry Events」欄右側の「＋Add Initial Event...」をクリックして、「Add Procedure Occurrence」を選択します。</p>
+<p><img src="./Atlas_5/image/image45.png" alt="" width="900px"></p>
+<br>
+<p>「Any Procedure」の▼をクリックし、「Import Concept Set」を選択します。</p>
+<p><img src="./Atlas_5/image/image46.png" alt="" width="900px"><br>
+※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
+<br>
+<p>「Import Concept Set」を選択すると、作成されているコンセプトセットの一覧が表示されるので、術式のコンセプトセット「Rate Laparoscopic cholecystectomy Procedure」をクリックして選択します。</p>
+<p><img src="./Atlas_5/image/image47.png" alt=""></p>
+<br>
+<p>観察期間については、特に指定しないのでデフォルトのままにします。<br>
+※「0」daysの選択で全期間のデータが対象となります。<br>
+対象イベントは「all events」を選択します。</p>
+<p><img src="./Atlas_5/image/image48.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%92inclusion-criteria%E7%B5%84%E3%81%BF%E5%85%A5%E3%82%8C%E5%9F%BA%E6%BA%96%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>２）Inclusion Criteria（組み入れ基準）の設定</strong></h3>
+<p>「Inclusion Criteria」には、条件を追加せず、デフォルトのままにします。</p>
+<p><img src="./Atlas_5/image/image111.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%93cohort-exit%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>３）Cohort Exit（コホート終了条件）の設定</strong></h3>
+<p>「Event Persistence」に、「end of continuous observation」を設定します。</p>
+<p><img src="./Atlas_5/image/image112.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%94cohort-eras%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E6%AD%B4%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>４）Cohort Eras（コホート歴）の設定</strong></h3>
+<p>「Specify era collapse gap size」に、「0」daysを設定します。</p>
+<p><img src="./Atlas_5/image/image50.png" alt="" width="900px"></p>
+<br>
+<p>以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして、「Cohort Definition Outcome Cohort」を保存します。</p>
+<p><img src="./Atlas_5/image/image51.png" alt="" width="900px"></p>
+<br>
+<p>以上で、結果コホートのコホート定義「Cohort Definition Outcome Cohort」の作成は完了です。</p>
+<br>
+<hr>
+<h1 id="5-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90"><strong>5　Incidence Rates（発生率）の分析</strong></h1>
+<p>本章では、新規の Incidence Rates 定義の作成方法について説明します。<br>
+4章で作成した「Target Cohorts」と「Outcome Cohorts」の Cohort Definitions を用いて、Incidence Rates 定義を作成します。</p>
+<p>Incidence Rates による分析では、1つ以上の「Target Cohorts」と1つ以上の「Outcome Cohorts」を設定します。<br>
+Atlas 画面の左タブから「Incidence Rates」メニューをクリックします。<br>
+画面を開くと、Atlas プラットフォーム内で既に作成された Incidence Rates の分析定義一覧が表示されます。<br>
+Incidence Rates の分析定義を新規作成するので、「New Analysis」をクリックします。</p>
+<p><img src="./Atlas_5/image/image52.png" alt="" width="1200px"></p>
+<br>
+<p>「Incidence Rate Analysis」の登録画面が表示されます。</p>
+<p><img src="./Atlas_5/image/image53.png" alt="" width="900px"></p>
+<br>
+<p>画面上部に Incidence Rates の分析定義の名称を入力する欄があるので、「Incidence Rate Analysis Gallstone」と入力します。</p>
+<p><img src="./Atlas_5/image/image54.png" alt="" width="600px"></p>
+<br>
+<hr>
+<h2 id="51-target-cohorts%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5．1　「Target Cohorts」の作成</strong></h2>
+<p>次に、目標コホートの作成を行います。<br>
+「Study Cohorts」にある緑のボタン「Add Target Cohort」をクリックします。</p>
+<p><img src="./Atlas_5/image/image55.png" alt="" width="900px"></p>
+<br>
+<p>コホート定義の一覧が表示されるので、目標コホート定義「Cohort Definition Target Cohort」をクリックして選択します。<br>
+選択後に右上の「×」をクリックし、コホート定義の一覧画面を閉じます。</p>
+<p><img src="./Atlas_5/image/image56.png" alt=""></p>
+<br>
+<p>「Incidence Rate Analysis」の登録画面の「Target Cohorts」に「Cohort Definition Target Cohort」が表示されます。<br>
+（削除したい場合は、目標コホート定義の左側にある「×」をクリックします）</p>
+<p><img src="./Atlas_5/image/image57.png" alt="" width="900px"></p>
+<br>
+<p>以上で、目標コホートの作成は完了です。</p>
+<br>
+<hr>
+<h2 id="52-outcome-cohorts%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5．2　「Outcome Cohorts」の作成</strong></h2>
+<p>続いて、結果コホートの作成を行います。<br>
+「Study Cohorts」にある赤のボタン「Add Outcome Cohort」をクリックします。</p>
+<p><img src="./Atlas_5/image/image58.png" alt="" width="900px"></p>
+<br>
+<p>コホート定義の一覧が表示されるので、結果コホート定義「Cohort Definition Outcome Cohort」をクリックして選択します。<br>
+選択後に右上の「×」をクリックし、コホート定義の一覧画面を閉じます。</p>
+<p><img src="./Atlas_5/image/image59.png" alt=""></p>
+<br>
+<p>「Incidence Rate Analysis」の登録画面の「Outcome Cohorts」に「Cohort Definition Outcome Cohort」が表示されます。<br>
+（削除したい場合は、目標コホート定義の左側にある「×」をクリックします）</p>
+<p><img src="./Atlas_5/image/image60.png" alt="" width="900px"></p>
+<br>
+<p>以上で、結果コホートの作成は完了です。</p>
+<br>
+<hr>
+<h2 id="53-time-at-risk%E3%83%AA%E3%82%B9%E3%82%AF%E6%9C%9F%E9%96%93%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>5．3　「Time At Risk（リスク期間）」の設定</strong></h2>
+<p>リスク期間の開始日は、目標コホートの「start date」（開始日）プラス「0」daysを設定します。<br>
+リスク期間の終了日は、目標コホートの「end date」（終了日）プラス「0」daysを設定します。</p>
+<p><img src="./Atlas_5/image/image61.png" alt="" width="800px"></p>
+<br>
+<hr>
+<h2 id="54-stratify-criteria%E9%9A%8E%E5%B1%A4%E5%8C%96%E5%9F%BA%E6%BA%96%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>5．4　「Stratify Criteria（階層化基準）」の設定</strong></h2>
+<p>階層化基準を設定することで、更に細かな評価基準で分析結果を表示できます。<br>
+本手順では、以下の階層化基準を設定します。<br>
+<br>
+１）女性<br>
+２）男性<br>
+３）30歳以上</p>
+<br>
+<h3 id="%EF%BC%91%E9%9A%8E%E5%B1%A4%E5%8C%96%E5%9F%BA%E6%BA%96%E5%A5%B3%E6%80%A7%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>１）階層化基準「女性」の設定</strong></h3>
+<p>「Stratify Criteria」にある緑のボタン「New stratify Criteria」をクリックします。</p>
+<p><img src="./Atlas_5/image/image62.png" alt="" width="600px"></p>
+<br>
+<p>基準名称の欄に、「Female」を入力します。</p>
+<p><img src="./Atlas_5/image/image63.png" alt="" width="900px"></p>
+<br>
+<p>「Stratify Criteria」の右側にある青のボタン「＋Add criteria to group…」をクリックして、「Add Demographic」を選択します。</p>
+<p><img src="./Atlas_5/image/image64.png" alt="" width="900px"></p>
+<br>
+<p>青のボタン「＋Add attribute..」をクリックして、「Add Gender Criteria」を選択します。</p>
+<p><img src="./Atlas_5/image/image65.png" alt="" width="900px"></p>
+<br>
+<p>「with a gender of」の項目が表示されるので、「Add」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image66.png" alt="" width="900px"></p>
+<br>
+<p>「Select Concept」のリストが表示されるので、リストから「FEMALE」を選択し、「Add And Close」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image67.png" alt="" width="900px"></p>
+<br>
+<p>「Stratify Criteria」に、「Female」の階層化基準が追加されます。</p>
+<p><img src="./Atlas_5/image/image68.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%92%E9%9A%8E%E5%B1%A4%E5%8C%96%E5%9F%BA%E6%BA%96%E7%94%B7%E6%80%A7%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>２）階層化基準「男性」の設定</strong></h3>
+<p>「Stratify Criteria」にある緑のボタン「New stratify Criteria」をクリックします。</p>
+<p><img src="./Atlas_5/image/image62.png" alt="" width="600px"></p>
+<br>
+<p>基準名称の欄に、「Ｍale」を入力します。</p>
+<p><img src="./Atlas_5/image/image69.png" alt="" width="900px"></p>
+<br>
+<p>「Stratify Criteria」の右側にある青のボタン「＋Add criteria to group…」をクリックして、「Add Demographic」を選択します。</p>
+<p><img src="./Atlas_5/image/image70.png" alt="" width="900px"></p>
+<br>
+<p>青のボタン「＋Add attribute..」をクリックして、「Add Gender Criteria」を選択します。</p>
+<p><img src="./Atlas_5/image/image71.png" alt="" width="900px"></p>
+<br>
+<p>「with a gender of」の項目が表示されるので、「Add」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image72.png" alt="" width="900px"></p>
+<br>
+<p>「Select Concept」リストから「MALE」を選択し、「Add And Close」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image73.png" alt="" width="900px"></p>
+<br>
+<p>Stratify Criteriaに、「Male」の階層化基準が追加されます。</p>
+<p><img src="./Atlas_5/image/image74.png" alt="" width="900px"></p>
+<br>
+<h3 id="%EF%BC%93%E9%9A%8E%E5%B1%A4%E5%8C%96%E5%9F%BA%E6%BA%9630%E6%AD%B3%E4%BB%A5%E4%B8%8A%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>３）階層化基準「30歳以上」の設定</strong></h3>
+<p>「Stratify Criteria」にある緑のボタン「New stratify Criteria」をクリックします。</p>
+<p><img src="./Atlas_5/image/image62.png" alt="" width="600px"></p>
+<br>
+<p>基準名称の欄に、「Age &gt; 30」を入力します。</p>
+<p><img src="./Atlas_5/image/image75.png" alt="" width="900px"></p>
+<br>
+<p>「Stratify Criteria」の右側にある青のボタン「＋Add criteria to group…」をクリックして、「Add Demographic」を選択します。</p>
+<p><img src="./Atlas_5/image/image76.png" alt="" width="900px"></p>
+<br>
+<p>青のボタン「＋Add attribute..」をクリックして、「Add Age Criteria」を選択します。</p>
+<p><img src="./Atlas_5/image/image77.png" alt="" width="900px"></p>
+<br>
+<p>「with age」の項目が表示されるので、「Greater Than」を選択し、「30」を入力します。</p>
+<p><img src="./Atlas_5/image/image78.png" alt="" width="900px"></p>
+<br>
+<p>以上で、階層化基準の作成は完了です。</p>
+<p>画面右上の緑の保存ボタンをクリックすると、「Incidence Rate Analysis Gallstone」が保存されます。</p>
+<p><img src="./Atlas_5/image/image79.png" alt="" width="900px"></p>
+<br>
+<p>以上で、発生率の分析定義「Incidence Rate Analysis Gallstone」の作成は完了です。</p>
+<br>
+<hr>
+<h1 id="6-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90%E5%AE%9F%E8%A1%8C"><strong>6　Incidence Rates（発生率）の分析実行</strong></h1>
+<p>本章では、Incidence Rates（発生率）による分析の操作方法を説明します。</p>
+<br>
+<hr>
+<h2 id="61-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>6．1　「Incidence Rates（発生率）」の実行</strong></h2>
+<p>Atlas 画面の左タブから「Incidence Rates」メニューをクリックします。<br>
+「Incidence Rate Analysis」の画面が開き、Atlas プラットフォーム内で既に作成された Incidence Rates の分析定義一覧が表示されますので、分析定義「Incidence Rate Analysis Gallstone」を選択します。<br>
+分析実施のため、「Generation」タブに移動します。</p>
+<p>対象とするデータソース欄の「Generate」ボタンをクリックすると分析が実行されます。</p>
+<p><img src="./Atlas_5/image/image80.png" alt="" width="1100px"></p>
+<br>
+<p>「Generate」の実行が成功したら、結果一覧に分析実行結果が表示されます。<br>
+「Reports」ボタンをクリックすると、詳細な分析結果を表示することができます。</p>
+<p><img src="./Atlas_5/image/image81.png" alt="" width="1100px"></p>
+<br>
+<p>以上でIncidence Rates（発生率）の分析実行は完了です。</p>
+<br>
+<hr>
+<h2 id="62-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C"><strong>6．2　Incidence Rates（発生率）の分析結果</strong></h2>
+<p>本書における発生率の分析結果では、「急性胆嚢炎」の治療を受けている患者集団に対して、「腹腔鏡下 胆嚢摘出術」の手術を受ける患者の割合（発生率）が表示されます。</p>
+<p>分析定義「Incidence Rate Analysis Gallstone」の「Generate」タブをクリックし、「Reports」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image81.png" alt="" width="1100px"></p>
+<br>
+<p>下図のように、「Incidence Rates（発生率）」の詳細な分析結果が表示されます。</p>
+<p><img src="./Atlas_5/image/image82.png" alt="" width="1200px"></p>
+<br>
+<p>１）表示対象とする「Target Cohorts」、及び「Outcome Cohorts」は、下図の箇所から選択できます。</p>
+<p><img src="./Atlas_5/image/image83.png" alt=""></p>
+<br>
+<p>２）「Target Cohorts」と「Outcome Cohorts」の分析結果が下記の内容で表示されます。</p>
+<ul>
+<li>Persons：調査対象となる目標コホート「急性胆嚢炎」の患者総人数が表示されます。</li>
+<li>Cases：結果コホート「腹腔鏡下 胆嚢摘出術」を受ける患者人数が表示されます。</li>
+<li>Proportion：「腹腔鏡下 胆嚢摘出術」を受けるリスクある患者の比率</li>
+<li>Time At Risk：目標コホートのリスク時間</li>
+<li>Rate：結果コホートについてのリスク発生率</li>
+</ul>
+<p><img src="./Atlas_5/image/image84.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Persons</td>
+<td style="text-align:left">24人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">8人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">333.33/1000人</td>
+<td style="text-align:left">割合（計算式：Cases / Persons ）</td>
+</tr>
+<tr>
+<td style="text-align:left">Time At Risk</td>
+<td style="text-align:left">11人年</td>
+<td style="text-align:left">リスク期間</td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">727.27/1000人年</td>
+<td style="text-align:left">リスク発生率（計算式：Cases / Time At Risk）</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>「急性胆嚢炎」の治療を受けている24患者について、「腹腔鏡下 胆嚢摘出術」の手術を受けるリスクある患者は8人いることが分かります。<br>
+この場合の割合は、33.33％（333.33/1000人）になります。<br>
+リスク時間は11人年となっており、この場合のリスク発生率は、72.727%（727.27/1000人年）になります。</p>
+<br>
+<p>３）Stratify Criteria（階層化基準）の分析結果</p>
+<p>設定した階層化基準毎の分析結果が表示されます。<br>
+本書では、階層化基準「Female」、「Male」、「Age&gt;30」の分析結果を確認することができます。</p>
+<p><img src="./Atlas_5/image/image85.png" alt=""></p>
+<p>1．Female</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">N（Persons）</td>
+<td style="text-align:left">17人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">6人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">352.94/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Time At Risk</td>
+<td style="text-align:left">8人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">750.00/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>2．Male</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">N（Persons）</td>
+<td style="text-align:left">7人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">2人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">285.71/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Time At Risk</td>
+<td style="text-align:left">3人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">666.67/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>階層化基準の「Female」、「Male」、「Age&gt;30」の分布を図で確認する事が出来ます。<br>
+図は、患者比率の値によって色分けされ、表示されます。<br>
+マウスカーソルをグラフ上に移動する事で、各々の評価基準の分析結果が、グラフ上部に表示されます。</p>
+<p><img src="./Atlas_5/image/image86.png" alt=""></p>
+<br>
+<p>各々の階層化基準の組み合わせ分析結果については、以下の通りとなります。</p>
+<p>①「女性」かつ「Age≦30」の分析結果</p>
+<p>グラフエリア①は、「女性」かつ「Age≦30」の分析結果となります。<br>
+（階層化基準の分析結果において、黒字の列が統計対象となります）</p>
+<p><img src="./Atlas_5/image/image87.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">people（Persons）</td>
+<td style="text-align:left">14人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">3人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">583.30/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">TAR（Time At Risk）</td>
+<td style="text-align:left">8人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">375.00/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./Atlas_5/image/image88.png" alt=""></p>
+<br>
+<p>②「男性」かつ「Age≦30」の分析結果</p>
+<p>グラフのエリア②は、「男性」かつ「Age≦30」の分析結果となります。<br>
+（階層化基準の分析結果において、黒字の列が統計対象となります）</p>
+<p><img src="./Atlas_5/image/image89.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">people（Persons）</td>
+<td style="text-align:left">6人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">1人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">250.00/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">TAR（Time At Risk）</td>
+<td style="text-align:left">3人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">333.33/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./Atlas_5/image/image90.png" alt=""></p>
+<br>
+<p>③　「男性」かつ「Age＞30」の分析結果</p>
+<p>グラフのエリア③は、「男性」かつ「Age＞30」の分析結果となります。<br>
+（階層化基準の分析結果において、黒字の列が統計対象となります）</p>
+<p><img src="./Atlas_5/image/image91.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">people（Persons）</td>
+<td style="text-align:left">1人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">0人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">41.7/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">TAR（Time At Risk）</td>
+<td style="text-align:left">0人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">0/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./Atlas_5/image/image92.png" alt=""></p>
+<br>
+<p>④　「女性」かつ「Age＞30」の分析結果</p>
+<p>グラフのエリア④は、「女性」かつ「Age＞30」の分析結果となります。<br>
+（階層化基準の分析結果において、黒字の列が統計対象となります）</p>
+<p><img src="./Atlas_5/image/image93.png" alt=""></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center" width="200px">項目</th>
+<th style="text-align:center" width="200px">結果</th>
+<th style="text-align:center">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">people（Persons）</td>
+<td style="text-align:left">3人</td>
+<td style="text-align:left">※目標コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Cases</td>
+<td style="text-align:left">3人</td>
+<td style="text-align:left">※結果コホートの患者数</td>
+</tr>
+<tr>
+<td style="text-align:left">Proportion</td>
+<td style="text-align:left">125.00/1000人</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">TAR（Time At Risk）</td>
+<td style="text-align:left">0人年</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">Rate</td>
+<td style="text-align:left">0/1000人年</td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./Atlas_5/image/image94.png" alt=""></p>
+<br>
+<p>Incidence Rates（発生率）の分析結果についての説明は以上です。</p>
+<br>
+<hr>
+<h1 id="7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99"><strong>7	補足資料</strong></h1>
+<p>Incidence Ratesによる分析では、複数の「Target Cohorts」と「Outcome Cohorts」を設定することができます。</p>
+<p>本章では、複数の「Target Cohorts」と「Outcome Cohorts」の設定方法について、補足説明します。</p>
+<br>
+<hr>
+<h2 id="71-%E8%A4%87%E6%95%B0%E3%81%AEtarget-cohorts%E3%81%A8outcome-cohorts%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>7．1	複数の「Target Cohorts」と「Outcome Cohorts」の設定</strong></h2>
+<p>「Incidence Rate Analysis」画面から「New Analysis」をクリックして分析定義名称を入力し、「Definition」タグを選択します。
+「Add Target Cohort」をクリックし、コホート定義一覧画面を表示します。</p>
+<p><img src="./Atlas_5/image/image95.png" alt="" width="1100px"></p>
+<br>
+<p>コホート定義一覧から、新しいコホート定義を2つ選択して、画面右上の「×」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image96.png" alt=""></p>
+<br>
+<p>「Target Cohort」に、2つのコホート定義が表示されます。</p>
+<p><img src="./Atlas_5/image/image97.png" alt="" width="1100px"></p>
+<br>
+<p>引き続き、「Add Outcome Cohort」をクリックし、コホート定義一覧画面を表示します。</p>
+<p><img src="./Atlas_5/image/image98.png" alt="" width="1100px"></p>
+<br>
+<p>コホート定義一覧から、新しいコホート定義を2つ選択して、画面右上の「×」ボタンをクリックします。</p>
+<p><img src="./Atlas_5/image/image99.png" alt=""></p>
+<br>
+<p>「Outcome Cohort」に、２つのコホート定義が表示されます。</p>
+<p><img src="./Atlas_5/image/image100.png" alt="" width="1100px"></p>
+<br>
+<p>画面右上の緑の保存ボタンをクリックして、分析定義を保存します。</p>
+<p><img src="./Atlas_5/image/image79.png" alt=""></p>
+<br>
+<p>以上で、複数の「Target Cohorts」と「Outcome Cohorts」の作成は完了です。</p>
+<br>
+<hr>
+<h2 id="72-incidence-rates%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>7．2　Incidence Ratesの実行</strong></h2>
+<p>「Generation」タブに移動し、「Generate」ボタンをクリックすると分析が実行されます。</p>
+<p><img src="./Atlas_5/image/image80.png" alt="" width="1100px"></p>
+<br>
+<p>「Generate」の実行が成功したら、結果一覧に分析結果が表示されます。</p>
+<p><img src="./Atlas_5/image/image101.png" alt="" width="1100px"></p>
+<br>
+<p>以上でIncidence Rates（発生率）の実行は完了です。</p>
+<br>
+<hr>
+<h2 id="73-incidence-rates%E3%81%AE%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C"><strong>7．3	Incidence Ratesの分析結果</strong></h2>
+<p>「Target Cohorts」と「Outcome Cohorts」のプルダウンリストから、「Target Cohorts」と「Outcome Cohorts」を選択し、組合せによる分析結果を表示することができます。<br>
+ただし、「Target Cohorts」と「Outcome Cohorts」の選択は、それぞれ１つのみとなります。</p>
+<p>Target Cohorts
+<img src="./Atlas_5/image/image102.png" alt="" width="1100px"></p>
+<p>Outcome Cohorts -結果コホート
+<img src="./Atlas_5/image/image103.png" alt="" width="1100px"></p>
+<br>
+<p>「Target Cohorts」と「Outcome Cohorts」を選択し、「Reports」から詳細な分析結果を表示することができます。</p>
+<p><img src="./Atlas_5/image/image104.png" alt="" width="1100px"></p>
+<br>
+<p>以上が、複数の「Target Cohorts」と「Outcome Cohorts」の設定方法となります。</p>
+<br><br><br><br><br>
+</body>
+</html>
