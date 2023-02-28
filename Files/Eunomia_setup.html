@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Eunomia テストデータのセットアップ</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 16px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+■p、li、img横幅調整
+p, li, pre {
+	width: 90%; max-width: 1200px;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	font-size: 16px;
+	tab-size: 4;
+}
+
+■img横幅調整無効
+/* img {
+	max-width: 100%;
+	max-height: 100%;
+} */
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+/* ページトップへ移動ボタン */
+#page_top{
+  width: 90px;
+  height: 90px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  background: #3f98ef;
+  opacity: 0.6;
+  border-radius: 50%;
+}
+#page_top a{
+  position: relative;
+  display: block;
+  width: 90px;
+  height: 90px;
+  text-decoration: none;
+}
+#page_top a::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  content: '\f102';
+  font-size: 25px;
+  color: #fff;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+#page_top a::after{
+  content: 'PAGE TOP';
+  font-size: 13px;
+  color: #fff;
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+/* ------------------------------ */
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div id="page_top"><a href="#"></a></div>
+<h1 id="eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97"><strong>Eunomia テストデータのセットアップ</strong></h1>
+<h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
+<p><a href="#1-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88">1　Eunomia からデータのエクスポート</a><br>
+<a href="#2-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">2　データベースへのインポート</a><br>
+<a href="#3-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C">3　Achilles の実行</a></p>
+<br>
+<hr>
+<h1 id="1-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>1　Eunomia からデータのエクスポート</strong></h1>
+<p>以下の手順に従い、インポートするデータを Eunomia からエクスポートします。<br>
+まず、エクスポートするテストデータを格納するフォルダを作成しておきます。</p>
+<p><img src="./Atlas_3/image/image1.png" alt=""></p>
+<br>
+<p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
+<p>続いて R コンソールを起動し、以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>&gt; library(Eunomia)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image2.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; folder &lt;- &quot;D:\\tmp\\output&quot;
+&gt; exportToCsv(folder)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image3.png" alt=""></p>
+<br>
+<p>下図のメッセージが表示されたら実行は完了です。</p>
+<p><img src="./Atlas_3/image/image4.png" alt=""></p>
+<br>
+<p>作成したフォルダを表示し、エクスポートしたデータが格納されている事を確認します。</p>
+<p><img src="./Atlas_3/image/image5.png" alt=""></p>
+<br>
+<hr>
+<h1 id="2-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88"><strong>2　データベースへのインポート</strong></h1>
+<p>インポートを始める前に、エクスポートしたデータの内容を一部修正します。</p>
+<ul>
+<li>
+<p>CONCEPT_ANCESTOR.csv<br>
+ファイルを開き「3.6e+07」を「36000000」に、「3.7e+07」を「37000000」に置き換えます。</p>
+</li>
+<li>
+<p>DRUG_EXPOSURE.csv<br>
+ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に置き換えます。</p>
+</li>
+<li>
+<p>MEASUREMENT.csv<br>
+ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に置き換えます。</p>
+</li>
+<li>
+<p>OBSERVATION.csv<br>
+ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に置き換えます。<br>
+ファイルの修正が完了したら、以下の手順に従い Eunomia からエクスポートしたデータをインポートします。</p>
+</li>
+</ul>
+<p>psql を起動し、データベース「OHDSI」へ接続します。<br>
+コマンドプロンプトを起動し以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>psql -U ohdsi_admin_user -d OHDSI
+</div></code></pre>
+<p><img src="./Atlas_3/image/image6.png" alt=""><br>
+※パスワードはセットアップ時に設定したパスワードを入力します。</p>
+<p>データベースへ接続したら、参照スキーマを設定します。</p>
+<pre class="hljs"><code><div># set search_path to &quot;cdmv5&quot;;
+</div></code></pre>
+<p><img src="./Atlas_3/image/image7.png" alt=""></p>
+<br>
+<p>以下のコマンドを入力し、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CDM_SOURCE from 'D:\\tmp\output\\CDM_SOURCE.csv' with delimiter ',' csv header
+</div></code></pre>
+<p><img src="./Atlas_3/image/image8.png" alt=""></p>
+<br>
+<p>実行が成功すると、インポートした件数が表示されます。</p>
+<p><img src="./Atlas_3/image/image9.png" alt=""></p>
+<br>
+<p>同様に以下のコマンドを入力して、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CONCEPT from 'D:\\tmp\output\\CONCEPT.csv' with delimiter ',' csv header
+# \copy CONCEPT_ANCESTOR from 'D:\\tmp\output\\CONCEPT_ANCESTOR.csv' with delimiter ',' csv header
+# \copy CONCEPT_RELATIONSHIP from 'D:\\tmp\output\\CONCEPT_RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy CONCEPT_SYNONYM from 'D:\\tmp\output\\CONCEPT_SYNONYM.csv' with delimiter ',' csv header
+# \copy CONDITION_ERA from 'D:\\tmp\output\\CONDITION_ERA.csv' with delimiter ',' csv header
+# \copy CONDITION_OCCURRENCE from 'D:\\tmp\output\\CONDITION_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy DOMAIN from 'D:\\tmp\output\\DOMAIN.csv' with delimiter ',' csv header
+# \copy DRUG_ERA from 'D:\\tmp\output\\DRUG_ERA.csv' with delimiter ',' csv header
+# \copy DRUG_EXPOSURE from 'D:\\tmp\output\\DRUG_EXPOSURE.csv' with delimiter ',' csv header
+# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' with delimiter ',' csv header
+# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' with delimiter ',' csv header
+# \copy OBSERVATION_PERIOD from 'D:\\tmp\output\\OBSERVATION_PERIOD.csv' with delimiter ',' csv header
+# \copy PERSON from 'D:\\tmp\output\\PERSON.csv' with delimiter ',' csv header
+# \copy PROCEDURE_OCCURRENCE from 'D:\\tmp\output\\PROCEDURE_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy RELATIONSHIP from 'D:\\tmp\output\\RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy VISIT_OCCURRENCE from 'D:\\tmp\output\\VISIT_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy VOCABULARY from 'D:\\tmp\output\\VOCABULARY.csv' with delimiter ',' csv header FORCE NOT NULL vocabulary_version,vocabulary_reference
+</div></code></pre>
+<p>性別 CONCEPT の登録コマンドを実行します。</p>
+<pre class="hljs"><code><div># insert into cdmv5.concept values (8532,'FEMALE','Gender','Gender','Gender','S','F','1900-01-01','2099-12-31',NULL);
+# insert into cdmv5.concept values (8507,'MALE','Gender','Gender','Gender','S','M','1900-01-01','2099-12-31',NULL);
+</div></code></pre>
+<p>以上でデータセットアップは完了です。</p>
+<br>
+<hr>
+<h1 id="3-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>3　Achilles の実行</strong></h1>
+<p>Achilles は、Atlas 内で Data Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
+Data Source 機能を使用するために Achilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
+データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。</p>
+<p>R コンソールを起動し、以下のコマンドを入力し、Achilles を実行します。</p>
+<pre class="hljs"><code><div>&gt; library(Achilles)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image10.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; Sys.setenv(&quot;DATABASECONNECTOR_JAR_FOLDER&quot;=&quot;C:\\tomcat\\webapps\\WebAPI\\WEB-INF\\lib&quot;)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image11.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; connectionDetails &lt;- createConnectionDetails(
+dbms=&quot;postgresql&quot;,
+server=&quot;127.0.0.1/OHDSI&quot;,
+user=&quot;ohdsi_app_user&quot;,
+password=&quot;設定したパスワード&quot;,
+port=&quot;5432&quot;)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image12.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; achilles(
+connectionDetails,
+cdmDatabaseSchema=&quot;cdmv5&quot;,
+resultsDatabaseSchema=&quot;webapi&quot;,
+vocabDatabaseSchema=&quot;cdmv5&quot;,
+numThreads=1,
+sourceName=&quot;CDM V5 Database&quot;,
+cdmVersion=&quot;5.3.1&quot;,
+optimizeAtlasCache=TRUE)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image13.png" alt=""></p>
+<br>
+<p>下記のメッセージが表示されたら実行完了です。</p>
+<p><img src="./Atlas_3/image/image14.png" alt=""></p>
+<p>以上でAchilles の実行は完了です。</p>
+<br><br><br><br><br>
+</body>
+</html>
