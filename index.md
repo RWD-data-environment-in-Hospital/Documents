@@ -2,7 +2,7 @@
 
 ## **Usagi**  
 ```
-Usagiは、独自に定義した各種項目（薬品、病名など）をCONCEPTテーブルへマッピングするための補助ツールです。  
+Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。  
 ```
 - [セットアップ手順](./Usagi_setup.md)
 - [操作手順](./Usagi_operation.md)
@@ -12,8 +12,8 @@ Usagiは、独自に定義した各種項目（薬品、病名など）をCONCEP
 ---
 ## **WhiteRabbit & Rabbit-in-a-Hat**  
 ```
-OMOP CDMの各リソースへマッピング支援するのが、Rabbit-in-a-Hatです。  
-Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitでは入力データをRabbi-in-a-Hatで取り込み可能な形式に加工します。  
+OMOP CDM の各リソースへマッピング支援するのが、Rabbit-in-a-Hat です。  
+Rabbit-in-a-Hat でマッピング作業を進めるために、White Rabbit では入力データを Rabbi-in-a-Hat で取り込み可能な形式に加工します。  
 ```
 - [セットアップ手順](./WhiteRabbit_setup.md)
 - [操作手順](./WhiteRabbit_operation.md)
@@ -23,12 +23,15 @@ Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitで�
 ---
 ## **Atlas**  
 ```
-Atlasは、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
+Atlas は、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
 患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。  
+Eunomia のテストデータは、Atlas の各分析の検証に役立ちます。
 ```
 - [セットアップ手順](./Atlas_setup.md)
-- [操作手順（CohortPathways編）](./Atlas_operation_CohortPathways.md)
-※テストデータ（Eunomia）のセットアップ手順含む
+- [Eunomia テストデータのセットアップ手順](./Eunomia_setup.md)
+- [操作手順 ～Cohort Pathways 編～](./Atlas_operation_CohortPathways.md)
+- [操作手順 ～Characterizations 編～](./Atlas_operation_Characterizations.md)
+- [操作手順 ～Incidence Rates 編～](./Atlas_operation_IncidenceRates.md)
 - [機能調査資料](./Atlas_functional_survey.md)
 - [アプリケーションのバージョン](./Verified_Version.md)
 - [プロキシ設定手順](./Proxy_setting.md)
@@ -39,7 +42,7 @@ Atlasは、OMOP 共通データモデル（CDM）に変換され、標準化さ�
 ---
 ## **HADES**  
 ```
-母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソースRパッケージのセットです。  
+母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。  
 ```
 - [セットアップ手順](./HADES_setup.md)
 - 機能概要

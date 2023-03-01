@@ -13,7 +13,7 @@
 
 ---
 # **1　本手順書について**
-AtlasのIncidence Rates 操作手順について説明します。  
+Atlas の Incidence Rates 操作手順について説明します。  
 本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。
 
 - Windows10（64 ビット）  

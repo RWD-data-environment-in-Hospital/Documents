@@ -186,6 +186,7 @@ body.wordWrap pre {
 
 pre:not(.hljs),
 pre.hljs code > div {
+	font-family: Meiryo;
 	padding: 16px;
 	border-radius: 3px;
 	overflow: auto;
@@ -377,7 +378,7 @@ code {
   </script>
 <h1 id="ohdsi-tool-documents"><strong>OHDSI Tool Documents</strong></h1>
 <h2 id="usagi"><strong>Usagi</strong></h2>
-<pre class="hljs"><code><div>Usagiは、独自に定義した各種項目（薬品、病名など）をCONCEPTテーブルへマッピングするための補助ツールです。  
+<pre class="hljs"><code><div>Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。  
 </div></code></pre>
 <ul>
 <li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Usagi_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
@@ -386,8 +387,8 @@ code {
 <br>
 <hr>
 <h2 id="whiterabbit--rabbit-in-a-hat"><strong>WhiteRabbit &amp; Rabbit-in-a-Hat</strong></h2>
-<pre class="hljs"><code><div>OMOP CDMの各リソースへマッピング支援するのが、Rabbit-in-a-Hatです。  
-Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitでは入力データをRabbi-in-a-Hatで取り込み可能な形式に加工します。  
+<pre class="hljs"><code><div>OMOP CDM の各リソースへマッピング支援するのが、Rabbit-in-a-Hat です。  
+Rabbit-in-a-Hat でマッピング作業を進めるために、White Rabbit では入力データを Rabbi-in-a-Hat で取り込み可能な形式に加工します。  
 </div></code></pre>
 <ul>
 <li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/WhiteRabbit_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
@@ -396,12 +397,16 @@ Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitで�
 <br>
 <hr>
 <h2 id="atlas"><strong>Atlas</strong></h2>
-<pre class="hljs"><code><div>Atlasは、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
+<pre class="hljs"><code><div>Atlas は、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
 患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。  
+Eunomia のテストデータは、Atlas の各分析の検証に役立ちます。
 </div></code></pre>
 <ul>
 	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html" target="_blank" rel="noopener">操作手順（CohortPathways編）</a>※テストデータ（Eunomia）のセットアップ手順含む</li>
+	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Eunomia_setup.html" target="_blank" rel="noopener">Eunomia テストデータのセットアップ手順</a></li>
+	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html" target="_blank" rel="noopener">操作手順 ～Cohort Pathways 編～</a></li>
+	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_Characterizations.html" target="_blank" rel="noopener">操作手順 ～Characterizations 編～</a></li>
+	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_IncidenceRates.html" target="_blank" rel="noopener">操作手順 ～Incidence Rates 編～</a></li>
 	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_functional_survey.html" target="_blank" rel="noopener">機能調査資料</a></li>
 	<br>
 	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Verified_Version.html" target="_blank" rel="noopener">【参考】アプリケーションのバージョン</a></li>
@@ -410,8 +415,10 @@ Rabbit-in-a-Hatでマッピング作業を進めるために、White Rabbitで�
 </ul>
 <hr>
 <h2 id="hades"><strong>HADES</strong></h2>
-<pre class="hljs"><code><div>母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソースRパッケージのセットです。  
+<pre class="hljs"><code><div>母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。  
 </div></code></pre>
+<!-- <pre class="hljs"><span style="font-family: Meiryo;"><code><div>母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。  
+</div></code></span></pre> -->
 <ul>
 <li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/HADES_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
 <li>機能概要</li>

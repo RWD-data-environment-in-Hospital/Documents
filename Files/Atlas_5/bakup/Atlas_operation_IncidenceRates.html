@@ -500,31 +500,32 @@ table.conceptsets{
 <h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86-incidence-rates"><strong>Atlas 操作手順 ～Incidence Rates～</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
 <p><a href="#1-%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1　本手順書について</a><br>
-<a href="#2-incidence-rates%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Incidence Rates 操作の流れ</a><br>
-<a href="#3-concept-sets%E3%81%AE%E4%BD%9C%E6%88%90">3　Concept Sets の作成</a><br>
-<a href="#4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90">4　Cohort Definitions の作成</a><br>
+<a href="#2-incidence-rates%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Incidence Rates操作の流れ</a><br>
+<a href="#3-concept-sets%E3%81%AE%E4%BD%9C%E6%88%90">3　Concept Setsの作成</a><br>
+<a href="#4-cohort-definitions%E3%81%AE%E4%BD%9C%E6%88%90">4　Cohort Definitionsの作成</a><br>
 <a href="#5-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90">5　Incidence Rates（発生率）の分析</a><br>
 <a href="#6-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90%E5%AE%9F%E8%A1%8C">6　Incidence Rates（発生率）の分析実行</a><br>
 <a href="#7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99">7　補足資料</a></p>
 <br>
 <hr>
-<h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順について</strong></h1>
-<p>Atlas の Incidence Rates 操作手順について説明します。<br>
+<h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E6%9B%B8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順書について</strong></h1>
+<p>AtlasのIncidence Rates 操作手順について説明します。<br>
 本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。</p>
 <ul>
 <li>Windows10（64 ビット）</li>
 <li>Java 8 Java Development Kit (JDK)</li>
 <li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
-<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Eunomia_setup.html" target="_blank"  rel="nofollow">「Eunomia テストデータのセットアップ」</a>(参照）</li>
+<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank"  rel="nofollow">「Atlas 操作手順 Eunomia のテストデータセットアップについて」</a>(参照）</li>
 </ul>
 <br>
 <hr>
 <h1 id="2-incidence-rates%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Incidence Rates操作の流れ</strong></h1>
-<p>本操作手順では、以下に示す Incidence Rates を用いた分析を対象にした手順を記載しています。<br>
-<strong>※本手順では、Eunomia のテストデータを使用して Atlas の Incidence Rates による分析を実施します。</strong></p>
-<p><img src="./Atlas_5/image/image1.png" alt="" width="1100px"></p>
+<p>本操作手順では、以下に示す Incidence Rates を用いた分析を対象にした手順を記載しています。</p>
 <br>
-<p>Incidence Rates による分析の操作手順では、下記の事例を取り上げて説明します。</p>
+<p><img src="./Atlas_5/image/image1.png" alt=""></p>
+<br>
+<p>本書では、Eunomia のテストデータを使用して Atlas の Incidence Rates による分析を実施します。<br>
+Incidence Rates による分析の操作手順では、下記の事例を取り上げて説明します。</p>
 <ul>
 <li>Target Cohorts ：Acute cholecystitis（急性胆嚢炎）の治療を受けている患者集団</li>
 <li>Outcome Cohorts：Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）の手術を受けた患者</li>
@@ -662,7 +663,7 @@ table.conceptsets{
 「Concept Set Expression」タブの「Add Concepts」をクリックすると「Search」画面に遷移します。</p>
 <p><img src="./Atlas_5/image/image4.png" alt="" width="1200px"></p>
 <br>
-<p>「Search」画面では、キーワードやコンセプト ID を入力することで対象とするコンセプト情報を検索することができます。</p>
+<p>「Search」画面では、キーワードやコンセプトIDを入力することで対象とするコンセプト情報を検索することができます。</p>
 <p><img src="./Atlas_5/image/image5.png" alt="" width="1200px"></p>
 <br>
 <p>下記のコンセプト情報をコンセプトセットに登録するため、「Search」画面で検索します。</p>
@@ -1108,7 +1109,7 @@ table.conceptsets{
 <p>このコンセプト情報も、派生するコンセプトを分析に含める想定のため、以下のように「Descendants」にチェックが入っていることを確認します。</p>
 <p><img src="./Atlas_5/image/image23.png" alt=""></p>
 <br>
-<p>画面右上の緑の保存ボタンをクリックすると、コンセプトセットが保存されます。<br>
+<p>画面右上の緑の保存ボタンをクリックすると、コンセプトセットが保存されます。
 「Concept Sets」のトップ画面に戻ると、一覧に作成したコンセプトセットが表示されています。</p>
 <p><img src="./Atlas_5/image/image24.png" alt=""></p>
 <br>
@@ -1125,7 +1126,7 @@ table.conceptsets{
 <br>
 <p>本章では、Incidence Rates 機能で分析に使用する「Target Cohorts」と「Outcome Cohorts」について、コホート定義の登録方法を説明します。</p>
 <br>
-<p>本書において、「Target Cohorts」には、以下の2つのコンセプトセットを登録します。</p>
+<p>本書において、「Target Cohorts」には、以下の２つのコンセプトセットを登録します。</p>
 <ul>
 <li>
 <p>病名のコンセプトセット<br>
@@ -1137,7 +1138,7 @@ Rate Gallstone Drug</p>
 </li>
 </ul>
 <br>
-<p>「Outcome Cohorts」には、以下の1つのコンセプトセットを登録します。</p>
+<p>「Outcome Cohorts」には、以下の１つのコンセプトセットを登録します。</p>
 <ul>
 <li>術式のコンセプトセット<br>
 Rate Laparoscopic cholecystectomy Procedure</li>
@@ -1167,7 +1168,7 @@ Rate Laparoscopic cholecystectomy Procedure</li>
 <p><img src="./Atlas_5/image/image30.png" alt=""></p>
 <br>
 <p>観察期間については指定の必要がないので、デフォルトのままにします。<br>
-※「0」days の選択で全期間のデータが対象となります。<br>
+※「0」daysの選択で全期間のデータが対象となります。<br>
 対象イベントは「all events」を選択します。</p>
 <p><img src="./Atlas_5/image/image31.png" alt="" width="900px"></p>
 <br>
@@ -1181,7 +1182,7 @@ Rate Laparoscopic cholecystectomy Procedure</li>
 <p>「Add Condition Occurrence」を選択すると、欄内に図のような詳細設定画面が表示されます。</p>
 <p><img src="./Atlas_5/image/image35.png" alt="" width="900px"></p>
 <br>
-<p>「Any Condition」に組み入れ基準とする病名のコンセプトセットを設定します。<br>
+<p>「Any Condition」に組み入れ基準とする病名のコンセプトセットを設定します。
 「Any Condition」の▼をクリックし、「Import Concept Set」を選択します。</p>
 <p><img src="./Atlas_5/image/image36.png" alt="" width="900px"><br>
 ※もし、誤ったコンセプトセットをインポートしてしまった場合は、「Clear Concept Set」を選択することで、インポートを解除することが出来ます。</p>
@@ -1204,18 +1205,18 @@ Rate Laparoscopic cholecystectomy Procedure</li>
 <ul>
 <li>
 <p>Persistence window（持続性ウィンドウ）<br>
-持続性ウィンドウの Exposure Records の最大日数は、「0」days を設定します。<br>
+持続性ウィンドウのExposure Recordsの最大日数は、「０」daysを設定します。<br>
 ※「0」daysを設定する事で、全期間の日数となります。</p>
 </li>
 <li>
 <p>Surveillance window（監視ウィンドウ）<br>
-監視ウィンドウの終了期間に追加する日数は、「0」days を設定します。</p>
+監視ウィンドウの終了期間に追加する日数は、「０」daysを設定します。</p>
 </li>
 </ul>
 <p><img src="./Atlas_5/image/image41.png" alt="" width="900px"></p>
 <br>
 <h3 id="%EF%BC%94cohort-eras%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E6%AD%B4%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>４）「Cohort Eras（コホート歴）」の設定</strong></h3>
-<p>「Specify era collapse gap size」に、「1095」days を設定します。</p>
+<p>「Specify era collapse gap size」に、「1095」daysを設定します。</p>
 <p><img src="./Atlas_5/image/image42.png" alt="" width="900px"></p>
 <br>
 <p>以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして「Cohort Definition Target Cohort」を保存します。</p>
@@ -1241,7 +1242,7 @@ Rate Laparoscopic cholecystectomy Procedure</li>
 <p><img src="./Atlas_5/image/image47.png" alt=""></p>
 <br>
 <p>観察期間については、特に指定しないのでデフォルトのままにします。<br>
-※「0」days の選択で全期間のデータが対象となります。<br>
+※「0」daysの選択で全期間のデータが対象となります。<br>
 対象イベントは「all events」を選択します。</p>
 <p><img src="./Atlas_5/image/image48.png" alt="" width="900px"></p>
 <br>
@@ -1254,7 +1255,7 @@ Rate Laparoscopic cholecystectomy Procedure</li>
 <p><img src="./Atlas_5/image/image112.png" alt="" width="900px"></p>
 <br>
 <h3 id="%EF%BC%94cohort-eras%E3%82%B3%E3%83%9B%E3%83%BC%E3%83%88%E6%AD%B4%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>４）Cohort Eras（コホート歴）の設定</strong></h3>
-<p>「Specify era collapse gap size」に、「0」days を設定します。</p>
+<p>「Specify era collapse gap size」に、「0」daysを設定します。</p>
 <p><img src="./Atlas_5/image/image50.png" alt="" width="900px"></p>
 <br>
 <p>以上の操作が完了したら、画面右上の緑の保存ボタンをクリックして、「Cohort Definition Outcome Cohort」を保存します。</p>
@@ -1312,8 +1313,8 @@ Incidence Rates の分析定義を新規作成するので、「New Analysis」�
 <br>
 <hr>
 <h2 id="53-time-at-risk%E3%83%AA%E3%82%B9%E3%82%AF%E6%9C%9F%E9%96%93%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>5．3　「Time At Risk（リスク期間）」の設定</strong></h2>
-<p>リスク期間の開始日は、目標コホートの「start date」（開始日）プラス「0」days を設定します。<br>
-リスク期間の終了日は、目標コホートの「end date」（終了日）プラス「0」days を設定します。</p>
+<p>リスク期間の開始日は、目標コホートの「start date」（開始日）プラス「0」daysを設定します。<br>
+リスク期間の終了日は、目標コホートの「end date」（終了日）プラス「0」daysを設定します。</p>
 <p><img src="./Atlas_5/image/image61.png" alt="" width="800px"></p>
 <br>
 <hr>
@@ -1366,7 +1367,7 @@ Incidence Rates の分析定義を新規作成するので、「New Analysis」�
 <p>「Select Concept」リストから「MALE」を選択し、「Add And Close」ボタンをクリックします。</p>
 <p><img src="./Atlas_5/image/image73.png" alt="" width="900px"></p>
 <br>
-<p>Stratify Criteria に、「Male」の階層化基準が追加されます。</p>
+<p>Stratify Criteriaに、「Male」の階層化基準が追加されます。</p>
 <p><img src="./Atlas_5/image/image74.png" alt="" width="900px"></p>
 <br>
 <h3 id="%EF%BC%93%E9%9A%8E%E5%B1%A4%E5%8C%96%E5%9F%BA%E6%BA%9630%E6%AD%B3%E4%BB%A5%E4%B8%8A%E3%81%AE%E8%A8%AD%E5%AE%9A"><strong>３）階層化基準「30歳以上」の設定</strong></h3>
@@ -1407,7 +1408,7 @@ Incidence Rates の分析定義を新規作成するので、「New Analysis」�
 「Reports」ボタンをクリックすると、詳細な分析結果を表示することができます。</p>
 <p><img src="./Atlas_5/image/image81.png" alt="" width="1100px"></p>
 <br>
-<p>以上で Incidence Rates（発生率）の分析実行は完了です。</p>
+<p>以上でIncidence Rates（発生率）の分析実行は完了です。</p>
 <br>
 <hr>
 <h2 id="62-incidence-rates%E7%99%BA%E7%94%9F%E7%8E%87%E3%81%AE%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C"><strong>6．2　Incidence Rates（発生率）の分析結果</strong></h2>
@@ -1729,7 +1730,7 @@ Incidence Rates の分析定義を新規作成するので、「New Analysis」�
 <br>
 <hr>
 <h1 id="7-%E8%A3%9C%E8%B6%B3%E8%B3%87%E6%96%99"><strong>7	補足資料</strong></h1>
-<p>Incidence Rates による分析では、複数の「Target Cohorts」と「Outcome Cohorts」を設定することができます。</p>
+<p>Incidence Ratesによる分析では、複数の「Target Cohorts」と「Outcome Cohorts」を設定することができます。</p>
 <p>本章では、複数の「Target Cohorts」と「Outcome Cohorts」の設定方法について、補足説明します。</p>
 <br>
 <hr>
@@ -1766,7 +1767,7 @@ Incidence Rates の分析定義を新規作成するので、「New Analysis」�
 <p>「Generate」の実行が成功したら、結果一覧に分析結果が表示されます。</p>
 <p><img src="./Atlas_5/image/image101.png" alt="" width="1100px"></p>
 <br>
-<p>以上で Incidence Rates（発生率）の実行は完了です。</p>
+<p>以上でIncidence Rates（発生率）の実行は完了です。</p>
 <br>
 <hr>
 <h2 id="73-incidence-rates%E3%81%AE%E5%88%86%E6%9E%90%E7%B5%90%E6%9E%9C"><strong>7．3	Incidence Ratesの分析結果</strong></h2>

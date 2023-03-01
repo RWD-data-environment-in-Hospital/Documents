@@ -515,154 +515,70 @@ table.conceptsets{
 <li>Windows10（64 ビット）</li>
 <li>Java 8 Java Development Kit (JDK)</li>
 <li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
-<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Eunomia_setup.html" target="_blank"  rel="nofollow">「Eunomia テストデータのセットアップ」</a>(参照）</li>
+<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6" target="_blank"  rel="nofollow">「Atlas 操作手順 Eunomia のテストデータセットアップについて」</a>(参照）</li>
 </ul>
 <br>
 <hr>
 <h1 id="2-characterizations-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Characterizations 操作の流れ</strong></h1>
-<p>本操作手順では、以下に示す Characterizations を用いた分析を対象にした手順を記載しています。<br>
-<strong>※本手順では、Eunomia のテストデータを使用して Atlas の Characterizations による分析を実施します。</strong></p>
-<p><img src="./Atlas_4/image/image0.png" alt="" width="900px"></p>
-<br>
-<p>Characterizations による分析の操作手順では、下記の事例を取り上げて説明します。</p>
+<p>本操作手順書では、以下に示す Characterizations を用いた分析を対象にした手順を記載しています。</p>
+<p><img src="./Atlas_4/image/image0.png" alt="" width="1200px"></p>
+<p>本書では、Eunomia のテストデータを使用して Atlas の Characterizations による分析を実施します。<br>
+Characterizations による分析の操作手順では、次の事例を取り上げて説明します。</p>
 <ul>
 <li>「胆嚢摘出手術」と「腹腔鏡下 胆嚢摘出術」の術式を母集団とし、該当の手術を受けた患者における診断された病名、処方された薬剤、受けた検査項目の人数と発生率を統計します。</li>
 </ul>
 <br>
-<p>Characterizations による分析は、上記事例に従い、以下のテストデータを用いて説明します。</p>
+<p>Characterizations による分析は、上記事例に従い、以下のテストデータを用いて説明します。<br><br>
+1）Cohort Definitions - 調査項目（母集団）</p>
+<ul>
+<li>＜術式＞
+<ul>
+<li>Laparoscopic cholecystectomy（腹腔鏡下 胆嚢摘出術）</li>
+<li>Cholecystectomy（胆嚢摘出術）</li>
+</ul>
+</li>
+</ul>
 <br>
-<h3><strong>1）Cohort Definitions - 調査項目（母集団）</strong></h3>
-<p>＜術式＞</p>
-	<table>
-		<thead>
-		<tr>
-		<th style="text-align:left" width="450px">病名（英語名称）</th>
-		<th style="text-align:left">病名（日本語名称）</th>
-		</tr>
-		</thead>
-		<tbody>
-		<tr>
-		<td style="text-align:left">Laparoscopic cholecystectomy</td>
-		<td style="text-align:left">腹腔鏡下 胆嚢摘出術</td>
-		</tr>
-		<tr>
-		<td style="text-align:left">Cholecystectomy</td>
-		<td style="text-align:left">胆嚢摘出術</td>
-		</tr>
-		</tbody>
-	</table>
+<p>2）Feature analyses - 分析項目（レポート）</p>
+<ul>
+<li>＜診断された病名＞
+<ul>
+<li>Gallstone（胆石）</li>
+<li>Acute cholecystitis（急性胆嚢炎）</li>
+</ul>
+</li>
+</ul>
 <br>
-<h3><strong>2）Feature analyses - 分析項目（レポート）</strong></h3>
-<p>＜診断された病名＞</p>
-<table>
-	<thead>
-	<tr>
-	<th style="text-align:left" width="450px">病名（英語名称）</th>
-	<th style="text-align:left">病名（日本語名称）</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td style="text-align:left">Gallstone</td>
-	<td style="text-align:left">胆石</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Acute cholecystitis</td>
-	<td style="text-align:left">急性胆嚢炎</td>
-	</tr>
-	</tbody>
-</table>
-<br>
+<ul>
+<li>
 <p>＜処方された薬剤＞</p>
-<table>
-	<thead>
-	<tr>
-	<th style="text-align:left" width="450px">病名（英語名称）</th>
-	<th style="text-align:left">病名（日本語名称）</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td style="text-align:left">1 ML Morphine Sulfate 5 MG/ML Injection</td>
-	<td style="text-align:left">1 ML モルヒネ硫酸塩 5 MG/ML 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">100 ML Propofol 10 MG/ML Injection</td>
-	<td style="text-align:left">100 ML プロポフォール 10 MG/ML 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">2 ML Ondansetron 2 MG/ML Injection</td>
-	<td style="text-align:left">2 ML オンダンセトロン 2 MG/ML インジェクション</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Acetaminophen 160 MG Oral Tablet</td>
-	<td style="text-align:left">アセトアミノフェン 160 MG 経口錠剤</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">heparin</td>
-	<td style="text-align:left">ヘパリン</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Isoflurane 999 MG/ML Inhalant Solution</td>
-	<td style="text-align:left">イソフルラン 999 MG/ML 吸入剤溶液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Meperidine Hydrochloride 50 MG Oral Tablet</td>
-	<td style="text-align:left">メペリジン塩酸塩 50 MG 経口錠剤</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Midazolam 1 MG/ML Injectable Solution</td>
-	<td style="text-align:left">ミダゾラム 1 MG/ML 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Piperacillin 4000 MG/tazobactam 500 MG Injection</td>
-	<td style="text-align:left">ピペラシリン 4000 MG/タゾバクタム 500 MG 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">remifentanil</td>
-	<td style="text-align:left">レミフェンタニル</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">rocuronium bromide 10 MG/ML Injectable Solution</td>
-	<td style="text-align:left">臭化ロクロニウム 10 MG/ML 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">sevoflurane 1000 MG/ML Inhalant Solution</td>
-	<td style="text-align:left">セボフルラン 1000 MG/ML 吸入剤溶液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Sodium Chloride 9 MG/ML Injectable Solution</td>
-	<td style="text-align:left">塩化ナトリウム 9 MG/ML 注射液</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">sufentanil</td>
-	<td style="text-align:left">スフェンタニル</td>
-	</tr>	
-</tbody>
-</table>
+<ul>
+<li>1 ML Morphine Sulfate 5 MG/ML Injection (1 ML モルヒネ硫酸塩 5 MG/ML 注射)</li>
+<li>100 ML Propofol 10 MG/ML Injection (100 ML プロポフォール 10 MG/ML 注射)</li>
+<li>2 ML Ondansetron 2 MG/ML Injection (2 ML オンダンセトロン 2 MG/ML インジェクション)</li>
+<li>Acetaminophen 160 MG Oral Tablet (アセトアミノフェン 160 MG 経口錠剤)</li>
+<li>heparin (ヘパリン)</li>
+<li>Isoflurane 999 MG/ML Inhalant Solution (イソフルラン 999 MG/ML 吸入剤溶液)</li>
+<li>Meperidine Hydrochloride 50 MG Oral Tablet (メペリジン塩酸塩50 MG 経口錠剤)</li>
+<li>Midazolam 1 MG/ML Injectable Solution (ミダゾラム 1 MG/ML 注射液)</li>
+<li>Piperacillin 4000 MG/tazobactam 500 MG Injection (ピペラシリン 4000 MG/タゾバクタム 500 MG 注射)</li>
+<li>remifentanil (レミフェンタニル)</li>
+<li>rocuronium bromide 10 MG/ML Injectable Solution (臭化ロクロニウム 10 MG/ML 注射液)</li>
+<li>sevoflurane 1000 MG/ML Inhalant Solution (セボフルラン 1000 MG/ML 吸入剤溶液)</li>
+<li>Sodium Chloride 9 MG/ML Injectable Solution (塩化ナトリウム 9 MG/ML 注射液)</li>
+<li>sufentanil (スフェンタニル)</li>
+</ul>
 <br>
+</li>
+<li>
 <p>＜受けた検査＞</p>
-<table>
-	<thead>
-	<tr>
-	<th style="text-align:left" width="450px">病名（英語名称）</th>
-	<th style="text-align:left">病名（日本語名称）</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td style="text-align:left">Globulin [Mass/volume] in Serum by calculation</td>
-	<td style="text-align:left">血清中のグロブリン [質量/体積] </td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Hematocrit</td>
-	<td style="text-align:left">ヘマトクリット（血中赤血球容積）</td>
-	</tr>
-	<tr>
-	<td style="text-align:left">Hemoglobin</td>
-	<td style="text-align:left">ヘモグロビン（Hb）</td>
-	</tr>
-</table>
+<ul>
+<li>Globulin [Mass/volume] in Serum by calculation（血清中のグロブリン [質量/体積] ）</li>
+<li>Hematocrit（ヘマトクリット（血中赤血球容積））</li>
+<li>Hemoglobin（ヘモグロビン（Hb））</li>
+</ul>
+</li>
+</ul>
 <br><br>
 <hr>
 <h1 id="3-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>3　Concept Sets の作成</strong></h1>
@@ -702,7 +618,7 @@ table.conceptsets{
 <p>「Concept Set Expression」タブの「Add Concepts」をクリックすると Search 画面に遷移します。</p>
 <p><img src="./Atlas_4/image/image3.jpeg" alt="" width="800px"></p>
 <br>
-<p>Search 画面では、キーワードやコンセプト ID を入力することで対象とするコンセプトを探すことができます。<br>
+<p>Search 画面では、キーワードやコンセプトIDを入力することで対象とするコンセプトを探すことができます。<br>
 下記のコンセプトを検索し、Concept Sets へ登録します。</p>
 <table>
 <thead>
@@ -1412,7 +1328,7 @@ table.conceptsets{
 <p>手術前後の観察期間については、特に指定しないのでデフォルトのままにします。<br>
 ※「0 days」の選択で全期間のデータが対象となります<br>
 対象イベントは「all events」を選択します。</p>
-<p>以上で、術式 Cholecystectomy の「Cohort Entry Events」の設定は完了です。</p>
+<p>以上で、術式Cholecystectomyの「Cohort Entry Events」の設定は完了です。</p>
 <br>
 <p>次に、「Inclusion Criteria」欄の設定を実施します。</p>
 <p><img src="./Atlas_4/image/image13.png" alt="" width="1100px"></p>
@@ -1469,13 +1385,13 @@ New inclusion criteria 名：Laparoscopic cholecystectomy<br>
 </li>
 </ul>
 <br>
-<p>以上で Cohort Definitions の作成は完了です。</p>
+<p>以上でCohort Definitionsの作成は完了です。</p>
 <br>
 <hr>
 <h1 id="5-feature-analyses%E7%89%B9%E5%BE%B4%E5%88%86%E6%9E%90%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5　Feature Analyses（特徴分析）の作成</strong></h1>
 <p>Feature Analyses とは、Characterizations による分析で調査したい項目として登録し、調査項目ごとの患者統計や発生率を結果としてレポートに出力します。<br>
 作成された Feature Analyses は、他の Characterizations 機能での分析における出力項目として設定することができます。</p>
-<p>Atlasでは、標準で利用できる Feature Analyses が100件以上あります。（表1）<br>
+<p>Atlasでは、標準で利用できる Feature Analyses が 100 件以上あります。（表1）<br>
 標準の Feature Analyses を選択することで、簡単に Characterizations の調査項目を設定できます。<br>
 標準以外でも、新規に Feature Analyses を作成できますので、観察研究のニーズに合わせて、特定の Characterizations 調査項目を作成することができます。</p>
 <table>
@@ -1557,7 +1473,7 @@ Design のグレーボタン「Criteria」をクリックします。<br>
 ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。</p>
 <p><img src="./Atlas_4/image/image25.png" alt="" width="1000px"></p>
 <br>
-<p>次に、薬剤の Concept Sets を「Criteria Feature」に設定します。</p>
+<p>次に、薬剤のConcept Setsを「Criteria Feature」に設定します。</p>
 <p>1つ目の薬剤の Concept Sets を追加します。<br>
 Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfate 5 MG/ML Injection」と入力します。</p>
 <p><img src="./Atlas_4/image/image26.png" alt="" width="800px"></p>
@@ -1644,7 +1560,7 @@ Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfat
 <p>すべての薬剤のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
 <p><img src="./Atlas_4/image/image42.png" alt="" width="850px"></p>
 <br>
-<p>以上で、Feature Analyses の「Gall Bladder Drug Feature Analysis」の設定は完了です。</p>
+<p>以上で、Feature Analysesの「Gall Bladder Drug Feature Analysis」の設定は完了です。</p>
 <p>同様に、＜病名＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。<br>
 「New Feature Analysis」をクリックして Feature Analyses 作成画面を表示します。<br>
 画面上部に Feature Analyses 名を入力する欄があるので、「Gall Bladder Condition Feature Analysis」と入力します。</p>
@@ -1654,7 +1570,7 @@ Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfat
 ここでは、病名の項目を設定するので、Description は「Condition」を選択します。</p>
 <p><img src="./Atlas_4/image/image44.png" alt="" width="850px"></p>
 <br>
-<p>次に、病名の Concept Setsを「Criteria Feature」に設定します。<br>
+<p>次に、病名のConcept Setsを「Criteria Feature」に設定します。<br>
 グレーボタン「Criteria」をクリックすると、設定画面が表示されます。</p>
 <p><img src="./Atlas_4/image/image125.png" alt="" width="1000px"></p>
 <br>
@@ -1662,9 +1578,9 @@ Criteria 名を入力する欄があるので、薬剤名「1 ML Morphine Sulfat
 ここでは、「Design」の「Analysis type」のプルダウンから「Prevalence（発生率）」を選択します。</p>
 <p><img src="./Atlas_4/image/image25.png" alt="" width="1000px"></p>
 <br>
-<p>次に、病名の Concept Sets を「Criteria Feature」に設定します。</p>
-<p>1つ目の病名のConcept Setsを追加します。<br>
-Criteria 名を入力する欄があるので、病名「Acute cholecystitis」と入力します。</p>
+<p>次に、病名のConcept Setsを「Criteria Feature」に設定します。</p>
+<p>１つ目の病名のConcept Setsを追加します。<br>
+Criteria名を入力する欄があるので、病名「Acute cholecystitis」と入力します。</p>
 <p><img src="./Atlas_4/image/image47.png" alt="" width="800px"></p>
 <br>
 <p>「+Add criteria to group …」をクリックして、「Add Condition Occurrence」を選択します。</p>
@@ -1695,7 +1611,7 @@ Criteria 名を入力する欄があるので、病名「Acute cholecystitis」�
 <p>すべての病名のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
 <p><img src="./Atlas_4/image/image54.png" alt="" width="800px"></p>
 <br>
-<p>以上で、Feature Analyses の「Gall Bladder Condition Feature Analysis」の設定は完了です。</p>
+<p>以上で、Feature Analysesの「Gall Bladder Condition Feature Analysis」の設定は完了です。</p>
 <br>
 <br>
 <p>同様に、＜検査項目＞の Concept Sets を用いて、新規の Feature Analyses 定義を作成します。<br>
@@ -1736,7 +1652,7 @@ Criteria 名を入力する欄があるので、検査項目名「Hemoglobin」�
 <p>「Hemoglobin」のコンセプトセットが設定されます。</p>
 <p><img src="./Atlas_4/image/image63.jpeg" alt="" width="680px"></p>
 <br>
-<p>続いて、2つ目以降の検査項目の Concept Sets を追加します。<br>
+<p>続いて、2つ目以降の検査項目のConcept Setsを追加します。<br>
 緑ボタン「Add Criteria Feature」をクリックすると、新規の「Criteria Feature」の入力項目が表示されます。</p>
 <p><img src="./Atlas_4/image/image64.png" alt="" width="800px"></p>
 <br>
@@ -1756,8 +1672,8 @@ Criteria 名を入力する欄があるので、検査項目名「Hemoglobin」�
 <p>すべての検査項目のコンセプトセットを追加した後、画面上部の緑「保存」ボタンをクリックし、定義内容を保存します。</p>
 <p><img src="./Atlas_4/image/image54.png" alt="" width="800px"></p>
 <br>
-<p>ここまで、Feature Analyses の「Gall Bladder Measurement Feature Analysis」の設定は完了です。</p>
-<p>以上で Feature Analyses 定義の作成は完了です。</p>
+<p>ここまで、Feature Analysesの「Gall Bladder Measurement Feature Analysis」の設定は完了です。</p>
+<p>以上でFeature Analyses定義の作成は完了です。</p>
 <br>
 <hr>
 <h1 id="6-characterizations%E7%89%B9%E6%80%A7%E8%A9%95%E4%BE%A1"><strong>6　Characterizations（特性評価）</strong></h1>
@@ -1770,7 +1686,7 @@ Characterizations による分析では、1つ以上の Cohort definition と1�
 まず、Characterizations 機能における、「作成画面」と「分析結果画面」について説明します。</p>
 <p>Characterizations の作成手順は、「6.1 Characterizations の作成と実行」から説明します。</p>
 <br>
-<p>１）Characterizations の作成画面<br>
+<p>１）Characterizationsの作成画面<br>
 作成画面には「Cohort definition」と「Feature Analyses」の設定項目があります。<br>
 「Cohort definition」項目には、分析対象とする母集団を設定します。</p>
 <p><img src="./Atlas_4/image/image67.png" alt=""></p>
@@ -1778,7 +1694,7 @@ Characterizations による分析では、1つ以上の Cohort definition と1�
 <p>「Feature Analyses」項目には、特徴分析で統計したい出力項目を定義します。</p>
 <p><img src="./Atlas_4/image/image68.png" alt=""></p>
 <br>
-<p>２）Characterizations の分析結果画面<br>
+<p>２）Characterizationsの分析結果画面<br>
 Characterizations の分析結果は、表形式で表示されます。<br>
 集計表には、統計された患者人数と発生率が表示されます。</p>
 <p><img src="./Atlas_4/image/image69.png" alt="" width="1000px"></p>
@@ -1812,7 +1728,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <br>
 <hr>
 <h2 id="61-characterizations-%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E5%AE%9F%E8%A1%8C"><strong>6．1　Characterizations の作成と実行</strong></h2>
-<p>Atlas の画面左側の「Characterizations」タブをクリックすると、既に Atlas プラットフォーム内で設計された特徴評価一覧が表示されます。</p>
+<p>Atlasの画面左側の「Characterizations」タブをクリックすると、既に Atlas プラットフォーム内で設計された特徴評価一覧が表示されます。</p>
 <p><img src="./Atlas_4/image/image71.jpeg" alt="" width="1200px"></p>
 <br>
 <p>「Characterizations」に新規特性評価を作成します。<br>
@@ -1822,7 +1738,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p>画面上部に Characterizations 名称「Gall Bladder Characterization」を入力します。</p>
 <p><img src="./Atlas_4/image/image73.png" alt=""></p>
 <br>
-<p>１）Cohort Definition の設定<br>
+<p>１）Cohort Definitionの設定<br>
 「Cohort Definition」に「Cholecystectomy Definition」と「Laparoscopic cholecystectomy Definition」を設定します。</p>
 <ul>
 <li>Cholecystectomy Definition のインポート<br>
@@ -1850,7 +1766,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p>Cohort Definition の一覧に、インポートされた「Laparoscopic cholecystectomy Definition」が表示されます。</p>
 <p><img src="./Atlas_4/image/image79.png" alt=""></p>
 <br>
-<p>２）Feature Analyses の設定<br>
+<p>２）Feature Analysesの設定<br>
 「Feature Analyses」に、「Gall Bladder Drug Feature Analysis」、「Gall Bladder Condition Feature Analysis」、「Gall Bladder Measurement Feature Analysis」、「Demographics Gender」を設定します。</p>
 <ul>
 <li>Gall Bladder Drug Feature Analysis のインポート<br>
@@ -1858,7 +1774,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 </ul>
 <p><img src="./Atlas_4/image/image80.png" alt=""></p>
 <br>
-<p>「Choose a Feature Analyses…」の画面が表示され、Feature analyses の一覧が表示されます。<br>
+<p>「Choose a Feature Analyses…」の画面が表示され、Feature analysesの一覧が表示されます。<br>
 「Filter」欄に「Gall Bladder Drug Feature Analysis」と入力し、表示された「Gall Bladder Drug Feature Analysis」にチェックを入れ、「Import」をクリックします。</p>
 <p><img src="./Atlas_4/image/image81.jpeg" alt="" width="1000px"></p>
 <br>
@@ -1879,7 +1795,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p><img src="./Atlas_4/image/image85.png" alt=""></p>
 <br>
 <ul>
-<li>Gall Bladder Measurement Feature Analysis のインポート<br>
+<li>Gall Bladder Measurement Feature Analysisのインポート<br>
 「Feature Analyses」の「Import」ボタンをクリックします。</li>
 </ul>
 <p><img src="./Atlas_4/image/image86.png" alt=""></p>
@@ -1897,7 +1813,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 </ul>
 <p><img src="./Atlas_4/image/image89.png" alt=""></p>
 <br>
-<p>「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。<br>
+<p>「Choose a Feature Analyses…」画面が表示され、Feature analyses の一覧が表示されます。
 「Filter」欄に「Demographics Gender」と入力し、表示された「Demographics Gender」にチェックを入れ、「Import」をクリックします。</p>
 <p><img src="./Atlas_4/image/image90.jpeg" alt="" width="1000px"></p>
 <br>
@@ -1908,7 +1824,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p><img src="./Atlas_4/image/image92.png" alt="" width="1000px"></p>
 <br>
 <p>保存が完了したら、分析実施のため、「Execution」タブに移動します。</p>
-<p>「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回は Eunomia を用いた検証のため、CDM V5 Databaseが表示されます）</p>
+<p>「Execution」タブでは、Atlas で構成されている全データソースが表示されています。（今回はEunomiaを用いた検証のため、CDM V5 Databaseが表示されます）</p>
 <p>対象とするデータソース欄の「Generate」ボタンをクリックすると分析が実行されます。</p>
 <p><img src="./Atlas_4/image/image93.png" alt="" width="800px"></p>
 <br>
@@ -1948,7 +1864,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p>２）分析結果の一覧表</p>
 <ul>
 <li>All prevalence covariates<br>
-「Filter panel」で選択した Cohorts について、特徴分析の結果が表示されます。</li>
+「Filter panel」で選択したCohortsについて、特徴分析の結果が表示されます。</li>
 </ul>
 <p><img src="./Atlas_4/image/image98.png" alt="" width="1200px"></p>
 <br>
@@ -2367,7 +2283,7 @@ Feature Analyses の定義は5章で設定した項目、および Atlas 標準�
 <p>Atlas では、105件の Feature Analyses 項目が標準で提供されています。<br>
 OMOP CDM モデルの特性分析（Characterizations）を行う際に利用できます。<br>
 「Demographics」の名称で始まる特徴分析項目は、コホート開始日における患者の人口統計情報を計算します。<br>
-ドメイン名で始まる特徴分析項目(Visit、Procedure、Condition、Drug など) については、ドメイン内に記録されたすべてのレコード観察値を統計します。<br>
+ドメイン名で始まる特徴分析項目(Visit、Procedure、Condition、Drugなど) については、ドメイン内に記録されたすべてのレコード観察値を統計します。<br>
 また、各ドメインの特徴分析項目には、下記4つのコホート開始前の観察期間オプションがあります。</p>
 <ul>
 <li>Any Time Prior（より前任意時間）: 人の観察期間内におけるコホート開始前
@@ -2376,7 +2292,7 @@ OMOP CDM モデルの特性分析（Characterizations）を行う際に利用で
 <li>Medium Term（中期）: コホート開始日を含む 180 日前</li>
 <li>Short Term（短期）: コホート開始日を含む 30 日前</li>
 </ul>
-<p>下記表が標準の Feature Analyses 項目の一覧となります。</p>
+<p>下記表が標準のFeature Analyses項目の一覧となります。</p>
 <table>
 <thead>
 <tr>

@@ -497,74 +497,182 @@ table.conceptsets{
     });
   </script>
 <div id="page_top"><a href="#"></a></div>
-<h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>Atlas 操作手順 ～Cohort Pathways～</strong></h1>
+<h1 id="atlas-%E6%93%8D%E4%BD%9C%E6%89%8B%E9%A0%86"><strong>Atlas 操作手順</strong></h1>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
 <p><a href="#1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1　本手順について</a><br>
 <a href="#2-atlas-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C">2　Atlas 操作の流れ</a><br>
-<a href="#3-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90">3　Concept Sets の作成</a><br>
-<a href="#4-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90">4　Cohort Definitions の作成</a><br>
-<a href="#5-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90">5　Cohort Pathways（経路分析）</a></p>
+<a href="#3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">3　Eunomia テストデータのセットアップについて</a><br>
+　<a href="#31-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88">3．1　Eunomia からデータのエクスポート</a><br>
+　<a href="#32-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">3．2　データベースへのインポート</a><br>
+<a href="#4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C">4　Achilles の実行</a><br>
+<a href="#5-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90">5　Concept Sets の作成</a><br>
+<a href="#6-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90">6　Cohort Definitions の作成</a><br>
+<a href="#7-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90">7　Cohort Pathways（経路分析）</a></p>
 <br>
 <hr>
 <h1 id="1-%E6%9C%AC%E6%89%8B%E9%A0%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>1　本手順について</strong></h1>
-<p>Atlas の Cohort Pathways 操作手順について説明します。<br>
+<p>Atlas の操作手順について説明します。<br>
 本操作手順は、以下の Atlas 動作環境が整備されていることを前提としています。</p>
 <ul>
 <li>Windows10（64 ビット）</li>
 <li>Java 8 Java Development Kit (JDK)</li>
 <li>Atlas セットアップ（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank"  rel="nofollow">「Atlas セットアップ手順」</a>参照）</li>
-<li>Eunomia テストデータのセットアップ（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Eunomia_setup.html" target="_blank"  rel="nofollow">「Eunomia テストデータのセットアップ」</a>(参照）</li>
 </ul>
 <br>
 <hr>
 <h1 id="2-atlas-%E6%93%8D%E4%BD%9C%E3%81%AE%E6%B5%81%E3%82%8C"><strong>2　Atlas 操作の流れ</strong></h1>
-<p>本操作手順では、以下に示す Cohort Pathways を用いた分析を対象にした手順を記載しています。<br>
-<strong>※本手順では、Eunomia のテストデータを使用して Atlas の Cohort Pathways による分析を実施します。</strong></p>
+<p>本操作手順では、Cohort Pathways を用いた分析を対象にして手順を記載しています。</p>
 <br>
-<p><img src="./Atlas_3/image/image34.png" alt="" width="700px"></p>
+<p><img src="./Atlas_3/image/image34.png" alt=""></p>
 <br>
+<p>本手順では、Eunomia のテストデータを使用して Atlas で分析を実施します。</p>
 <p>＜病名＞</p>
-<table>
-	<thead>
-	<tr>
-	<th style="text-align:left" width="450px">病名（英語名称）</th>
-	<th style="text-align:left">病名（日本語名称）</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td style="text-align:left">Gastrointestinal hemorrhage</td>
-	<td style="text-align:left">消化管出血</td>
-	</tr>
-	</tbody>
-</table>
-<br>
+<ul>
+<li>消化管出血（Gastrointestinal hemorrhage）</li>
+</ul>
 <p>＜薬剤＞</p>
-<table>
-	<thead>
-	<tr>
-	<th style="text-align:left" width="450px">病名（英語名称）</th>
-	<th style="text-align:left">病名（日本語名称）</th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-	<td style="text-align:left">celecoxib</td>
-	<td style="text-align:left">セレコキシブ</td>
-	</tr>
-	</tbody>
-	<tbody>
-	<tr>
-	<td style="text-align:left">diclofenac</td>
-	<td style="text-align:left">ジクロフェナク</td>
-	</tr>
-	</tbody>
-</table>
+<ul>
+<li>セレコキシブ（celecoxib）</li>
+<li>ジクロフェナク（diclofenac）</li>
+</ul>
 <br>
 <p>上記の例に従って各機能の操作手順を説明します。</p>
 <br>
 <hr>
-<h1 id="3-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>3　Concept Sets の作成</strong></h1>
+<h1 id="3-eunomia-%E3%83%86%E3%82%B9%E3%83%88%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"><strong>3　Eunomia テストデータのセットアップについて</strong></h1>
+<p>本章では Eunomia のテストデータをデータベースへインポートする手順を記載します。</p>
+<br>
+<hr>
+<h2 id="31-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>3．1　Eunomia からデータのエクスポート</strong></h2>
+<p>以下の手順に従い、インポートするデータを Eunomia からエクスポートします。<br>
+まず、エクスポートするテストデータを格納するフォルダを作成しておきます。</p>
+<p><img src="./Atlas_3/image/image1.png" alt=""></p>
+<br>
+<p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
+<p>続いて R コンソールを起動し、以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>&gt; library(Eunomia)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image2.png" alt="" width="500px"></p>
+<br>
+<pre class="hljs"><code><div>&gt; folder &lt;- &quot;D:\\tmp\\output&quot;
+&gt; exportToCsv(folder)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image3.png" alt="" width="500px"></p>
+<br>
+<p>下図のメッセージが表示されたら実行は完了です。</p>
+<p><img src="./Atlas_3/image/image4.png" alt="" width="500px"></p>
+<br>
+<p>作成したフォルダを表示し、エクスポートしたデータが格納されている事を確認します。</p>
+<p><img src="./Atlas_3/image/image5.png" alt=""></p>
+<br>
+<hr>
+<h2 id="32-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88"><strong>3．2　データベースへのインポート</strong></h2>
+<p>インポートを始める前に、エクスポートしたデータの内容を一部修正します。</p>
+<ul>
+<li>
+<p>CONCEPT_ANCESTOR.csv<br>
+ファイルを開き「3.6e+07」を「36000000」に、「3.7e+07」を「37000000」に置き換えます。</p>
+</li>
+<li>
+<p>DRUG_EXPOSURE.csv<br>
+ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に置き換えます。</p>
+</li>
+<li>
+<p>MEASUREMENT.csv<br>
+ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に置き換えます。</p>
+</li>
+<li>
+<p>OBSERVATION.csv<br>
+ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に置き換えます。<br>
+ファイルの修正が完了したら、以下の手順に従い Eunomia からエクスポートしたデータをインポートします。</p>
+</li>
+</ul>
+<br>
+<p>psql を起動し、データベース「OHDSI」へ接続します。<br>
+コマンドプロンプトを起動し以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>psql -U ohdsi_admin_user -d OHDSI
+</div></code></pre>
+<p><img src="./Atlas_3/image/image6.png" alt=""><br>
+※パスワードはセットアップ時に設定したパスワードを入力します。</p>
+<p>データベースへ接続したら、参照スキーマを設定します。</p>
+<pre class="hljs"><code><div># set search_path to &quot;cdmv5&quot;;
+</div></code></pre>
+<p><img src="./Atlas_3/image/image7.png" alt=""></p>
+<br>
+<p>以下のコマンドを入力し、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CDM_SOURCE from 'D:\\tmp\output\\CDM_SOURCE.csv' with delimiter ',' csv header
+</div></code></pre>
+<p><img src="./Atlas_3/image/image8.png" alt=""></p>
+<br>
+<p>実行が成功すると、インポートした件数が表示されます。</p>
+<p><img src="./Atlas_3/image/image9.png" alt=""></p>
+<br>
+<p>同様に以下のコマンドを入力して、データをインポートします。</p>
+<pre class="hljs"><code><div># \copy CONCEPT from 'D:\\tmp\output\\CONCEPT.csv' with delimiter ',' csv header
+# \copy CONCEPT_ANCESTOR from 'D:\\tmp\output\\CONCEPT_ANCESTOR.csv' with delimiter ',' csv header
+# \copy CONCEPT_RELATIONSHIP from 'D:\\tmp\output\\CONCEPT_RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy CONCEPT_SYNONYM from 'D:\\tmp\output\\CONCEPT_SYNONYM.csv' with delimiter ',' csv header
+# \copy CONDITION_ERA from 'D:\\tmp\output\\CONDITION_ERA.csv' with delimiter ',' csv header
+# \copy CONDITION_OCCURRENCE from 'D:\\tmp\output\\CONDITION_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy DOMAIN from 'D:\\tmp\output\\DOMAIN.csv' with delimiter ',' csv header
+# \copy DRUG_ERA from 'D:\\tmp\output\\DRUG_ERA.csv' with delimiter ',' csv header
+# \copy DRUG_EXPOSURE from 'D:\\tmp\output\\DRUG_EXPOSURE.csv' with delimiter ',' csv header
+# \copy MEASUREMENT from 'D:\\tmp\output\\MEASUREMENT.csv' with delimiter ',' csv header
+# \copy OBSERVATION from 'D:\\tmp\output\\OBSERVATION.csv' with delimiter ',' csv header
+# \copy OBSERVATION_PERIOD from 'D:\\tmp\output\\OBSERVATION_PERIOD.csv' with delimiter ',' csv header
+# \copy PERSON from 'D:\\tmp\output\\PERSON.csv' with delimiter ',' csv header
+# \copy PROCEDURE_OCCURRENCE from 'D:\\tmp\output\\PROCEDURE_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy RELATIONSHIP from 'D:\\tmp\output\\RELATIONSHIP.csv' with delimiter ',' csv header
+# \copy VISIT_OCCURRENCE from 'D:\\tmp\output\\VISIT_OCCURRENCE.csv' with delimiter ',' csv header
+# \copy VOCABULARY from 'D:\\tmp\output\\VOCABULARY.csv' with delimiter ',' csv header FORCE NOT NULL vocabulary_version,vocabulary_reference
+</div></code></pre>
+<p>性別CONCEPT の登録コマンドを実行します。</p>
+<pre class="hljs"><code><div># insert into cdmv5.concept values (8532,'FEMALE','Gender','Gender','Gender','S','F','1900-01-01','2099-12-31',NULL);
+# insert into cdmv5.concept values (8507,'MALE','Gender','Gender','Gender','S','M','1900-01-01','2099-12-31',NULL);
+</div></code></pre>
+<p>以上でデータセットアップは完了です。</p>
+<br>
+<hr>
+<h1 id="4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>4　Achilles の実行</strong></h1>
+<p>Achilles は、Atlas 内で Data Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
+Data Source 機能を使用するために Achilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
+データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。</p>
+<p>R コンソールを起動し、以下のコマンドを入力し、Achilles を実行します。</p>
+<pre class="hljs"><code><div>&gt; library(Achilles)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image10.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; Sys.setenv(&quot;DATABASECONNECTOR_JAR_FOLDER&quot;=&quot;C:\\tomcat\\webapps\\WebAPI\\WEB-INF\\lib&quot;)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image11.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; connectionDetails &lt;- createConnectionDetails(
+dbms=&quot;postgresql&quot;,
+server=&quot;127.0.0.1/OHDSI&quot;,
+user=&quot;ohdsi_app_user&quot;,
+password=&quot;設定したパスワード&quot;,
+port=&quot;5432&quot;)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image12.png" alt=""></p>
+<br>
+<pre class="hljs"><code><div>&gt; achilles(
+connectionDetails,
+cdmDatabaseSchema=&quot;cdmv5&quot;,
+resultsDatabaseSchema=&quot;webapi&quot;,
+vocabDatabaseSchema=&quot;cdmv5&quot;,
+numThreads=1,
+sourceName=&quot;CDM V5 Database&quot;,
+cdmVersion=&quot;5.3.1&quot;,
+optimizeAtlasCache=TRUE)
+</div></code></pre>
+<p><img src="./Atlas_3/image/image13.png" alt=""></p>
+<br>
+<p>下記のメッセージが表示されたら実行完了です。</p>
+<p><img src="./Atlas_3/image/image14.png" alt=""></p>
+<p>以上でAchilles の実行は完了です。</p>
+<br>
+<hr>
+<h1 id="5-concept-sets-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>5　Concept Sets の作成</strong></h1>
 <p>Concept Sets では、分析で使用する独自のコードリストを作成します。<br>
 分析対象の用語のセットを特定して作成し、再利用することも可能です。<br>
 観察研究でよく使用されるコードリストに相当する、標準化されたコンピューター実行可能ファイルと考えることができます。<br>
@@ -750,7 +858,7 @@ table.conceptsets{
 <p>以上でコンセプトセットの作成は完了です。</p>
 <br>
 <hr>
-<h1 id="4-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>4　Cohort Definitions の作成</strong></h1>
+<h1 id="6-cohort-definitions-%E3%81%AE%E4%BD%9C%E6%88%90"><strong>6　Cohort Definitions の作成</strong></h1>
 <p>コホートとは、「一定期間1 つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。<br>
 作成されたコホートは、その後の Cohort Pathways など各機能での分析における母集団設定に使用されます。</p>
 <p>コホート定義では、「Cohort entry event（コホート開始イベント）」、「Inclusion Criteria（包含基準）」、「Cohort exit event（コホート終了イベント）」を設定する構成となっており、各項目の詳細を以下に記載しています。</p>
@@ -772,7 +880,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 コホートの出口戦略は、人が異なる時間間隔の間に複数回コホートに所属できるかどうかに影響します。</p>
 </li>
 </ul>
-<p>ここでは、「消化管出血を患い、ジクロフェナクとセレコキシブを服用している患者」を例に Cohort Definitions の使用方法を説明します。</p>
+<p>ここでは、「消化管出血を患い、ジクロフェナクとセレコキシブを服用している患者」を例にCohort Definitions の使用方法を説明します。</p>
 <p>Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas プラットフォーム内ですでに作成されたコホートが表示されます。<br>
 コホートを新規作成するので、「New Cohort」をクリックします。</p>
 <p><img src="./Atlas_3/image/image44.png" alt="" width="1200"></p>
@@ -807,7 +915,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 <p>選択後、欄内に図のような詳細設定画面が表示されます。</p>
 <p><img src="./Atlas_3/image/image24.jpeg" alt="" width="1000"></p>
 <br>
-<p>「Any Condition」に対象の Condition のコンセプトセットを設定します。<br>
+<p>「Any Condition」に対象のCondition のコンセプトセットを設定します。<br>
 「Any Condition」をクリックすると、コンセプトセットの一覧が表示されるので、前章で作成したコンセプトセット「Gastrointestinal hemorrhage」をクリックして選択します。<br>
 対象イベントは「all events」を選択します。</p>
 <p><img src="./Atlas_3/image/image25.jpeg" alt="" width="1100"></p>
@@ -819,7 +927,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 <p>コホートの終了条件は、「薬物曝露の継続的観察の終了」となるため、「Event Persistence」は「end of a continuous drug exposure」を選択します。</p>
 <p><img src="./Atlas_3/image/image27.png" alt=""></p>
 <br>
-<p>コホートエントリーイベントで選択した薬品を対象としているので、「Select Drug Concept Set」ではコンセプトセット「Cohort drug set」を設定します。</p>
+<p>コホートエントリーイベントで選択した薬品を対象としているので、「Select DrugConcept Set」ではコンセプトセット「Cohort drug set」を設定します。</p>
 <p><img src="./Atlas_3/image/image49.png" alt=""></p>
 <br>
 <p>その他、以下の２つのウィンドウ（空白期間）について設定することができます。</p>
@@ -832,7 +940,7 @@ CDM に記録された任意のイベント（薬物曝露、状態、測定な�
 <p>Surveillance window（監視ウィンドウ）<br>
 コホート終了前の追加の観察期間として、持続性曝露期の終了時に追加する日数
 持続性の設定も可能です。<br>
-今回は、Persistence window の曝露記録の間に最大30日を見込んだデータを指定します。</p>
+今回は、Persistence window の曝露記録の間に最大30 日を見込んだデータを指定します。</p>
 </li>
 </ul>
 <p><img src="./Atlas_3/image/image51.png" alt=""></p>
@@ -885,14 +993,14 @@ Persistence window を「30」に設定</p>
 </ul>
 <br>
 <hr>
-<h1 id="5-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90"><strong>5　Cohort Pathways（経路分析）</strong></h1>
-<p>Cohort Pathways では、1つ以上の母集団内で発生する一連の臨床イベントを調べることが可能です。<br>
-経路分析の目標は、関心のある1つ以上のコホートに沿った医療の順序を理解することです。<br>
+<h1 id="7-cohort-pathways%E7%B5%8C%E8%B7%AF%E5%88%86%E6%9E%90"><strong>7　Cohort Pathways（経路分析）</strong></h1>
+<p>Cohort Pathways では、1 つ以上の母集団内で発生する一連の臨床イベントを調べることが可能です。<br>
+経路分析の目標は、関心のある1 つ以上のコホートに沿った医療の順序を理解することです。<br>
 コホート経路では、ターゲットコホートのコホート開始日以降のイベントを要約する分析機能を提供し、経路を複数層の円状のグラフを用いて可視化します。</p>
 <p>コホート経路分析の設計において、下記の項目を設定する必要があります。</p>
 <ul>
-<li>1つ以上のターゲットコホート</li>
-<li>1つ以上のイベントコホート</li>
+<li>1 つ以上のターゲットコホート</li>
+<li>1 つ以上のイベントコホート</li>
 </ul>
 <p>ターゲットコホートでは分析対象とする母集団を設定します。<br>
 一方でイベントコホートでは、ターゲットとする母集団（ターゲットコホート）で発生する可能性のある経路ステップを定義します。<br>
@@ -934,12 +1042,13 @@ Persistence window を「30」に設定</p>
 <li>
 <p>Collapse Days<br>
 指定日以内に見つかった日付は、最も早い日付に再割り当てされる。<br>
-0～30日まで指定可能。<br>
+0～30 日まで指定可能。<br>
 日付を折りたたむと、経路の変動が減少し、結果のノイズが減少する。</p>
 </li>
 <li>
 <p>Minimum cell count<br>
-経路でカウントされるための、特定のイベントのターゲットコホート内の被験者の最小数を設定する。</p>
+経路でカウントされるための、特定のイベントのターゲットコホート内の被験者の
+最小数を設定する。</p>
 </li>
 <li>
 <p>Maximum path length<br>
@@ -963,7 +1072,7 @@ Persistence window を「30」に設定</p>
 <br>
 <p>結果画面では、ターゲットコホートのカウント数等を見ることができ、設定したイベントコホートごとに、患者が可能な様々なオプションを表すために色分けされています。<br>
 画面中央のサンバースト図（階層化されたデータをドーナツ状のグラフで表示）では、治療の順序と順序を通して各ステップを踏んでいる患者の割合を示しています。</p>
-<p>今回の結果では、ターゲットコホートの対象となった484件の中で、経路を持つ患者は479 名であることが分かります。</p>
+<p>今回の結果では、ターゲットコホートの対象となった484 件の中で、経路を持つ患者は479 名であることが分かります。</p>
 <p><img src="./Atlas_3/image/image32.png" alt=""></p>
 <br>
 <p>色付けされた箇所にカーソルを合わせると、そのコホート名が表示されて、クリックすることで画面右側に追加のパスの詳細が表示されます。<br>
