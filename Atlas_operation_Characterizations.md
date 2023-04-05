@@ -342,7 +342,7 @@ Search 画面では、キーワードやコンセプトIDを入力すること�
 <br>
 
 ---
-# **4　Cohort Definitionsの作成**
+# **4　Cohort Definitions の作成**
 
 コホートとは、「一定期間1つ以上の基準を満たす一連の人物」と定義され、Cohort Definitions はコホートを構築する機能を持ちます。  
 作成されたコホートは、その後の Characterizations 機能での分析における母集団設定に使用されます。
