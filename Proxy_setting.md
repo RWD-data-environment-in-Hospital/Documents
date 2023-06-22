@@ -87,7 +87,8 @@ $ git config --global http.proxy http://[proxy]:[port]
 ## **4．Apache Maven 用プロキシ設定**
 Apache Maven インストールフォルダ(本手順では「c:\maven」)にある「conf」フォルダ内の「settings.xml」ファイルを開き、下記の設定行を追加します。  
 
-＜下記の設定行を「settings.xml」に追加＞
+＜下記の設定行を「settings.xml」に追加＞  
+※ host に http:// の記述はいりません
 ```
 <proxy>
 <active>true</active>
@@ -178,14 +179,14 @@ R インストール後に1回のみ実施してください。
 
 R エディタが起動しますので、以下2行を追加します。
 
-http_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
-https_proxy=http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>  
+http_proxy="http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>"  
+https_proxy="http://<span style="color: orange; ">[proxy]</span>:<span style="color: orange; ">[port]</span>"  
 
 ![](./Files/proxy/image/image10.jpeg)
 
 <br>
 
-入力後、×ボタンでR エディタ画面を閉じます。  
+入力後、× ボタンで R エディタ画面を閉じます。  
 変更内容の保存確認メッセージが表示されますので、「はい」をクリックします。  
 
 ![](./Files/proxy/image/image11.jpeg)

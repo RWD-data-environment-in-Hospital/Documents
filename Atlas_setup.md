@@ -520,16 +520,16 @@ pgAdmin 4 の画面左の「Databases」を右クリックし、「Create」内�
 「webapi」スキーマを右クリックして「Properties...」をクリックします。  
 「Default privileges」タブ内の項目を以下の画面のように設定します。  
 
-「Tables」タブ
+「Tables」タブ  
 ![](./Files/Atlas/image/image109.jpeg)  
 
-「Sequences」タブ
+「Sequences」タブ  
 ![](./Files/Atlas/image/image110.jpeg)  
 
-「Functions」タブ
+「Functions」タブ  
 ![](./Files/Atlas/image/image111.jpeg)  
 
-「Types」タブ
+「Types」タブ  
 ![](./Files/Atlas/image/image112.jpeg)  
 
 <br>
@@ -769,13 +769,15 @@ https://a5m2.mmatsubara.com/
 
 <br>
 
-※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※  
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※  
+
 起動後、「データベースの追加と削除」画面が表示されなかった場合は、枠内の手順に従って「データベースの追加と削除」画面を表示します。  
 
 「localhost」を右クリックして「データベースの追加と削除」を選択します。  
 
 ![](./Files/Atlas/image/image141.jpeg)  
-※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※ 
+
+※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※  
 
 <br>
 
@@ -799,6 +801,12 @@ https://a5m2.mmatsubara.com/
 - パスワード:　手順3．4 で設定したパスワード
 
 ![](./Files/Atlas/image/image144.jpeg)  
+
+<br>
+
+識別するデータベース別名入力画面が表示されるので、データベース別名はそのままで「OK」をクリックします。
+
+![](./Files/Atlas/image/image1374.png)  
 
 <br>
 
@@ -953,7 +961,8 @@ $ git clone https://github.com/OHDSI/WebAPI.git
 
 <br>
 
-「WebAPI」フォルダ内の「sample_settings.xml」をコピーして「WebapiConfig」フォルダ内に張り付けて、「settings.xml」にファイルの名前を変更します。  
+「WebAPI」フォルダ内の「sample_settings.xml」をコピーして「WebAPIConfig」フォルダ内に張り付けて、  
+「settings.xml」にファイルの名前を変更します。  
 
 ![](./Files/Atlas/image/image164.png)  
 
@@ -981,10 +990,10 @@ app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパ�
 !PASSWORD!をpgAdmin 上で「ohdsi_admin_user」を作成する際に設定したパスワードに書き換えます。  
 下記例ではadmin1 に書き換えています。
 
-変更前
+変更前  
 ![](./Files/Atlas/image/image168.jpeg)
 
-変更後
+変更後  
 ![](./Files/Atlas/image/image169.jpeg)
 
 <br>
@@ -997,6 +1006,10 @@ app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパ�
 
 変更後  
 ![](./Files/Atlas/image/image171.jpeg)
+
+<br>
+
+修正後、ファイルを保存します。
 
 <br>
 
@@ -1125,7 +1138,7 @@ Path=C:\tomcat\bin
 変更前  
 ![](./Files/Atlas/image/image187.jpeg)  
 
-変更後
+変更後  
 ![](./Files/Atlas/image/image188.jpeg)  
 
 <br>
@@ -1487,8 +1500,8 @@ level4_concept_name VARCHAR(255)
 
 ---
 # **4．Achilles のインストール**
-ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する  
-必要があります。Achilles は、Common Data Model（CDM）準拠のデータベースのデータベースレベルの分析とレポートの提供を担います。  
+ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する必要があります。  
+Achilles は、Common Data Model（CDM）準拠のデータベースのデータベースレベルの分析とレポートの提供を担います。  
 本手順は下記のサイトを参考にしています。  
 
 https://ohdsi.github.io/Hades/rSetup.html  
@@ -1689,7 +1702,7 @@ CRAN のミラーサイトの選択画面が表示されるので、「0-Cloud [
 初めに R コンソールを開き、下記のコマンドを入力して devtools をインストー
 ルします。
 ```
-> install.packages(“devtools”)
+> install.packages("devtools")
 ```
 
 ![](./Files/Atlas/image/image1324.png)  
@@ -1799,7 +1812,7 @@ https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide
 
 ---
 ## **6．1　Atlas のインストール**
-Git のフォルダ内に「Atlas」フォルダを作成します。　　
+Git\OHDSI のフォルダ内に「Atlas」フォルダを作成します。　　
 
 ![](./Files/Atlas/image/image1336.png)  
 
@@ -1897,6 +1910,8 @@ select current_schema();
 <br>
 
 下記の SQL を実行して、SOURCE テーブルにレコードを追加します。  
+注意：password は正しいものに書き換えてください  
+
 ```
 insert into source(
 source_id,
@@ -1917,11 +1932,11 @@ true
 ;
 ```
 上記の SQL に関しては以下のような注意点があります。  
-① 9 行目の「1」は後述のSQL と一致させる必要があります。  
-② 11 行目の「cdmv5」は接続スキーマ名です。  
-③ 12 行目の「127.0.0.1:5432/OHDSI」は「ホストアドレス:ポート/データベース名」となります。  
-④ 12 行目の「user=ohdsi_app_user」は接続ユーザー名を指します。  
-⑤ 12 行目の「password=XXXX」は接続パスワードを指します。  
+① 10 行目の「1」は後述のSQL と一致させる必要があります。  
+② 12 行目の「cdmv5」は接続スキーマ名です。  
+③ 13 行目の「127.0.0.1:5432/OHDSI」は「ホストアドレス:ポート/データベース名」となります。  
+④ 13 行目の「user=ohdsi_app_user」は接続ユーザー名を指します。  
+⑤ 13 行目の「password=XXXX」は接続パスワードを指します。  
 XXXX の部分には「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力します。  
 
 ![](./Files/Atlas/image/image1349.png)  
@@ -2003,9 +2018,9 @@ Atlasのサイトへ接続するための環境設定を行います。
 IPアドレスが不明な場合は、6.3.1の手順に従い、IPアドレスの確認を行ってください。  
 IPアドレスが確認できている場合は、6.3.2へ進んでください。  
 
-## **6．3．1　IPアドレスの確認**  
+## **6．3．1　IP アドレスの確認**  
 ネットワークプロパティ画面を表示します。  
- 「インターネット プロトコル バージョン4（TCP/IPｖ４）」を選択し、「プロパティ」ボタンをクリックします。  
+ 「インターネット プロトコル バージョン4（TCP/IPv４）」を選択し、「プロパティ」ボタンをクリックします。  
 
  ![](./Files/Atlas/image/image1369.png)  
 
@@ -2015,8 +2030,8 @@ IPアドレスが確認できている場合は、6.3.2へ進んでください�
 
  ![](./Files/Atlas/image/image1370.png)  
 
- ※「IPアドレスを自動的に取得する」となっている場合、端末を再起動する都度、IPアドレスが変更となるため、以降の設定やサーバーへのアクセスもその都度変更となってしまいます。  
- 固定のIPアドレスを設定するようにしてください。  
+ ※「IP アドレスを自動的に取得する」となっている場合、端末を再起動する都度、IP アドレスが変更となるため、以降の設定やサーバーへのアクセスもその都度変更となってしまいます。  
+ 固定の IP アドレスを設定するようにしてください。  
 
 <br>
 
@@ -2071,7 +2086,7 @@ define([], function () {
 
 ![](./Files/Atlas/image/image272.jpeg)  
 
-以下 URL をブラウザで指定して起動します。（[Atlas Server IP] には、Atlas をセットアップしたサーバーのIPアドレスを入力してください）  
+以下 URL をブラウザで指定して起動します。（[Atlas Server IP] には、Atlas をセットアップしたサーバーの IP アドレスを入力してください）  
 
 http://localhost:8080/manager  
 
@@ -2114,7 +2129,7 @@ Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」
 ## **7．1　WebAPI のオフラインインストール**
 ビルドの完了までは通常の手順と同様になります。「手順3.5 WebAPI の構築」のビルド完了後の手順を以下に記載します。  
 ビルドした WebAPI の target フォルダをオフライン環境の任意のフォルダへコピーします。  
-「手順3.6 Tomcat インストール」でwar ファイルを配備する際、コピーした target フォルダ内にあるWebAPI.war を選択します。  
+「手順3.6 Tomcat インストール」で war ファイルを配備する際、コピーした target フォルダ内にある WebAPI.war を選択します。  
 
 ![](./Files/Atlas/image/image1359.png)  
 

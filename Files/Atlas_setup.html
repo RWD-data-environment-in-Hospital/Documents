@@ -981,6 +981,9 @@ A5:SQL Mk-2 のサイトを開き、「Vector からダウンロード」をク�
 </ul>
 <p><img src="./Atlas/image/image144.jpeg" alt="" width="750"></p>
 <br>
+<p>識別するデータベース別名入力画面が表示されるので、データベース別名はそのままで「OK」をクリックします。</p>
+<p><img src="./Atlas/image/image1374.png" alt="" width="750"></p>
+<br>
 <p>「データベースの追加と削除」画面に、「OHDSI」データベースが新たに追加されていることを確認して、「閉じる」をクリックします。</p>
 <p><img src="./Atlas/image/image145.jpeg" alt="" width="750"></p>
 <br>
@@ -1064,7 +1067,7 @@ Git Bash に次のように入力します。</p>
 <p>「WebAPI」フォルダ内に「WebAPIConfig」フォルダを作成します。</p>
 <p><img src="./Atlas/image/image163.png" alt=""></p>
 <br>
-<p>「WebAPI」フォルダ内の「sample_settings.xml」をコピーして「WebapiConfig」フォルダ内に張り付けて、「settings.xml」にファイルの名前を変更します。</p>
+<p>「WebAPI」フォルダ内の「sample_settings.xml」をコピーして「WebAPIConfig」フォルダ内に張り付けて、<span style="color: rgb(255, 0, 100); ">「settings.xml」</span>にファイルの名前を変更します。</p>
 <p><img src="./Atlas/image/image164.png" alt=""></p>
 <br>
 <p>「settings.xml」ファイルを開き、赤枠の部分を修正します。</p>
@@ -1092,7 +1095,7 @@ app1 をpgAdmin 上で「ohdsi_app_user」を作成する際に設定したパ�
 <img src="./Atlas/image/image170.jpeg" alt=""></p>
 <p>【変更後】<br>
 <img src="./Atlas/image/image171.jpeg" alt=""></p>
-<br>
+<p>変更後、ファイルを保存します</p>
 <p>WebAPI をビルドします。<br>
 Git Bash で「Git」-「OHDSI」-「webapi」フォルダに移動します。</p>
 <p><img src="./Atlas/image/image172.jpeg" alt=""></p>
@@ -1414,8 +1417,8 @@ level4_concept_name VARCHAR(255)
 <p>以上で WebAPI のセッティングは完了です。</p>
 <hr>
 <h1 id="4achilles-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．Achilles のインストール</strong></h1>
-<p>ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する<br>
-必要があります。Achilles は、Common Data Model（CDM）準拠のデータベースのデータベースレベルの分析とレポートの提供を担います。<br>
+<p>ATLAS 内でデータソース機能を使用するには、Achilles をセットアップして実行する必要があります。<br>
+Achilles は、Common Data Model（CDM）準拠のデータベースのデータベースレベルの分析とレポートの提供を担います。<br>
 本手順は下記のサイトを参考にしています。</p>
 <p><a href="https://ohdsi.github.io/Hades/rSetup.html" target="_blank" rel="nofollow noopener">https://ohdsi.github.io/Hades/rSetup.html</a></p>
 <p><a href="https://github.com/OHDSI/Achilles" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/Achilles</a></p>
@@ -1531,7 +1534,7 @@ R コンソールを再起動して、下記のコマンドを入力します。
 <h2 id="44-achilles-%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>4．4　Achilles インストール</strong></h2>
 <p>初めに R コンソールを開き、下記のコマンドを入力して devtools をインストー
 ルします。</p>
-<pre class="hljs"><code><div>&gt; install.packages(“devtools”)
+<pre class="hljs"><code><div>&gt; install.packages("devtools")
 </div></code></pre>
 <p><img src="./Atlas/image/image1324.png" alt="" width="750"></p>
 <br>
@@ -1593,7 +1596,7 @@ NodeJS のサイトを開き、Windows 版インストーラー（赤枠）を�
 <p><a href="https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide" target="_blank" rel="nofollow noopener">https://github.com/OHDSI/Atlas/wiki/Atlas-Setup-Guide</a></p>
 <hr>
 <h2 id="61-atlas-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB"><strong>6．1　Atlas のインストール</strong></h2>
-<p>Git のフォルダ内に「Atlas」フォルダを作成します。</p>
+<p>C:\Git\OHDSI のフォルダ内に「Atlas」フォルダを作成します。</p>
 <p><img src="./Atlas/image/image1336.png" alt=""></p>
 <br>
 <p>スタートメニューを開き、Git Bash を起動して、下記のコマンドを入力して作成したAtlas フォルダに移動します。</p>
