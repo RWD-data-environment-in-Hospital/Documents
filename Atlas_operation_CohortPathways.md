@@ -483,6 +483,7 @@ Atlas 画面の左タブから「Cohort Definitions」画面を開くと、Atlas
   - ＜Cohort Entry Event＞  
 「Add Initial Event」をクリックして「Add Drug Exposure」を選択  
 「Any Drug」→「Import Concept Set」→「celecoxib」を選択  
+「Limit initial events...」→「all events」を選択  
 
   - ＜Inclusion Criteria＞  
 設定なし  
@@ -498,6 +499,7 @@ Persistence window を「30」に設定
   - ＜Cohort Entry Event＞  
 「Add Initial Event」をクリックして「Add Drug Exposure」を選択  
 「Any Drug」→「Import Concept Set」→「diclofenac」を選択  
+「Limit initial events...」→「all events」を選択  
 
   - ＜Inclusion Criteria＞  
 設定なし  
