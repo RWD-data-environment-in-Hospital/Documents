@@ -56,17 +56,17 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 # **2　データベースへのインポート**
 インポートを始める前に、エクスポートしたデータの内容を一部修正します。  
 
-- CONCEPT_ANCESTOR.csv  
+- concept_ancestor.csv  
 ファイルを開き「3.6e+07」を「36000000」に、「3.7e+07」を「37000000」に置き換えます。  
 
-- DRUG_EXPOSURE.csv  
-ファイルをエクセルで開きＡ列（drug_exposure_id）の内容を１からの連番に置き換えます。  
+- drug_exposure.csv  
+ファイルをエクセルで開きＡ列（DRUG_EXPOSURE_ID）の内容を１からの連番に置き換えます。  
 
-- MEASUREMENT.csv  
-ファイルをエクセルで開きＡ列（mesurement_id）の内容を１からの連番に置き換えます。  
+- measurement.csv  
+ファイルをエクセルで開きＡ列（MEASUREMENT_ID）の内容を１からの連番に置き換えます。  
 
-- OBSERVATION.csv  
-ファイルをエクセルで開きＡ列（observation_id）の内容を１からの連番に置き換えます。  
+- observation.csv  
+ファイルをエクセルで開きＡ列（OBSERVATION_ID）の内容を１からの連番に置き換えます。  
 ファイルの修正が完了したら、以下の手順に従い Eunomia からエクスポートしたデータをインポートします。  
 
 psql を起動し、データベース「OHDSI」へ接続します。  
