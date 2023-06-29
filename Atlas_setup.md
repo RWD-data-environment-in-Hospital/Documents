@@ -1883,13 +1883,13 @@ $ npm run build
 
 各項目について下記のように入力し、ログインします。  
 ```
-Server : localhost
-Database : OHDSI
-Port : 5432
-Username : ohdsi_app_user
+Server          : localhost
+Database        : OHDSI
+Port            : 5432
+Username        : ohdsi_app_user
 Client Encoding : SJIS
+パスワード      : 「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力
 ```
-パスワード : 「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力
 
 ![](./Files/Atlas/image/image1345.png)  
 
@@ -2088,7 +2088,7 @@ define([], function () {
 
 以下 URL をブラウザで指定して起動します。（[Atlas Server IP] には、Atlas をセットアップしたサーバーの IP アドレスを入力してください）  
 
-http://localhost:8080/manager  
+http://[Atlas Server IP]:8080/manager  
 
 Tomcat のユーザー名とパスワードを入力します。  
 

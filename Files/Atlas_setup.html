@@ -13,7 +13,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
 	font-size: var(--vscode-markdown-font-size, 16px);
 	padding: 0 26px;
 	line-height: var(--vscode-markdown-line-height, 22px);
@@ -104,9 +104,10 @@ p, li, pre{
 	width: 90%; max-width: 1200px;
 }
 
-/* img{
-	width: 90%; max-width: 1200px;
-} */
+img{
+	/* width: 90%; max-width: 1200px; */
+border: 1px solid black
+}
 
 pre code {
 	color: var(--vscode-editor-foreground);
@@ -186,6 +187,7 @@ body.wordWrap pre {
 
 pre:not(.hljs),
 pre.hljs code > div {
+	font-family: "Meiryo-UI";
 	padding: 16px;
 	border-radius: 3px;
 	overflow: auto;
@@ -469,6 +471,8 @@ table td {
 <a href="#6-atlas-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">6．Atlas のインストール</a><br>
 　<a href="#61-atlas-%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">6．1　Atlas のインストール</a><br>
 　<a href="#62-source-%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%B8%E3%81%AE%E3%83%AC%E3%82%B3%E3%83%BC%E3%83%89%E8%BF%BD%E5%8A%A0">6．2　source テーブルへのレコード追加</a><br>
+　<a href="#63-Atlas_environment_setting">6．3　Atlas の環境設定</a><br>
+　<a href="#64-tomcat_launch">6．4　tomcat の起動</a><br>
 <a href="#7-%E8%A3%9C%E8%B6%B3%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%89%8B%E9%A0%86">7．補足：オフラインインストール手順</a><br>
 　<a href="#71-webapi-%E3%81%AE%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">7．1　WebAPI のオフラインインストール</a><br>
 　<a href="#72-r-%E3%81%AE%E3%82%AA%E3%83%95%E3%83%A9%E3%82%A4%E3%83%B3%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">7．2　R のオフラインインストール</a><br>
@@ -1636,18 +1640,17 @@ $ cd Atlas
 <p><img src="./Atlas/image/image1343.png" alt="" width="350"></p>
 <br>
 <p>各項目について下記のように入力し、ログインします。</p>
-<pre class="hljs"><code><div>Server : localhost
-Database : OHDSI
-Port : 5432
-Username : ohdsi_app_user
-Client Encoding : SJIS
+<pre class="hljs"><code><div>Server				: localhost
+Database			: OHDSI
+Port					: 5432
+Username			: ohdsi_app_user
+Client Encoding	: SJIS
+パスワード			: 「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力
 </div></code></pre>
-<p>パスワード : 「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力</p>
 <p><img src="./Atlas/image/image1345.png" alt="" width="600"></p>
 <br>
 <p>以下のコマンドを入力し、「current_schema」を「webapi」に変更します。</p>
 <pre class="hljs"><code><div># set search_path to &quot;webapi&quot;;
-
 </div></code></pre>
 <p>続けて以下のコマンドを入力し、変更されたことを確認します。</p>
 <pre class="hljs"><code><div>select current_schema();
@@ -1667,7 +1670,7 @@ values(
 1,
 'CDM V5 Database',
 'cdmv5',
-'jdbc:postgresql://127.0.0.1:5432/OHDSI?user=ohdsi_app_user&amp;password=XXXX',
+'jdbc:postgresql://127.0.0.1:5432/OHDSI?user=ohdsi_app_user&amp;password=<span style="color: red; ">XXXX</span>',
 'postgresql',
 true
 )
@@ -1746,6 +1749,48 @@ values (
 ;
 </div></code></pre>
 <p>右上の×ボタンをクリックして psql を閉じます。</p>
+<br>
+<hr>
+<h2 id="63-Atlas_environment_setting"><strong>6．3　Atlas の環境設定</strong></h2>
+<p>Atlas のサイトへ接続するための環境設定を行います。<br>
+環境設定には Atlas をセットアップした端末、またはサーバーの IP アドレスが必要となります。<br>
+IP アドレスが不明な場合は、6．3．1 の手順に従い、IP アドレスの確認を行ってください。<br>
+IP アドレスが確認できている場合は、6．3．2 へ進んでください。</p>
+<br>
+<h2 id="631-Atlas_IPaddress"><strong>6．3．1　IP アドレスの確認</strong></h2>
+<p>	ネットワークプロパティ画面を表示します。<br>
+「インターネット プロトコル バージョン 4（TCP/IPv4）」を選択し、「プロパティ」ボタンをクリックします。</p>
+<p><img src="./Atlas/image/image1369.png" alt="" width="450"></p>
+<br>
+<p>表示された IP アドレスを確認します。</p>
+<p><img src="./Atlas/image/image1370.png" alt="" width="450"></p>
+<p>※「IP アドレスを自動的に取得する」となっている場合、端末を再起動する都度、IP アドレスが変更となるため、<br>
+　以降の設定やサーバーへのアクセスもその都度変更となってしまいます。<br>
+　固定の IP アドレスを設定するようにしてください。</p>
+<br>
+<h2 id="632-Atlas_environment_setting"><strong>6．3．2　Atlas の環境設定</strong></h2>
+<p>Apache Tomcat のインストールフォルダの配下にある、下図のフォルダを開きます。</p>
+<p><img src="./Atlas/image/image1371.png" alt="" width="500"></p>
+<br>
+<p>ファイル名「config-local.js」として、新規ファイルを作成します。</p>
+<p><img src="./Atlas/image/image1372.png" alt="" width="500"></p>
+<br>
+<p>「config-local.js」ファイルに下記の内容を入力し、保存します。<br>
+[Atlas Server IP]には、手順書 6．3．1 で確認した IP アドレスを入力します。</p>
+<pre class="hljs"><code><div>
+define([], function () {
+		var configLocal = {};
+		configLocal.api = {
+				name: 'Atlas Server',
+				url: 'http://<span style="color: red; ">[Atlas Server IP]</span>/WebAPI/'
+		};
+		return configLocal;
+});
+</div></code></pre>
+<p>以上で Atlas の環境設定は完了です。</p>
+<br>
+<hr>
+<h2 id="64-tomcat_launch"><strong>6．4　tomcat の起動</strong></h2>
 <p>次に tomcat を起動するために、コマンドプロンプトを起動します。<br>
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動します。</p>
 <p><img src="./Atlas/image/image1351.png" alt=""></p>
@@ -1755,8 +1800,9 @@ values (
 <br>
 <p>起動が完了します。</p>
 <p><img src="./Atlas/image/image272.jpeg" alt=""></p>
-<p>以下 URL をブラウザで指定して起動します。</p>
-<p><a href="http://localhost:8080/manager" target="_blank" rel="nofollow noopener">http://localhost:8080/manager</a></p>
+<br>
+<p>以下 URL をブラウザで指定して起動します。（[Atlas Server IP]には、Atlas をセットアップしたサーバーの IP アドレスを入力してください）</p>
+<p><u>http://[Atlas Server IP]:8080/manager</u></p>
 <p>Tomcat のユーザー名とパスワードを入力します。</p>
 <p><img src="./Atlas/image/image273.jpeg" alt=""></p>
 <br>
