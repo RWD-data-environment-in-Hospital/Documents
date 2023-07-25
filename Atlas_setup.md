@@ -1118,11 +1118,12 @@ Path=C:\tomcat\bin
 
 下図の赤枠で囲っている箇所を図に記載されている内容に変更します。
 ```
-<role rolename=”manager-gui”/>
-<role rolename=”role1”/>
-<user username=”tomcat” password=”s3cret” roles=”manager-gui”/>
+<role rolename="admin-gui"/>
+<role rolename="manager-gui"/>
+<role rolename="role1"/>
+<user username="tomcat" password="s3cret" roles="admin-gui,manager-gui"/>
 ```
-![](./Files/Atlas/image/image185.jpeg)  
+![](./Files/Atlas/image/image185_2.jpg)  
 
 <br>
 
@@ -1143,7 +1144,29 @@ Path=C:\tomcat\bin
 
 <br>
 
-続いて、コマンドプロンプトから tomcat を起動します。  
+続いて、tomcat - webapps - manager - META-INF フォルダ内にある
+「context.xml」を開きます。  
+
+![](./Files/Atlas/image/image1375.jpg)  
+
+<br>
+
+下記コマンドを\<!-- -->で囲み、コメントアウトします。  
+```
+<Valve className="org.apache.catalina.valves.RemoteAddrValve"
+        allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />
+```
+
+＜変更前＞  
+![](./Files/Atlas/image/image1376.jpg)  
+
+
+＜変更後＞  
+![](./Files/Atlas/image/image1377.jpg)  
+
+<br>
+
+コマンドプロンプトから tomcat を起動します。  
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動し、下図のコマンドを入力します。  
 ```
 C:\tomcat\bin> Catalina.bat run
@@ -2056,7 +2079,7 @@ define([], function () {
     
     configLocal.api = {
         name: 'Atlas Server',
-        url: 'http://[Atlas Server IP]/WebAPI/'
+        url: 'http://[Atlas Server IP]:8080/WebAPI/'
     };
 
     return configLocal;
@@ -2086,6 +2109,8 @@ define([], function () {
 
 ![](./Files/Atlas/image/image272.jpeg)  
 
+<br> 
+
 以下 URL をブラウザで指定して起動します。（[Atlas Server IP] には、Atlas をセットアップしたサーバーの IP アドレスを入力してください）  
 
 http://[Atlas Server IP]:8080/manager  
@@ -2105,6 +2130,12 @@ Tomcat のユーザー名とパスワードを入力します。
 Atlas の画面が表示されます。  
 
 ![](./Files/Atlas/image/image274.jpeg)  
+
+<br>
+
+## **OnePoint** ##
+ブラウザのアドレスバーに下記の URL を入力することで、Atlas の画面を直接表示することもできます。  
+http://[Atlas Server IP]:8080/Atlas/#/home  
 
 <br>
 

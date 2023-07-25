@@ -135,6 +135,9 @@ hr {
 	border: 0;
 	height: 2px;
 	border-bottom: 2px solid;
+	width: 1250px;
+	text-align:left;
+	margin-left:0px;
 }
 
 h1 {
@@ -146,6 +149,7 @@ h1 {
 
 h1, h2, h3 {
 	font-weight: normal;
+	width: 1250px;
 }
 
 table {
@@ -1161,11 +1165,12 @@ Path を新たに追加します。</p>
 <p><img src="./Atlas/image/image184.pnG" alt="" width="500"></p>
 <br>
 <p>下図の赤枠で囲っている箇所を図に記載されている内容に変更します。</p>
-<pre class="hljs"><code><div>&lt;role rolename=”manager-gui”/&gt;
+<pre class="hljs"><code><div>&lt;role rolename="admin-gui"/&gt;
+&lt;role rolename=”manager-gui”/&gt;
 &lt;role rolename=”role1”/&gt;
-&lt;user username=”tomcat” password=”s3cret” roles=”manager-gui”/&gt;
+&lt;user username=”tomcat” password=”s3cret” roles="admin-gui,manager-gui”/&gt;
 </div></code></pre>
-<p><img src="./Atlas/image/image185.jpeg" alt="" width="800"></p>
+<p><img src="./Atlas/image/image185_2.jpg" alt="" width="830"></p>
 <br>
 <p>次に、tomcat - webapps - manager - WEB-INF フォルダ内の「web.xml」を開きます。</p>
 <p><img src="./Atlas/image/image186.png" alt=""></p>
@@ -1177,7 +1182,20 @@ Path を新たに追加します。</p>
 <p>変更後<br>
 <img src="./Atlas/image/image188.jpeg" alt=""></p>
 <br>
-<p>続いて、コマンドプロンプトから tomcat を起動します。<br>
+<p>続いて、tomcat - webapps - manager - META-INF フォルダ内にある 「context.xml」を開きます。</p>
+<img src="./Atlas/image/image1375.jpg" alt="" width="600"></p>
+<br>
+<p>下記コマンドを&lt;!-- --&gt;で囲み、コメントアウトします。</p>
+<pre class="hljs"><code><div>&lt;Valve className="org.apache.catalina.valves.RemoteAddrValve"
+			allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" /&gt;
+</div></code></pre>
+<br>
+<p>変更前<br>
+<img src="./Atlas/image/image1376.jpg" alt="" width="830"></p>
+<p>変更後<br>
+<img src="./Atlas/image/image1377.jpg" alt="" width="830"></p>
+<br>
+<p>コマンドプロンプトから tomcat を起動します。<br>
 コマンドプロンプトを右クリックし「管理者として実行」を選択して起動し、下図のコマンドを入力します。</p>
 <pre class="hljs"><code><div>C:\tomcat\bin&gt; Catalina.bat run
 </div></code></pre>
@@ -1657,7 +1675,8 @@ Client Encoding	: SJIS
 </div></code></pre>
 <p><img src="./Atlas/image/image1347.png" alt="" width="600"></p>
 <br>
-<p>下記の SQL を実行して、SOURCE テーブルにレコードを追加します。</p>
+<p>下記の SQL を実行して、SOURCE テーブルにレコードを追加します。<br>
+注意：password は正しいものに書き換えてください</p>
 <pre class="hljs"><code><div>insert into source(
 source_id,
 source_name,
@@ -1782,7 +1801,7 @@ define([], function () {
 		var configLocal = {};
 		configLocal.api = {
 				name: 'Atlas Server',
-				url: 'http://<span style="color: red; ">[Atlas Server IP]</span>/WebAPI/'
+				url: 'http://<span style="color: red; ">[Atlas Server IP]:8080</span>/WebAPI/'
 		};
 		return configLocal;
 });
@@ -1811,6 +1830,12 @@ define([], function () {
 <br>
 <p>Atlas の画面が表示されます。</p>
 <p><img src="./Atlas/image/image274.jpeg" alt=""></p>
+<br>
+<hr>
+<h2 id="64-tomcat_launch"><strong>OnePoint</strong></h2>
+<p>ブラウザのアドレスバーに下記の URL を入力することで、Atlas の画面を直接表示することもできます。</p>
+<p>http://[Atlas Server IP]:8080/Atlas/#/home</p>
+<hr>
 <br>
 <p>Tomcat を停止する場合には、「C:\tomcat\bin」内の「shutdown.bat」を実行します。</p>
 <p><img src="./Atlas/image/image1357.png" alt=""></p>
