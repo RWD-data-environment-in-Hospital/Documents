@@ -1666,6 +1666,7 @@ R のコンソールに以下のコマンドを入力します。
 ```
 > writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con ="~/.Renviron")
 ```
+※RTOOLS40_HOME は、Rtools のバージョンにあわせ、書き換えが必要です  
 
 ![](./Files/Atlas/image/image1317.png)  
 
@@ -1675,6 +1676,7 @@ R のコンソールに以下のコマンドを入力します。
 R コンソールを再起動して、下記のコマンドを入力します。  
 ```
 > Sys.which("make")
+                              make
 "C:\\rtools40\\usr\\bin\\make.exe"
 ```
 下記のように表示されれば、PATH が通っています。  
