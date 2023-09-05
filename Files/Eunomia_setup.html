@@ -440,35 +440,67 @@ html{
 Eunomia を利用することにより、ATLAS の機能を実際に使いながら学ぶことができます。</p>
 <br>
 <h3 id="%E7%9B%AE%E6%AC%A1"><strong>目次</strong></h3>
-<p><a href="#1-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88">1　Eunomia からデータのエクスポート</a><br>
-<a href="#2-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">2　データベースへのインポート</a><br>
-<a href="#3-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C">3　Achilles の実行</a></p>
+<p><a href="#1-eunomia-%E3%82%AE%E1%A0%AF%E7%A1%77">1　Eunomia ライブラリのインストール</a><br>
+<a href="#2-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88">2　Eunomia からデータのエクスポート</a><br>
+<a href="#3-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88">3　データベースへのインポート</a><br>
+<a href="#4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C">4　Achilles の実行</a></p>
 <br>
 <hr>
-<h1 id="1-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>1　Eunomia からデータのエクスポート</strong></h1>
+<h1 id="1-eunomia-%E3%82%AE%E1%A0%AF%E7%A1%77"><strong>1　Eunomia ライブラリのインストール</strong></h1>
 <p>以下の手順に従い、インポートするデータを Eunomia からエクスポートします。<br>
 まず、エクスポートするテストデータを格納するフォルダを作成しておきます。</p>
 <p><img src="./Atlas_3/image/image1.png" alt=""></p>
-<br>
 <p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
+<br>
 <p>続いて R コンソールを起動し、以下のコマンドを入力します。</p>
+<pre class="hljs"><code><div>> install.package("drat")
+</div></code></pre>
+<p><img src="./Atlas_3/image/image72.png" alt=""></p>
+<br>
+<p>コマンド実行後、下記のメッセージが表示されたら「はい」をクリックします。</p>
+<p><img src="./Atlas_3/image/image73.png" alt=""></p>
+<p><img src="./Atlas_3/image/image74.png" alt=""></p>
+<br>
+<p>CRAN ミラーサイトは、「0-Cloud [https]」を選択します。</p>
+<p><img src="./Atlas_3/image/image75.png" alt=""></p>
+<br>
+<p>drat パッケージのインストールが完了すると、下図のメッセージが表示されます。</p>
+<p><img src="./Atlas_3/image/image76.png" alt=""></p>
+<br>
+<p>続いて、下記のコマンドを実行します。</p>
+<pre class="hljs"><code><div>> drat::addRepo("OHDSI")
+</div></code></pre>
+<p><img src="./Atlas_3/image/image77.png" alt=""></p>
+<pre class="hljs"><code><div>> install.packages("Eunomia")
+</div></code></pre>
+<p><img src="./Atlas_3/image/image78.png" alt=""></p>
+<br>
+<p>Eunomia パッケージのインストールが完了すると、下図のメッセージが表示されます。</p>
+<p><img src="./Atlas_3/image/image79.png" alt=""></p>
+<br>
+<hr>
+<h1 id="2-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>2　Eunomia からデータのエクスポート</strong></h1>
+<p>インストールされた Eunomia を読み込みます。
+<br>以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; library(Eunomia)
 </div></code></pre>
-<p><img src="./Atlas_3/image/image2.png" alt=""></p>
+<p><img src="./Atlas_3/image/image80.png" alt=""></p>
 <br>
+<p>Eunomia を D:\tmp\output へエクスポートします。
+<br>以下のコマンドを入力します。</p>
 <pre class="hljs"><code><div>&gt; folder &lt;- &quot;D:\\tmp\\output&quot;
 &gt; exportToCsv(folder)
 </div></code></pre>
-<p><img src="./Atlas_3/image/image3.png" alt=""></p>
+<p><img src="./Atlas_3/image/image81.png" alt=""></p>
 <br>
-<p>下図のメッセージが表示されたら実行は完了です。</p>
-<p><img src="./Atlas_3/image/image4.png" alt=""></p>
+<p>下図のメッセージが表示されたらエクスポートは完了です。</p>
+<p><img src="./Atlas_3/image/image82.png" alt=""></p>
 <br>
 <p>作成したフォルダを表示し、エクスポートしたデータが格納されている事を確認します。</p>
 <p><img src="./Atlas_3/image/image5.png" alt=""></p>
 <br>
 <hr>
-<h1 id="2-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88"><strong>2　データベースへのインポート</strong></h1>
+<h1 id="3-%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E3%82%A4%E3%83%B3%E3%83%9D%E3%83%BC%E3%83%88"><strong>3　データベースへのインポート</strong></h1>
 <p>インポートを始める前に、エクスポートしたデータの内容を一部修正します。</p>
 <ul>
 <li>
@@ -534,7 +566,7 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 <p>以上でデータセットアップは完了です。</p>
 <br>
 <hr>
-<h1 id="3-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>3　Achilles の実行</strong></h1>
+<h1 id="4-achilles-%E3%81%AE%E5%AE%9F%E8%A1%8C"><strong>4　Achilles の実行</strong></h1>
 <p>Achilles は、Atlas 内で Data Source で表示されるデータの分析とレポート提供を実行しているツールです。<br>
 Data Source 機能を使用するために Achilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）<br>
 データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。</p>

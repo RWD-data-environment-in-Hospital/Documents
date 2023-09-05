@@ -54,13 +54,13 @@ drat パッケージのインストールが完了すると、下図のメッセ
 続いて、下記のコマンドを実行します。
 
 ```
-drat::addRepo("OHDSI")
+> drat::addRepo("OHDSI")
 ```
 
 ![](./Files/Atlas_3/image/image77.png)
 
 ```
-install.packages("Eunomia")
+> install.packages("Eunomia")
 ```
 
 ![](./Files/Atlas_3/image/image78.png)
