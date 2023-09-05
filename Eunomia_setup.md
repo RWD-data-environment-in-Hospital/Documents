@@ -1,18 +1,19 @@
 # **Eunomia テストデータのセットアップ**
 ※Eunomia テストデータのセットアップは、Atlas のセットアップが完了してから行ってください  
 
-Eunomia とは、Atlas のテストデータとして用意されたデータセットです。  
+Eunomia は、Atlas のテストデータとして用意されたデータセットです。  
 Eunomia を利用することにより、ATLAS の機能を実際に使いながら学ぶことができます。  
 <br>
 ### **目次**
-[1　Eunomia からデータのエクスポート](#1-eunomia-からデータのエクスポート)  
-[2　データベースへのインポート](#2-データベースへのインポート)  
-[3　Achilles の実行](#3-achilles-の実行)  
+[1　Eunomia ライブラリのインストール](#1-eunomia-ライブラリのインストール)
+[2　Eunomia からデータのエクスポート](#2-eunomia-からデータのエクスポート)  
+[3　データベースへのインポート](#3-データベースへのインポート)  
+[4　Achilles の実行](#4-achilles-の実行)  
 
 <br>
 
 ---
-# **1　Eunomia からデータのエクスポート**
+# **1　Eunomia ライブラリのインストール**
 以下の手順に従い、インポートするデータを Eunomia からエクスポートします。  
 まず、エクスポートするテストデータを格納するフォルダを作成しておきます。  
 
@@ -24,25 +25,83 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 
 続いて R コンソールを起動し、以下のコマンドを入力します。  
 ```
+> install.packages("drat")
+```
+![](./Files/Atlas_3/image/image72.png)
+
+<br>
+
+コマンド実行後、下記のメッセージが表示されたら「はい」をクリックします。
+
+![](./Files/Atlas_3/image/image73.png)
+![](./Files/Atlas_3/image/image74.png)
+
+<br>
+
+CRAN ミラーサイトは、「0-Cloud [https]」を選択します。
+
+![](./Files/Atlas_3/image/image75.png)
+
+<br>
+
+drat パッケージのインストールが完了すると、下図のメッセージが表示されます。
+
+![](./Files/Atlas_3/image/image76.png)
+
+
+<br>
+
+続いて、下記のコマンドを実行します。
+
+```
+drat::addRepo("OHDSI")
+```
+
+![](./Files/Atlas_3/image/image77.png)
+
+```
+install.packages("Eunomia")
+```
+
+![](./Files/Atlas_3/image/image78.png)
+
+<br>
+
+Eunomia パッケージのインストールが完了すると、下図のメッセージが表示されます。
+
+![](./Files/Atlas_3/image/image79.png)
+
+<br>
+
+---
+# **2　Eunomia からデータのエクスポート**
+
+インストールされた Eunomia を読み込みます。  
+以下のコマンドを入力します。  
+
+```
 > library(Eunomia)
 ```
 
-![](./Files/Atlas_3/image/image2.png)
+![](./Files/Atlas_3/image/image80.png)
 
 <br>
+
+Eunomia を D:\tmp\output へエクスポートします。  
+以下のコマンドを入力します。  
 
 ```
 > folder <- "D:\\tmp\\output"
 > exportToCsv(folder)
 ```
 
-![](./Files/Atlas_3/image/image3.png)
+![](./Files/Atlas_3/image/image81.png)
 
 <br>
 
-下図のメッセージが表示されたら実行は完了です。  
+下図のメッセージが表示されたらエクスポートは完了です。  
 
-![](./Files/Atlas_3/image/image4.png)
+![](./Files/Atlas_3/image/image82.png)
 
 <br>
 
@@ -53,7 +112,7 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 <br>
 
 ---
-# **2　データベースへのインポート**
+# **3　データベースへのインポート**
 インポートを始める前に、エクスポートしたデータの内容を一部修正します。  
 
 - concept_ancestor.csv  
@@ -134,7 +193,7 @@ psql -U ohdsi_admin_user -d OHDSI
 <br>
 
 ---
-# **3　Achilles の実行**
+# **4　Achilles の実行**
 Achilles は、Atlas 内で Data Source で表示されるデータの分析とレポート提供を実行しているツールです。  
 Data Source 機能を使用するために Achilles の実行が必要となります。（Data Source の機能については、「Atlas 機能調査補足資料」を参照してください）  
 データベースにデータをインポートした際や、登録されているデータを変更した場合に、Achilles を実行してください。  
