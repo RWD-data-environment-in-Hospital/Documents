@@ -417,7 +417,7 @@ PostgreSQL 10 のインストール時に設定したパスワードを入力し
 <br>
 
 「General」タブを開き、項目を以下のように埋めます。  
-- Name:　ohdsi_admin_user|
+- Name:　ohdsi_admin_user
 - Comments:　OHDSI アプリケーションの管理ユーザーアカウント
 
 ![](./Files/Atlas/image/image95.png)  

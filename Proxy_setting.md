@@ -86,6 +86,9 @@ $ git config --global http.proxy http://[proxy]:[port]
 ---
 ## **4．Apache Maven 用プロキシ設定**
 Apache Maven インストールフォルダ(本手順では「c:\maven」)にある「conf」フォルダ内の「settings.xml」ファイルを開き、下記の設定行を追加します。  
+![](./Files/proxy/image/image8.jpeg)
+
+<br>
 
 ＜下記の設定行を「settings.xml」に追加＞  
 ※ host に http:// の記述はいりません
@@ -97,8 +100,6 @@ Apache Maven インストールフォルダ(本手順では「c:\maven」)にあ
 <port>[port]</port>
 </proxy>
 ```
-
-![](./Files/proxy/image/image8.jpeg)
 
 <br>
 
