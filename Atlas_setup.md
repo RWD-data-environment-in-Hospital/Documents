@@ -1663,10 +1663,10 @@ https://www.rstudio.com/
 
 スタートメニューを開き、RStudio と R を起動します。  
 R のコンソールに以下のコマンドを入力します。  
+※RTOOLS40_HOME は、Rtools のバージョンにあわせ、書き換えが必要です  
 ```
 > writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con ="~/.Renviron")
 ```
-※RTOOLS40_HOME は、Rtools のバージョンにあわせ、書き換えが必要です  
 
 ![](./Files/Atlas/image/image1317.png)  
 
