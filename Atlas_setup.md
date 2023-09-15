@@ -1927,7 +1927,7 @@ Client Encoding : SJIS
 ```
 続けて以下のコマンドを入力し、変更されたことを確認します。  
 ```
-select current_schema();
+# select current_schema();
 ```
 
 ![](./Files/Atlas/image/image1347.png)  
@@ -1938,7 +1938,7 @@ select current_schema();
 注意：password は正しいものに書き換えてください  
 
 ```
-insert into source(
+# insert into source(
 source_id,
 source_name,
 source_key,
@@ -1971,7 +1971,7 @@ XXXX の部分には「3.2.1 PostgreSQL 10 のインストール」時に設定�
 同様にして、下記のように SOURCE_DAIMON テーブルにレコードを4 つ追加しま
 す。  
 ```
-insert into source_daimon (
+# insert into source_daimon (
 source_daimon_id,
 source_id,
 daimon_type,
