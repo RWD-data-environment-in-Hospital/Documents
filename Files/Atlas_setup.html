@@ -1706,8 +1706,7 @@ true
 XXXX の部分には「3.2.1 PostgreSQL 10 のインストール」時に設定したパスワードを入力します。</p>
 <p><img src="./Atlas/image/image1349.png" alt="" width="600"></p>
 <br>
-<p>同様にして、下記のように SOURCE_DAIMON テーブルにレコードを4 つ追加しま
-す。</p>
+<p>同様にして、下記のように SOURCE_DAIMON テーブルにレコードを4 つ追加します。</p>
 <pre class="hljs"><code><div># insert into source_daimon (
 source_daimon_id,
 source_id,
@@ -1717,9 +1716,9 @@ priority
 )
 values (
 1,
-1, （⇒上述のSQL の1 の箇所と同じ値）
+1, <span style="color: red; ">（上述の SQL の 1 の箇所と同じ値）</span>
 0,
-'cdmv5', （⇒スキーマ名）
+'cdmv5', <span style="color: red; ">（⇒スキーマ名）</span>
 2
 )
 ;
