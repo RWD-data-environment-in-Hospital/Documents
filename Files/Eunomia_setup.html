@@ -453,30 +453,30 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 <p>※以降の記述は「D:\tmp\output」フォルダを作成した前提の内容となっています。</p>
 <br>
 <p>続いて R コンソールを起動し、以下のコマンドを入力します。</p>
-<pre class="hljs"><code><div>> install.packages("drat")
+<pre class="hljs"><code><div>> install.packages("remotes")
 </div></code></pre>
-<p><img src="./Atlas_3/image/image72.png" alt=""></p>
+<p><img src="./Atlas_3/image/image83.png" alt=""></p>
 <br>
-<p>コマンド実行後、下記のメッセージが表示されたら「はい」をクリックします。</p>
+<p>コマンド実行後、下記のメッセージが表示された場合、「はい」をクリックします。</p>
 <p><img src="./Atlas_3/image/image73.png" alt=""></p>
 <p><img src="./Atlas_3/image/image74.png" alt=""></p>
 <br>
 <p>CRAN ミラーサイトは、「0-Cloud [https]」を選択します。</p>
 <p><img src="./Atlas_3/image/image75.png" alt=""></p>
 <br>
-<p>drat パッケージのインストールが完了すると、下図のメッセージが表示されます。</p>
-<p><img src="./Atlas_3/image/image76.png" alt=""></p>
+<p>remotes パッケージのインストールが完了すると、下図のメッセージが表示されます。</p>
+<p><img src="./Atlas_3/image/image84.png" alt=""></p>
 <br>
-<p>続いて、下記のコマンドを実行します。</p>
-<pre class="hljs"><code><div>> drat::addRepo("OHDSI")
+<p>続いて下記のコマンドを実行し、「1: All」を選択します。</p>
+<pre class="hljs"><code><div>> remotes::install_github("ohdsi/Eunomia")
 </div></code></pre>
-<p><img src="./Atlas_3/image/image77.png" alt=""></p>
-<pre class="hljs"><code><div>> install.packages("Eunomia")
-</div></code></pre>
-<p><img src="./Atlas_3/image/image78.png" alt=""></p>
+<p><img src="./Atlas_3/image/image85.png" alt=""></p>
+<br>
+<p>下記のメッセージが表示されるので、「はい」をクリックします。</p>
+<p><img src="./Atlas_3/image/image87.png" alt=""></p>
 <br>
 <p>Eunomia パッケージのインストールが完了すると、下図のメッセージが表示されます。</p>
-<p><img src="./Atlas_3/image/image79.png" alt=""></p>
+<p><img src="./Atlas_3/image/image86.png" alt=""></p>
 <br>
 <hr>
 <h1 id="2-eunomia-%E3%81%8B%E3%82%89%E3%83%87%E3%83%BC%E3%82%BF%E3%81%AE%E3%82%A8%E3%82%AF%E3%82%B9%E3%83%9D%E3%83%BC%E3%83%88"><strong>2　Eunomia からデータのエクスポート</strong></h1>

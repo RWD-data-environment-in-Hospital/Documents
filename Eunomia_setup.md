@@ -25,13 +25,13 @@ Eunomia を利用することにより、ATLAS の機能を実際に使いなが
 
 続いて R コンソールを起動し、以下のコマンドを入力します。  
 ```
-> install.packages("drat")
+> install.packages("remotes")
 ```
-![](./Files/Atlas_3/image/image72.png)
+![](./Files/Atlas_3/image/image83.png)
 
 <br>
 
-コマンド実行後、下記のメッセージが表示されたら「はい」をクリックします。
+コマンド実行後、下記のメッセージが表示された場合、「はい」をクリックします。
 
 ![](./Files/Atlas_3/image/image73.png)
 ![](./Files/Atlas_3/image/image74.png)
@@ -44,32 +44,32 @@ CRAN ミラーサイトは、「0-Cloud [https]」を選択します。
 
 <br>
 
-drat パッケージのインストールが完了すると、下図のメッセージが表示されます。
+remotes パッケージのインストールが完了すると、下図のメッセージが表示されます。
 
-![](./Files/Atlas_3/image/image76.png)
+![](./Files/Atlas_3/image/image84.png)
 
 
 <br>
 
-続いて、下記のコマンドを実行します。
+続いて下記のコマンドを実行し、「1: All」を選択します。
 
 ```
-> drat::addRepo("OHDSI")
+> remotes::install_github("ohdsi/Eunomia")
 ```
 
-![](./Files/Atlas_3/image/image77.png)
+![](./Files/Atlas_3/image/image85.png)
 
-```
-> install.packages("Eunomia")
-```
+<br>
 
-![](./Files/Atlas_3/image/image78.png)
+下記のメッセージが表示されるので、「はい」をクリックします。  
+
+![](./Files/Atlas_3/image/image87.png)
 
 <br>
 
 Eunomia パッケージのインストールが完了すると、下図のメッセージが表示されます。
 
-![](./Files/Atlas_3/image/image79.png)
+![](./Files/Atlas_3/image/image86.png)
 
 <br>
 
