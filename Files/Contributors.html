@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>OHDSI Tool Documents</title>
+<title>Contributors.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
 
 <style>
@@ -99,19 +99,10 @@ body.showEditorSelection li.code-line:hover:before {
 	border-left: none;
 }
 
-p, li, pre {
-	width: 90%; max-width: 800px;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/* img {
+img {
 	max-width: 100%;
 	max-height: 100%;
-} */
+}
 
 a {
 	text-decoration: none;
@@ -133,7 +124,7 @@ hr {
 	border: 0;
 	height: 2px;
 	border-bottom: 2px solid;
-	width: 850px;
+	width: 800px;
 	text-align:left;
 	margin-left:0px;
 }
@@ -141,14 +132,13 @@ hr {
 h1 {
 	padding-bottom: 0.3em;
 	line-height: 1.2;
-	border-bottom-width: 2px;
+	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
 
 h1, h2, h3 {
-	font-size: 40px;
 	font-weight: normal;
-	width: 850px;
+	width:850px;
 }
 
 table {
@@ -190,7 +180,6 @@ body.wordWrap pre {
 
 pre:not(.hljs),
 pre.hljs code > div {
-	font-family: Meiryo;
 	padding: 16px;
 	border-radius: 3px;
 	overflow: auto;
@@ -380,64 +369,61 @@ code {
           : 'default'
     });
   </script>
-<h1 id="ohdsi-tool-documents"><strong>OHDSI Tool Documents</strong></h1>
-<h2 id="usagi"><strong>Usagi</strong></h2>
-<pre class="hljs"><code><div>Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Usagi_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Usagi_operation.html" target="_blank" rel="noopener">操作手順</a></li>
-</ul>
+<h1 id="%E8%AC%9D%E8%BE%9E"><em><b>謝辞</b></em></h1>
+<p>このドキュメントは、2022年度の臨中ネット国際化タスクフォース参加者の協力のもと作成しています。<br>
+OHDSI のツール類のセットアップ手順、操作手順などのドキュメントを用意することができました。</p>
+<p>臨中ネット国際化タスクフォース参加施設の先生方には、温かいご指導ご鞭撻を賜りました。<br>
+心より感謝申し上げます。</p>
 <br>
-<hr>
-<h2 id="whiterabbit--rabbit-in-a-hat"><strong>WhiteRabbit &amp; Rabbit-in-a-Hat</strong></h2>
-<pre class="hljs"><code><div>OMOP CDM の各リソースへマッピング支援するのが、Rabbit-in-a-Hat です。  
-Rabbit-in-a-Hat でマッピング作業を進めるために、White Rabbit では入力データを Rabbi-in-a-Hat で取り込み可能な形式に加工します。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/WhiteRabbit_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/WhiteRabbit_operation.html" target="_blank" rel="noopener">操作手順</a></li>
-</ul>
-<br>
-<hr>
-<h2 id="atlas"><strong>Atlas</strong></h2>
-<pre class="hljs"><code><div>Atlas は、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
-患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。  
-Eunomia のテストデータは、Atlas の各分析の検証に役立ちます。
-</div></code></pre>
-<ul>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Eunomia_setup.html" target="_blank" rel="noopener">Eunomia テストデータのセットアップ手順</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html" target="_blank" rel="noopener">操作手順 ～Cohort Pathways 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_Characterizations.html" target="_blank" rel="noopener">操作手順 ～Characterizations 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_IncidenceRates.html" target="_blank" rel="noopener">操作手順 ～Incidence Rates 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_functional_survey.html" target="_blank" rel="noopener">機能調査資料</a></li>
-	<br>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Verified_Version.html" target="_blank" rel="noopener">【参考】アプリケーションのバージョン</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Proxy_setting.html" target="_blank" rel="noopener">プロキシ設定手順</a>　※インストール時、プロキシサーバにより通信がブロックされる場合は、設定が必要です</li>
-	<br>
-</ul>
-<hr>
-<h2 id="hades"><strong>HADES</strong></h2>
-<pre class="hljs"><code><div>母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/HADES_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/HADES_function.html" target="_blank" rel="noopener">機能概要</a></li>
-</ul>
-<br>
-<hr>
-<p>各ツールドキュメントの課題は、GitHub の Issues で管理しています。（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/GitHub_Issues.html" target="_blank" rel="noopener">GitHub Issues について</a>）<br>
-<a href="https://github.com/RWD-data-environment-in-Hospital/Documents/issues" target="_blank" rel="noopener">https://github.com/RWD-data-environment-in-Hospital/Documents/issues</a>
-</p>
+<h3>作成協力者（継承略）</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">　　青柳　吉博　　</td>
+<td style="text-align:left">　　寺尾　涼恵　　</td>
+<td style="text-align:left">　　池田　裕弥　　</td>
+<td style="text-align:left">　　野村　恵一　　</td>
+<td style="text-align:left">　　馬場　雅浩　　</td>
+</tr>
+<tr>
+<td style="text-align:left">　　長谷川　裕美　　</td>
+<td style="text-align:left">　　千代島　翔一　　</td>
+<td style="text-align:left">　　松木　絵里　　</td>
+<td style="text-align:left">　　赤川　直人　　</td>
+<td style="text-align:left">　　竹村　亮　　</td>
+</tr>
+<tr>
+<td style="text-align:left">　　高田　敦史　　</td>
+<td style="text-align:left">　　坂梨　健二　　</td>
+<td style="text-align:left">　　藤本　匡志　　</td>
+<td style="text-align:left">　　山下　暁士　　</td>
+<td style="text-align:left">　　田中　勝弥　　</td>
+</tr>
+<tr>
+<td style="text-align:left">　　渡辺　清美　　</td>
+<td style="text-align:left">　　向井　まさみ　　</td>
+<td style="text-align:left">　　武田　理宏　　</td>
+<td style="text-align:left">　　永島　里美　　</td>
+<td style="text-align:left">　　佐藤　暁洋　　</td>
+</tr>
+<tr>
+	<td style="text-align:left"></td>
+	<td style="text-align:left"></td>
+	<td style="text-align:left"></td>
+	<td style="text-align:left"></td>
+	<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
 
-<br>
-<p>本資料は「医療技術実用化総合促進事業 Real World Evidence 創出のための取組み（通称：臨中ネット）」の支援を受けて作成されました。<br>
-<a href="https://github.com/RWD-data-environment-in-Hospital/Documents/Files/Contributors.html" target="_blank" rel="noopener"><u>作成協力者</u></a></p>
-<br>
-<br>
-<br>
-<br>
-<br>
 </body>
 </html>

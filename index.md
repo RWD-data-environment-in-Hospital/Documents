@@ -54,3 +54,9 @@ Eunomia のテストデータは、Atlas の各分析の検証に役立ちます
 https://github.com/RWD-data-environment-in-Hospital/Documents/issues
 
 [GitHub Issues について](./GitHub_Issues.md)
+
+<br>
+<br>
+本資料は「医療技術実用化総合促進事業 Real World Evidence 創出のための取組み（通称：臨中ネット）」の支援を受けて作成されました。
+
+- [作成協力者](./HADES_setup.md)
