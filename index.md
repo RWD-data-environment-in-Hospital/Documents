@@ -1,5 +1,17 @@
 # **OHDSI Tool Documents**
+---
+これらのドキュメントについて  
 
+●目的：  
+OHDSI ツールのセットアップ、操作をサポートするためにこのドキュメントを作成しました。  
+
+●環境：  
+Windows10 の環境下でこのドキュメントを作成していますが、Windows11 の環境下での動作も確認しています。  
+
+●ご意見、不具合について：  
+ドキュメントについて、課題、不具合等がある場合は、[Github Issues](https://github.com/RWD-data-environment-in-Hospital/Documents/issues) に報告ください。  
+
+---
 ## **Usagi**  
 ```
 Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。  
