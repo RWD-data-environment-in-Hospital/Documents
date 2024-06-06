@@ -1,0 +1,800 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ATLAS セットアップ手順</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head>
+
+<body><article id="ee8af009-4f97-4f84-82b1-757e8e4147f5" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=6000" style="object-position:center 0%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/geography_orange.svg"/></div><h1 class="page-title">ATLAS セットアップ手順</h1><p class="page-description"></p></header><div class="page-body"><h1 id="1395f26c-3969-4503-bff6-c086793c4d18" class=""><strong>目次</strong></h1>
+<a href="#297c20a4-d507-462e-9792-5228b9d9fbd9">1. 事前準備 : ミドルウェアのインストール</a><br>
+<a href="#139204c1-60eb-4a0b-ad42-a64abf04f60d">2. ログイン/グループロールの登録（PostgreSQL）</a><br>
+<a href="#634546df-281f-4601-847b-d4661ad6ed1e">3. データベース “OHDSI” の作成</a><br>
+<a href="#208eeeab-f6ed-431d-a094-19e6d90db2cd">4. WebAPI 用スキーマの作成</a><br>
+<a href="#57959b8d-1598-4d94-af16-c78c36b202e3">5. WebAPI を Tomcat にデプロイする</a><br>
+<a href="#bc07258a-73fa-46d5-bd08-e44648c40a98">6. Achilles のインストール</a><br>
+<a href="#d2e73fed-ff86-408b-b1f6-f4e73c6a70bf">7. ATLAS のインストール</a><br>
+<a href="#af579771-483c-41fc-8e71-0c001f03bc74">8. ATLAS の起動手順</a>
+<h2 id="297c20a4-d507-462e-9792-5228b9d9fbd9" class="">事前準備 : ミドルウェアのインストール</h2><hr id="1b9a7679-e3de-4c19-b8a3-52b362f0f3e5"/><p id="03c228a1-6b88-42ee-bad8-a233176a3d0e" class="">ATLAS 環境を構築するためのミドルウェア群です。<br/>以下のミドルウェアをインストールします。<br/></p><figure id="ccdc971d-c26a-4389-8a36-88eed449853b" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/JAVA%20JDK%208%20ccdc971dc26a43898a3688eed449853b.html">JAVA JDK 8</a></figure><figure id="770a5ffb-a031-4008-a652-dee2bce7dbc9" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/git%20770a5ffba0314008a652dee2bce7dbc9.html">git</a></figure><figure id="a5e35d59-0381-49c8-a854-d3747588d743" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Apache%20Maven%20a5e35d59038149c8a854d3747588d743.html">Apache Maven</a></figure><figure id="6b5aa367-1c8d-4d7a-b66c-738165943dd5" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Apache%20Tomcat%208%206b5aa3671c8d4d7ab66c738165943dd5.html">Apache Tomcat 8</a></figure><figure id="172f1c90-0bd5-4757-b50c-beafa136a157" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/PostgreSQL%20172f1c900bd54757b50cbeafa136a157.html">PostgreSQL</a></figure><figure id="48848b8e-d0b4-4f1d-84a5-8bd9b1ad5a33" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/R%2048848b8ed0b44f1d84a58bd9b1ad5a33.html">R</a></figure><figure id="859b084d-3636-44c0-9a71-1323ca1a4d9c" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Rtools%20859b084d363644c09a711323ca1a4d9c.html">Rtools</a></figure><figure id="604e3806-3474-4b7e-b8a2-81c631b4f51f" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/RStudio%20604e380634744b7eb8a281c631b4f51f.html">RStudio</a></figure><figure id="b3c24cc0-e536-4a21-ac60-5672e5e6f83e" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Node%20js%20b3c24cc0e5364a21ac605672e5e6f83e.html">Node.js</a></figure><p id="d6e205f0-216b-4f86-826c-0f3f2c74fb18" class="block-color-default">
+</p><h2 id="3a62feb5-417b-4b1c-9e9d-0edf0241de25" class="">環境変数の登録</h2><hr id="539b2ec5-4472-4aee-8961-3d970db610ac"/><p id="7b519d2b-f29f-4deb-a74a-9ad07a91a11e" class="">参考：</p><figure id="391f84c4-92ad-42a5-933b-bcbc969874ab" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AE%E7%99%BB%E9%8C%B2%E6%89%8B%E9%A0%86%20391f84c492ad42a5933bbcbc969874ab.html">環境変数の登録手順</a></figure><p id="5e5c7c20-0dd9-40d3-a59a-863d30114a59" class="">
+</p><p id="c618955c-8cf4-45e2-a7f1-1a589219d7ea" class="">システム環境変数に、以下の内容を追加登録します。<br/>※バージョンにより、変数、値が変わることがあります。<br/></p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="8f60463f-dd38-4bb2-9534-03570b42dbdb"><div style="font-size:1.5em"><span class="icon">📋</span></div><div style="width:100%">CATALINA_HOME　　C:\Program Files\Apache Software Foundation\Tomcat 8.5<br/>JAVA_HOME　　C:\Program Files\Amazon Corretto\jdk1.8.0_412<br/>MAVEN_HOME　　C:\Maven<br/>RTOOLS43_HOME　　C:\rtools43<br/></div></figure><p id="d75dcd35-a99b-4f55-89be-f4ffd7c0f03a" class="">システム環境変数の “Path” に、下記の内容を追加登録します。<br/>※バージョンにより、パス名が変わることがあります。<br/></p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="9a88cbdc-a6c6-4048-ba5d-bff24cd4ff8b"><div style="font-size:1.5em"><span class="icon">📋</span></div><div style="width:100%">C:\Maven\bin<br/>C:\Program Files\Amazon Corretto\jdk1.8.0_412\bin<br/>C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin<br/>C:\Program Files\PostgreSQL\16\bin<br/>C:\rtools43\usr\bin<br/></div></figure><p id="0f569306-dcea-4fdc-ae42-f000daa3d0ac" class="">
+</p><div><h2 id="139204c1-60eb-4a0b-ad42-a64abf04f60d" class="">ログイン/グループロールの登録（PostgreSQL）</h2></div><hr id="06f7d815-b2de-4ddf-ad40-efd55b20e8b2"/><p id="c3f86359-3761-445d-bdd2-82d7cd353bb3" class="">pgAdmin4 を起動します。</p><p id="258f3fc1-2fb9-41fc-a370-dc927440bac2" class="">
+</p><p id="189d4a14-ceef-42a5-99f6-6050a3fff184" class="">参考：</p><figure id="78a2e923-44a4-42b1-b949-32742177f6f7" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/PgAdmin4%20%E3%81%AE%E6%97%A5%E6%9C%AC%E8%AA%9E%E5%8C%96%2078a2e92344a442b1b94932742177f6f7.html">PgAdmin4 の日本語化</a></figure><p id="4d6a3d06-4dc2-4943-bbc3-d93554f79725" class="">
+</p><p id="fc885424-df12-4167-b92b-387599f5e1eb" class="">この手順では、クエリツールの画面からロールを作成します。<br/>
+データベースの postgres を選択し、クエリツールのアイコンをクリックします。<br/>
+クエリの入力画面が表示されるので、以下のコードを貼り付け、実行します。（点線部分）<br/></p>
+	<figure id="7afaf4a5-1c07-449d-82df-56bf3b1368b8" class="image" style="text-align:left">
+		<a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled 4.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled.png"/></a></figure>
+		<p id="459a0030-cf5d-4e3b-a7fc-5dec2a3c9464" class="">
+
+</p><p id="21869cc2-fef5-4225-b119-5900f7a63128" class="">次の SQL を pgAdmin4 のクエリ欄へ貼り付け、実行します。<br/>ログインロール、グループロールが作成されます。<br/>※ohdsi_admin_user, ohdsi_app_user のパスワードはそれぞれ任意のパスワードへ変更してください（3つ目と4つ目の SQL）<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="240dd90e-3cbf-4c7e-9659-87016ed4a879" class="code"><code class="language-SQL">CREATE ROLE ohdsi_admin
+  CREATEDB REPLICATION
+   VALID UNTIL &#x27;infinity&#x27;;
+COMMENT ON ROLE ohdsi_admin
+  IS &#x27;Administration group for OHDSI applications&#x27;;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d051e979-ffa2-4801-ba36-6a087260d29a" class="code"><code class="language-SQL">CREATE ROLE ohdsi_app
+   VALID UNTIL &#x27;infinity&#x27;;
+COMMENT ON ROLE ohdsi_app
+  IS &#x27;Application group for OHDSI applications&#x27;;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="39a1ba0e-a133-4272-bed2-703881450b0b" class="code"><code class="language-SQL">CREATE ROLE ohdsi_admin_user LOGIN ENCRYPTED PASSWORD &#x27;xxxx&#x27;
+   VALID UNTIL &#x27;infinity&#x27;;
+GRANT ohdsi_admin TO ohdsi_admin_user;
+COMMENT ON ROLE ohdsi_admin_user
+  IS &#x27;Admin user account for OHDSI applications&#x27;;
+
+ALTER ROLE ohdsi_admin_user
+	SUPERUSER
+	CREATEDB
+	CREATEROLE;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4fbff514-eea0-44ab-bce5-c9a09b2af318" class="code"><code class="language-SQL">CREATE ROLE ohdsi_app_user LOGIN ENCRYPTED PASSWORD &#x27;oooo&#x27;
+   VALID UNTIL &#x27;infinity&#x27;;
+GRANT ohdsi_app TO ohdsi_app_user;
+COMMENT ON ROLE ohdsi_app_user
+  IS &#x27;Application user account for OHDSI applications&#x27;;
+    
+ALTER ROLE ohdsi_admin_user
+	SUPERUSER
+	CREATEDB
+	CREATEROLE;</code></pre><p id="142e7c04-8b38-4ac4-908e-60b236b1c47f" class="">ログイン/グループロールを右クリックし、再読み込みを選択すると、情報が更新されます。</p><figure id="96cdaba8-8891-4276-aeed-008a1c02c444" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%201.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%201.png"/></a></figure><p id="1c72fb6d-502b-470d-a0e7-0cbcf67245cb" class="">以下のログイン/グループロールが追加されました。</p><figure id="1ffe2de0-66f3-4068-b3a7-49f3da8c681c" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%202.png"><img style="width:288px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%202.png"/></a></figure><p id="5cbdeea8-047e-4b87-966e-656dc27b839e" class="">
+</p><h2 id="634546df-281f-4601-847b-d4661ad6ed1e" class="">データベース “OHDSI” の作成</h2><hr id="ee1e68ff-abfc-45d0-be4c-9e36219051a1"/><p id="e906e0ce-57ed-4984-8568-e2ba62abc2d9" class="">OHDSI 用のデータベースを作成します。<br/>以下の SQL を実行します。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b1a2eb7e-b0a7-4754-8641-9a6a5ea9f1c4" class="code"><code class="language-JavaScript">CREATE DATABASE &quot;OHDSI&quot;
+  WITH ENCODING=&#x27;UTF8&#x27;
+       OWNER=ohdsi_admin
+       CONNECTION LIMIT=-1;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="96b57ba8-a438-40da-a24e-126f2d40525e" class="code"><code class="language-JavaScript">COMMENT ON DATABASE &quot;OHDSI&quot;
+  IS &#x27;OHDSI database&#x27;;
+GRANT ALL ON DATABASE &quot;OHDSI&quot; TO GROUP ohdsi_admin;
+GRANT CONNECT, TEMPORARY ON DATABASE &quot;OHDSI&quot; TO GROUP ohdsi_app;</code></pre><p id="44280e24-355d-421b-8cf1-d5b07c4fb48c" class="">再読み込み後、OHDSI のデータベースが作成されました。</p><figure id="2296cb14-4ddb-4e22-a346-d210c0cd9640" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%203.png"><img style="width:288px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%203.png"/></a></figure><p id="dbec17c4-58d0-462a-9a71-8d9fdf3802f3" class="">
+</p><h2 id="208eeeab-f6ed-431d-a094-19e6d90db2cd" class="">WebAPI 用スキーマの作成</h2><hr id="7827acf7-4652-41a6-8e77-c45b38933b7f"/><p id="68dc09c3-3da2-4626-8020-216f42a62b5b" class="">WebAPI用のデータベーススキーマを作成します。<br/>OHDSI のデータベースを作成したら、postgres のクエリ画面を閉じ、OHDSI データベースをアクティブにして、OHDSI のクエリ画面を開き直します。<br/></p><figure id="e26255e0-eedd-4556-b875-b62e13170cea" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%204.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%204.png"/></a></figure><p id="cf518ff2-beb8-476f-b572-4ed5e2c0da6c" class="">以下の SQL を実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="154548ed-8781-4ee7-ad04-7a161a98614a" class="code"><code class="language-SQL">CREATE SCHEMA webapi
+       AUTHORIZATION ohdsi_admin;
+COMMENT ON SCHEMA webapi
+  IS &#x27;Schema containing tables to support WebAPI functionality&#x27;;
+GRANT USAGE ON SCHEMA webapi TO PUBLIC;
+GRANT ALL ON SCHEMA webapi TO GROUP ohdsi_admin;
+GRANT USAGE ON SCHEMA webapi TO GROUP ohdsi_app;</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7589964e-2b50-4f57-a8e5-c8eeae5fb88c" class="code"><code class="language-SQL">ALTER DEFAULT PRIVILEGES IN SCHEMA webapi
+    GRANT INSERT, SELECT, UPDATE, DELETE, REFERENCES, TRIGGER ON TABLES
+    TO ohdsi_app;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA webapi
+    GRANT SELECT, USAGE ON SEQUENCES
+    TO ohdsi_app;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA webapi
+    GRANT EXECUTE ON FUNCTIONS
+    TO ohdsi_app;
+
+ALTER DEFAULT PRIVILEGES IN SCHEMA webapi
+    GRANT USAGE ON TYPES
+    TO ohdsi_app;</code></pre><p id="9db061cb-6f2c-4b3e-a166-a430efcdfdad" class="">再読み込み後、webapi のスキーマが作成されました。</p><figure id="7e4057f5-bfbf-4847-9058-89666ef29401" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%205.png"><img style="width:288px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%205.png"/></a></figure><p id="34569f22-619a-49f9-a5be-7070a4107a14" class="">
+</p><h2 id="cf874fc9-3657-4be3-b61a-5593162ffd62" class="">WebAPIのインストール</h2><hr id="8925d0c3-2396-4c83-adb1-637127177e49"/><p id="b49a0e84-024f-4de1-8100-fd461a5a8071" class="">C:\Git\OHDSI フォルダを作成し、WebAPI プロジェクトのクローンを作成します。<br/> コマンドプロンプトを開き、<br/><mark class="highlight-blue"><code>C:\Git\OHDSI</code></mark><mark class="highlight-blue"> </mark><mark class="highlight-default">から</mark>以下のコマンドを実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ed0d94d4-51d4-4f67-a125-817cfb705d2c" class="code"><code class="language-Shell">C:\Git\OHDSI&gt; git clone https://github.com/OHDSI/WebAPI.git</code></pre><p id="4fe28c48-b19e-4887-a31f-0353754d8171" class="">以下のように表示されれば、クローンの作成は完了です。</p><figure id="27b4a45a-c7f2-434a-8f53-2522cae77fcd" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%206.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%206.png"/></a></figure><p id="8863facf-7f83-4eeb-93b1-5f59a0e7f8ae" class="">
+</p><h2 id="eef075a0-6441-4ed1-9543-6085c17bc361" class=""><strong>Maven プロファイルを構成する</strong></h2><hr id="b6b81cf1-74fa-4740-aee1-ac6ee28cd75e"/><p id="23bb2467-5568-45d8-a2be-5dbdb59b956c" class=""><mark class="highlight-blue"><code>C:\Git\OHDSI\WebAPI</code></mark> の配下に <mark class="highlight-blue"><code>WebAPIConfig</code></mark> フォルダを作成します。<br/><br/><mark class="highlight-blue"><code>WebAPI</code></mark> フォルダにある <code>sample_settings.xml</code> を <mark class="highlight-blue"><code>WebAPIConfig</code></mark> フォルダにコピーし、ファイル名を<code>settings.xml</code> に変更します。</p><p id="53078b6d-b575-4604-8a55-cf611c912f77" class="">
+</p><p id="fad3d8d4-7ae9-4020-b6e6-24a15798664f" class=""><mark class="highlight-blue"><code>C:\Git\OHDSI\WebAPI\WebAPIConfig\</code></mark><code>settings.xml</code> の内容を下記のように変更します。<br/>※パスワードは、pgAdmin4 で設定したパスワードに書き換えること<br/></p><p id="616f4ed1-9bef-4abb-b19e-b07dcf8c1255" class="">変更箇所</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f41462b6-af46-421e-8c9d-dd20d4eb78e1" class="code"><code class="language-XML">&lt;datasource.username&gt;ohdsi_app_user&lt;/datasource.username&gt;
+&lt;datasource.password&gt;oooo&lt;/datasource.password&gt;
+
+&lt;flyway.datasource.username&gt;ohdsi_admin_user&lt;/flyway.datasource.username&gt;
+&lt;flyway.datasource.password&gt;xxxx&lt;/flyway.datasource.password&gt;
+
+&lt;security.origin&gt;localhost&lt;/security.origin&gt;</code></pre><p id="cc55c0a7-c9fb-469f-9322-82dcffa2887f" class="">
+</p><h2 id="e99e21d9-10da-40e7-b711-e48ed758bc4f" class=""><strong>Maven を使用した WebAPI.war ファイルのビルド</strong></h2><hr id="f03eae0f-0b62-481a-ad38-d1cc1e0d1c15"/><p id="1f9b6533-03f4-4288-9aee-69bd6c9b18d5" class="">WebAPI プロジェクト フォルダ ( <mark class="highlight-blue"><code>C:\Git\OHDSI\WebAPI</code></mark>) から次の Maven コマンドを実行して、WebAPI のデプロイと実行に使用される .war ファイルを作成します。<br/><br/><mark class="highlight-pink">※プロキシ環境では、maven の </mark><mark class="highlight-red"><code>settings.xml</code></mark><mark class="highlight-pink"> に maven 用のプロキシ設定が必要</mark></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1861edd0-a7fa-489b-8037-0bbb57f5e727" class="code"><code class="language-Shell">C:\Git\OHDSI\WebAPI&gt; mvn clean package -DskipUnitTests -DskipITtests -s WebAPIConfig/settings.xml -P webapi-postgresql</code></pre><figure id="0663f248-45ed-4ee8-a563-831be51b29a4" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%207.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%207.png"/></a></figure><p id="cabf0238-28c8-43a7-8683-7b24fe1ca777" class="">“BIULD SUCCESS” が表示されれば成功です。</p><figure id="00ed4101-b673-4c57-aae4-af1de0ed92e3" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%208.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%208.png"/></a></figure><p id="13fb558e-8360-47f5-8a0a-1db71286937f" class="">これにより、ターゲット WebAPI サブフォルダー (C:\Git\OHDSI\WebAPI\target\WebAPI.war) にファイル WebAPI.war が作成されます。<br/>Java アプリケーションを実行するためのコンテナが提供され、HTTP 経由の通信を可能にするサービスが提供されます。<br/></p><figure id="c2e50660-4914-4d93-9f90-a324ef1b393e" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%209.png"><img style="width:288px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%209.png"/></a></figure><p id="08452bf6-9171-4daf-b1d5-31131cc5262a" class="">
+</p><h2 id="57959b8d-1598-4d94-af16-c78c36b202e3" class=""><strong>WebAPI を Tomcat にデプロイする</strong></h2><hr id="6f2f1533-353b-43f2-941b-1ad46ef2d90d"/><p id="4d075a29-7691-4a1c-a4ea-18484104cd35" class="">WebAPI をデプロイする前に、マネージャー インターフェイスにログインできるように Tomcat を設定する必要があります。<br/>これを行うには、<br/><mark class="highlight-blue"><code>conf</code></mark> フォルダ (<mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf</code></mark>) に移動し、ファイル <mark class="highlight-red"><code>tomcat-users.xml</code></mark> を編集します。<br/>次の XML を &lt;tomcat-users&gt; ブロックに追加します。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9a870a37-a223-4f4f-83cb-ba41c0783bda" class="code"><code class="language-JavaScript">&lt;role rolename=&quot;manager-gui&quot;/&gt;
+&lt;user username=&quot;tomcat&quot; password=&quot;s3cret&quot; roles=&quot;manager-gui&quot;/&gt;</code></pre><figure id="217a951f-e13f-4e99-81b3-190b6770efc6" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2010.png"><img style="width:768px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2010.png"/></a></figure><p id="b139c0b7-a081-41d1-b19e-8312c1f67aaf" class="">次に、WebAPI を確実にデプロイできるように、50MB を超えるアップロードを許可するように Tomcat マネージャー アプリケーションを構成する必要があります。</p><p id="b004e377-8674-42e8-b740-1d9b39752a9d" class=""><mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\manager\WEB-INF\</code></mark><code>web.xml</code>ファイルを編集して、以下のセクションを修正します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="96034f53-9ae0-473e-a2ec-1142af054f67" class="code"><code class="language-XML">&lt;multipart-config&gt;
+      &lt;!-- 50MB max --&gt;
+      &lt;max-file-size&gt;52428800&lt;/max-file-size&gt;
+      &lt;max-request-size&gt;52428800&lt;/max-request-size&gt;
+      &lt;file-size-threshold&gt;0&lt;/file-size-threshold&gt;
+&lt;/multipart-config&gt;</code></pre><p id="fc8a6306-048e-4008-98c9-5bac48d80bed" class="">以下のように修正します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bd3ce074-ee3c-4cd0-8a97-0bdccf588814" class="code"><code class="language-XML">&lt;multipart-config&gt;
+      &lt;!-- 150MB max --&gt;
+      &lt;max-file-size&gt;154857600&lt;/max-file-size&gt;
+      &lt;max-request-size&gt;154857600&lt;/max-request-size&gt;
+      &lt;file-size-threshold&gt;0&lt;/file-size-threshold&gt;
+&lt;/multipart-config&gt;</code></pre><p id="fa947ff3-5506-46b3-a30d-39e4f1e34943" class="">
+</p><h2 id="72d323b6-e96f-46fd-a939-926617c7322f" class="">war ファイルのデプロイ</h2><hr id="e8488a39-5fab-40d5-b146-9a530f36c1dc"/><p id="5ef56487-0df4-4429-b75d-5ad9244f2565" class="">コマンド プロンプトを開き、以下のコマンドを実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4f7fb1ef-6952-4d71-b22b-2d8795bd7eaa" class="code"><code class="language-PowerShell">catalina.bat run</code></pre><p id="b3aa7b53-70a7-4e24-97a5-ea4a47f7428a" class="">
+</p><p id="079b0223-793e-4bb5-a47d-c4eb9ae956ef" class="">参考：</p><figure id="7bdbe9c7-30e4-4bea-b862-02199d347875" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%88%E3%82%99%E3%83%95%E3%82%9A%E3%83%AD%E3%83%B3%E3%83%95%E3%82%9A%E3%83%88%E3%81%AE%E6%96%87%E5%AD%97%E5%8C%96%E3%81%91%E3%82%92%E6%94%B9%E5%96%84%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%207bdbe9c730e44beab86202199d347875.html">コマンドプロンプトの文字化けを改善するには</a></figure><p id="8a1c2a03-6faa-4735-b8f5-2dece1153fa6" class="">
+</p><p id="85e360ad-8689-4198-a3ff-a42923220802" class=""><a href="https://github-com.translate.goog/OHDSI/WebAPI/wiki/WebAPI-Installation-Guide?_x_tr_sl=auto&amp;_x_tr_tl=ja&amp;_x_tr_hl=ja#deploy-webapi-using-tomcat-application-manager"><strong></strong></a>Tomcat Application Manager を使用して WebAPI をデプロイします。</p><p id="cd22ad7d-9fcd-4b21-9bfe-a0b7268bfaea" class="">Web ブラウザを開いて <a href="http://localhost:8080/manager">http://localhost:8080/manager</a> に移動すると、資格情報の入力を求められます。<br/>上記の手順で設定したように、<br/><mark class="highlight-orange"><code>tomcat</code></mark> のユーザー名と <mark class="highlight-orange"><code>s3cret</code></mark> のパスワードを入力します。</p><figure id="1b1c924e-5efb-4e2f-9587-21e025f4d0bd" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2011.png"><img style="width:672px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2011.png"/></a></figure><p id="8bc127b1-d2c1-4b83-b589-c26d93152c4f" class="">マネージャー画面が表示されます。</p><figure id="fc846eac-227a-42c2-b46f-4c8fd2aab28f" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2012.png"><img style="width:912px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2012.png"/></a></figure><p id="26c408b1-6b2f-4ac3-a46b-11c3fbba3f54" class="">マネージャー画面の下部に、WAR ファイルの配備欄の領域が表示されます。<br/> 「ファイルの選択」ボタンをクリックし、WebAPI.war ファイル (<br/><mark class="highlight-blue"><code>C:\Git\OHDSI\WebAPI\target\</code></mark><code>WebAPI.war</code>) を選択します。<br/><br/><mark class="highlight-orange"><code>配備</code></mark>ボタンをクリックして、WebAPI をデプロイします。</p><p id="3016f099-3b54-4d71-adf1-1b9a7505bf6b" class="">
+</p><p id="b526f34c-d3f8-46e4-bdcc-c5cd0c208482" class="">status（実行中の列） が true となったことが確認できれば、正常にデプロイされています。</p><figure id="fbac6402-cb0b-4a13-ab66-e650d40d7926" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2013.png"><img style="width:912px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2013.png"/></a></figure><p id="c5401345-f775-43b1-903c-a1952469f9b7" class="">
+</p><p id="58c0584f-2ac9-44a1-97d1-675e9364bbf4" class=""><strong>重要：</strong><code><mark class="highlight-red"><strong>catalina.bat run</strong></mark></code><strong> で起動したコマンドプロンプトの画面は、必ず </strong><mark class="highlight-blue"><code><strong>C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin\</strong></code></mark><code><strong>shutdown.bat</strong></code><strong> を実行して終了させてください</strong></p><p id="cefcfa37-b60d-400b-8b02-ef051c25b762" class="">
+</p><p id="2bb99691-dc00-4bcc-b3cf-8a978db00a19" class="">参考：</p><figure id="b9d18b3e-0273-49b3-b01e-f7b0172ec28c" class="link-to-page"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/shutdown%20bat%20%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%88%E3%82%99%E3%81%8B%E3%82%99%E5%8F%8D%E5%BF%9C%E3%81%97%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%20b9d18b3e027349b3b01ef7b0172ec28c.html">shutdown.bat コマンドが反応しない場合</a></figure><p id="17276a4c-a72e-41e1-a98a-63918a98b57a" class="">
+</p><h2 id="bc07258a-73fa-46d5-bd08-e44648c40a98" class="">Achilles のインストール</h2><hr id="24fe3e7b-f848-4d8b-878c-c272babef338"/><p id="33dbd636-4e4e-4a63-a945-2e51b2b642af" class="">Java のヒープメモリの最大サイズがデフォルトで 512MB と小さいため、メモリ不足のエラーを起こす可能性があり、最大サイズを増やす必要があります。<br/>以下の手順で全ての R プログラムに対して Java のヒープメモリの最大サイズを 4GB に設定できます。<br/><div class="indented"><ol type="1" id="72326fef-a491-4a29-bd5a-5d4e1759e888" class="numbered-list" start="1"><li><strong>usethis パッケージのインストールと読み込み</strong>:<br/>R コンソールで以下のコマンドを実行し、<br/><mark class="highlight-orange"><code>usethis</code></mark> パッケージをインストールしてから読み込みます。<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="aa772f10-3b50-4314-b85d-21d02ad8d4f1" class="code"><code class="language-R">install.packages(&quot;usethis&quot;)
+library(usethis)</code></pre></li></ol><ol type="1" id="c99f8e3a-277f-47ce-92f6-5237d8698ead" class="numbered-list" start="2"><li><strong>.Renviron ファイルの編集</strong>:<p id="0a018256-0238-4dca-afd3-8ea684d62f06" class=""><mark class="highlight-orange"><code>usethis</code></mark> パッケージの <mark class="highlight-orange"><code>edit_r_environ()</code></mark> 関数を使用して、<code>.Renviron</code> ファイルをテキストエディタで開きます。<br/>この関数を実行すると、自動的にテキストエディタが開きます。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="340873b1-cde7-4045-bfda-974b05607f31" class="code"><code class="language-R">edit_r_environ()</code></pre></li></ol><ol type="1" id="1b0c11fa-60c1-4759-b144-4fcf0e055222" class="numbered-list" start="3"><li><strong>Java のヒープメモリサイズの設定</strong>:<p id="b60557f1-e5ab-457b-8c1d-8ed6ce2817bd" class="">テキストエディタが開いたら、以下の行を<code>.Renviron</code> ファイルに追加します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5fa906ce-354a-47e3-b3b8-0f659102a9d3" class="code"><code class="language-R">_JAVA_OPTIONS=&#x27;-Xmx4g&#x27;</code></pre><p id="f9101155-4cb8-4508-aff9-89dedccda07b" class="">これにより、Java のヒープメモリの最大サイズが 4GB に設定されます。</p></li></ol><ol type="1" id="44b05422-02f0-49b6-95fc-7497b3e169cc" class="numbered-list" start="4"><li><strong>ファイルの保存と R の再起動</strong>:<p id="56d3b30a-6595-48bd-bc5a-a4a3a718e011" class="">変更を加えた後、ファイルを保存してテキストエディタを閉じます。その後、R を再起動します。<br/>これらの手順を完了すると、R プログラムで使用される Java のヒープメモリの最大サイズが 4GB に増加され、メモリ不足によるエラーを防ぐことができます。<br/></p></li></ol><ol type="1" id="3f747a1d-5a65-4a6f-a13a-ef838128ae0f" class="numbered-list" start="5"><li><strong>R コンソールで以下のコマンドを実行し、Achilles をダウンロード、インストールします。</strong><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3aaf9699-d957-4cbd-a781-1f0e4ebda506" class="code"><code class="language-R">install.packages(&quot;remotes&quot;)
+remotes::install_github(&quot;OHDSI/Achilles&quot;)</code></pre><p id="fd06e90f-9fbc-4693-a5cd-d58f616373b6" class="">DONE (Achilles) と表示されれば完了です。</p><figure id="1def6edb-a32a-4ce1-bf3b-fb954a73bfbf" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2014.png"><img style="width:720px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2014.png"/></a></figure></li></ol></div></p><p id="39ea7458-6386-4b0b-9944-6590ddb79bdc" class="">
+</p><h2 id="d2e73fed-ff86-408b-b1f6-f4e73c6a70bf" class="">ATLAS のインストール</h2><hr id="f37364e5-56c5-4aa6-aeac-05622e2d08f5"/><p id="8e033304-e7e1-453e-bc2b-2f45b9c88f0a" class="">ATLAS コードベースをダウンロードし、環境に合わせて設定する方法について説明します。</p><h3 id="b665ebe8-a85d-42e3-8042-294b8ed1d118" class="">コード展開</h3><p id="46aa6f95-e0e5-4b6d-880a-7e30dd120c71" class="">以下の URL から ATLAS の最新リリースをダウンロードします。</p><p id="04faa830-f158-4bad-b46c-e7ddf27bd836" class=""><a href="https://github.com/OHDSI/Atlas/releases/latest">https://github.com/OHDSI/Atlas/releases/latest</a></p><figure id="c756ed80-40e3-4047-967a-dfe120cc7bac" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2015.png"><img style="width:912px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2015.png"/></a></figure><p id="e654d57a-1fa2-4902-b220-6d3a887a94f5" class=""><mark class="highlight-blue"><code>C:\Git\OHDSI</code></mark> フォルダ配下に <mark class="highlight-blue"><code>Atlas</code></mark> フォルダを作成し、解凍した zip ファイルの内容を保存します。</p><p id="338cac51-ec8e-4f5b-ba88-6c1636c556f9" class="">
+</p><p id="94650ea6-260d-44c5-b951-3a5ff5621cf8" class=""><mark class="highlight-blue"><code>Atlas</code></mark> フォルダのルートから、以下のコマンドを実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d21e4a62-8777-450e-9896-6422257b7e65" class="code"><code class="language-PowerShell">C:\Git\OHDSI\Atlas&gt; npm run build</code></pre><p id="184a1e64-5dec-494e-b095-7b073ec5bb06" class="">
+</p><p id="6eb6b421-573e-4741-a023-330fa87ee065" class="">次に、ATLAS リポジトリから <mark class="highlight-blue"><code>node_modules</code></mark> フォルダを含むすべてのファイルを web サーバにコピーします。（これはすべての JavaScript 依存関係を解決するために必要です）</p><p id="3c49ec62-d690-4887-8d49-683dbf8c8be5" class=""><code><mark class="highlight-blue">C:\Git\OHDSI\Atlas</mark></code> → <mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps</code></mark> へコピー</p><figure id="6404f510-9d25-44bc-a56d-c3fb8fae9e0b" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2016.png"><img style="width:912px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2016.png"/></a></figure><p id="b7848658-9d9a-4608-8fd2-2b485b56b7d9" class="">
+</p><h2 id="4ba8571e-a4e7-4274-bbe5-f9c9ce7e96d2" class="">ATLAS の構成</h2><hr id="7f505e15-9265-43f0-bfe1-08658824288a"/><p id="596f2301-2064-46a3-b0df-b27d5e5132bf" class="">ATLAS のデフォルト設定は <mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\webapps\Atlas\js\config\</code></mark><code>app.js</code> ファイルにあります。<br/>デフォルト設定を上書きするには、<br/><mark class="highlight-blue"><code>js</code></mark> フォルダに <code>config-local.js</code> ファイルを作成します。<br/>注意：<br/><code>config-local.js</code> ファイルは ATLAS リポジトリに含まれていません。<br/>　　　環境固有の設定ができるよう、このファイルを作成します。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="96448c69-6c4d-491e-9699-7d2b7b7da024" class="code"><code class="language-JavaScript">define([], function () {
+	var configLocal = {};
+
+	configLocal.api = {
+		name: &#x27;Atlas Server&#x27;,
+		url: &#x27;http://localhost:8080/WebAPI/&#x27;
+	};
+
+	return configLocal;
+});</code></pre><p id="729622cf-6928-4e76-8c71-c0b6e443c015" class=""><mark class="highlight-blue"><code>\js\</code></mark><code>config-local.js</code> は、<mark class="highlight-blue"><code>\js\config\</code></mark><code>app.js</code> にある &quot;.api &quot; プロパティをオーバーライドし、環境のためのカスタム設定を可能にします。<br/>この設定を行うことにより、Google Chrome から ATLAS にナビゲートできるようになります。<br/></p><p id="4dfcc511-3e1c-4fd0-b060-e4dbfc48b38f" class="">
+</p><h2 id="af579771-483c-41fc-8e71-0c001f03bc74" class="">ATLAS の起動手順</h2><hr id="48e882f8-060c-4463-9423-08b1e114aec2"/><p id="261beb7d-9979-4dbf-ba6e-548d45346e15" class=""><mark class="highlight-default">コマンドプロンプトから</mark><mark class="highlight-orange"><code>catalina.bat run</code></mark> 実行します。</p><figure id="aa9a59c3-72aa-4291-bb17-f79969f7ab5b" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2017.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2017.png"/></a></figure><p id="78452b61-374e-4504-b486-c592cb1cf786" class="">Server startup in xxxxx ms の表示が確認出来たら、以下の URL から ATLAS の画面を開きます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b8f810e-4659-4749-9105-67be1647d1b0" class="code"><code class="language-HTML">http://localhost:8080/Atlas/#/home</code></pre><figure id="b5511e06-1541-4856-ac08-2af4d7f042dc" class="image" style="text-align:left"><a href="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2018.png"><img style="width:1008px" src="ATLAS%20%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E6%89%8B%E9%A0%86%20ee8af0094f974f8482b1757e8e4147f5/Untitled%2018.png"/></a></figure><p id="80466dff-0788-4a95-816f-a3b06e2e8470" class="">※この時点で、データソースはまだ構築されていないため、failed の表示となります</p><p id="47a0bf88-0b39-4566-b9df-217f6bba5eeb" class="">
+</p><h2 id="7956a562-6d41-4ab4-a7b8-9da5d7c98327" class="">ATLAS の終了手順</h2><hr id="b1c071d6-febf-4361-aa7b-3b2041f15179"/><p id="0c6753d7-a8c9-413f-9f2f-7b49e90132fb" class=""><mark class="highlight-default"><strong>ATLAS を終了する際には、下記のファイルを必ず実行してください。</strong></mark><mark class="highlight-default"><br/> <br/></mark><mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\bin\</code></mark><mark class="highlight-orange"><code>shutdown.bat</code></mark> </p><p id="fd65795e-9b82-4f41-8710-c2a78ef60c98" class="">コマンドプロンプト画面が自動で閉じられます。</p><p id="18ada7f6-5b10-4c89-bb9e-56e5084499da" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
