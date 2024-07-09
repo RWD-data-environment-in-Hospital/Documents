@@ -405,7 +405,7 @@ code {
 	border-radius: 3px;
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
-	font-size: 85%;
+	/* font-size: 85%; */
 	tab-size: 2;
 }
 
@@ -674,6 +674,6 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="7bdbe9c7-30e4-4bea-b862-02199d347875" class="page sans"><header><h1 class="page-title">コマンドプロンプトの文字化けを改善するには</h1><p class="page-description"></p></header><div class="page-body"><hr id="6bb4e65e-00ab-4cc3-9e5c-334639497f28"/><p id="0e8fc8f2-8c43-42f2-a60d-e88b4e69d89b" class="">コマンドプロンプトの画面で日本語表示が文字化けします。<br/>文字化けを防ぎたい場合は、<br/><mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\</code></mark><mark class="highlight-red"><code>logging.properties</code></mark> の内容を編集することで、文字化けを改善することができます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="aef5105d-6713-431a-a99a-932896e1ab5d" class="code"><code class="language-Java"># java.util.logging.ConsoleHandler.encoding = UTF-8
+</style></head><body><article id="7bdbe9c7-30e4-4bea-b862-02199d347875" class="page sans"><header><h1 class="page-title">コマンドプロンプトの文字化けを改善するには</h1><p class="page-description"></p></header><div class="page-body"><hr id="6bb4e65e-00ab-4cc3-9e5c-334639497f28"/><p id="0e8fc8f2-8c43-42f2-a60d-e88b4e69d89b" class="">コマンドプロンプトの画面で日本語表示が文字化けします。<br/>文字化けを防ぎたい場合は、<br/><code><mark class="highlight-blue">C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\</mark><mark class="highlight-red">logging.properties</mark></code> の内容を編集することで、文字化けを改善することができます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="aef5105d-6713-431a-a99a-932896e1ab5d" class="code"><code class="language-Java"># java.util.logging.ConsoleHandler.encoding = UTF-8
 java.util.logging.ConsoleHandler.encoding = SJIS</code></pre><p id="50d5707f-00c6-43a6-8fe9-40433a8d4cc6" class="">
 </p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

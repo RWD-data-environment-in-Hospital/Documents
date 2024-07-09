@@ -405,7 +405,7 @@ code {
 	border-radius: 3px;
 	padding: 0.2em 0.4em;
 	border-radius: 3px;
-	font-size: 85%;
+	/* font-size: 85%; */
 	tab-size: 2;
 }
 
@@ -674,7 +674,7 @@ blockquote {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
 }
 	
-</style></head><body><article id="b9d18b3e-0273-49b3-b01e-f7b0172ec28c" class="page sans"><header><h1 class="page-title">shutdown.bat コマンドが反応しない場合</h1><p class="page-description"></p></header><div class="page-body"><p id="9c4bbb62-2cb8-4328-b7ab-b72eb3a15117" class=""><code>shutdown.bat</code> を実行しても、catalina が終了しない場合、下記の原因が考えられます。<br/><br/><mark class="highlight-blue"><code>C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\</code></mark><code>server.xml</code> の <mark class="highlight-orange"><code>server port</code></mark> が “-1” となっている場合があります。<br/><br/><mark class="highlight-orange"><code>server port</code></mark> を “8005” に修正することで改善されます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e6b2bd16-c130-4e68-a1a0-63ab1569b2ee" class="code"><code class="language-XML">&lt;!--
+</style></head><body><article id="b9d18b3e-0273-49b3-b01e-f7b0172ec28c" class="page sans"><header><h1 class="page-title">shutdown.bat コマンドが反応しない場合</h1><p class="page-description"></p></header><div class="page-body"><p id="9c4bbb62-2cb8-4328-b7ab-b72eb3a15117" class=""><code>shutdown.bat</code> を実行しても、catalina が終了しない場合、下記の原因が考えられます。<br/><br/><code><mark class="highlight-blue">C:\Program Files\Apache Software Foundation\Tomcat 8.5\conf\</mark><mark class="highlight-red">server.xml</mark></code> の <mark class="highlight-orange"><code>server port</code></mark> が “-1” となっている場合があります。<br/><br/><mark class="highlight-orange"><code>server port</code></mark> を “8005” に修正することで改善されます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e6b2bd16-c130-4e68-a1a0-63ab1569b2ee" class="code"><code class="language-XML">&lt;!--
 &lt;Server port=&quot;-1&quot; shutdown=&quot;SHUTDOWN&quot;&gt;
 --&gt;
 &lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</code></pre><p id="b87432c3-66ff-49ca-bcfb-ddd2bf7b5db3" class="">
