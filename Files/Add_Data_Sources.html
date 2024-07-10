@@ -1,0 +1,775 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>データソース追加手順（ATLAS）</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 2px solid hsla(0, 0%, 0%, 0.3);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	/* font-size: 85%; */
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a54a7ba9-c342-42ea-a17b-014cb3049f0f" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 84.06%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/upload-folder_orange.svg"/></div><h1 class="page-title">データソース追加手順（ATLAS）</h1><p class="page-description"></p></header><div class="page-body"><p id="5a4fe7e3-ab15-418a-99a2-e7516fd6c0c4" class="">ATLAS のデータソースを追加する手順を記します。<br/>WebAPI は、OMOP Common Data Model (CDM) v5 に変換された 1 つ以上のデータベースの構成をサポートします。<br/></p><p id="4eb2d090-eaf0-4d1f-9f73-fd340c931dbc" class="">
+</p><p id="42718506-744a-49dc-8a4c-266b90e1ed9d" class="">下記 URL を参考に、この手順を作成しています。<br><a href="https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration">https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration</a></p><p id="883463f9-a9a1-49fe-9355-585b87a1ab18" class="">
+</p><h1 id="7e1b66f8-c0d2-4152-bfe7-e55bf4fac915" class=""><strong>前提条件</strong></h1><hr id="4eb4c13b-4316-45ed-a381-6ee9cba22fb2"/><p id="cec821ce-b5c0-4c6d-8a55-58d7bb3efcef" class="">WebAPI がインストールされていること。<br/>CDM スキーマに対象のデータが格納されていること。<br/></p><p id="c1016033-d919-480d-b734-3a00a3e20c76" class="">
+</p><h1 id="f50a9ece-5b0c-4db4-895d-811d19b776de" class="">概要</h1><hr id="87196be2-1615-40f2-b966-db5f3d54788f"/><p id="41af2f2d-e1ed-48ef-a4b8-435517d150a5" class="">ATLAS セットアップ手順で作成された WebAPI データベースでは、WebAPI を使用してさまざまな分析をするために使用する 1 つまたは複数の CDM を設定できます。<br/>WebAPI が正しく機能するためには <code><mark class="highlight-teal">source</mark></code>および <code><mark class="highlight-teal">source_daimon</mark></code> エントリを構成する必要があります。</p><p id="fde35901-1d8a-4991-978d-ca89e7376b76" class=""><br/><code><mark class="highlight-teal">source</mark></code>テーブルは、CDM への JDBC 接続情報が保持され、CDM データベースへの接続を定義します。<br/><code><mark class="highlight-teal">source_daimon</mark></code> テーブルは、source_id を使用して、CDM、Vocabulary、Results、temp スキーマの関連付けを定義します。</p><p id="8534ec53-ca85-4f02-a8ea-101f532e4cbb" class="">
+</p><p id="3a493b0c-f83d-4039-a582-18f59968db16" class="">以下のセクションでは、OHDSI WebAPI で使用する CDM を準備する方法と、WebAPI を設定して環境内の CDM に接続する方法について説明します。</p><br><h1 id="7d21688d-ef9c-48a2-bcf0-316304ce8b01" class="">スキーマのセットアップ</h1><hr id="386a8d17-c57b-4e36-9d9d-243a8be9e175"/><p id="1be225de-2e0c-4eca-ad71-13fd920d0311" class="">CDM データの特性を把握するために Achilles を実行することを強くお勧めします。<br/>そのプロセスの一環として、結果を保持する <br/><code><mark class="highlight-teal">Results schema</mark></code> を作成します。<br/>これらのテーブルは WebAPI によって利用され、WebAPI で設定された CDM に基づくレコード数の情報を含む語彙検索を補完します。<br/></p><table id="6aebde04-c09e-45fa-a5bc-b4c79e95a2c5" class="simple-table"><thead class="simple-table-header"><tr id="9b6c9431-dd99-46c4-a4e8-da7b114e91ee"><th id="y{bm" class="simple-table-header-color simple-table-header">スキーマ</th><th id="j&lt;E?" class="simple-table-header-color simple-table-header" style="width:538px">概要</th><th id="dfSi" class="simple-table-header-color simple-table-header" style="width:290px">権限</th></tr></thead><tbody><tr id="9b0ae3e9-0a7e-4605-a775-7d1aa4458731"><td id="y{bm" class="">CDM</td><td id="j&lt;E?" class="" style="width:538px">患者レベルのデータを保持するためのテーブル群</td><td id="dfSi" class="" style="width:290px">read-only</td></tr><tr id="c0b22e57-c0ca-4c01-ab74-9f19a6b99787"><td id="y{bm" class="">Vocabulary</td><td id="j&lt;E?" class="" style="width:538px">語彙を保持するテーブル群</td><td id="dfSi" class="" style="width:290px">read-only</td></tr><tr id="596d3627-6906-4cd7-a6dd-4816ee167a1a"><td id="y{bm" class="">Results</td><td id="j&lt;E?" class="" style="width:538px">Achilles を使用した特性化の結果を保持するテーブル群</td><td id="dfSi" class="" style="width:290px">insert/delete/select/update</td></tr><tr id="5fa27735-3354-471a-8b0d-cd8c29113924"><td id="y{bm" class="">Temp</td><td id="j&lt;E?" class="" style="width:538px">WebAPI が特定の分析を実行する際に、情報を一時的に保存するためのスキーマ</td><td id="dfSi" class="" style="width:290px">full control (create/remove tables &amp; data)</td></tr></tbody></table><p id="010d5b4d-1ec1-480b-8a3d-3445cc844c9c" class="">※以降の手順では、<br/><code><mark class="highlight-teal">CDM schema</mark></code> : eunomia<br/><code><mark class="highlight-teal">Results schema</mark></code> : eunomia_results<br/><code><mark class="highlight-teal">temp schema</mark></code> : eunomia_temp<br/>として進めます<br/></mark></p><p id="9aaa1616-e8bd-4a0b-b9c8-94dd4e32bf50" class="">※CDM には OMOP の語彙を保持するテーブルが含まれ、<code><mark class="highlight-teal">CDM schema</mark></code> と <code><mark class="highlight-teal">Vocabulary schema</mark></code> は、CDM データベース内の同じスキーマを参照していることが多いです</p><p id="c4873707-f5c6-49de-9099-32d61fceafdb" class="">
+</p><p id="9111bba1-a755-4366-829a-7d19ed937ab1" class="">OHDSI データベースに <code><mark class="highlight-teal">Results schema</mark></code> と <code><mark class="highlight-teal">temp schema</mark></code> の 2 つのスキーマを作成します。</p><figure id="b876eeac-80a8-4a4c-86b5-7ba26ef2adfe" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled.png"><img style="width:576px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled.png"/></a></figure><p id="9342a879-86e6-4e68-9452-c3fb2acfc9d3" class="">
+</p><ul id="172c8b62-72e5-45f8-addc-a44fc4d759ed" class="bulleted-list"><li style="list-style-type:square">Results スキーマ</li></ul><div id="4314b2a1-adc3-4483-a17f-726d03213e8b" class="column-list"><div id="49d05b62-d382-46b7-8496-a761274b4a06" style="width:100%" class="column"><figure id="2ec8fbb3-e4cb-41ab-b7af-929c462084d6" class="image" style="text-align:center"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%201.png"><img style="width:432px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%201.png"/></a></figure></div><div id="68f60a43-367c-4867-833d-b3e21a30c2f5" style="width:100%" class="column"><figure id="0a8fd851-7cf4-4bda-a463-b28893cbc1d7" class="image"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%202.png"><img style="width:979px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%202.png"/></a></figure></div><div id="bbd623f4-358d-4b24-ab9a-b90d46de1942" style="width:100%" class="column"><figure id="878562a4-56d7-42b3-9d2c-092a2da41cbe" class="image"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%203.png"><img style="width:978px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%203.png"/></a></figure></div></div><p id="b1558e59-e871-420b-8b99-08b97678220a" class="">
+</p><ul id="9b9484e3-4cf6-4912-8a99-7cada7fdc8cf" class="bulleted-list"><li style="list-style-type:square">Temp スキーマ</li></ul><div id="a7d8cfdf-beb9-4976-9750-5b5079423ec5" class="column-list"><div id="72673639-6596-49d1-8327-3ff696a353a7" style="width:100%" class="column"><figure id="302b2f28-6970-4453-ab50-4225fb7f0447" class="image"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%204.png"><img style="width:981px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%204.png"/></a></figure><p id="1d93fd50-740c-4ee5-a88e-4769fe87163b" class="">
+</p><h1 id="c4894c40-c200-437e-aca4-20a79cf6e0b0" class="">INDEX の作成</h1></div><div id="64b3f531-56fd-44ab-9f2c-084e4ad5fafa" style="width:100%" class="column"><figure id="0d5b8516-9de1-4ca3-ae40-f7f25a31206b" class="image"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%205.png"><img style="width:978px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%205.png"/></a></figure></div><div id="0df62576-5f41-4be4-bb91-5a8af692e8ad" style="width:100%" class="column"><figure id="4f8450bf-55d8-45ed-b39e-c55b281f945d" class="image"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%206.png"><img style="width:979px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%206.png"/></a></figure></div></div><hr id="1725a5b3-b090-4c46-be51-7a668c0eb4e2"/><p id="894e4747-ec5c-47ca-aabb-968d7fca926c" class="">cdm, vocabulary の中のテーブル群に対して、Index を作成します。<br/>これにより、ATLAS の Query の実行効率を大幅に改善します。<br/></p><p id="9d867815-f4cb-4288-9522-fbaabd2e751b" class="">
+</p><p id="fd5dbcb5-d8d5-45cc-9302-70548dc3bf88" class="">下記の URL から SQL をコピーします。<br/><a href="https://github.com/OHDSI/CommonDataModel/blob/v5.4.0/inst/ddl/5.3/postgresql/OMOPCDM_postgresql_5.3_indices.sql" target="_blank">https://github.com/OHDSI/CommonDataModel/blob/v5.4.0/inst/ddl/5.3/postgresql/OMOPCDM_postgresql_5.3_indices.sql</a></p><p id="0c570d4f-e837-46f0-b768-4f66d9544d28" class="">“@cdmDatabaseSchema” を <code><mark class="highlight-teal">CDM schema</mark></code>  の名称に置き換えて、pgAdmin 4 で実行します。</p><figure id="d7f39cd5-79c1-4666-82ad-36851c26e487" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%207.png"><img style="width:1008px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%207.png"/></a></figure><p id="fa8902ea-d00b-40f4-aaf0-88e4714315fc" class="">
+</p><p id="f67e77d5-846c-4bdc-bab0-ca1f89169791" class="">INDEX が作成されます。</p><figure id="4e1c8c2e-4739-4d37-aa58-1a324454af3e" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%208.png"><img style="width:1008px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%208.png"/></a></figure><p id="281cc594-e4b3-4123-98f1-77cf25e82ef9" class="">
+</p><h1 id="622ac9d5-7212-47bf-b34a-f605e0d9af9c" class="">Achilles の実行</h1><hr id="73cb3b8b-4f57-4046-89ed-696daadceb7e"/><p id="bcffaeb7-5c2c-4e45-8de2-a521e210ac9a" class="">CDM に対して、Achilles を実行し、results（結果）を作成します。<br/>実行結果が <code><mark class="highlight-teal">Results schema</mark></code> に反映されます。</p><p id="6587fd18-ae7d-4944-bc72-f5796ac8c9a7" class="">
+</p><p id="c28eb35f-4091-4071-9f73-0111d27ee49e" class="">R から下記のコマンドを実行します。</p><p id="f69cf6f6-79cc-4686-996f-57f4b9baa8a0" class="">※パスワード “<mark class="highlight-red"><strong>zzzz</strong></mark>” は、書き換えてください<br/>※JDBC ドライバのパスは、<code><mark class="highlight-blue">C:/Program Files/PostgreSQL</mark></code> としています（PostgreSQL JDBC ドライバを保存していることが前提）</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3b7530c2-392d-40d3-ac95-7a1404850ffd" class="code"><code class="language-R">library(Achilles)
+
+connectionDetails &lt;- createConnectionDetails(
+  dbms=&quot;postgresql&quot;, 
+  server=&quot;localhost/OHDSI&quot;, 
+  user=&quot;ohdsi_app_user&quot;, 
+  password=&quot;</code><mark class="highlight-red"><strong>zzzz</strong></mark><code>&quot;,
+  port=&quot;5432&quot;,
+  pathToDriver = &quot;C:/Program Files/PostgreSQL&quot;)
+
+options(connectionObserver = NULL)
+
+achilles(connectionDetails = connectionDetails,
+         cdmVersion = &quot;5.3&quot;,
+         cdmDatabaseSchema = &quot;eunomia&quot;, 
+         resultsDatabaseSchema = &quot;eunomia_results&quot;, 
+         outputFolder = &quot;output&quot;)</code></pre><p id="7b7ce91d-6496-4dbf-84c9-74395a86c515" class="">
+</p><p id="f0bbf1cd-1374-4e9b-8108-0ea1e83e277c" class=""><code><mark class="highlight-teal">Results schema</mark></code><mark class="highlight-teal"> </mark>に以下の 3 つのテーブルが作成されます。</p><figure id="0c7fee91-6427-47ee-bdae-e3193bfee71e" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%209.png"><img style="width:288px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%209.png"/></a></figure><p id="420bc46f-734c-47da-8ea5-3fb29654e4a0" class="">
+</p><h1 id="fea87bb4-7db2-4974-b2da-e5614530c30c" class=""><strong>Results schema のテーブルを作成</strong></h1><hr id="562c06ac-b866-4199-b2fa-69c57c6a0eef"/><p id="99531308-9d24-4804-8bf3-2af1841d5d01" class="">CDM 用の SQL スクリプトを生成して、<code><mark class="highlight-teal">Results schema</mark></code> にテーブルを作成します。<br/>WebAPI の実行に必要なテーブルを確立する必要があります。<br/></p><p id="f030fb67-34e5-4d91-90f8-731223f57e02" class="">
+</p><p id="7a0b00b1-e3eb-4350-9530-993ec94908a1" class="">次の WebAPI URL は、<code><mark class="highlight-teal">Results schema</mark></code> テーブルを作成および設定するために必要な SQL スクリプトを生成するために使用します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d44e21fe-1b38-4f34-a45d-225c733734a5" class="code"><code class="language-HTML">http://&lt;server:port&gt;/WebAPI/ddl/results?dialect=&lt;your_cdm_database_dialect&gt;&amp;schema=&lt;your_results_schema&gt;&amp;vocabSchema=&lt;your_vocab_schema&gt;&amp;tempSchema=&lt;your_temp_schema&gt;&amp;initConceptHierarchy=true</code></pre><p id="0e38ecf7-d734-42bb-bebf-a92f9da77b07" class=""><code>catalina.bat run</code> 実行後、URL をブラウザに貼り付けます。</p><p id="c9113a95-e0fe-4ba2-8fc7-a29c4bc0a303" class="">
+</p><p id="3e06e35c-c0ad-4a7a-84bb-047c0d77fe69" class="">例： <code><mark class="highlight-teal">CDM schema</mark></code> : eunomia、<code><mark class="highlight-teal">Results schema</mark></code> : eunomia_results、<code><mark class="highlight-teal">temp schema</mark></code> : eunomia_temp とした場合。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7636b34f-09ea-4fda-a5e7-92398d7a4684" class="code"><code class="language-HTML">http://localhost:8080/WebAPI/ddl/results?dialect=postgresql&amp;schema=eunomia_results&amp;vocabSchema=eunomia&amp;tempSchema=eunomia_temp&amp;initConceptHierarchy=true</code></pre><p id="dfe79673-081d-4dc1-9ae8-500f3c63ab9a" class="">
+</p><p id="563dccbf-9b7e-4256-ade4-e26f857fcd1c" class="">生成された SQL を pgAdmin 4 で、実行します。</p><figure id="93118045-8a3c-4f70-a196-b960ccb9b08c" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2010.png"><img style="width:1008px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2010.png"/></a></figure><p id="22c0e083-cc56-4cd4-ad1c-56ca56c5dfd9" class="">
+</p><p id="b73cba21-b7a6-45e7-a1ea-69afb94bc521" class=""><code><mark class="highlight-teal">Results schema</mark></code>に、テーブルが追加されます。</p><figure id="008bf8d7-c7d8-40e8-b866-7225f6f8be58" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2011.png"><img style="width:528px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2011.png"/></a></figure><p id="526d7713-2c24-4940-926f-d7aba4d47b44" class="">
+</p><h1 id="12a1f8e1-1afd-4d75-a9f0-5b9225fea596" class="">concept_count テーブルの作成</h1><hr id="865891ad-d112-4eda-b65f-c50304d22231"/><p id="8c4fb67a-399c-4c2c-ae8e-b94e5fd5dad2" class="">Achilles が実行されていることを前提とし、これらのテーブルを使用して語彙検索を強化するために使用される concept_count テーブルを作成します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fa8e55a2-ee76-442f-90a5-6f1034262000" class="code"><code class="language-HTML">http://server:port/WebAPI/ddl/achilles?dialect=&lt;cdm_database_dialect&gt;&amp;schema=&lt;results_schema&gt;&amp;vocabSchema=&lt;vocabulary_schema&gt;</code></pre><p id="d1636013-865f-4ad4-b52f-66388d816feb" class=""><code>catalina.bat run</code> を実行している状態で、URL をブラウザに貼り付けます。</p><p id="5d0845a0-1150-4405-9a46-9f6ee1a2ff21" class="">
+</p><p id="d6c96744-ec1f-48da-b650-0d6a6b9ae4c5" class="">例：<code><mark class="highlight-teal">cdm_database_dialect</mark></code> : postgresql、<code><mark class="highlight-teal">Results_schema</mark></code>: eunomia_results、 <code><mark class="highlight-teal">Vocabulary_schema</mark></code> : eunomia とした場合。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d3eaf824-9b42-4da0-bce4-fa3d77164461" class="code"><code class="language-HTML">http://localhost:8080/WebAPI/ddl/achilles?dialect=postgresql&amp;schema=eunomia_results&amp;vocabSchema=eunomia</code></pre><p id="8ce7a215-cd05-4618-829f-0afcc59429cb" class="">
+</p><p id="8d9acf81-3689-44e3-8906-dad1343bc96a" class="">生成された SQL を pgAdmin 4 で、実行します。</p><figure id="80513374-ac6f-4507-a752-6b5c4c8ada03" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2012.png"><img style="width:1008px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2012.png"/></a></figure><p id="2edce9e5-1fb4-49d0-9fa5-2ec5aa48b62c" class="">
+</p><p id="89fd0c6d-ed61-4c62-9dea-74594d29675d" class=""><code><mark class="highlight-teal">Results schema</mark></code>に、achilles_result_concept_count テーブルが追加されます。</p><figure id="f927f5c6-a0fc-416a-8928-4745e341994a" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2013.png"><img style="width:768px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2013.png"/></a></figure><p id="d636d95e-69c6-4eca-b452-aceb899633bd" class="">
+</p><h1 id="43664436-fc3c-4362-be43-d4c503e38414" class="">source および source_daimon テーブルのセットアップ</h1><hr id="b7b02e89-f0e5-4026-bda0-d760780d107d"/><p id="5848f410-e4d5-4133-8543-145ce4535e1e" class=""><code><mark class="highlight-teal">source</mark></code> および <code><mark class="highlight-teal">source_daimon</mark></code> テーブルは、WebAPI.war がデプロイされた状態で tomcat サービ スを起動したときに作成されます。<br/>OHDSI ツールを使用するには、これらのテーブルに JDBC ソース接続と対応する source_daimon を設定し、ソースに関連付けられた <br/><code><mark class="highlight-teal">CDM</mark></code>、<code><mark class="highlight-teal">Vocabulary</mark></code>、<code><mark class="highlight-teal">Results</mark></code>、<code><mark class="highlight-teal">Temp</mark></code> スキーマの場所を指定する必要があります。</p><p id="0d51fa96-ea80-408e-8d35-f811436277ce" class="">
+</p><p id="6d97d767-4d5a-464a-898e-2048deb7a866" class="">例：WebAPI.SOURCE および SOURCE_DAIMON の挿入例（<code><mark class="highlight-teal">CDM schema</mark></code> : eunomia　<code><mark class="highlight-teal">Results schema</mark></code> : eunomia_results　<code><mark class="highlight-teal">temp schema</mark></code> : eunomia_temp）</p><p id="b9e05eb2-a5a7-4c1b-8cef-7d024b113326" class="">下記の SQL を PostgreSQL から実行します。（ “<mark class="highlight-red"><strong>zzzz</strong></mark><mark class="highlight-default"><strong>”</strong></mark><mark class="highlight-default"> </mark>のパスワードを書き換えて実行してください）</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="47160d24-38b6-4449-b33b-1f27cd40a692" class="code"><code class="language-SQL">INSERT INTO webapi.source (source_id, source_name, source_key, source_connection, source_dialect) 
+SELECT nextval(&#x27;webapi.source_sequence&#x27;), &#x27;eunomia&#x27;, &#x27;eunomia&#x27;, &#x27; jdbc:postgresql://localhost:5432/OHDSI?user=ohdsi_app_user&amp;password=&#x27;</code><mark class="highlight-red"><strong>zzzz</strong></mark><code>&#x27;, &#x27;postgresql&#x27;;
+
+INSERT INTO webapi.source_daimon (source_daimon_id, source_id, daimon_type, table_qualifier, priority) 
+SELECT nextval(&#x27;webapi.source_daimon_sequence&#x27;), source_id, 0, &#x27;eunomia&#x27;, 0
+FROM webapi.source
+WHERE source_key = &#x27;eunomia&#x27;
+;
+
+INSERT INTO webapi.source_daimon (source_daimon_id, source_id, daimon_type, table_qualifier, priority) 
+SELECT nextval(&#x27;webapi.source_daimon_sequence&#x27;), source_id, 1, &#x27;eunomia&#x27;, 1
+FROM webapi.source
+WHERE source_key = &#x27;eunomia&#x27;
+;
+
+INSERT INTO webapi.source_daimon (source_daimon_id, source_id, daimon_type, table_qualifier, priority) 
+SELECT nextval(&#x27;webapi.source_daimon_sequence&#x27;), source_id, 2, &#x27;eunomia_results&#x27;, 1
+FROM webapi.source
+WHERE source_key = &#x27;eunomia&#x27;
+;
+
+INSERT INTO webapi.source_daimon (source_daimon_id, source_id, daimon_type, table_qualifier, priority) 
+SELECT nextval(&#x27;webapi.source_daimon_sequence&#x27;), source_id, 5, &#x27;eunomia_temp&#x27;, 0
+FROM webapi.source
+WHERE source_key = &#x27;eunomia&#x27;
+;</code></pre><p id="6aed41a6-6c58-4a54-b5e0-fa80c112e6ab" class="">
+</p><p id="80eaf7c9-47a3-4d39-8db3-34c77e4625de" class="">処理が完了すると、webapi スキーマの <code><mark class="highlight-teal">source</mark></code> テーブル、<code><mark class="highlight-teal">source_daimon</mark></code> テーブルにデータソースのデータが追加されます。</p><figure id="2b2880b0-237b-4c9e-a727-3429790a0b9b" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2014.png"><img style="width:1200px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2014.png"/></a></figure><figure id="486cbdf1-d4ec-4e4d-8bec-98e321584561" class="image" style="text-align:left"><a href="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2015.png"><img style="width:720px" src="%E3%83%86%E3%82%99%E3%83%BC%E3%82%BF%E3%82%BD%E3%83%BC%E3%82%B9%E8%BF%BD%E5%8A%A0%E6%89%8B%E9%A0%86%EF%BC%88ATLAS%EF%BC%89%20a54a7ba9c34242eaa17b014cb3049f0f/Untitled%2015.png"/></a></figure><p id="3d927295-9b85-429d-a286-45a3d518ebba" class="">
+</p><p id="d47f8a4e-a5ff-4df2-943c-daca08f6c85e" class="">WebAPI が起動し、source/source_daimon の挿入が完了すると、ブラウザで次の URL を開くことができるようになります。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4786196d-f8d6-418c-a8ae-531a4ad91308" class="code"><code class="language-HTML" style="white-space:pre-wrap;word-break:break-all">http://localhost:8080/WebAPI/source/sources</code></pre><p id="9c6c63e6-1ac6-4e3b-84c6-7143165c8f29" class="">出力は次のようになります。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="afb13020-1e60-451d-84fb-479abce5e7ce" class="code"><code class="language-HTML">[{
+		&quot;sourceId&quot;:2,
+		&quot;sourceName&quot;:&quot;eunomia&quot;,
+		&quot;sourceDialect&quot;:&quot;postgresql&quot;,
+		&quot;sourceKey&quot;:&quot;eunomia&quot;,
+		&quot;daimons&quot;:
+		[{
+				&quot;sourceDaimonId&quot;:2,
+				&quot;daimonType&quot;:&quot;CDM&quot;,
+				&quot;tableQualifier&quot;:&quot;eunomia&quot;,
+				&quot;priority&quot;:0
+			},{
+				&quot;sourceDaimonId&quot;:3,
+				&quot;daimonType&quot;:&quot;Vocabulary&quot;,
+				&quot;tableQualifier&quot;:&quot;eunomia&quot;,
+				&quot;priority&quot;:1
+			},{
+				&quot;sourceDaimonId&quot;:4,
+				&quot;daimonType&quot;:&quot;Results&quot;,
+				&quot;tableQualifier&quot;:&quot;eunomia_results&quot;,
+				&quot;priority&quot;:1
+			},{
+				&quot;sourceDaimonId&quot;:5,
+				&quot;daimonType&quot;:&quot;Temp&quot;,
+				&quot;tableQualifier&quot;:&quot;eunomia_temp&quot;,
+				&quot;priority&quot;:0
+			}
+		]
+	}
+]</code></pre><p id="835db647-d5d4-4f97-bb5d-9b54863bc421" class="">
+</p><p id="3529edcd-b89e-4130-9904-814b53f5f198" class="">以上の作業が完了することにより、ATLAS からデータソースが選択できるようになります。<br/><br/></p><p id="41301cc4-6c7c-4a14-8f89-84708791ed5e" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
