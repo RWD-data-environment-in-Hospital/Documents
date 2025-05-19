@@ -1,0 +1,802 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DataQualityDashboard</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5f0eefe0-bcae-4534-8947-0c87959b005b" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1586281380901-171d7fd8b6db?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 47.12%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/checklist_blue.svg"/></div><h1 class="page-title">DataQualityDashboard</h1><p class="page-description"></p></header><div class="page-body"><p id="1f27aa97-e949-8029-b645-ee1fd27d63db" class="">DataQualityDashboard は、観察データの品質を評価・可視化するためのオープンソースツールです。<br/>このパッケージは、OMOP CDM インスタンス（現在 v5.4、v5.3、v5.2 をサポート）に対して一連のデータ品質チェックを実行します。<br/>チェックを体系的に実行し、事前に指定されたしきい値と比較評価した後、実行結果を透明かつ分かりやすい方法で報告します。<br/><br/></p><h2 id="8bb1cc1c-a6f7-4e6b-bb22-6d28022665c5" class="">事前準備</h2><hr id="b784904d-4abe-4b61-b19a-2458648eea72"/><p id="5f5141ec-395f-4f2a-a8c9-51138045feda" class="">以下のアプリケーションのインストール、設定がされていることが前提です。</p><p id="3f72e4e6-bf91-4b1c-80da-0ff6a3308ae3" class="">「ATLAS セットアップ手順」を実施している場合、下記のアプリケーションはインストール済みとなりますが、時期により推奨されるバージョンがアップデートされている可能性があります。</p><p id="505c75b5-6141-4d88-b860-9a6367301e4b" class="">
+</p><p id="a22b301a-b0ef-4832-ab83-50ed359b0f0f" class="">参考 : <a href="https://ohdsi.github.io/Hades/rSetup.html">https://ohdsi.github.io/Hades/rSetup.html</a></p><p id="1f17aa97-e949-80e0-8485-ffb3e3d3a19a" class="">
+</p><h2 id="1f17aa97-e949-8033-bca5-da1dcf8ee51f" class="">R環境の設定</h2><hr id="1f17aa97-e949-806f-a945-c7936c402f6b"/><p id="1f17aa97-e949-80f3-aaa7-d45a2424935f" class="">以下は、OHDSI R パッケージを実行するために必要な環境をインストールする手順です。<br/>以下の 4つのソフトウェアのインストールが必要です。<br/></p><p id="1f87aa97-e949-809b-8204-c4d5d8cd36fd" class="">
+</p><figure id="1f17aa97-e949-804d-9252-d5efefe34d16" class="link-to-page"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/1%20R%201f17aa97e949804d9252d5efefe34d16.html">1. R</a></figure><p id="1f17aa97-e949-802f-beb8-f265e21f11d0" class="">R は統計計算用の環境で、基本的にはコマンドラインのインターフェースを備えたソフトウェアです。<br/>安定性の観点から、今後しばらくは特定のバージョン（<br/><strong>2024年6月14日以降は R 4.4.1</strong>）をサポート対象としています。<br/>最大限の互換性を得るために、<br/><strong>R 4.4.1 のインストールを強く推奨</strong>します。<br/>ダウンロード : <br/><a href="https://cran.r-project.org/bin/windows/base/old/4.4.1/">https://cran.r-project.org/bin/windows/base/old/4.4.1/</a></p><p id="1f87aa97-e949-80b3-9654-ff4a2d569894" class="">
+</p><figure id="1f17aa97-e949-806b-8a50-c456bf143491" class="link-to-page"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/2%20RTools%201f17aa97e949806b8a50c456bf143491.html">2. RTools</a></figure><p id="1f17aa97-e949-80c7-8b71-dbc87258b345" class="">RTools は、Windows 上で R パッケージをソースからビルドするために必要なプログラムのセットです。<br/>R と同バージョンをインストールします。<br/>ダウンロード : <br/><a href="https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html">https://cran.r-project.org/bin/windows/Rtools/rtools44/rtools.html</a></p><p id="1f87aa97-e949-80ac-847c-f085a6c6dda1" class="">
+</p><figure id="1f17aa97-e949-80a6-acde-ca1880e3fc6c" class="link-to-page"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/3%20RStudio%201f17aa97e94980a6acdeca1880e3fc6c.html">3. RStudio</a></figure><p id="1f17aa97-e949-805b-9d88-df969b51c2ed" class="">RStudio は、R の使用を容易にする IDE（統合開発環境）で、コードエディタ、デバッグ機能、可視化ツールなどを備えています。<br/>快適な R の利用体験のために、RStudio の使用をお勧めします。<br/>ダウンロード : <br/><a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a></p><p id="1f87aa97-e949-80a1-8e16-c92bec7c29b0" class="">
+</p><figure id="1f17aa97-e949-8006-b5d6-e078ee7ad730" class="link-to-page"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/4%20Java%EF%BC%88Amazon%20Corretto%208%EF%BC%89%201f17aa97e9498006b5d6e078ee7ad730.html">4. Java（Amazon Corretto 8）</a></figure><p id="1f17aa97-e949-8072-857d-fcc2cccfe6dc" class="">Javaは一部の OHDSI R パッケージのコンポーネント（例：データベースへの接続）を実行するために必要な計算環境です。<br/>ダウンロード : <br/><a href="https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html">https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html</a></p><p id="1f17aa97-e949-80df-9256-ed41f1610d60" class="">
+</p><p id="1f17aa97-e949-80da-b392-ce49326174e2" class="">さらに、<strong>HADES</strong>（OHDSI の R パッケージ群）をインストールするには、GitHub の <strong>Personal Access Token（個人用アクセストークン）</strong>を設定する必要があります。<br/>この手順については、該当セクションで説明します。<br/></p><p id="1f17aa97-e949-806f-b656-f33df3d8ef26" class="">
+</p><h2 id="82328780-9e9e-4ed2-a777-74a47e04197e" class="">ヒープサイズの設定</h2><hr id="efbb9c70-7d7b-4e93-8493-5699886be343"/><p id="298024af-594e-40ce-aeb4-134e1618418f" class="block-color-default">デフォルトの最大 Java ヒープスペースは非常に小さい (わずか 512MB) です。<br/>Java のヒープメモリ不足エラーを回避するには、最大ヒープサイズを増やす必要があります。<br/>すべての R プログラムに設定するには、<br/><code>.Renviron</code> ファイルに次の行を追加します。</p><figure class="block-color-yellow_background callout" style="white-space:pre-wrap;display:flex" id="2d80cb71-6bc9-413a-b3e3-a9451742a70f"><div style="font-size:1.5em"><span class="icon">📝</span></div><div style="width:100%"><strong>ヒープサイズとは<br/><br/></strong>Java では、プログラム実行時に生成されるオブジェクトのためのメモリ領域を「ヒープ領域」と呼び、その領域の大きさを「ヒープサイズ」と呼んでいます。<br/>ヒープサイズを大きくすることで、ガベージコレクションの回数を減らすことが出来るためパフォーマンスの向上に有効ですが、ヒープサイズを大きく設定しすぎるとリソースを無駄に消費したりする原因にもなってしまいます。<br/></div></figure><p id="ce58780b-8657-436e-b21f-3231cc0dff05" class="">
+</p><p id="aa367910-85b0-4512-9b75-1ea2dd5ddc79" class="">R を起動し、以下のコマンドを実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0b4c242f-ff2a-4a77-b9b7-99c1ba83adc5" class="code"><code class="language-R">install.packages(&quot;usethis&quot;)
+library(usethis)
+edit_r_environ()</code></pre><p id="1f17aa97-e949-803d-84f1-cca5539a14c4" class="">ミラーサイトの選択リストが表示された場合、以下が選択候補になります。</p><ul id="1f17aa97-e949-80e5-a5d9-f94650e5b552" class="bulleted-list"><li style="list-style-type:disc">0-Cloud [https]</li></ul><ul id="1f17aa97-e949-803a-81b4-da310577af45" class="bulleted-list"><li style="list-style-type:disc">Japan (Yonezawa) [https]</li></ul><figure id="1f17aa97-e949-80c0-a61b-fb03373a8e25" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F8.png"><img style="width:694px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F8.png"/></a></figure><p id="1f17aa97-e949-80b9-b3ee-f78b93e9df42" class="">
+</p><p id="1f5e0100-d786-4a8a-9276-6cbb2e9f9730" class="">R のエディタ画面が開くので、以下のコードを書き込みます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ad61cb7f-1642-4977-87ca-0c3d3dc8a17f" class="code"><code class="language-R">_JAVA_OPTIONS=&#x27;-Xmx4g&#x27;</code></pre><p id="d1346e41-be7d-4cf4-97ea-d98813da79a0" class="">
+</p><p id="43a4ae9d-ca33-40ad-8e91-8aecddde8eca" class="">R パッケージをコンパイルするために以下のコードも付け加え、<code>.Renviron</code> ファイルを保存します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8c83a652-fd58-411e-9c24-762ce4152ae0" class="code"><code class="language-R">Rtools44_HOME=&quot;C:\rtools44&quot;
+PATH=&quot;${Rtools44_HOME}\usr\bin;${PATH}&quot;</code></pre><p id="99aaad6d-56fb-44dc-9713-c64978711826" class="">※ <code>.Renviron</code> ファイルは、”C:\Users\ユーザ名\Documents” に保存されます</p><p id="dd34748b-41be-456b-82e5-79884b5c15a7" class="">
+</p><p id="4c9cfec1-1002-49e0-9d4c-4994c572b599" class="">R を再起動します。</p><p id="1f17aa97-e949-8057-9fdc-d8a0582b40db" class="">これでJavaで最大 4GB のヒープスペースが利用可能になります。</p><p id="9d258d1a-4b0d-40e0-ba05-ec286b01fe6c" class="">
+</p><h2 id="d105ac05-4f1f-4878-951d-27fe26774afb" class="">インストールの確認</h2><hr id="82e440a5-7baf-4443-82d1-5a0a9bc5c11b"/><p id="ca6e0de5-4bee-408a-84cc-9b48808f23f7" class="">R を起動し、以下のコマンドを実行します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bfaae1d5-bd90-4bd8-80f4-3c2b5b2dae2b" class="code"><code class="language-R">install.packages(&quot;SqlRender&quot;)
+library(SqlRender)
+translate(&quot;SELECT TOP 10 * FROM person;&quot;, &quot;postgresql&quot;)</code></pre><p id="35d0e07a-6317-47cb-b39a-6ba747ceec2b" class="">以下の結果が出力されます。</p><figure id="e1523997-8ed8-4929-80c1-c0227af979ff" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/Untitled.png"><img style="width:816px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/Untitled.png"/></a></figure><p id="1f17aa97-e949-8089-8be6-c3b75886da4a" class="">この関数は Java を使用するため、R と Java が正しくインストールされていることが確認できます。</p><p id="1f17aa97-e949-80ce-bd38-f6668c16cdc3" class="">
+</p><h2 id="1f17aa97-e949-80b6-ac57-e1bb29bc3731" class="">ソースパッケージのビルドを確認</h2><hr id="1f17aa97-e949-80a3-8a5d-fd2e0f7d48f5"/><p id="7e2a4fcf-7ff2-483d-adff-80096125602f" class="">次のテストは、ソース パッケージをビルドできるかどうかを確認します。<br/>以下の R コードを実行して、OHDSI GitHub リポジトリから <br/><code>CohortMethod</code> パッケージをインストールできるか確認します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f2f67d9e-619c-458b-9021-fa919f327a14" class="code"><code class="language-R">install.packages(&quot;remotes&quot;)
+remotes::install_github(&quot;OHDSI/CohortMethod&quot;)</code></pre><p id="1f17aa97-e949-80ad-a3b9-dd260cba5cc3" class="">以下の画面が表示され、ビルドが確認できました。</p><figure id="45109bc8-f198-4a45-a5c0-95796cc2ece5" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/Untitled%201.png"><img style="width:816px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/Untitled%201.png"/></a></figure><p id="1f17aa97-e949-8077-830d-f5dc1733a471" class="">
+</p><h2 id="1f17aa97-e949-8034-998f-ce3182d04659" class=""><strong>GitHub 個人アクセストークン</strong></h2><hr id="1f17aa97-e949-8049-9489-de78e10dc804"/><p id="1f17aa97-e949-80cb-82f6-d11b04d16aab" class="">HADES パッケージをインストールするには、GitHub からのダウンロードが必要です。<br/>しかし、GitHub では匿名ユーザーによる短時間でのダウンロード回数に制限があり、HADES の全パッケージを一括でダウンロードしようとすると、この制限に引っかかってしまいます。<br/>そのため、<br/><strong>GitHub アカウントで認証</strong>することで、この制限を回避する必要があります。<br/>認証されたユーザーは、多くのダウンロードが許可され、HADES パッケージのインストールが問題なく行えます。<br/></p><p id="1f17aa97-e949-8028-9358-de4fc80c85d8" class="">これには、<strong>Personal Access Token（PAT）を作成して R に設定する</strong>必要があります。<br/>設定は一度だけで済み、以後の R セッションでもそのまま使用できます。<br/></p><p id="1f17aa97-e949-8043-82b6-de3e71c2c802" class="">
+</p><h2 id="1f17aa97-e949-80e3-a51f-e88b0e3ace3d" class="">PAT の作成手順</h2><hr id="1f17aa97-e949-80e9-a49b-e9a8eb7fc1f3"/><p id="1f17aa97-e949-8066-a41c-c7d63c86c918" class="">まず、有効な GitHub アカウントが必要です。<br/>無料で <br/><a href="https://github.com/">GitHub.com</a> から作成できます。</p><h3 id="1f17aa97-e949-8016-a5fe-f0bf1ee3883e" class=""><code>usethis</code> パッケージを使ってPATを生成</h3><p id="1f17aa97-e949-80f8-adcb-d2d8d8783952" class="">以下のコードを R で実行すると、PAT を生成するための GitHub のページがブラウザで開きます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f17aa97-e949-80cf-b36a-f35a0d8dc7af" class="code"><code class="language-R" style="white-space:pre-wrap;word-break:break-all">install.packages(&quot;usethis&quot;)
+library(usethis)
+create_github_token(scopes = c(&quot;(no scope)&quot;), description = &quot;R:GITHUB_PAT&quot;, host = &quot;https://github.com&quot;)</code></pre><p id="1f17aa97-e949-80b9-b366-f42b43ffcf20" class="">
+</p><p id="1f17aa97-e949-80d6-b373-dacb66fde092" class="">GitHub へのログインが必要です。</p><figure id="1f17aa97-e949-80b0-afd0-e5df3648e105" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F9.png"><img style="width:336px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F9.png"/></a></figure><p id="1f17aa97-e949-800f-8f2f-d81cb1128e72" class="">
+</p><p id="1f17aa97-e949-80ae-8ef6-cddaf0ae7b86" class="">スコープ（アクセス権限）は必要ありませんので、<strong>チェックボックスはすべてオフ</strong>で構いません。</p><p id="1f17aa97-e949-808a-a021-df4e47bf04c6" class=""><mark class="highlight-teal"><code><strong>Generate token</strong></code></mark><mark class="highlight-teal"><strong> </strong></mark><strong>ボタンをクリックしてトークンを作成</strong>し、表示された<strong>40文字のトークンを必ずコピー</strong>してください。</p><p id="1f17aa97-e949-8060-b860-fc65e67b0c89" class="">※閉じると二度と確認できません</p><figure id="1f17aa97-e949-808c-9919-f66342c9960e" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F10.png"><img style="width:912px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F10.png"/></a></figure><figure id="1f17aa97-e949-8026-8002-eff7b0bb3594" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F11.png"><img style="width:912px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/%E7%94%BB%E5%83%8F11.png"/></a></figure><p id="1f17aa97-e949-8070-bfc3-c46d6f9a43fd" class="">
+</p><h2 id="1f17aa97-e949-80a0-ba16-e167bf8356ba" class="">Personal Access Token（PAT）を R に設定する</h2><hr id="1f17aa97-e949-806e-92bc-fd63eba36dfe"/><p id="1f17aa97-e949-8013-b0a0-ceae593d96d1" class=""><code>.Renviron</code> ファイルを開きます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f17aa97-e949-80d3-b4e6-de1017d4ae47" class="code"><code class="language-R" style="white-space:pre-wrap;word-break:break-all">edit_r_environ()</code></pre><p id="1f27aa97-e949-808b-bad5-d3ca5a39f08d" class=""><code>.Renviron</code> ファイルに PAT を追記、保存し、R を再起動します。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f27aa97-e949-80e4-b104-d94cb5cec4ea" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">GITHUB_PAT = &#x27;a1b2c3d4e5f6g7h8g9h0ijklmnopqrstuvwxyz&#x27;</code></pre><p id="1f27aa97-e949-8033-9fd8-f7c529bc3a47" class="">※<code>&#x27;a1b2...</code> の部分は実際の PAT に置き換えてください</p><p id="1f27aa97-e949-804c-a907-eb2a0fe1dc14" class="">
+</p><p id="1f17aa97-e949-809f-b61d-f95eae1df9eb" class="">これで R 関数から PAT が使用可能になります。<br/><br/></p><h2 id="1f27aa97-e949-80b7-b35f-fd7bec3d80cd" class="">HADES パッケージのインストール</h2><hr id="1f27aa97-e949-8007-bcb0-c430555001dc"/><p id="1f27aa97-e949-806d-8c35-ce6afa846816" class="">DataQualityDashboard は、HADES の一部です。<br/>HADES の一括インストールを行うことにより、DataQualityDashboard の実行が可能となります。<br/>以下のコードを実行します。<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f27aa97-e949-8037-8659-c88fb155c59c" class="code"><code class="language-R" style="white-space:pre-wrap;word-break:break-all"># 「ソースからインストールしますか？」というダイアログを抑制します
+options(install.packages.compile.from.source = &quot;never&quot;)
+
+# remotesパッケージのインストールと読み込み
+install.packages(&quot;remotes&quot;)
+library(remotes)
+
+# HADESのインストール（依存パッケージも含めて常にアップグレード）
+install_github(&quot;ohdsi/Hades&quot;, upgrade = &quot;always&quot;)</code></pre><ul id="1f27aa97-e949-800a-a72b-c898597210e8" class="bulleted-list"><li style="list-style-type:disc"><code>upgrade = &quot;always&quot;</code> を使うことで、依存パッケージをアップグレードするかどうかの確認をスキップできます。</li></ul><ul id="1f27aa97-e949-80ff-abe4-f3200a824290" class="bulleted-list"><li style="list-style-type:disc">HADES は依存パッケージの<strong>最新リリース版</strong>との互換性を前提に作られているため、基本的には常にアップグレードすることを推奨します。</li></ul><ul id="1f27aa97-e949-807a-b75b-e516cda748d4" class="bulleted-list"><li style="list-style-type:disc">インストール中に「コンパイルが必要なパッケージをソースからインストールしますか？」と聞かれた場合は、<strong>「いいえ（No）」を選択</strong>してください。<br/>コンパイルには時間がかかり、また HADES の実行には通常不要です。<br/></li></ul><p id="1f27aa97-e949-80e2-a39c-fad30ec7f85c" class="">
+</p><p id="1f27aa97-e949-8067-812f-cf0b56488a04" class=""><a href="https://www.notion.so/HADES-1f27aa97e94980cdaf7dea2cd866c3b2?pvs=21">すでに HADES パッケージがインストールされていて、最新バージョンにアップグレードしたい場合。</a></p><p id="1f17aa97-e949-8013-9e23-d6cd4e79c1f0" class="">
+</p><h2 id="b6eb3157-6f7a-4c44-8ce2-af5f3ffa280f" class="">DataQualityDashboard の実行</h2><hr id="3eddccbd-9508-40ba-a2f8-96a214869ba3"/><p id="41ca61d9-375e-4d7b-8358-cf193866f31a" class="">参考：<a href="https://ohdsi.github.io/DataQualityDashboard/articles/DataQualityDashboard.html">https://ohdsi.github.io/DataQualityDashboard/articles/DataQualityDashboard.html</a></p><p id="498e339e-2591-407c-a368-9dc94f23e7b6" class="">
+</p><p id="89f440d2-8578-4417-bbd8-f7111f46ce9a" class="">下記コードをファイルとして保存します。（ファイル名は、<code>DQD_v2.6.3.R</code> とします）</p><p id="529c5320-2225-4999-88fd-33b0f8658922" class="">※赤文字部分を、実環境のパラメータに書き換えます</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ed5b95ec-d3e0-4361-8f8e-f774d9a9c4b1" class="code"><code class="language-R"># fill out the connection details -----------------------------------------------------------------------
+connectionDetails &lt;- DatabaseConnector::createConnectionDetails(
+dbms = &quot;postgresql&quot;,  # database version: postgresql
+user = &quot;ohdsi_app_user&quot;, 
+password = &quot;zzzz&quot;, 
+server = &quot;localhost/OHDSI&quot;,  # host/database
+port = &quot;5432&quot;, 
+extraSettings = &quot;&quot;, 
+pathToDriver = &quot;C:/Program Files/PostgreSQL&quot;  # JDBCドライバーが保存されているフォルダ
+)
+
+cdmDatabaseSchema &lt;- &quot;your Cdm Schema&quot; # CDM schema
+resultsDatabaseSchema &lt;- &quot;your Results Schema&quot; # Results schema
+cdmSourceName &lt;- &quot;Your CDM Source&quot; # 任意の名称
+cdmVersion &lt;- &quot;5.3&quot; # OMOP CDM version. Currently supports 5.2, 5.3, and 5.4
+
+numThreads &lt;- 1
+sqlOnly &lt;- FALSE
+sqlOnlyIncrementalInsert &lt;- FALSE
+sqlOnlyUnionCount &lt;- 1
+
+# where should the results and logs go? ----------------------------------------------------------------
+outputFolder &lt;- &quot;C:/output&quot;   # ファイルの出力先
+outputFile &lt;- &quot;results.json&quot;
+
+verboseMode &lt;- TRUE
+writeToTable &lt;- TRUE
+writeTableName &lt;- &quot;dqdashboard_results&quot;
+writeToCsv &lt;- FALSE
+csvFile &lt;- &quot;&quot;
+checkLevels &lt;- c(&quot;TABLE&quot;, &quot;FIELD&quot;, &quot;CONCEPT&quot;)
+checkNames &lt;- c()
+tablesToExclude &lt;- c(&quot;CONCEPT&quot;, &quot;VOCABULARY&quot;, &quot;CONCEPT_ANCESTOR&quot;, &quot;CONCEPT_RELATIONSHIP&quot;, &quot;CONCEPT_CLASS&quot;, &quot;CONCEPT_SYNONYM&quot;, &quot;RELATIONSHIP&quot;, &quot;DOMAIN&quot;)
+
+# run the job --------------------------------------------------------------------------------------
+DataQualityDashboard::executeDqChecks(connectionDetails = connectionDetails, 
+                            cdmDatabaseSchema = cdmDatabaseSchema, 
+                            resultsDatabaseSchema = resultsDatabaseSchema,
+                            cdmSourceName = cdmSourceName, 
+                            cdmVersion = cdmVersion,
+                            numThreads = numThreads,
+                            sqlOnly = sqlOnly, 
+                            sqlOnlyUnionCount = sqlOnlyUnionCount,
+                            sqlOnlyIncrementalInsert = sqlOnlyIncrementalInsert,
+                            outputFolder = outputFolder,
+                            outputFile = outputFile,
+                            verboseMode = verboseMode,
+                            writeToTable = writeToTable,
+                            writeToCsv = writeToCsv,
+                            csvFile = csvFile,
+                            checkLevels = checkLevels,
+                            tablesToExclude = tablesToExclude,
+                            checkNames = checkNames)
+
+# inspect logs ----------------------------------------------------------------------------
+ParallelLogger::launchLogViewer(logFileName = file.path(outputFolder, 
+                                                      sprintf(&quot;log_DqDashboard_%s.txt&quot;, cdmSourceName)))
+
+# DataQualityDashboard --------------------------------------------------------------------
+DataQualityDashboard::viewDqDashboard(file.path(outputFolder,outputFile))</code></pre><p id="ca5e10b1-baf1-4594-8f6a-56dc14037c86" class="">実行結果は、<mark class="highlight-blue"><code>output</code></mark> フォルダに保存されます。（保存先は、<mark class="highlight-brown"><strong>outputFolder &lt;- &quot;C:/output&quot;</strong></mark><mark class="highlight-default"> を変更することで指定できます）</mark><br/>再度、コマンドを実行する場合は、<br/><mark class="highlight-blue"><code>output</code></mark> フォルダ内のファイルを削除してから実行してください。</p><p id="1f87aa97-e949-80d7-91cf-d7aec0b4e0fb" class="">
+</p><p id="1f87aa97-e949-80f0-80af-f1c238bc67a3" class=""><code>DQD_v2.6.3.R</code> をRStudio で開きます。</p><figure id="1f87aa97-e949-8057-866c-f43af34a9431" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image.png"><img style="width:1056px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image.png"/></a></figure><p id="1f87aa97-e949-80f0-99a6-db068fa65646" class="">
+</p><p id="f59d91d9-0b3c-44c8-ada3-cde8b376dec0" class=""><code>DQD_v2.6.3.R</code> の内容が表示され、実行結果が Console 画面（左下）に表示されます。</p><p id="bcc5002e-f17f-4cc1-8ab1-e6790f0fcf3d" class="">実行するコマンドを1行目から選択し、”Run” をクリックして実行します。</p><p id="d251b324-19d6-427a-9bb8-42fd5b831a5e" class="">（動作に問題がなければ、一気に <mark class="highlight-brown"># run the job </mark><mark class="highlight-default">までのコマンドまで実行しても構いません）</mark></p><figure id="1f87aa97-e949-80b7-b067-d4a07e6b5263" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%201.png"><img style="width:1056px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%201.png"/></a></figure><p id="1f87aa97-e949-809b-9f99-dde764952941" class="">
+</p><p id="1f87aa97-e949-80e8-8104-f1679c83d040" class=""><mark class="highlight-brown"># run the job </mark><mark class="highlight-default">までの実行が完了すると、</mark>Data Quality Assessment<mark class="highlight-default"> のデータが構築されます。</mark></p><figure id="1f87aa97-e949-8086-be9f-c0939e70a438" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%202.png"><img style="width:1056px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%202.png"/></a></figure><p id="1f87aa97-e949-800c-91e1-d95f90fc669b" class="">
+</p><p id="1f87aa97-e949-80b0-86e4-c250d0c84db4" class=""><mark class="highlight-default">DataQualityDashboard のコマンドを実行します。</mark></p><figure id="1f87aa97-e949-8064-b8f8-caed74ba75fc" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%203.png"><img style="width:1056px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%203.png"/></a></figure><p id="1f87aa97-e949-80e1-936e-e7143cc1cdd3" class="">
+</p><p id="1f87aa97-e949-80e5-8bd6-d43c567addd9" class="">データ品質の検証結果が閲覧できます。</p><figure id="1f87aa97-e949-8075-88e4-d0062a7d95ab" class="image" style="text-align:left"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%204.png"><img style="width:1056px" src="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/image%204.png"/></a></figure><p id="1f87aa97-e949-801b-ba06-f643c56cf3de" class="">
+</p><p id="1f87aa97-e949-8063-99e1-cc39a1e554b5" class="">DataQualityDashboard の実行手順は、これで完了になります。</p><p id="1f87aa97-e949-80f2-87ac-db4cce3d9b89" class="">
+</p><p id="ec5bc0cf-2173-4969-9f2f-f57e5b834199" class="">参考：</p><figure id="85641c21-d33f-415d-9a2a-5d695c5c70a4" class="link-to-page"><a href="DataQualityDashboard%205f0eefe0bcae453489470c87959b005b/DQD%20%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%2085641c21d33f415d9a2a5d695c5c70a4.html">DQD 実行時のエラー</a></figure><p id="1f87aa97-e949-80fe-b2ec-f02b6262e949" class="">
+</p><h1 id="1f87aa97-e949-8005-af0a-decdb318cddf" class="">参考情報</h1><h2 id="1f87aa97-e949-8018-96db-f9f93180b196" class=""><strong>Data Qualit Assessment</strong> の再表示</h2><hr id="1f87aa97-e949-80be-9354-e06315a0761f"/><p id="1f87aa97-e949-8098-b0a0-d5164df99f62" class="">データ品質の検証結果を再度閲覧する場合、<mark class="highlight-blue"><code>output</code></mark> フォルダにデータが保存されているので、DataQualityDashboard のコマンドを再実行する必要はありません。</p><p id="1f87aa97-e949-80c6-b1ef-f56e7ae5abd5" class="">以下のコードを実行することにより、保存されているデータ品質の検証結果を表示することができます。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f87aa97-e949-80bc-885e-ce6492d186a7" class="code"><code class="language-R">cdmSourceName &lt;- &quot;Source CDM&quot; # 任意の名称
+outputFolder &lt;- &quot;C:/output&quot;   # ファイルの保存先
+outputFile &lt;- &quot;results.json&quot;
+
+# inspect logs ----------------------------------------------------------------------------
+ParallelLogger::launchLogViewer(logFileName = file.path(outputFolder, 
+                                                      sprintf(&quot;log_DqDashboard_%s.txt&quot;, cdmSourceName)))
+
+# DataQualityDashboard --------------------------------------------------------------------
+DataQualityDashboard::viewDqDashboard(file.path(outputFolder,outputFile))</code></pre><p id="1f87aa97-e949-80f4-9d90-f4ba208a863d" class="">
+</p><h2 id="1f87aa97-e949-808b-9e13-dc72f0021232" class="">データ品質チェック項目</h2><hr id="1f87aa97-e949-8018-854f-df7b0839e40d"/><p id="1f87aa97-e949-80a3-b87e-fb814f2aa494" class="">以下の URL にデータ品質チェック項目の説明が記載されています。</p><p id="1f87aa97-e949-807e-a616-d3b5b8788037" class="">Data Quality Check Type Definitions：</p><p id="1f87aa97-e949-80a3-8416-c184d875beb3" class=""><a href="https://ohdsi.github.io/DataQualityDashboard/articles/CheckTypeDescriptions.html">https://ohdsi.github.io/DataQualityDashboard/articles/CheckTypeDescriptions.html</a></p><p id="1f87aa97-e949-8048-84ca-f83f89fce079" class="">
+</p><h2 id="1f87aa97-e949-8012-847c-df8f84091094" class="">オフライン環境での DataQualityDashboard の実行</h2><hr id="1f87aa97-e949-80de-9434-eca4f3424a37"/><p id="1f87aa97-e949-80af-ace0-d9735e119a6e" class="">オフライン環境では、R パッケージのオンラインリポジトリ（CRAN など）へのアクセスができないため、ライブラリのインストールが直接行えません。</p><p id="1f87aa97-e949-8059-849e-eb80a7e96f0d" class="">そのため、HADES をインストール済みのオンライン環境からライブラリフォルダを取得し、オフライン環境にコピーすることで、DataQualityDashboard を実行できるようになります。</p><p id="1f87aa97-e949-80e9-ad9e-dbffe589a404" class="">コピー後は、R にライブラリの検索パスを明示的に指定する必要があります。</p><p id="1f87aa97-e949-8060-b6e9-c737b6ca0dbf" class="">以下のように .libPaths() を使用して、コピーしたフォルダのパスを追加して、DataQualityDashboard を実行してください。</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f87aa97-e949-8086-89d4-e271d446fb3f" class="code"><code class="language-R"># カスタムライブラリパスの追加
+.libPaths(c(&quot;D:/library/R-4.4.1&quot;,.libPaths()))</code></pre><p id="1f87aa97-e949-80b6-adb7-ebb06fb9e3b5" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
