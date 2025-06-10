@@ -1,455 +1,694 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>OHDSI Tool Documents</title>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>OHDSI Tool Documents</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-<style>
-/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
 body {
-	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
-	font-size: var(--vscode-markdown-font-size, 16px);
-	padding: 0 26px;
-	line-height: var(--vscode-markdown-line-height, 22px);
-	word-wrap: break-word;
+	line-height: 1.5;
+	white-space: pre-wrap;
 }
 
-#code-csp-warning {
-	position: fixed;
-	top: 0;
-	right: 0;
-	color: white;
-	margin: 16px;
-	text-align: center;
-	font-size: 12px;
-	font-family: sans-serif;
-	background-color:#444444;
-	cursor: pointer;
-	padding: 6px;
-	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
-}
-
-#code-csp-warning:hover {
-	text-decoration: none;
-	background-color:#007acc;
-	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
-}
-
-body.scrollBeyondLastLine {
-	margin-bottom: calc(100vh - 22px);
-}
-
-body.showEditorSelection .code-line {
-	position: relative;
-}
-
-body.showEditorSelection .code-active-line:before,
-body.showEditorSelection .code-line:hover:before {
-	content: "";
-	display: block;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	height: 100%;
-}
-
-body.showEditorSelection li.code-active-line:before,
-body.showEditorSelection li.code-line:hover:before {
-	left: -30px;
-}
-
-.vscode-light.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.15);
-}
-
-.vscode-light.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(0, 0, 0, 0.40);
-}
-
-.vscode-light.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-dark.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.4);
-}
-
-.vscode-dark.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 255, 255, 0.60);
-}
-
-.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
-	border-left: 3px solid rgba(255, 160, 0, 0.7);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
-	border-left: 3px solid rgba(255, 160, 0, 1);
-}
-
-.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
-	border-left: none;
-}
-
-p, li, pre {
-	width: 90%; max-width: 800px;
-}
-
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
-}
-
-/* img {
-	max-width: 100%;
-	max-height: 100%;
-} */
-
-a {
-	text-decoration: none;
-}
-
-a:hover {
+a,
+a.visited {
+	color: inherit;
 	text-decoration: underline;
 }
 
-a:focus,
-input:focus,
-select:focus,
-textarea:focus {
-	outline: 1px solid -webkit-focus-ring-color;
-	outline-offset: -1px;
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
 }
 
-hr {
-	border: 0;
-	height: 2px;
-	border-bottom: 2px solid;
-	width: 850px;
-	text-align:left;
-	margin-left:0px;
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
 }
 
 h1 {
-	padding-bottom: 0.3em;
-	line-height: 1.2;
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
 }
 
-h1, h2, h3 {
-	font-size: 40px;
-	font-weight: normal;
-	width: 850px;
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
 }
 
-table {
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 2px solid hsla(0, 0%, 0%, 0.3);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
 	border-collapse: collapse;
 }
 
-table > thead > tr > th {
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
 	text-align: left;
-	border-bottom: 1px solid;
 }
 
-table > thead > tr > th,
-table > thead > tr > td,
-table > tbody > tr > th,
-table > tbody > tr > td {
-	padding: 5px 10px;
+th {
+	color: rgba(55, 53, 47, 0.6);
 }
 
-table > tbody > tr + tr > td {
-	border-top: 1px solid;
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
 }
 
-blockquote {
-	margin: 0 7px 0 5px;
-	padding: 0 16px 0 10px;
-	border-left-width: 5px;
-	border-left-style: solid;
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
 }
 
-code {
-	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
-	font-size: 1em;
-	line-height: 1.357em;
+ul > li {
+	list-style: disc;
 }
 
-body.wordWrap pre {
-	white-space: pre-wrap;
+ul.to-do-list {
+	padding-inline-start: 0;
 }
 
-pre:not(.hljs),
-pre.hljs code > div {
-	font-family: Meiryo;
-	padding: 16px;
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
 	border-radius: 3px;
-	overflow: auto;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
 }
 
-pre code {
-	color: var(--vscode-editor-foreground);
-	tab-size: 4;
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
 }
 
-/** Theming */
-
-.vscode-light pre {
-	background-color: rgba(220, 220, 220, 0.4);
+.page-description {
+	margin-bottom: 2em;
 }
 
-.vscode-dark pre {
-	background-color: rgba(10, 10, 10, 0.4);
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
 }
 
-.vscode-high-contrast pre {
-	background-color: rgb(0, 0, 0);
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
 }
 
-.vscode-high-contrast h1 {
-	border-color: rgb(0, 0, 0);
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
 }
 
-.vscode-light table > thead > tr > th {
-	border-color: rgba(0, 0, 0, 0.69);
+time {
+	opacity: 0.5;
 }
 
-.vscode-dark table > thead > tr > th {
-	border-color: rgba(255, 255, 255, 0.69);
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
 }
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light table > tbody > tr + tr > td {
-	border-color: rgba(0, 0, 0, 0.18);
+img.icon {
+	border-radius: 3px;
 }
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark table > tbody > tr + tr > td {
-	border-color: rgba(255, 255, 255, 0.18);
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
 }
 
-</style>
-
-<style>
-/* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-	color: #8e908c;
+.user-icon-inner {
+	font-size: 0.8em;
 }
 
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-	color: #c82829;
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
 }
 
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-	color: #f5871f;
-}
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-	color: #eab700;
-}
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-	color: #718c00;
-}
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-	color: #4271ae;
-}
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-	color: #8959a8;
-}
-
-.hljs {
+.page-cover-image {
 	display: block;
-	overflow-x: auto;
-	color: #4d4d4c;
-	padding: 0.5em;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
 }
 
-.hljs-emphasis {
-	font-style: italic;
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
 }
 
-.hljs-strong {
-	font-weight: bold;
-}
-</style>
-
-<style>
-/*
- * Markdown PDF CSS
- */
-
- body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
-	padding: 0 12px;
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
 }
 
-pre {
-	background-color: #f8f8f8;
-	border: 1px solid #cccccc;
+.page-header-icon img {
 	border-radius: 3px;
-	overflow-x: auto;
-	white-space: pre-wrap;
-	overflow-wrap: break-word;
 }
 
-pre:not(.hljs) {
-	padding: 23px;
-	line-height: 19px;
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
 }
 
-blockquote {
-	background: rgba(127, 127, 127, 0.1);
-	border-color: rgba(0, 122, 204, 0.5);
+p > .user {
+	opacity: 0.5;
 }
 
-.emoji {
-	height: 1.4em;
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	/* font-size: 85%; */
+	tab-size: 2;
 }
 
 code {
-	font-size: 14px;
-	line-height: 19px;
+	color: #eb5757;
 }
 
-/* for inline code */
-:not(pre):not(.hljs) > code {
-	color: #C9AE75; /* Change the old color so it seems less like an error */
-	font-size: inherit;
+.code {
+	padding: 1.5em 1em;
 }
 
-/* Page Break : use <div class="page"/> to insert page break
--------------------------------------------------------- */
-.page {
-	page-break-after: always;
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
 }
 
-</style>
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
 
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="ohdsi-tool-documents"><strong>OHDSI Tool Documents</strong></h1>
-<p>
-	ドキュメントについて<br><br>
-	<strong>●目的：</strong><br>OHDSI ツールのセットアップ、操作をサポートするためにこのドキュメントを作成しました。
-<br><br>
-	<strong>●環境：</strong><br>Windows10 の環境下でこのドキュメントを作成していますが、Windows11 での動作も確認しています。
-<br><br>
-	<strong>●ご意見、不具合について：</strong><br>ドキュメントについて、課題、不具合等がある場合は、<a href="https://github.com/RWD-data-environment-in-Hospital/Documents/issues" target="_blank" rel="noopener">Github Issues </a>にご報告ください。
-</p><br>
-<hr>
-<h2 id="usagi"><strong>Usagi</strong></h2>
-<pre class="hljs"><code><div>Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Usagi_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Usagi_operation.html" target="_blank" rel="noopener">操作手順</a></li>
-</ul>
-<br>
-<hr>
-<h2 id="whiterabbit--rabbit-in-a-hat"><strong>WhiteRabbit &amp; Rabbit-in-a-Hat</strong></h2>
-<pre class="hljs"><code><div>OMOP CDM の各リソースへマッピング支援するのが、Rabbit-in-a-Hat です。  
-Rabbit-in-a-Hat でマッピング作業を進めるために、White Rabbit では入力データを Rabbit-in-a-Hat で取り込み可能な形式に加工します。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/WhiteRabbit_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/WhiteRabbit_operation.html" target="_blank" rel="noopener">操作手順</a></li>
-</ul>
-<br>
-<hr>
-<h2 id="atlas"><strong>Atlas</strong></h2>
-<pre class="hljs"><code><div>Atlas は、OMOP 共通データモデル（CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。  
-患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。  
-Eunomia のテストデータは、Atlas の各分析の検証に役立ちます。
-</div></code></pre>
-<ul>
-	<li><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_setup_2024.html" target="_blank" rel="noopener">ATLAS セットアップ手順</a></li>
-	<li><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/OMOP_CDM.html" target="_blank" rel="noopener">OMOP CDM 作成手順</a></li>
-	<li><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Eunomia_setup_2024.html" target="_blank" rel="noopener">Eunomia テストデータのセットアップ手順</a></li>
-	<li><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Add_Data_Sources.html" target="_blank" rel="noopener">データソース追加手順（ATLAS へデータソースを設定）</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html" target="_blank" rel="noopener">操作手順 ～Cohort Pathways 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_Characterizations.html" target="_blank" rel="noopener">操作手順 ～Characterizations 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_operation_IncidenceRates.html" target="_blank" rel="noopener">操作手順 ～Incidence Rates 編～</a></li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_functional_survey.html" target="_blank" rel="noopener">機能調査資料</a></li>
-	<br>
-	<!-- <li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Verified_Version.html" target="_blank" rel="noopener">【参考】アプリケーションのバージョン</a></li> -->
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Proxy_setting.html" target="_blank" rel="noopener">プロキシ設定手順</a>　※インストール時、プロキシサーバにより通信がブロックされる場合は、設定が必要です</li>
-	<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank" rel="noopener">ATLAS セットアップ手順（旧）</a></li>
-	<br>
-</ul>
-<hr>
-<h2 id="hades"><strong>HADES</strong></h2>
-<pre class="hljs"><code><div>母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。  
-</div></code></pre>
-<ul>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/HADES_setup.html" target="_blank" rel="noopener">セットアップ手順</a></li>
-<li><a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/HADES_function.html" target="_blank" rel="noopener">機能概要</a></li>
-</ul>
-<br>
-<hr>
-<p>各ツールドキュメントの課題は、GitHub の Issues で管理しています。（<a href="https://RWD-data-environment-in-Hospital.github.io/Documents/Files/GitHub_Issues.html" target="_blank" rel="noopener">GitHub Issues について</a>）<br>
-<a href="https://github.com/RWD-data-environment-in-Hospital/Documents/issues" target="_blank" rel="noopener">https://github.com/RWD-data-environment-in-Hospital/Documents/issues</a>
-</p>
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
 
-<br>
-<p>本資料は「医療技術実用化総合促進事業 Real World Evidence 創出のための取組み（通称：臨中ネット）」の支援を受けて作成されました。</p>
-<!-- <a href="https://github.com/RWD-data-environment-in-Hospital/Documents/Files/Contributors.html" target="_blank" rel="noopener"><u>作成協力者</u></a></p> -->
-<br>
-<br>
-<br>
-<br>
-<br>
-</body>
-</html>
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: undefined; }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-translucentGray { background-color: undefined; }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2007aa97-e949-8048-aa54-e5e09d85bba6" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1507738978512-35798112892c?ixlib=rb-4.1.0&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 100%"/><h1 class="page-title"><strong>OHDSI Tool Documents</strong></h1><p class="page-description"></p></header><div class="page-body"><ul id="2007aa97-e949-8085-93cc-d0d6b164fd50" class="toggle"><li><details open=""><summary>ドキュメントについて</summary><blockquote id="2007aa97-e949-80c6-b33d-eea1caa90efc" class=""><mark class="highlight-default_background"><strong>目的：　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></mark></blockquote><p id="2007aa97-e949-80ab-8af8-ef2d4438ba0e" class="">OHDSI ツールのセットアップ、操作をサポートするためにこのドキュメントを作成しました。</p><blockquote id="2007aa97-e949-800e-8723-d2e09b90a786" class=""><strong>環境：　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></blockquote><p id="2007aa97-e949-80a7-a2a2-d953b240de54" class="">Windows10 の環境下でこのドキュメントを作成していますが、Windows11 での動作も確認しています。</p><blockquote id="2007aa97-e949-80ff-b419-ec11121d8563" class=""><mark class="highlight-default_background"><strong>ご意見、不具合について：　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　</strong></mark></blockquote><p id="2007aa97-e949-8076-b92c-e5b8a4da9933" class="">ドキュメントについて、課題、不具合等がある場合は、<a href="https://github.com/RWD-data-environment-in-Hospital/Documents/issues">Github Issues </a>にご報告ください。</p></details></li></ul><p id="2007aa97-e949-808d-82c0-c49d333bfa83" class="">
+</p><h1 id="2007aa97-e949-8028-a2e9-ed0dcb82d033" class=""><mark class="highlight-default"><strong>Usagi</strong></mark></h1><hr id="2007aa97-e949-8078-840d-f4060aaaea18"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="2007aa97-e949-8000-ba8c-dbdb8b1f87c6"><div style="font-size:1.5em"><span class="icon">📙</span></div><div style="width:100%"><p id="2007aa97-e949-803b-920f-d4fd128f2202" class="">Usagi は、独自に定義した各種項目（薬品、病名など）を CONCEPT テーブルへマッピングするための補助ツールです。</p></div></figure><ul id="2007aa97-e949-8093-9522-c9226b7a25ff" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Usagi_setup.html" target="_blank">セットアップ手順</a></li></ul><ul id="2007aa97-e949-807a-94e6-ca60a58af322" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Usagi_operation.html" target="_blank">操作手順</a></li></ul><p id="2007aa97-e949-8099-b694-faf03ea0ea09" class="">
+</p><h1 id="2007aa97-e949-80da-92b8-cd25b2b7d16f" class=""><mark class="highlight-default"><strong>WhiteRabbit &amp; Rabbit-in-a-Hat</strong></mark></h1><hr id="2007aa97-e949-80da-8237-c53c83ed6057"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="2007aa97-e949-802a-a98c-cf515efc0bd0"><div style="font-size:1.5em"><span class="icon">📙</span></div><div style="width:100%"><p id="2007aa97-e949-80dd-aa2b-cb4be8b73e17" class="">OMOP 共通データモデル（OMOP CDM） の各リソースへマッピング支援するのが、Rabbit-in-a-Hat です。<br/>Rabbit-in-a-Hat でマッピング作業を進めるために、White Rabbit では入力データを Rabbit-in-a-Hat で取り込み可能な形式に加工します。<br/></p></div></figure><ul id="2007aa97-e949-80b2-b52e-c0161fe07632" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/WhiteRabbit_setup.html" target="_blank">セットアップ手順</a></li></ul><ul id="2007aa97-e949-802a-8024-fc83fc2c34b6" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/WhiteRabbit_operation.html" target="_blank">操作手順</a></li></ul><p id="2007aa97-e949-8022-8286-d956a54e89b9" class="">
+</p><h1 id="2007aa97-e949-8009-a16f-db8edb3981fc" class=""><mark class="highlight-default"><strong>Atlas</strong></mark></h1><hr id="2007aa97-e949-80f8-a31d-c4eafcb254c8"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="2007aa97-e949-809a-b6fe-dca2a7e9ef6d"><div style="font-size:1.5em"><span class="icon">📙</span></div><div style="width:100%"><p id="2007aa97-e949-80f9-8bd3-e0656949dd01" class="">Atlas は、OMOP 共通データモデル（OMOP CDM）に変換され、標準化された観測データに対して科学的分析を実施するためのオープンソースソフトウェアツールです。<br/>患者コホートの定義、分析設計の選択、パラメータの設定、データに対する分析手法の実行を可能にします。<br/>Eunomia のテストデータは、Atlas の各分析の検証に役立ちます。<br/></p></div></figure><ul id="2007aa97-e949-806d-9afa-c3ba89b578df" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_setup_2024.html" target="_blank">ATLAS セットアップ手順</a></li></ul><ul id="2007aa97-e949-80e0-9a95-dff2fb073337" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/OMOP_CDM.html" target="_blank">OMOP CDM 作成手順</a></li></ul><ul id="2007aa97-e949-8002-bd40-e0758bb4f310" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Eunomia_setup_2024.html" target="_blank">Eunomia テストデータのセットアップ手順</a></li></ul><ul id="2007aa97-e949-80cd-af6a-ea5c2ef83b3c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Add_Data_Sources.html" target="_blank">データソース追加手順（ATLAS へデータソースを設定）</a></li></ul><p id="2017aa97-e949-8045-8db1-e9b2b5d3d8f3" class="">
+</p><ul id="2007aa97-e949-8053-8bcc-de41e539ebcd" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_CohortPathways.html" target="_blank">操作手順 ～Cohort Pathways 編～</a></li></ul><ul id="2007aa97-e949-8043-9e2d-fd7e639e2311" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_Characterizations.html" target="_blank">操作手順 ～Characterizations 編～</a></li></ul><ul id="2007aa97-e949-808f-8503-ec4a5e43c037" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_operation_IncidenceRates.html" target="_blank">操作手順 ～Incidence Rates 編～</a></li></ul><p id="2017aa97-e949-8061-b082-cf7431660c70" class="">
+</p><ul id="2007aa97-e949-803d-97ca-d2b47473692e" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_functional_survey.html" target="_blank">機能調査資料</a></li></ul><ul id="2007aa97-e949-80d8-84a4-d2a7a2be7a9b" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Proxy_setting.html" target="_blank">プロキシ設定手順</a>　<p id="2037aa97-e949-8017-94da-dd2dd66550fd" class="">※インストール時、プロキシサーバにより通信がブロックされる場合は、設定が必要です</p></li></ul><p id="2017aa97-e949-80c5-8a67-d2025974c7ce" class="">
+</p><ul id="2007aa97-e949-8027-956e-d05da7c7cf0c" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/Atlas_setup.html" target="_blank">ATLAS セットアップ手順（旧）</a></li></ul><p id="2007aa97-e949-8048-8cbf-df74776a5085" class="">
+</p><h1 id="2067aa97-e949-80cc-8aa5-dbb10dd52e98" class=""><mark class="highlight-default"><strong>DataQualityDashboard</strong></mark></h1><hr id="2067aa97-e949-809e-8b0a-ce1ee095af20"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="2067aa97-e949-8065-8f55-ec93a39e5578"><div style="font-size:1.5em"><span class="icon">📙</span></div><div style="width:100%"><p id="2067aa97-e949-8006-b9a8-f9b199b86796" class="">Data Quality Dashboard（DQD）は、OMOP 共通データモデル（OMOP CDM）に格納されたデータの品質を体系的に評価し、問題点を特定するための R ベースのツールです。</p></div></figure><ul id="2067aa97-e949-802d-bc90-e975abb78448" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/DataQualityDashboard.html" target="_blank">セットアップ、実行手順</a></li></ul><p id="2067aa97-e949-80f7-8b52-c5d26910923f" class="">
+</p><h1 id="2007aa97-e949-80c9-8d0e-f05552a059bc" class=""><mark class="highlight-default"><strong>HADES</strong></mark></h1><hr id="2007aa97-e949-8071-9125-f0fd7a8f9d54"/><figure class="block-color-orange_background callout" style="white-space:pre-wrap;display:flex" id="2007aa97-e949-8079-b21f-f8498a708999"><div style="font-size:1.5em"><span class="icon">📙</span></div><div style="width:100%"><p id="2007aa97-e949-8047-9f95-c62443b44e2a" class="">HADAS は、母集団の特性評価、母集団レベルの因果効果の推定、患者レベルの予測など、大規模な分析のための20個のオープンソース R パッケージのセットです。</p></div></figure><ul id="2007aa97-e949-80e5-ac72-d7a97f3b4c78" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/HADES_setup.html" target="_blank">セットアップ手順</a></li></ul><ul id="2007aa97-e949-8040-8df3-d9ee05000739" class="bulleted-list"><li style="list-style-type:disc"><a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/HADES_function.html" target="_blank">機能概要</a></li></ul><p id="2007aa97-e949-80d8-a332-d5a9909a87cf" class="">
+</p><p id="2067aa97-e949-80ce-9207-d0ea0d88e0f7" class="">
+</p><hr id="2007aa97-e949-8095-8f90-edf8fdbeb73b"/><p id="2007aa97-e949-804c-ac66-e68cd4054ef0" class="">各ツールドキュメントの課題は、GitHub の Issues で管理しています。（<a href="https://rwd-data-environment-in-hospital.github.io/Documents/Files/GitHub_Issues.html">GitHub Issues について</a>）</p><p id="2007aa97-e949-80ac-a15b-ec6f10cacfcd" class=""><a href="https://github.com/RWD-data-environment-in-Hospital/Documents/issues">https://github.com/RWD-data-environment-in-Hospital/Documents/issues</a></p><p id="2007aa97-e949-80f9-85ea-ceb36d6faf7f" class="">本資料は「医療技術実用化総合促進事業 Real World Evidence 創出のための取組み（通称：臨中ネット）」の支援を受けて作成されました。</p><p id="2007aa97-e949-80e1-9d7e-e6b6536691eb" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
